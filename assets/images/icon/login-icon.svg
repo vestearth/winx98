@@ -1,0 +1,32 @@
+<svg id="enter_1_" data-name="enter (1)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <filter id="Path_84904">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.502" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="Path_84905">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-2"/>
+      <feFlood flood-opacity="0.502" result="color-2"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color-2"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <path id="Path_84904-2" data-name="Path 84904" d="M183.914.014c-.024,0-.044-.014-.069-.014h-10.3a2.879,2.879,0,0,0-2.875,2.875v.958a.958.958,0,1,0,1.917,0V2.875a.96.96,0,0,1,.958-.958h4.465l-.292.1a1.927,1.927,0,0,0-1.3,1.819V18.208h-2.875a.96.96,0,0,1-.958-.958V15.333a.958.958,0,0,0-1.917,0V17.25a2.879,2.879,0,0,0,2.875,2.875h2.875v.958A1.919,1.919,0,0,0,178.335,23a2.011,2.011,0,0,0,.61-.095l5.758-1.92a1.926,1.926,0,0,0,1.3-1.819V1.917a1.92,1.92,0,0,0-2.087-1.9Zm0,0" transform="translate(-163.001)" fill="#267e63"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_84904)">
+      <path id="Path_84904-3" data-name="Path 84904" d="M183.914.014c-.024,0-.044-.014-.069-.014h-10.3a2.879,2.879,0,0,0-2.875,2.875v.958a.958.958,0,1,0,1.917,0V2.875a.96.96,0,0,1,.958-.958h4.465l-.292.1a1.927,1.927,0,0,0-1.3,1.819V18.208h-2.875a.96.96,0,0,1-.958-.958V15.333a.958.958,0,0,0-1.917,0V17.25a2.879,2.879,0,0,0,2.875,2.875h2.875v.958A1.919,1.919,0,0,0,178.335,23a2.011,2.011,0,0,0,.61-.095l5.758-1.92a1.926,1.926,0,0,0,1.3-1.819V1.917a1.92,1.92,0,0,0-2.087-1.9Zm0,0" transform="translate(-163)" fill="#fff"/>
+    </g>
+  </g>
+  <g data-type="innerShadowGroup">
+    <path id="Path_84905-2" data-name="Path 84905" d="M10.261,110.777l-3.833-3.833a.958.958,0,0,0-1.636.678V110.5H.958a.958.958,0,0,0,0,1.917H4.792v2.875a.958.958,0,0,0,1.636.678l3.833-3.833A.957.957,0,0,0,10.261,110.777Zm0,0" transform="translate(0 -101.871)" fill="#267e63"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_84905)">
+      <path id="Path_84905-3" data-name="Path 84905" d="M10.261,110.777l-3.833-3.833a.958.958,0,0,0-1.636.678V110.5H.958a.958.958,0,0,0,0,1.917H4.792v2.875a.958.958,0,0,0,1.636.678l3.833-3.833A.957.957,0,0,0,10.261,110.777Zm0,0" transform="translate(0 -101.87)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.141" height="23" viewBox="0 0 23.141 23">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7e622d"/>
+      <stop offset="0.532" stop-color="#ecd798"/>
+      <stop offset="1" stop-color="#bd9a5f"/>
+    </linearGradient>
+    <filter id="homepage">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.502" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <path id="homepage-2" data-name="homepage" d="M28.141,12.959v12.8A2.574,2.574,0,0,1,25.57,28.33H21.285a1.714,1.714,0,0,1-1.714-1.714V21.9a.857.857,0,0,0-.857-.857H14.428a.857.857,0,0,0-.857.857v4.714a1.714,1.714,0,0,1-1.714,1.714H7.571A2.574,2.574,0,0,1,5,25.758v-12.8a1.722,1.722,0,0,1,.832-1.471l9.856-5.914a1.714,1.714,0,0,1,1.764,0l9.856,5.914A1.722,1.722,0,0,1,28.141,12.959Z" transform="translate(-5 -5.33)" fill="url(#linear-gradient)"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#homepage)">
+      <path id="homepage-3" data-name="homepage" d="M28.141,12.959v12.8A2.574,2.574,0,0,1,25.57,28.33H21.285a1.714,1.714,0,0,1-1.714-1.714V21.9a.857.857,0,0,0-.857-.857H14.428a.857.857,0,0,0-.857.857v4.714a1.714,1.714,0,0,1-1.714,1.714H7.571A2.574,2.574,0,0,1,5,25.758v-12.8a1.722,1.722,0,0,1,.832-1.471l9.856-5.914a1.714,1.714,0,0,1,1.764,0l9.856,5.914A1.722,1.722,0,0,1,28.141,12.959Z" transform="translate(-5 -5.33)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

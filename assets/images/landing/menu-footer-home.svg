@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68.001" height="68.001" viewBox="0 0 68.001 68.001">
+  <defs>
+    <filter id="dice" x="0" y="0" width="68.001" height="68.001" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5a9ef9"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#dice)">
+    <path id="dice-2" data-name="dice" d="M37.962,23.5,33.17,5.619a1.113,1.113,0,0,0-.787-.787L14.5.038A1.114,1.114,0,0,0,13.42.326L.326,13.421A1.113,1.113,0,0,0,.038,14.5L4.83,32.383a1.114,1.114,0,0,0,.787.787L23.5,37.963a1.114,1.114,0,0,0,1.075-.288L37.674,24.58a1.113,1.113,0,0,0,.288-1.075ZM14.995,2.477l12.8,3.43L13.015,9.867Zm15.525,5L25.984,24.41,13.591,12.017ZM12.057,4.839l-1.525,5.693L4.838,12.057ZM2.477,15l7.389-1.98L5.906,27.794Zm9.54-1.4L24.409,25.985,7.48,30.521ZM23.005,35.524,10.207,32.1l14.778-3.96Zm2.938-2.361,1.525-5.693,5.693-1.525Zm2.191-8.176,3.96-14.778,3.429,12.8Z" transform="translate(15 15)" fill="#fff"/>
+  </g>
+</svg>

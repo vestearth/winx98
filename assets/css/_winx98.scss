@@ -1,0 +1,63 @@
+.login-thread {
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #ACACAC;
+  }
+}
+
+.d-text {
+  color: #ACACAC;
+}
+
+.btn-register {
+  border: 1px solid #EECD7B !important;
+  // background: radial-gradient(circle, #CC00D3 0%, #CC00D2 10%, #320134 100%);
+  background: #EECD7B;
+  background: linear-gradient(180deg, #EECD7B 0%, #6C400D 100%);
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.line-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.border-gradient {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #111; /* Inner background */
+}
+
+.banner-border {
+  min-height: 55px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #411808;
+  .smoke-img {
+    top: 15px;
+  }
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* Border thickness */
+  border-radius: inherit;
+  background: linear-gradient(45deg, red, orange);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
