@@ -1,4 +1,5 @@
 <?php
+require_once 'layout/navbanner.php';
 if ($_POST) {
   if (isset($_POST['submit_logout'])) {
     $result = User::logout();
@@ -90,7 +91,8 @@ $menu_sub = [
   [
     'image' => 'assets/icon/menu/purple-line.svg',
     'title' => Ty::get('website'),
-    'url' => $system_line['line_link'],
+    // 'url' => $system_line['line_link'],
+    'url' => 'winx.com',
     'is_mobile' => true
   ],
   [
@@ -126,7 +128,8 @@ $menu_footer = [
   [
     'image' => 'assets/icon/menu/line_purple.svg',
     'title' => Ty::get('website'),
-    'url' => $system_line['line_link'],
+    // 'url' => $system_line['line_link'],
+    'url' => 'winx.com',
   ],
   [
     'image' => 'assets/icon/menu/comment.svg',
@@ -164,11 +167,11 @@ if (!$banner_download_web) { ?>
     <?php if (!isset($page)) { ?>
       <img src="assets/images/arrow-left.png" class="arrow-left" onclick="backHistory()">
     <?php } ?>
-    <div class="logo">
-      <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
-    </div>
+    <?php renderBannerBorder(); ?>
   </div>
   <div class="header-web <?= $this_page ?>">
+    <?php renderBannerBorder(); ?>
+    <?php /* 
     <div class="container-menu">
       <div class="logo cursor-pointer" data-link="index.php" onclick="redirectHref()">
         <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
@@ -203,6 +206,7 @@ if (!$banner_download_web) { ?>
         </button>
       </form>
     </div>
+    */?>
   </div>
 </div>
 

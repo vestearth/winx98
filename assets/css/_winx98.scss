@@ -61,3 +61,24 @@
   mask-composite: exclude;
 }
 
+.full-size-banner {
+  min-height: 345px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.unset-bottom-radius {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.unset-top-radius {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

@@ -324,7 +324,7 @@
 }
 
 .profile {
-  background: #160117;
+  background: linear-gradient(180deg, #521D1D 0%, #260B0B 100%);
   border-radius: 15px;
   color: #F5EABE;
   font-size: 16px;
@@ -335,6 +335,9 @@
   align-items: center;
   position: relative;
   justify-content: center;
+}
+.profile.style2 {
+  background: #260B0B;
 }
 @media screen and (max-width: 425px) {
   .profile {
@@ -379,11 +382,6 @@
   }
   .profile .profile-detail {
     font-size: 18px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -426,7 +424,7 @@
   justify-content: center;
   height: 75px;
   border-radius: 15px;
-  background: #160117;
+  background: #521D1D;
   color: #F5EABE;
   cursor: pointer;
   position: relative;
@@ -2818,7 +2816,6 @@
 }
 @media (max-width: 768px) {
   .mng-bg-index {
-    background-image: url("../images/bg.webp"), linear-gradient(180deg, #09071A 0%, #230024 100%);
     background-size: 240% auto;
     background-position: center top;
   }
@@ -2850,7 +2847,8 @@
 }
 
 .jackpot {
-  background: #000000 url("../images/bg-jackpot.png") center no-repeat;
+  background-color: #631105;
+  border: 1px solid #411808;
   background-size: cover;
   width: 100%;
   height: 45px;
@@ -2878,6 +2876,11 @@
 .jackpot .jackpot-move span {
   white-space: nowrap;
   text-shadow: 0 0 5px #000000;
+  color: #FFFFFF;
+}
+.jackpot .jackpot-move span .gold-text,
+.jackpot .jackpot-move span .amount {
+  color: #F3D17C;
 }
 @media screen and (max-width: 545px) {
   .jackpot .jackpot-move {
@@ -3450,7 +3453,6 @@ footer .menu-footer.active .text {
 
 .daily-deposit-container {
   background-color: #0D0C12;
-  background-image: url("../images/game_daily_deposit/bg-main.png");
   background-size: cover;
   background-position: center bottom;
   min-height: 100vh;
@@ -3684,7 +3686,6 @@ footer .menu-footer.active .text {
   margin: 65px auto 20px auto;
 }
 .daily-deposit-container .click-deposit .box-bg {
-  background-image: url("../images/game_daily_deposit/bg-title.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -3707,7 +3708,6 @@ footer .menu-footer.active .text {
   transition: 0.3s ease-in-out;
 }
 .daily-deposit-container .click-deposit:hover .box-bg {
-  background-image: url("../images/game_daily_deposit/bg-title-hover.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -4651,11 +4651,11 @@ body {
 }
 
 .text-pink-2 {
-  color: #E57F9B !important;
+  color: #F05050 !important;
 }
 
 .border {
-  border: 2px solid #4F1752 !important;
+  border: 2px solid #521D1D !important;
 }
 
 .header-web .container-menu {
@@ -4679,7 +4679,6 @@ body {
 }
 .header-web .container-menu .renew-header .menu-card-main {
   padding: 2px;
-  background-image: linear-gradient(90deg, #F428FA 0%, #4F1752 100%);
   border-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
   min-height: 45px;
@@ -4688,7 +4687,6 @@ body {
 }
 .header-web .container-menu .renew-header .menu-card-main .menu-card-body {
   border-radius: 10px;
-  background-image: linear-gradient(167deg, rgb(8, 8, 8) 50%, rgb(5, 21, 16) 100%, rgb(32, 71, 59) 140%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

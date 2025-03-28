@@ -56,4 +56,27 @@
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+}
+
+.full-size-banner {
+  min-height: 345px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.full-size-banner img {
+  max-height: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.unset-bottom-radius {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.unset-top-radius {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }/*# sourceMappingURL=custom.css.map */

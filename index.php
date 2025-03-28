@@ -18,6 +18,7 @@ $this_page = 'index';
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
@@ -43,7 +44,7 @@ $this_page = 'index';
     $user_group_id = $user_info['user_group_id'];
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
   } else {
-    Aww::redirectOG('landing.php');
+    // Aww::redirectOG('landing.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
@@ -55,50 +56,55 @@ $this_page = 'index';
       <div class="jackpot">
         <div class="jackpot-frame">
           <div class="jackpot-move">
-            <img src="assets/images/jackpot.png" alt="">
+            <!-- <img src="assets/images/jackpot.png" alt=""> -->
+            <img src="source/jackpot-wrap.png" alt="">
             <span>
-              <?= $runnertext['full_text']; ?>
+              <?// = $runnertext['full_text']; ?>
+            <?php
+            $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
+            $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
+            echo $text;
+            ?>
             </span>
           </div>
         </div>
       </div>
     <?php } ?>
     <div class="row">
-      <div class="col-lg-8">
-        <div class="profile border">
-          <div class="img-profile">
-            <img src="<?= $user_info['user_group_image'] ?>" alt="Profile">
-            <lottie-player src="assets/images/lottie/animate_index.json" class="profile-effect" background="transparent" speed="1" loop autoplay></lottie-player>
-          </div>
+      <div class="col-12">
+        <div class="full-size-banner">
+          <img src="source/full_banner.png" alt="Full Size Banner" class="">
+        </div>
+      </div>
+      <div class="col-lg-12 mt-15px">
+        <div class="profile border unset-bottom-radius">
           <div class="profile-detail">
             <div class="profile-name">
-              <p><?= $user_info['user_group_name'] ?> <span class="text-pink-2"><?= $user_info['username'] ?></span></p>
+              <p><?= "Dev Earth" ?> <span class="text-pink-2"><?= 'user_group_name' ?></span></p>
             </div>
             <div class="profile-balance">
               <p><?= Ty::get('walletbalance') ?></p>
-              <p class="text-white font-26px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
+              <p class="text-white font-26px">฿ <?= number_format(1231231312, 2) ?></p>
               <div class="refresh-time event_refresh">
                 <img src="assets/icon/refresh.svg" alt="refresh" class="cursor-pointer">
                 <span><?= date('d/m/Y, H:i') ?></span>
               </div>
             </div>
+            <?php /* 
+              <p class="text-white font-26px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
+            */ 
+            ?>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="profile border">
-          <div class="profile-detail unposition">
-            <div class="profile-name pl-0">
-              <p class="text-white mb-10px"><?= 'รักษาอันดับ Ranking เดือนนี้'; ?>
-              <div class="font-14px">
-                ยอดฝากสะสมขั้นต่ำ :
-                <span class="text-pink-2"><?= number_format($user_info['deposit_per_month'], 2); ?></span>
-              </div>
-              <div class="font-14px">
-                ยอดฝากสะสมปัจจุบัน :
-                <span class="text-pink-2"><?= number_format($user_info['sum_deposit_this_month'], 2); ?></span>
-              </div>
-              </p>
+        <div class="row g-1">
+          <div class="col-6">
+            <div class="profile style2 unset-top-radius border">
+              ฝากเงิน
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="profile style2 unset-top-radius border">
+                ถอนเงิน
             </div>
           </div>
         </div>
@@ -246,7 +252,7 @@ $this_page = 'index';
           $class_add = '';
         }
       ?>
-        <a href="<?= $footer['url'] ?>" class="<?= ($key == 2) ? 'bottom-menu-main' : 'bottom-menu-item' ?> preloader-link" <?= ($key == 0) ? 'active' : '' ?>>
+        <a href="<?= $footer['url'] ?>" class="<?= ($key == 2) ? 'd-none' : 'bottom-menu-item' ?> preloader-link" <?= ($key == 0) ? 'active' : '' ?>>
           <div class="menu-box <?= $class_add; ?>">
             <!-- check if file img == svg  or png  -->
             <?php if (strpos($footer['image'], '.svg') !== false) { ?>
