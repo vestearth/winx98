@@ -58,8 +58,10 @@
     position: absolute;
     top: 50%;
     left: 15px;
-    width: 20px;
-    height: 20px;
+    // width: 20px;
+    // height: 20px;
+    width: 25px;
+    height: 25px;
     background-size: contain;
     transform: translateY(-50%);
   }
@@ -69,9 +71,9 @@
     border: 2px solid #242424;
     background-color: transparent;
     font-size: 17px;
-    color: #E57F9B;
+    color: #FFFFFF;
     border-radius: 5px;
-    padding: 11px 0 10px 43px;
+    padding: 11px 0 10px 53px;
     width: 100%;
     outline: none !important;
     // border: 0;
@@ -100,14 +102,16 @@
   }
 
   select {
-    background-color: #320134;
+    // background-color: #242424;
+    background-color: transparent;
     font-size: 17px;
-    color: #E57F9B;
+    color: #FFF;
     border-radius: 5px;
     padding: 11px 0 10px 43px;
     width: 100%;
     outline: none !important;
-    border: 0;
+    // border: 0;
+    border: 2px solid #242424;
     overflow: hidden;
     position: relative;
 
@@ -118,25 +122,33 @@
 
   &.user {
     &::after {
-      background: url(../icon/user.svg) no-repeat center;
+      background: url(../icon/dark-user.svg) no-repeat center;
+      // background: url(../icon/user.svg) no-repeat center;
     }
   }
 
   &.password {
     &::after {
-      background: url(../icon/lock.svg) no-repeat center;
+      background: url(../icon/dark-lock.svg) no-repeat center;
+      // background: url(../icon/lock.svg) no-repeat center;
     }
   }
 
   &.bank {
     &::after {
-      background: url(../icon/bank.svg) no-repeat center;
+      background: url(../icon/dark-bank.svg) no-repeat center;
+      // background: url(../icon/bank.svg) no-repeat center;
     }
   }
 
   &.account {
     &::after {
-      background: url(../icon/number.svg) no-repeat center;
+      background: url(../icon/dark-safebox.svg) no-repeat center;
+    }
+  }
+  &.aff {
+    &::after {
+      background: url(../icon/dark-photo.svg) no-repeat center;
     }
   }
 }
@@ -273,7 +285,8 @@
   border: 1px solid #76060B !important;
   // background: radial-gradient(circle, #CC00D3 0%, #CC00D2 10%, #320134 100%);
   background: rgb(118,6,11);
-  background: linear-gradient(90deg, rgba(118,6,11,1) 0%, rgba(59,3,6,1) 100%);
+  background: linear-gradient(180deg, rgba(118,6,11,1) 0%, rgba(59,3,6,1) 100%);
+  border: 1px solid #37210A !important;
   border-radius: 5px;
   color: #ffffff;
   font-size: 18px;
@@ -283,8 +296,9 @@
 }
 
 .btn-cancel {
-  border: 2px solid #4F1752 !important;
-  background: transparent;
+  border: 2px solid #37210A !important;
+  // background: transparent;
+  background: #100E0E;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
@@ -292,11 +306,14 @@
 }
 
 .btn-sub {
-  background: linear-gradient(45deg,
-      #CD00D3 0%,
-      #E888B1 65%,
-      #E85CD4 85%,
-      #DF36F5 100%);
+  // background: linear-gradient(45deg,
+  //     #CD00D3 0%,
+  //     #E888B1 65%,
+  //     #E85CD4 85%,
+  //     #DF36F5 100%);
+  // background: linear-gradient(180deg, #521D1D 0%, #260B0B 100%);
+  background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%);
+  border: 1px solid #37210A !important;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
@@ -883,6 +900,44 @@
 }
 
 .menu {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(22, 1, 23, 0.7);
+  z-index: -999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+
+  .container {
+    overflow: auto;
+  }
+
+  &.open {
+    z-index: 888;
+    top: 0;
+    opacity: 1;
+  }
+
+  .btn-lang {
+    position: absolute;
+    top: 62px;
+    left: 10px;
+    z-index: 999;
+    cursor: pointer;
+
+    @media (max-width: 300px) {
+      top: 24px;
+    }
+  }
+}
+
+.side-menu {
   position: fixed;
   top: -100%;
   left: 0;

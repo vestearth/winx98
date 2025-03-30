@@ -115,12 +115,12 @@ if ($_POST) {
           <div class="card-login-body">
             <div class="login-thread d-flex">
                 <div>
-                  <div class="title d-flex">สมัครสมาชิก</div>
-                  <p class="subtitle">ขั้นตอนง่าย ๆ ในการสมัครสมาชิก</p>
+                  <div class="title d-flex">ยินดีต้อนรับ</div>
+                  <p class="subtitle">ตรวจสอบข้อมูลบัญชีของคุณก่อนเข้าสู่ระบบ</p>
                 </div>
             </div>
             <?php
-              include 'view/register/signup_form.php';
+              include 'view/register/signup_confirm.php';
             ?>
           </div>
         </div>

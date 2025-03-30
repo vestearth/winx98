@@ -86,7 +86,7 @@ if ($is_login) {
               <div class="form-group">
                 <label for="username"><?= Ty::get('Phonenumber') ?></label>
                 <div class="input-icon user">
-                  <input type="text" name="username" id="username" class="form-input-custom" placeholder="<?= Ty::get('loginwphonenumb') ?>" required>
+                  <input type="text" name="username" id="username" class="form-input-custom verticle-divide" placeholder="<?= Ty::get('loginwphonenumb') ?>" required>
                 </div>
               </div>
               <div class="form-group">
@@ -94,6 +94,9 @@ if ($is_login) {
                 <div class="input-icon password">
                   <input type="password" name="password" id="password" class="form-input-custom" placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>" required>
                 </div>
+              </div>
+              <div class="d-flex mb-20px">
+                <span class="text-grey"> <?= "จำรหัสผ่านไม่ได้" ?> <a class="text-white" href="#"> <?= "ลืมรหัสผ่าน" ?></a></span>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-main" name="submit_login">
@@ -104,9 +107,6 @@ if ($is_login) {
                 <?= "สมัครสมาชิก"; ?>
               </a>
               <div class="d-flex justify-content-center my-2">หรือ</div>
-              <?php /* 
-              <span> <?= Ty::get('forgotpassword') ?> <a class="text-pink" href="forgot_password.php"> <?= Ty::get('clickhere') ?></a></span>
-              */ ?>
               <div class="border-gradient w-100">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
                 <span>ติดต่อผ่านไลน์ Mockupcasino</span>

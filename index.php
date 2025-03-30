@@ -1,5 +1,6 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php'; // Include the file containing renderBannerBorder
 $page = 'index';
 
 
@@ -141,6 +142,8 @@ $this_page = 'index';
       </div>
     </div>
   </div>
+  <?php /* 
+
   <div class="container-fluid index-container hide-mobile max-w-1690px">
     <div class="row  mb-5px">
       <div class="col-2 d-flex align-items-center justify-content-end">
@@ -169,6 +172,8 @@ $this_page = 'index';
       </div>
     </div>
   </div>
+  */ ?>
+  <?php /* 
   <div class="container index-container">
     <div class="row">
       <div class="col-md-12">
@@ -217,6 +222,7 @@ $this_page = 'index';
       </div>
     </div>
   </div>
+      */ ?>
 
   <?php /* 
   <footer class="max-w-375px">
@@ -241,8 +247,10 @@ $this_page = 'index';
     </div>
   </footer>
   */ ?>
+<?php renderFooterNav(); ?>
 
   <!-- footer index -->
+   <?php /* 
   <div class="bottom-menu-container">
     <div class="bottom-menu-body">
       <?php foreach ($menu_footer as $key => $footer) {
@@ -266,6 +274,7 @@ $this_page = 'index';
       <?php } ?>
     </div>
   </div>
+  */ ?>
 
   <?php
   if (!isset($_SESSION['check_first']) && !isset($landing_page['response_message'])) {
