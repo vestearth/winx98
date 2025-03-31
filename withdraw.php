@@ -11,6 +11,7 @@ $user_data['money_balance'] = 0;
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
 </head>
 
@@ -30,7 +31,7 @@ $user_data['money_balance'] = 0;
     $user_group = nga_management::getUserGroupByID($code, $user_data['user_group_id']);
     $is_kbank = isset($user_group['withdraw_bank_abb']) ? $user_group['withdraw_bank_abb'] : false;
   } else {
-    Aww::redirectOG('landing.php');
+    // Aww::redirectOG('landing.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
@@ -49,30 +50,28 @@ $user_data['money_balance'] = 0;
         </nav>
       </div>
       <div class="col-md-6">
-        <div class="card-turnover  mt-35px">
-          <div>
-            <p class="font-14px font-SemiBold text-gold mb-5px"><?= Ty::get('turnover') ?></p>
-            <div class="d-flex align-item s-center">
-              <img src="assets/icon/refresh-3.svg" alt="" class="event_refresh cursor-pointer">
-              <?php
-              $cal_turn_over = $user_data['turn_over_for_withdraw'] - $user_data['current_turn_over_for_withdraw'];
-              $cal_turn_over = ($cal_turn_over > 0) ? $cal_turn_over : '0';
-              ?>
-              <span class="ml-5px font-16px"> <?= number_format($cal_turn_over, 2)  ?></span>
-            </div>
+        <div class="mt-20px mb-15px">
+          <div class="tltle-page d-flex justify-content-center">
+            <?= "ถอนเงินจากกระเป๋า" ?>
           </div>
-          <img src="assets/icon/double-arrow-down.svg" alt="">
+          <div class="sub-title-page d-flex justify-content-center">
+            ระบบจะโอนเงินไปยังเลขบัญชีที่คุณสมัครไว้
+          </div>
         </div>
         <div class="card-content mb-20px pb-0 have-bg min-h-200px">
           <div class="card-content-body text-center">
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-lg-center align-items-center">
               <span class="text-white mb-10px"><?= Ty::get('moneycanwithdraw', [], ["case" => "ucfirst"]) ?></span>
-              <img src="assets/icon/refresh-2.svg" alt="refresh" class="ml-5px event_refresh cursor-pointer">
             </div>
-            <h1 class="font-30px mb-10px">฿ <?= number_format($user_data['money_balance'], 2); ?></h1>
-            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= $get_auto_wd['withdraw_minimum'] ?>" max="<?= number_format($get_auto_wd['withdraw_maximum'], 2); ?>" step="any">
+            <div class="d-flex justify-content-lg-center align-items-center">
+              <h1 class="font-30px mb-10px">฿ <?= number_format(12345, 2); ?></h1>
+            </div>
+            <?php 
+            $get_auto_wd['is_withdraw_active'] = true; // For testing purposes, set to true to show the withdraw button
+            ?>
+            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1//$get_auto_wd['withdraw_minimum'] ?>" max="<?= 2//number_format($get_auto_wd['withdraw_maximum'], 2); ?>" step="any">
             <?php if ($get_auto_wd['is_withdraw_active']) { ?>
-              <button type="button" class="btn btn-main max-w-305px event_send_data" <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
+              <button type="button" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
                 <?= Ty::get('confirm2') ?>
               </button>
             <?php } else { ?>
@@ -83,10 +82,23 @@ $user_data['money_balance'] = 0;
             <div class="detail max-w-305px m-auto mt-15px">
               <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
               <ul>
-                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= number_format($get_auto_wd['withdraw_minimum'], 2); ?> <?= Ty::get('baht') ?></li>
-                <li><?= Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <?= number_format($get_auto_wd['withdraw_maximum'], 2); ?> / <?= Ty::get('times') ?></li>
-                <li><?= Ty::get('withdraw_amount') ?> <?= number_format($get_auto_wd['withdraw_limit_per_day'], 0); ?> <?= Ty::get('times_day') ?> (<?= Ty::get('reset_mid') ?>)</li>
+                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 2//number_format($get_auto_wd['withdraw_minimum'], 2); ?> <?= Ty::get('baht') ?></li>
+                <li><?= Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <?= 3//number_format($get_auto_wd['withdraw_maximum'], 2); ?> / <?= Ty::get('times') ?></li>
+                <li><?= Ty::get('withdraw_amount') ?> <?= 4//number_format($get_auto_wd['withdraw_limit_per_day'], 0); ?> <?= Ty::get('times_day') ?> (<?= Ty::get('reset_mid') ?>)</li>
               </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-turnover  mt-35px">
+          <div class="w-100">
+            <p class="font-14px font-SemiBold text-gold mb-5px"><?= Ty::get('turnover') ?></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <?php
+              // $cal_turn_over = $user_data['turn_over_for_withdraw'] - $user_data['current_turn_over_for_withdraw'];
+              // $cal_turn_over = ($cal_turn_over > 0) ? $cal_turn_over : '0';
+              ?>
+              <div class="ml-5px font-16px"> ฿ <?= number_format(1234, 2);?> | <?= number_format(1234, 2);?></div>
+              <div>ดูรายละเอียด</div>
             </div>
           </div>
         </div>

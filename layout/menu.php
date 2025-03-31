@@ -284,6 +284,55 @@ if (!$banner_download_web) { ?>
   </div>
 </div>
 
+<div class="side-menu" id="side-menu">
+  <div class="container max-w-225px position-relative h-100">
+    <div class="side-menu-style">
+      <div class="row">
+        <div class="logo d-flex justify-content-end">
+          Mockup
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-end align-items-center mb-15px">
+            <?php 
+            // Mockup example data for demonstration
+            $mockup_footer = [
+              [
+              'image' => 'source/icon-home.svg',
+              'title' => 'Mockup Home',
+              'url' => 'mockup_home.php',
+              ],
+              [
+              'image' => 'source/icon-home.svg',
+              'title' => 'Mockup Profile',
+              'url' => 'mockup_profile.php',
+              ],
+              [
+              'image' => 'source/icon-home.svg',
+              'title' => 'Mockup Game',
+              'url' => 'mockup_game.php',
+              ],
+            ];
+
+            foreach ($mockup_footer as $menu_item) { ?>
+              <div class="menu-footer preloader-link" link="<?= $menu_item['url'] ?>">
+                <div class="d-flex">
+                  <img src="<?= $menu_item['image'] ?>" alt="<?= $menu_item['title'] ?>">
+                  <span><?= $menu_item['title'] ?></span>
+                </div>
+              </div>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-logout bottom" <?php Tiwdal::register('modal_logout', []); ?>>
+      <?= Ty::get('Logout') ?>
+    </button>
+  </div>
+</div>
+
 <div class="preloader">
   <div class="loader"></div>
 </div>

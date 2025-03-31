@@ -23,7 +23,7 @@ $summary_type = isset($_GET['sum_type']) ? $_GET['sum_type'] : 'player_detail';
     $system_line =  nga_management::getGeneralWebsite($code);
     $get_earning = nga_user::getUserEarning($code, $user_data['id']);
   } else {
-    Aww::redirectOG('landing.php');
+    // Aww::redirectOG('landing.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
