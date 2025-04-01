@@ -57,7 +57,20 @@ $type_game_template = [
   ],
 ];
 
-$get_game_setting = nga_management::getGameActiveStatus($code);
+$get_game_setting = [
+  'is_open_card_game' => 1,
+  'is_open_board_game' => 1,
+  'is_open_slot_game' => 1,
+  'is_open_casinolive_game' => 1,
+  'is_open_arcade_game' => 1,
+  'is_open_fishing_game' => 1,
+  'is_open_sport_game' => 1,
+  'is_open_sportbook' => 1,
+  'is_open_lotto' => 1,
+  'is_open_trading' => 1,
+];
+
+// $get_game_setting = nga_management::getGameActiveStatus($code);
 
 if ($get_game_setting['is_open_card_game'] == 0) {
   unset($type_game_template['CARD']);
@@ -101,19 +114,20 @@ if (!isset($type_game_template[$type])) {
 }
 $firm = isset($_GET['firm_name']) ? $_GET['firm_name'] : '';
 $user_data = User::getCurrent();
-if (empty($firm) && $type) {
-  $data = [
-    'user_id' => $user_data['id'],
-    'detail' => 'เข้าหน้าเข้าเล่นเกม',
-  ];
-  $user_log = nga_user::addNewUserLog($code, $data);
-} else if ($firm && $type) {
-  $data = [
-    'user_id' => $user_data['id'],
-    'detail' => 'หน้าเข้าเล่นเกม หมวด ' . $type . ' ค่าย ' . $firm,
-  ];
-  $user_log = nga_user::addNewUserLog($code, $data);
-}
+$user_data['id'] = '123123';
+// if (empty($firm) && $type) {
+//   $data = [
+//     'user_id' => $user_data['id'],
+//     'detail' => 'เข้าหน้าเข้าเล่นเกม',
+//   ];
+//   $user_log = nga_user::addNewUserLog($code, $data);
+// } else if ($firm && $type) {
+//   $data = [
+//     'user_id' => $user_data['id'],
+//     'detail' => 'หน้าเข้าเล่นเกม หมวด ' . $type . ' ค่าย ' . $firm,
+//   ];
+//   $user_log = nga_user::addNewUserLog($code, $data);
+// }
 
 if ($_POST) {
   if (isset($_POST['submit_select_game'])) {
@@ -162,10 +176,15 @@ $system_line =  nga_management::getGeneralWebsite($code);
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -186,11 +205,23 @@ $system_line =  nga_management::getGeneralWebsite($code);
       </div>
     </div>
     <div class="row">
+      <div class="col-12">
+
+      <div class="game-slider">
+        <swiper-container id="gameSlider" class="mySwiper" slides-per-view="2" navigation="true" space-between="10" free-mode="true" clickable="true">
+            <?php foreach ($type_game_template as $key => $type_games) { ?>
+            <swiper-slide class="<?= $key == $type ? 'swiper-slide-active' : '' ?>">
+                <div class="game-item">
+                    <img src="<?= $type_games['img'] ?>" alt="Game 1">
+                    <span><?= $type_games['name']; ?></span>
+                </div>
+            </swiper-slide>
+            <?php } ?>
+        </swiper-container>
+      </div>
+        
+      </div>
       <div class="col-md-12">
-        <div class="card-price-frame game-page">
-          <h2><?= Ty::get('walletbalance') ?></h2>
-          <h1>฿ <?= number_format($user_data['money_balance'], 2); ?></h1>
-        </div>
 
         <div class="game-menu-responsive show-on-desktop">
           <div class="game-menu-group">
@@ -521,5 +552,35 @@ $system_line =  nga_management::getGeneralWebsite($code);
     setTimeout(() => {
       hidePreloader();
     }, 50000);
+  });
+
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = document.querySelector("#gameSlider");
+
+    Object.assign(swiper, {
+        slidesPerView: 2, // Default for mobile
+        spaceBetween: 10,
+        freeMode: true,
+        navigation: true,
+        breakpoints: {
+            768: { slidesPerView: 3 }, // Tablets
+            1024: { slidesPerView: 4 }, // Laptops
+            1440: { slidesPerView: 5 }  // Large screens
+        }
+    });
+
+    swiper.initialize();
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("swiper-slide").forEach(slide => {
+          slide.addEventListener("click", function () {
+              document.querySelector(".swiper-slide-active")?.classList.remove("swiper-slide-active");
+              this.classList.add("swiper-slide-active"); // Add active class
+          });
+      });
   });
 </script>
