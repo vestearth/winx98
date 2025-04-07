@@ -1,4 +1,18 @@
-<form action="signup.php?step=2" method="post">
+<?php 
+$bank_config = Bank::select();
+$options_bank = [
+  'list' => [],
+];
+foreach ($bank_config as $key => $data) {
+  $options_bank['list'][] = [
+    'value' => $data['abb'],
+    'name' => $data['name_th'],
+    'img' => $data['image'],
+  ];
+}
+
+?>
+<form method="post">
   <div class="form-group">
     <label for="username"><?= Ty::get('Phonenumber') ?></label>
     <div class="input-icon user">
@@ -6,23 +20,12 @@
       <input type="hidden" name="ref_marketing" value="<?= $ref_marketing; ?>">
       <input type="hidden" name="ref" value="<?= $upline_no; ?>">
       <input type="number" name="username" id="username" value="<?= $data_username ?>" class="form-input-custom" placeholder="<?= Ty::get('loginwphonenumb') ?>" required>
-      <!-- otp  -->
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" autofocus value="1">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="2">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="3">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="4">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="5">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="6">
     </div>
   </div>
   <div class="form-group">
     <label for="password"><?= Ty::get('Password') ?></label>
     <div class="input-icon password">
       <input type="password" name="password" id="password" class="form-input-custom" placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>" required>
-      <input type="hidden" name="ref" value="<?= $upline_no; ?>">
-      <input type="hidden" name="ref_id" value="<?= $ref_id_link; ?>">
-      <input type="hidden" name="ref_marketing" value="<?= $ref_market; ?>">
-      <input type="hidden" name="username" value="<?= $data_username ?>">
     </div>
   </div>
   <div class="form-group">
@@ -43,20 +46,13 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="username"><?= "ผู้แนะนำ"; ?></label>
+    <label for="upline_member_code"><?= "ผู้แนะนำ"; ?></label>
     <div class="input-icon aff">
-      <input type="text" name="affiliate" id="affiliate" value="" class="form-input-custom" placeholder="<?= "กรอกรหัสผู้แนะนำหากมี" ?>" required>
-      <!-- otp  -->
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" autofocus value="1">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="2">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="3">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="4">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="5">
-      <input type="hidden" name="otp[]" maxlength="1" placeholder="_" required class="event_input_otp" value="6">
+      <input type="text" name="upline_member_code" id="affiliate" value="" class="form-input-custom" placeholder="<?= "กรอกรหัสผู้แนะนำหากมี" ?>">
     </div>
   </div>
   <div class="group-btn">
-    <button type="submit" class="btn btn-sub w-100">
+    <button type="submit" name="submit_register" class="btn btn-sub w-100">
       <?= "ยืนยันบัญชี"; ?>
     </button>
   </div>

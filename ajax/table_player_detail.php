@@ -1,7 +1,7 @@
 <?php
 require_once '../.framework/import.php';
 Structure::loadMetaForAjax('../');
-$code = Aww::API_CODE['nmg'];
+$code = Aww::API_CODE['winx'];
 $user_data = User::getCurrent();
 // $where = [
 //   'upline_user_id' => $user_data['id'],
