@@ -64,7 +64,7 @@ $user_data['money_balance'] = 0;
               <span class="text-white mb-10px"><?= Ty::get('moneycanwithdraw', [], ["case" => "ucfirst"]) ?></span>
             </div>
             <div class="d-flex justify-content-lg-center align-items-center">
-              <h1 class="font-30px mb-10px">฿ <?= number_format(12345, 2); ?></h1>
+              <h1 class="font-30px mb-10px">฿ <?= number_format($user_data['money_balance'], 2); ?></h1>
             </div>
             <?php 
             $get_auto_wd['is_withdraw_active'] = true; // For testing purposes, set to true to show the withdraw button

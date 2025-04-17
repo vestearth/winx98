@@ -106,9 +106,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
                 <img src="source/mock_bank.png" class="rounded">
                 <!-- <img src="<?= $bank_data['image'] ?>" alt="" class="rounded"> -->
               </div>
-              <p class="text-white mb-5px"><?= "ธนาคาร ไทยพาณิชย์ จำกัด (มหาชน)" //$bank_data['name_th'] ?></p>
-              <h2 class="font-24px mb-10px font-Bold number_copy"><?= "123-4-56789-0" //textFormat($bank_data['bank_account_no'], '___-_-_____-_', '-'); ?></h2>
-              <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= "testestest" //$bank_data['bank_account_name']; ?></p>
+              <p class="text-white mb-5px"><?= $bank_data['name_th'] ?></p>
+              <h2 class="font-24px mb-10px font-Bold number_copy"><?= textFormat($bank_data['bank_account_no'], '___-_-_____-_', '-'); ?></h2>
+              <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['bank_account_name']; ?></p>
               <button class="btn btn-copy-code border event_btn_copy">
                 <img src="assets/icon/copy.svg" alt="copy">
                 <?= Ty::get('copyaccuntnmb') ?>

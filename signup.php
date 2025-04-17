@@ -22,7 +22,7 @@ $upline_no = isset($check_member['tel_no']) ? $check_member['tel_no'] : '';
 
 
 if ($_POST) {
-  $check_bank_allow = nga_user::getBankNameByBankNo($code, $_POST['bank_id'], $_POST['bank_account']);
+  // $check_bank_allow = nga_user::getBankNameByBankNo($code, $_POST['bank_id'], $_POST['bank_account']);
   // Aww::display($check_bank_allow);
   // die();
   if (isset($_POST['submit_register'])) {

@@ -74,9 +74,9 @@
   color: #5D5D5D;
 }
 .input-icon input:-webkit-autofill, .input-icon input:-webkit-autofill:hover, .input-icon input:-webkit-autofill:focus {
-  border: 1px solid #320134;
+  border: 1px solid #242424;
   -webkit-text-fill-color: #5D5D5D;
-  box-shadow: 0 0 0px 1000px #320134 inset;
+  box-shadow: 0 0 0px 1000px #242424 inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -713,7 +713,7 @@
 .hamburger div {
   width: 15px;
   height: 2px;
-  background: #E040F3;
+  background: #B25E5E;
   margin-bottom: 5px;
   transition: all 0.3s ease;
 }
@@ -983,7 +983,7 @@
      object-fit: cover;
 }
 .card-content .btn-copy-code {
-  background-color: #160117;
+  background-color: #260B0B;
   min-width: 161px;
   height: 45px;
   display: flex;
@@ -4335,7 +4335,7 @@ footer .menu-footer.active .text {
 }
 
 .landing-header-download {
-  display: none;
+  display: none !important;
 }
 @media (max-width: 430px) {
   .landing-header-download {

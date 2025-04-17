@@ -46,6 +46,7 @@ $this_page = 'index';
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
   } else {
     // Aww::redirectOG('landing.php');
+    Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
@@ -60,12 +61,13 @@ $this_page = 'index';
             <!-- <img src="assets/images/jackpot.png" alt=""> -->
             <img src="source/jackpot-wrap.png" alt="">
             <span>
-              <?// = $runnertext['full_text']; ?>
-            <?php
-            $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
-            $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
-            echo $text;
-            ?>
+              <? // = $runnertext['full_text']; 
+              ?>
+              <?php
+              $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
+              $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
+              echo $text;
+              ?>
             </span>
           </div>
         </div>
@@ -81,67 +83,73 @@ $this_page = 'index';
         <div class="profile border unset-bottom-radius">
           <div class="profile-detail">
             <div class="profile-name">
-              <p><?= "Dev Earth" ?> <span class="text-pink-2"><?= 'user_group_name' ?></span></p>
+              <p><?= $user_info['username'] ?><span class="text-pink-2"><?= $user_info['user_group_name'] ?></span></p>
             </div>
             <div class="profile-balance">
-              <p><?= Ty::get('walletbalance') ?></p>
-              <p class="text-white font-26px">฿ <?= number_format(1231231312, 2) ?></p>
-              <div class="refresh-time event_refresh">
-                <img src="assets/icon/refresh.svg" alt="refresh" class="cursor-pointer">
-                <span><?= date('d/m/Y, H:i') ?></span>
+              <div class="box-cash">
+                <img src="source/wallet-profile.svg" alt="">
+                <p class="text-white font-17px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
               </div>
             </div>
             <?php /* 
               <p class="text-white font-26px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
-            */ 
+            */
             ?>
           </div>
         </div>
         <div class="row g-1">
           <div class="col-6">
-            <div class="profile style2 unset-top-radius border">
-              ฝากเงิน
-            </div>
+            <a href="withdraw.php" class="preloader-link text-decoration-none">
+              <div class="profile style2 unset-top-radius border">
+                ฝากเงิน
+              </div>
+            </a>
           </div>
           <div class="col-6">
-            <div class="profile style2 unset-top-radius border">
+            <a href="deposit.php" class="preloader-link text-decoration-none">
+              <div class="profile style2 unset-top-radius border">
                 ถอนเงิน
-            </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="col-md-12 ">
-        <div class="flex-all-center mb-15px show-mobile-flex">
-          <lottie-player src="assets/images/lottie/pink_arrow.json" class="arrow-move" background="transparent" speed="1" loop autoplay></lottie-player>
-          <div class="menu-item preloader-link border custom-width mx-15px" link="deposit.php">
-            <img src="assets/icon/menu/deposit.svg" alt="deposit">
-            <span><?= Ty::get('deposit') ?></span>
-          </div>
-          <lottie-player src="assets/images/lottie/pink_arrow.json" class="arrow-move flip" background="transparent" speed="1" loop autoplay></lottie-player>
-        </div>
-        <div class="flex-start-center mb-15px show-mobile-flex">
-          <div class="menu-frame">
-            <div class="menu-item preloader-link border" link="withdraw.php">
-              <img src="assets/icon/menu/withdraw.svg" alt="withdraw">
+      <div class="col-12">
+        <div class="games-slide-list-container">
+          <div class="games-slide-list-header">
+            <div class="type-list">
+              <img src="source/game-casino-chip.png" alt="">
+              <div class="title">CASINO</div>
             </div>
-            <span class="font-14px"><?= Ty::get('withdraw') ?></span>
-          </div>
-          <div class="menu-frame mx-10px">
-            <div class="menu-item preloader-link custom-width border" link="games.php">
-              <img src="assets/icon/menu/game_logo.png" alt="game" class="zoom-img-2point">
+            <div class="d-flex align-items-center justify-content-end">
+              <a href="games.php" class="text-decoration-none">
+                <div class="icon-total">
+                  ดูทั้งหมด
+                </div>
+              </a>
+              <div class="button icon-button-next">
+                <a href="#">
+                  <?= file_get_contents('source/arrow-left.svg'); ?>
+                </a>
+              </div>
+              <div class="icon-button-prev">
+                <a href="#">
+                  <?= file_get_contents('source/arrow-right.svg'); ?>
+                </a>
+              </div>
             </div>
-            <span class="font-16px"><?= Ty::get('playgame') ?></span>
           </div>
-          <div class="menu-frame">
-            <div class="menu-item preloader-link border" link="user.php">
-              <img src="assets/icon/menu/money_bag.svg" alt="profile">
+          <div class="games-slide-list-body">
+            <div class="game-list">
+              <img src="source/mockup-game.png" class="game-list-gradient" alt="">
             </div>
-            <span class="font-14px"><?= Ty::get('profile') ?></span>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
   <?php /* 
 
   <div class="container-fluid index-container hide-mobile max-w-1690px">
@@ -247,10 +255,10 @@ $this_page = 'index';
     </div>
   </footer>
   */ ?>
-<?php renderFooterNav(); ?>
+  <?php renderFooterNav(); ?>
 
   <!-- footer index -->
-   <?php /* 
+  <?php /* 
   <div class="bottom-menu-container">
     <div class="bottom-menu-body">
       <?php foreach ($menu_footer as $key => $footer) {

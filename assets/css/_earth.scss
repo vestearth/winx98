@@ -273,7 +273,7 @@
 }
 
 .landing-header-download {
-  display: none;
+  display: none !important;
   @media (max-width: 430px) {
     display: block;
     position: fixed;

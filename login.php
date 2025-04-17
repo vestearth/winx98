@@ -4,7 +4,8 @@ require_once 'layout/navbanner.php'; // Include the file containing renderBanner
 if ($_POST) {
   if (isset($_POST['submit_login'])) {
     $result = User::login($_POST['username'], $_POST['password']);
-    if ($result && $result['response_data']['user_type_id'] == 2) {
+    if ($result) {
+      // if ($result && $result['response_data']['user_type_id'] == 2) {
       $user_id = $result['response_data']['id'];
       $data = [
         'user_id' => $user_id,

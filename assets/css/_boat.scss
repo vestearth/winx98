@@ -87,9 +87,9 @@
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
-      border: 1px solid #320134;
+      border: 1px solid #242424;
       -webkit-text-fill-color: #5D5D5D;
-      box-shadow: 0 0 0px 1000px #320134 inset;
+      box-shadow: 0 0 0px 1000px #242424 inset;
       transition: background-color 5000s ease-in-out 0s;
     }
 
@@ -870,7 +870,7 @@
   div {
     width: 15px;
     height: 2px;
-    background: #E040F3;
+    background: #B25E5E;
     margin-bottom: 5px;
     transition: all 0.3s ease;
 
@@ -1177,7 +1177,7 @@
   }
 
   .btn-copy-code {
-    background-color: #160117;
+    background-color: #260B0B;
     min-width: 161px;
     height: 45px;
     display: flex;

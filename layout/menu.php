@@ -138,6 +138,7 @@ $menu_footer = [
   ],
 ];
 $banner_download_web = (isset($_COOKIE['banner_download_web']) && $_COOKIE['banner_download_web']) ? $_COOKIE['banner_download_web'] : null;
+$lhb_style = 'style-web-close-banner';
 
 ?>
 <?php
