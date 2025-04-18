@@ -352,4 +352,73 @@
   .game-list-gradient {
     border-radius: 25px;
   }
+}
+
+.main {
+  transition: margin-right 0.3s;
+}
+
+.blur-content {
+  filter: blur(5px);
+  transition: filter 0.3s;
+  position: relative;
+  z-index: -1;
+}
+
+#rightNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background: linear-gradient(180deg, #521D1D 0%, #260B0B 100%);
+  overflow-x: hidden;
+  transition: 0.3s;
+  color: white;
+  border-top-left-radius: 30px;
+}
+#rightNav .closeBtn {
+  padding: 25px 15px;
+}
+#rightNav .right-side {
+  margin: 0px 20px 20px;
+}
+#rightNav .right-side .menu-list {
+  display: flex;
+  flex-direction: column;
+}
+#rightNav .right-side-last {
+  position: absolute;
+  bottom: 0;
+  width: 210px;
+  margin: 40px 20px 20px;
+}
+
+#rightNav a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+#rightNav a img {
+  width: 25px;
+  margin-right: 5px;
+}
+
+#rightNav a:hover {
+  color: white;
+  background-color: #260B0B;
+}
+
+@media screen and (max-height: 450px) {
+  #rightNav {
+    padding-top: 15px;
+  }
+  #rightNav a {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=custom.css.map */

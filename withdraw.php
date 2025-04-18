@@ -1,5 +1,7 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
+
 $user_data['money_balance'] = 0;
 
 ?>
@@ -66,10 +68,12 @@ $user_data['money_balance'] = 0;
             <div class="d-flex justify-content-lg-center align-items-center">
               <h1 class="font-30px mb-10px">฿ <?= number_format($user_data['money_balance'], 2); ?></h1>
             </div>
-            <?php 
+            <?php
             $get_auto_wd['is_withdraw_active'] = true; // For testing purposes, set to true to show the withdraw button
             ?>
-            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1//$get_auto_wd['withdraw_minimum'] ?>" max="<?= 2//number_format($get_auto_wd['withdraw_maximum'], 2); ?>" step="any">
+            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 //$get_auto_wd['withdraw_minimum'] 
+                                                                                                                                                                                ?>" max="<?= 2 //number_format($get_auto_wd['withdraw_maximum'], 2); 
+                                                                                                                                                                                          ?>" step="any">
             <?php if ($get_auto_wd['is_withdraw_active']) { ?>
               <button type="button" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
                 <?= Ty::get('confirm2') ?>
@@ -82,9 +86,12 @@ $user_data['money_balance'] = 0;
             <div class="detail max-w-305px m-auto mt-15px">
               <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
               <ul>
-                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 2//number_format($get_auto_wd['withdraw_minimum'], 2); ?> <?= Ty::get('baht') ?></li>
-                <li><?= Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <?= 3//number_format($get_auto_wd['withdraw_maximum'], 2); ?> / <?= Ty::get('times') ?></li>
-                <li><?= Ty::get('withdraw_amount') ?> <?= 4//number_format($get_auto_wd['withdraw_limit_per_day'], 0); ?> <?= Ty::get('times_day') ?> (<?= Ty::get('reset_mid') ?>)</li>
+                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 2 //number_format($get_auto_wd['withdraw_minimum'], 2); 
+                                                                              ?> <?= Ty::get('baht') ?></li>
+                <li><?= Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <?= 3 //number_format($get_auto_wd['withdraw_maximum'], 2); 
+                                                                              ?> / <?= Ty::get('times') ?></li>
+                <li><?= Ty::get('withdraw_amount') ?> <?= 4 //number_format($get_auto_wd['withdraw_limit_per_day'], 0); 
+                                                      ?> <?= Ty::get('times_day') ?> (<?= Ty::get('reset_mid') ?>)</li>
               </ul>
             </div>
           </div>
@@ -97,7 +104,7 @@ $user_data['money_balance'] = 0;
               // $cal_turn_over = $user_data['turn_over_for_withdraw'] - $user_data['current_turn_over_for_withdraw'];
               // $cal_turn_over = ($cal_turn_over > 0) ? $cal_turn_over : '0';
               ?>
-              <div class="ml-5px font-16px"> ฿ <?= number_format(1234, 2);?> | <?= number_format(1234, 2);?></div>
+              <div class="ml-5px font-16px"> ฿ <?= number_format(1234, 2); ?> | <?= number_format(1234, 2); ?></div>
               <div>ดูรายละเอียด</div>
             </div>
           </div>
@@ -286,6 +293,7 @@ $user_data['money_balance'] = 0;
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
+  Aww::loadAsset('assets/js/main.js');
   Aww::loadAsset('assets/js/force_logout.js');
   ?>
 

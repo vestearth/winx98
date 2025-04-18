@@ -52,7 +52,7 @@ $this_page = 'index';
   <?php include 'layout/menu.php'; ?>
   <?php include 'layout/nmg_bg.php'; ?>
   <!-- layout mobile -->
-  <div class="container index-container position-relative ">
+  <div class="container index-container position-relative main">
 
     <?php if ($runnertext) { ?>
       <div class="jackpot">
@@ -148,141 +148,7 @@ $this_page = 'index';
       </div>
     </div>
   </div>
-
-
-  <?php /* 
-
-  <div class="container-fluid index-container hide-mobile max-w-1690px">
-    <div class="row  mb-5px">
-      <div class="col-2 d-flex align-items-center justify-content-end">
-        <lottie-player src="assets/images/lottie/pink_arrow.json" class="arrow-move" background="transparent" speed="1" loop autoplay></lottie-player>
-      </div>
-      <div class="col">
-        <div class="menu-item preloader-link border h-100px layout-position" link="deposit.php">
-          <img src="assets/icon/menu/deposit.svg" alt="deposit">
-          <span class="ml-10px font-20px"><?= Ty::get('deposit') ?></span>
-        </div>
-      </div>
-      <div class="col">
-        <div class="menu-item preloader-link border h-100px layout-position" link="games.php">
-          <img src="assets/icon/menu/game_logo.png" alt="games" class="zoom-img">
-          <span class="ml-10px font-20px"><?= Ty::get('playgame') ?></span>
-        </div>
-      </div>
-      <div class="col">
-        <div class="menu-item preloader-link border h-100px layout-position" link="withdraw.php">
-          <img src="assets/icon/menu/withdraw.svg" alt="withdraw" class="zoom-img">
-          <span class="ml-10px font-20px"><?= Ty::get('withdraw') ?></span>
-        </div>
-      </div>
-      <div class="col-2 d-flex align-items-center ">
-        <lottie-player src="assets/images/lottie/pink_arrow.json" class="arrow-move flip" background="transparent" speed="1" loop autoplay></lottie-player>
-      </div>
-    </div>
-  </div>
-  */ ?>
-  <?php /* 
-  <div class="container index-container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row-sub-menu index-layout">
-          <?php foreach ($menu_sub as $key => $menu_sub_list) { ?>
-            <div class="menu-frame col-sub-menu <?= $key == 0 ? 'd-none' : ''  ?> <?= !$menu_sub_list['is_mobile'] ? 'hide-mobile-flex' : ''  ?>">
-              <div class="menu-item border" link="<?= $menu_sub_list['url'] ?>">
-                <?php
-                if (isset($menu_sub_list['count']) && $menu_sub_list['count'] > 0) {
-                  echo '<div class="count">' . $menu_sub_list['count'] . '</div>';
-                }
-                if ($menu_sub_list['title'] == 'ติดต่อเรา' || $menu_sub_list['title'] == 'Contact us') {
-                  $class_add = 'set-img-height';
-                } else {
-                  $class_add = '';
-                }
-                ?>
-                <img src="<?= $menu_sub_list['image'] ?>" alt="<?= $menu_sub_list['title'] ?>" class="zoom-img-1point <?= $class_add; ?>">
-              </div>
-              <span class="text-nowrap"><?= $menu_sub_list['title'] ?></span>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-      <div class="col-md-12 banner">
-        <div class="outlaw-swiper">
-          <div class="swiper bannerSwiper pos-rel mt-0">
-            <div class="swiper-wrapper">
-              <?php
-              if ($banner) {
-                foreach ($banner as $banner_index) {
-              ?>
-                  <div class="swiper-slide">
-                    <img src="<?= $banner_index['banner_image']; ?>">
-                  </div>
-              <?php
-                }
-              }
-              ?>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- <div class="swiper-pagination"></div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-      */ ?>
-
-  <?php /* 
-  <footer class="max-w-375px">
-    <div class="row align-self-center">
-      <?php foreach ($menu_footer as $key => $footer) {
-        if ($footer['image'] == 'assets/icon/menu/purple.svg') {
-          $class_add = 'set-img-height';
-        } else {
-          $class_add = '';
-        }
-      ?>
-
-        <div class="col px-0">
-          <div class="menu-footer  <?= ($key == 2) ? 'center' : '' ?> <?= ($key == 0) ? 'active' : '' ?>" link="<?= $footer['url'] ?>">
-            <div class="icon-footer <?= ($key == 0) ? 'home' : '' ?>">
-              <img src="<?= $footer['image'] ?>" alt="" class="<?= $class_add; ?>">
-            </div>
-            <div class="text"><?= $footer['title'] ?></div>
-          </div>
-        </div>
-      <?php } ?>
-    </div>
-  </footer>
-  */ ?>
   <?php renderFooterNav(); ?>
-
-  <!-- footer index -->
-  <?php /* 
-  <div class="bottom-menu-container">
-    <div class="bottom-menu-body">
-      <?php foreach ($menu_footer as $key => $footer) {
-        if ($footer['image'] == 'assets/icon/menu/line_purple.svg') {
-          $class_add = 'set-img-height';
-        } else {
-          $class_add = '';
-        }
-      ?>
-        <a href="<?= $footer['url'] ?>" class="<?= ($key == 2) ? 'd-none' : 'bottom-menu-item' ?> preloader-link" <?= ($key == 0) ? 'active' : '' ?>>
-          <div class="menu-box <?= $class_add; ?>">
-            <!-- check if file img == svg  or png  -->
-            <?php if (strpos($footer['image'], '.svg') !== false) { ?>
-              <?= file_get_contents($footer['image']) ?>
-            <?php } else { ?>
-              <img src="<?= $footer['image']; ?>" alt="">
-            <?php } ?>
-          </div>
-          <div class="menu-name"><?= $footer['title'] ?></div>
-        </a>
-      <?php } ?>
-    </div>
-  </div>
-  */ ?>
 
   <?php
   if (!isset($_SESSION['check_first']) && !isset($landing_page['response_message'])) {
@@ -377,6 +243,7 @@ $this_page = 'index';
   include 'layout/footer.php';
   Structure::loadFooter();
   Aww::loadAsset('assets/js/force_logout.js');
+  Aww::loadAsset('assets/js/main.js');
 
   ?>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

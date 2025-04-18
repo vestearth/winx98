@@ -350,23 +350,6 @@
   }
 }
 
-// .game-list-gradient {
-//   position: relative;
-// }
-
-// .game-list-gradient::before {
-//   content: "";
-//   position: absolute;
-//   inset: 0;
-//   padding: 2px;
-//   /* Border thickness */
-//   border-radius: inherit;
-//   background: linear-gradient(45deg, red, orange);
-//   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-//   -webkit-mask-composite: xor;
-//   mask-composite: exclude;
-// }
-
 
 .game-list {
   padding: 4px; /* border width */
@@ -387,4 +370,3 @@
   width: 100%;
   height: auto;
 }
-

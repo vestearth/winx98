@@ -7,6 +7,7 @@ echo '<button class="btn-to-top" title="Go to top">
 </button>';
 ?>
 
+
 <?php Tiwdal::startModal('modal_download_app', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
 <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
   <?= file_get_contents('assets/icon/cross.svg') ?>

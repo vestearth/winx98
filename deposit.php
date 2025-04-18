@@ -1,5 +1,6 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
 
 
 function textFormat($text = '', $pattern = '', $ex = '')
@@ -137,6 +138,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
       </div>
     </div>
   </div>
+  <?php renderFooterNav(); ?>
+
   <?php Tiwdal::startModal('modal_detail', 'modal-sm modal-no-more modal-dialog-centered'); ?>
   <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
     <?= file_get_contents('assets/icon/cross.svg') ?>
@@ -241,6 +244,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
+  Aww::loadAsset('assets/js/main.js');
   Aww::loadAsset('assets/js/force_logout.js');
   ?>
 

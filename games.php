@@ -1,5 +1,7 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
+
 $type_game = [
   [
     'name' => Ty::get('slotgames'),
@@ -176,15 +178,13 @@ $system_line =  nga_management::getGeneralWebsite($code);
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
   Aww::loadAsset('assets/css/custom.css');
   ?>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/swiper@11.2.6/swiper-bundle.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -207,19 +207,19 @@ $system_line =  nga_management::getGeneralWebsite($code);
     <div class="row">
       <div class="col-12">
 
-      <div class="game-slider">
-        <swiper-container id="gameSlider" class="mySwiper" slides-per-view="2" navigation="true" space-between="10" free-mode="true" clickable="true">
+        <div class="game-slider">
+          <swiper-container id="gameSlider" class="mySwiper" slides-per-view="2" navigation="true" space-between="10" free-mode="true" clickable="true">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
-            <swiper-slide class="<?= $key == $type ? 'swiper-slide-active' : '' ?>">
+              <swiper-slide class="<?= $key == $type ? 'swiper-slide-active' : '' ?>">
                 <div class="game-item">
-                    <img src="<?= $type_games['img'] ?>" alt="Game 1">
-                    <span><?= $type_games['name']; ?></span>
+                  <img src="<?= $type_games['img'] ?>" alt="Game 1">
+                  <span><?= $type_games['name']; ?></span>
                 </div>
-            </swiper-slide>
+              </swiper-slide>
             <?php } ?>
-        </swiper-container>
-      </div>
-        
+          </swiper-container>
+        </div>
+
       </div>
       <div class="col-md-12">
 
@@ -466,6 +466,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
       <?php } ?>
     </div>
   </div>
+  <?php renderFooterNav(); ?>
 
   <div class="scope_firm_form d-none">
     <form method="get">
@@ -488,6 +489,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
+  Aww::loadAsset('assets/js/main.js');
   Aww::loadAsset('assets/js/jquery.mousewheel.min.js');
   ?>
 </body>
@@ -553,34 +555,39 @@ $system_line =  nga_management::getGeneralWebsite($code);
       hidePreloader();
     }, 50000);
   });
-
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function() {
     const swiper = document.querySelector("#gameSlider");
 
     Object.assign(swiper, {
-        slidesPerView: 2, // Default for mobile
-        spaceBetween: 10,
-        freeMode: true,
-        navigation: true,
-        breakpoints: {
-            768: { slidesPerView: 3 }, // Tablets
-            1024: { slidesPerView: 4 }, // Laptops
-            1440: { slidesPerView: 5 }  // Large screens
-        }
+      slidesPerView: 2, // Default for mobile
+      spaceBetween: 10,
+      freeMode: true,
+      navigation: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 3
+        }, // Tablets
+        1024: {
+          slidesPerView: 4
+        }, // Laptops
+        1440: {
+          slidesPerView: 5
+        } // Large screens
+      }
     });
 
     swiper.initialize();
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("swiper-slide").forEach(slide => {
-          slide.addEventListener("click", function () {
-              document.querySelector(".swiper-slide-active")?.classList.remove("swiper-slide-active");
-              this.classList.add("swiper-slide-active"); // Add active class
-          });
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("swiper-slide").forEach(slide => {
+      slide.addEventListener("click", function() {
+        document.querySelector(".swiper-slide-active")?.classList.remove("swiper-slide-active");
+        this.classList.add("swiper-slide-active"); // Add active class
       });
+    });
   });
 </script>
