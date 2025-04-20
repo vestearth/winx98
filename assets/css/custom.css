@@ -354,6 +354,10 @@
   }
 }
 
+.soft-pink-text {
+  color: #F05050;
+}
+
 .main {
   transition: margin-right 0.3s;
 }

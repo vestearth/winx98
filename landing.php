@@ -1,5 +1,8 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/navbanner.php';
+require_once 'layout/footer_nav_landing.php';
+
 $system_line  = nga_management::getGeneralWebsite($code);
 $menu_landing = [
   [
@@ -21,7 +24,8 @@ $menu_landing = [
     'image' => 'assets/icon/menu_landing/contact.svg',
     'title' => Ty::get('contact_us'),
     'url'   => 'landing.php',
-    'link'  => $system_line['line_link'],
+    // 'link'  => $system_line['line_link'],
+    'link'  => '#',
   ],
 ];
 $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
@@ -34,6 +38,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
   <link rel="canonical" href="https://mvpshot.com/landing.php">
 </head>
@@ -59,18 +64,10 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
     } ?>
     <div class="container">
       <div class="row">
-        <div class="hide-mobile">
-          <div class="d-flex align-items-center justify-content-between py-10px">
-            <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo" class="w-90px">
-            <div class="d-flex align-items-center">
-              <a href="login.php" class="btn-parallelogram-pink  w-200px text-center mr-10px"><?= Ty::get('login') ?></a>
-              <a href="signup.php" class="btn-parallelogram-pink  w-200px text-center "><?= Ty::get('register') ?></a>
-            </div>
-          </div>
-        </div>
-        <div class="show-mobile">
-          <div class="logo">
-            <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
+        <?php renderBannerBorder(); ?>
+        <div class="col-12">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="source/full_banner.png" alt="Full Size Banner" class="">
           </div>
         </div>
       </div>
@@ -167,66 +164,22 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
           WEBSITE NAME <?= Ty::get('center_online') ?>
         </p>
         <div class="footer-img">
-          <img src="assets/images/landing/footer-01.webp?v=2" alt="footer">
-          <img src="assets/images/landing/footer-02.webp?v=2" alt="footer">
-          <img src="assets/images/landing/footer-03.webp?v=2" alt="footer">
-          <img src="assets/images/landing/footer-04.webp?v=2" alt="footer">
+          <div class="d-flex justify-content-center">
+            <div class="text-nowrap">
+              <span class="font-16px ml-25px">มั่นคงปลอดภัย <span class="soft-pink-text">100%</span></span>
+              <p class="font-12px mb-0">บริการ <span class="soft-pink-text">24</span> ชม. ฝาก-ถอนภายใน <span class="soft-pink-text">1</span> นาที</p>
+            </div>
+            <img src="source/bank-list.png?v=2" alt="footer" class="ml-20px">
+          </div>
+          <img src="source/spon1.png?v=2" alt="footer">
+          <img src="source/spon2.png" alt="footer">
+          <img src="source/spon3.png" alt="footer">
         </div>
       </div>
     </div>
   </section>
-  <div class="footer-landing">
-    <div class="row-items">
-      <?php foreach ($menu_landing as $key => $footer) { ?>
-        <?php if (isset($footer['link']) && $footer['link']) { ?>
-          <a href="<?= $footer['link'] ?>" target="_blank" class="underline-unset">
-            <div class="items">
-              <div class="icon-box">
-                <img src="<?= $footer['image'] ?>">
-              </div>
-              <div class="title"><?= $footer['title'] ?></div>
-            </div>
-          </a>
-        <?php } else { ?>
-          <a href="<?= $footer['url'] ?>" class="underline-unset">
-            <div class="items">
-              <div class="icon-box">
-                <img src="<?= $footer['image'] ?>">
-              </div>
-              <div class="title"><?= $footer['title'] ?></div>
-            </div>
-        <?php }
-      } ?>
-    </div>
-  </div>
 
-  <!-- backup footer  -->
-  <?php /* 
-<footer class="max-w-375px footer-landing">
-    <div class="row align-self-center">
-      <?php foreach ($menu_landing as $key => $footer) {?>
-        <div class="col px-0">
-          <?php if (isset($footer['link']) && $footer['link']) {?>
-            <a class="menu-footer" target="_blank" href="<?=$footer['link']?>">
-              <div class="icon-footer">
-                <img src="<?=$footer['image']?>" alt="">
-              </div>
-              <div class="text"><?=$footer['title']?></div>
-            </a>
-          <?php } else {?>
-            <div class="menu-footer" link="<?=$footer['url']?>">
-              <div class="icon-footer">
-                <img src="<?=$footer['image']?>" alt="">
-              </div>
-              <div class="text"><?=$footer['title']?></div>
-            </div>
-          <?php }?>
-        </div>
-      <?php }?>
-    </div>
-  </footer>
-
-*/ ?>
+  <?php renderFooterLanding($menu_landing); ?>
 
   <?php Tiwdal::startModal('modal_download_app', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
   <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">

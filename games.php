@@ -116,20 +116,20 @@ if (!isset($type_game_template[$type])) {
 }
 $firm = isset($_GET['firm_name']) ? $_GET['firm_name'] : '';
 $user_data = User::getCurrent();
-$user_data['id'] = '123123';
-// if (empty($firm) && $type) {
-//   $data = [
-//     'user_id' => $user_data['id'],
-//     'detail' => 'เข้าหน้าเข้าเล่นเกม',
-//   ];
-//   $user_log = nga_user::addNewUserLog($code, $data);
-// } else if ($firm && $type) {
-//   $data = [
-//     'user_id' => $user_data['id'],
-//     'detail' => 'หน้าเข้าเล่นเกม หมวด ' . $type . ' ค่าย ' . $firm,
-//   ];
-//   $user_log = nga_user::addNewUserLog($code, $data);
-// }
+
+if (empty($firm) && $type) {
+  $data = [
+    'user_id' => $user_data['id'],
+    'detail' => 'เข้าหน้าเข้าเล่นเกม',
+  ];
+  $user_log = nga_user::addNewUserLog($code, $data);
+} else if ($firm && $type) {
+  $data = [
+    'user_id' => $user_data['id'],
+    'detail' => 'หน้าเข้าเล่นเกม หมวด ' . $type . ' ค่าย ' . $firm,
+  ];
+  $user_log = nga_user::addNewUserLog($code, $data);
+}
 
 if ($_POST) {
   if (isset($_POST['submit_select_game'])) {
@@ -145,9 +145,6 @@ if ($_POST) {
         'detail' => 'เข้าเล่นเกม ' . $_POST['game_type'] . ' ' . $_POST['product_id'] . ' ' . $_POST['game_code'],
       ];
       $user_log = nga_user::addNewUserLog($code, $data);
-      // if ($firm == 'PGSOFT2') {
-      //   Aww::redirect('pgsoft_login.php?id=' . $result['response_data']['insert_id']);
-      // } else {
       Aww::redirect($result['response_data']['url']);
       // }
     } else {

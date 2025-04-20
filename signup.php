@@ -49,8 +49,9 @@ if ($_POST) {
       'bank_number' => $_POST['bank_account'],
       'bank_name' => $_POST['bank_name'],
       'upline_member_code' => $_POST['upline_member_code'],
+      'user_type_id' => 2,
     ];
-      $result = nga_user::addNewUser($code, $data, false, true);
+    $result = nga_user::addNewUser($code, $data, false, true);
     if ($result['response_status'] || $result['response_message'] == 'มีบัญชีนี้ในระบบแล้ว') {
       $force_login = User::login($_POST['username'], $password);
       $response_message = $force_login['response_message'];
@@ -92,13 +93,13 @@ if ($_POST) {
         <div class="card-login">
           <div class="card-login-body">
             <div class="login-thread d-flex">
-                <div>
-                  <div class="title d-flex">สมัครสมาชิก</div>
-                  <p class="subtitle">ขั้นตอนง่าย ๆ ในการสมัครสมาชิก</p>
-                </div>
+              <div>
+                <div class="title d-flex">สมัครสมาชิก</div>
+                <p class="subtitle">ขั้นตอนง่าย ๆ ในการสมัครสมาชิก</p>
+              </div>
             </div>
             <?php
-              include 'view/register/signup_form.php';
+            include 'view/register/signup_form.php';
             ?>
           </div>
         </div>
