@@ -3524,7 +3524,7 @@
 
 
 section.banner {
-  background: url('../images/bg-landing.webp'), linear-gradient(0deg, #09071A 0%, transparent 100%);
+  // background: url('../images/bg-landing.webp'), linear-gradient(0deg, #09071A 0%, transparent 100%);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
@@ -3989,7 +3989,8 @@ footer {
 
 .game-list-img {
   background: linear-gradient(224deg,
-      #CD00D3 0%, #540757 30%, #380039 55%, #330434 70%, #CD00D3 100%);
+      #521D1D 0%, #521D1D 30%, #260B0B 55%, #260B0B 70%, #B25E5E 100%);
+  // background: linear-gradient(180deg, #521D1D 0%, #260B0B 100%);
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 5px;
@@ -4031,7 +4032,7 @@ footer {
     width: 150px;
     height: 150px;
     background: linear-gradient(to bottom,
-        #E040F3 0%, #000000 100%);
+        #521D1D 0%, #260B0B 100%);
     object-fit: cover;
 
     @media (max-width: 1024px) and (min-height: 600px) {
@@ -4512,9 +4513,12 @@ footer {
       align-items: center;
       text-decoration: none;
       margin: 0 5px;
-      min-width: 75px;
+      // min-width: 75px;
+      min-width: 100px;
       transition: all 0.3s;
       padding: 0 5px 10px 5px;
+      background: linear-gradient(180deg, rgb(119, 41, 41) 0%, #3a1111 100%);
+      border-radius: 20px;
 
       .game-menu-image {
         position: relative;
@@ -4552,14 +4556,14 @@ footer {
           bottom: 0;
           width: 100%;
           transform: translate(-50%, 0);
-          background: linear-gradient(0deg, rgba(225, 64, 243, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+          background: linear-gradient(0deg, rgba(72, 7, 7, 1) 0%, rgba(0, 0, 0, 0.4) 100%);
           border-radius: 20px;
         }
       }
 
       &.active {
         .game-menu-name { 
-          color: rgba(225, 64, 243, 1);
+          color: rgba(255, 255, 255, 1);
           font-weight: 600;
         }
         &::before {
@@ -4570,7 +4574,8 @@ footer {
           bottom: 0;
           width: 100%;
           transform: translate(-50%, 0);
-          background: linear-gradient(0deg, rgba(225, 64, 243, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+          // background: linear-gradient(0deg, rgba(118, 6, 11, 1) 0%, rgba(0, 0, 0, 0.4) 100%);
+          background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%);
           border-radius: 20px;
         }
       }
@@ -4579,7 +4584,6 @@ footer {
 
   @media (max-width: 991px) {
     overflow-x: auto;
-
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -4602,6 +4606,7 @@ footer {
       .game-menu-list {
         min-width: 20px;
         padding: 0 3px 10px 3px;
+        background: unset;
 
         .game-menu-image {
           position: relative;
@@ -4630,8 +4635,10 @@ footer {
         }
 
         &.active {
-          .game-menu-name { 
-            color: rgba(225, 64, 243, 1) !important;
+            .game-menu-name { 
+            color: rgba(255, 255, 255, 1) !important;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px rgb(118, 6, 11), 0 0 15px rgb(118, 6, 11), 0 0 20px rgb(118, 6, 11);
+
             font-weight: 700 !important;
           }
           &::before {
@@ -4705,6 +4712,7 @@ footer {
       .game-menu-list {
         padding: 0 2px 10px 2px;
         min-width: 20px;
+        background: unset;
 
         .game-menu-image {
           position: relative;
@@ -4734,7 +4742,8 @@ footer {
 
         &.active {
           &::before {
-            border-radius: 10px;
+            // border-radius: 10px;
+            border-radius: 20px;
           }
         }
       }

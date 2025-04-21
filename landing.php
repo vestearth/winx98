@@ -28,6 +28,29 @@ $menu_landing = [
     'link'  => '#',
   ],
 ];
+
+$menu_landing = [
+  [
+    'url' => 'index.php',
+    'image' => 'source/icon-home.svg',
+    'title' => Ty::get('home')
+  ],
+  [
+    'url' => 'signup.php',
+    'image' => 'source/icon-signup.svg',
+    'title' => Ty::get('register'),
+  ],
+  [
+    'url' => 'login.php',
+    'image' => 'source/icon-login.svg',
+    'title' => 'Services'
+  ],
+  [
+    'url' => '#',
+    'image' => 'source/icon-contact.svg',
+    'title' => Ty::get('contact_us'),
+  ]
+];
 $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
 ?>
 
@@ -63,103 +86,141 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
       $lhb_style = 'style-close-banner';
     } ?>
     <div class="container">
+      <?php renderBannerBorder(); ?>
       <div class="row">
-        <?php renderBannerBorder(); ?>
         <div class="col-12">
-          <div class="d-flex justify-content-center align-items-center">
-            <img src="source/full_banner.png" alt="Full Size Banner" class="">
+          <div class="img-intro d-flex justify-content-center w-100 mt-20px">
+            <img src="source/first-landing.png" alt="Full Size Banner" class="">
           </div>
         </div>
       </div>
-      <div class="girl">
-        <img src="assets/images/landing/girl-01.webp?v=2">
-      </div>
-      <div class="detail">
-        <h1>ALL in One <span class="text-pink">bet</span> </h1>
+      <div class="intro">
         <p>
-          <?= Ty::get('sign_bonus') ?>
+          <span class="gold-txt">Mock Casino</span> เว็บเดิมพันออนไลน์ คาสิโนครบ
+          วงจร มาพร้อมระบบและบริการที่ยอดเยี่ยมถึงใจ
+          สมัครรับโบนัสฟรี <span class="gold-txt">100%</span>
         </p>
-        <a href="signup.php" class="btn-parallelogram-pink mt-25px w-100 arrow"><?= Ty::get('register') ?></a>
+        <p>
+          ถ้าพูดถึงเว็บพนันออนไลน์ Mock Casino ที่ดีและได้รับ
+          มาตรฐานสากลต้อง Mock Casino เท่านั้นเพราะเป็นเว็บ
+          betflik ทางเข้า พนันออนไลน์ที่ได้รับ ลิขสิทธิ์แท้จากต่าง
+          ประเทศ ถูกต้องของแท้แน่นอน...อ่านทั้งหมด
+        </p>
+        <div class="img-intro w-100">
+          <img src="source/intro-landing.png" class="">
+        </div>
+        <div class="easy-register mt-20px">
+          <p class="mb-0 font-24px">
+            <span class="gold-txt font-24px">สมัครง่าย</span> เพียง 3 ขั้นตอน
+          </p>
+          <p class="mb-0 font-18px">
+            สมัครฟรี!! ไม่มีค่าบริการ ปลอดภัย 100%
+          </p>
+          <div class="icon-regis mt-20px mb-30px">
+            <div class="row">
+              <div class="col-4">
+                <img src="source/game-regis1.png" alt="">
+                <p class="gold-txt mb-0 font-18px">สมัครสมาชิก</p>
+                <span>ง่าย ๆ ผ่านหน้าเว็บ</span>
+              </div>
+              <div class="col-4">
+                <img src="source/game-regis2.png" alt="">
+                <p class="gold-txt mb-0 font-18px">ฝากเงิน</p>
+                <span>ฝาก-ถอนเร็ว
+                  เพียง 2 วินาที!!</span>
+              </div>
+              <div class="col-4">
+                <img src="source/game-regis3.png" alt="">
+                <p class="gold-txt mb-0 font-18px">สนุกไปกับเกม</p>
+                <span>มากกว่า 50 ค่าย</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit" name="submit_register" class="btn btn-sub w-100">
+              <?= "สมัครสมาชิกเลย"; ?>
+            </button>
+          </div>
+        </div>
+        <div class="row mt-30px">
+          <div class="col-lg-12 mb-20px mb-lg-0">
+            <div class="d-flex justify-content-center align-items-center promote-join">
+              <img src="source/promote-join.png" class="">
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="d-flex justify-content-center align-items-center promote-auto">
+              <img src="source/promote-auto.png" class="">
+            </div>
+          </div>
+        </div>
+        <div class="intro2">
+          <div class="d-flex title">
+            <img src="source/icon-mockup.png" alt="">
+            <div class="text">
+              Mock Casino.
+            </div>
+          </div>
+          <span class="content">
+            Mock Casino เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
+            เกมสล็อตมากกว่า 1,000 เกมกับ 21 ค่ายชื่อดัง รวมเกม
+            แตกบ่อย ที่หลายเว็บไม่มีให้เล่น ทุกอย่างครบจบภายใน
+            กระเป๋าเดียว ไม่ต้องโยกเงินให้เสียเวลา ระบบอัตโนมัติทุก
+            ขั้นตอน สมัครสมาชิก ฝาก -ถอนไว ใช้เวลาทำธุรกรรม
+            เพียง 3 วินาที รับฟรีสิทธิพิเศษสำหรับลูกค้า
+          </span>
+        </div>
+        <hr>
+        <div class="menu-additional">
+          <div class="row">
+            <!-- <div class="col-6 col-md-3 d-none d-md-block"></div> -->
+            <div class="col-6 col-md-6">
+              <div class="title">
+                <div>
+                  เมนูเพิ่มเติม
+                </div>
+                <ul class="menu-ul">
+                  <?php
+                  $menu_items = [
+                    ['text' => 'Mock Casino.'],
+                    ['text' => 'ฝากถอน'],
+                    ['text' => 'โปรโมชั่น'],
+                    ['text' => 'กิจกรรม'],
+                    ['text' => 'รีวิวลูกค้า'],
+                  ];
+
+                  foreach ($menu_items as $item) {
+                    echo '<li><span class="gen-icon"></span>' . $item['text'] . '</li>';
+                  }
+                  ?>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 col-md-6">
+              <div class="border-gradient border-gradient-second w-100">
+                <div class="d-flex justify-content-center align-items-center">
+                  <img src="source/red-line.png" class="line-icon mr-10px">
+                  <div>
+                    แอดตรงผ่านไลน์
+                    <p class="mb-0">Mockupcasino</p>
+                  </div>
+                </div>
+                <div class="qr-code-section">
+                  <div class="qr-box">
+                    <img src="source/qr-code.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
       </div>
     </div>
   </section>
-  <section class="content">
+  <section class="footer text-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <div class="content-img">
-            <img src="assets/images/landing/content-01.webp?v=2" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 pt-30px my-auto">
-          <div class="detail">
-            <p class="font-22px mb-5px"><?= Ty::get('onlinebet') ?></p>
-            <p class="font-22px text-pink  mb-5px"> <?= Ty::get('autodeposit') ?></p>
-            <p>
-              <?= Ty::get('sign_now') ?>
-            </p>
-          </div>
-          <div class="list-content">
-            <div class="list-content-item">
-              <img src="assets/images/landing/neon-card.svg" alt="">
-              <p><?= Ty::get('auto_syst') ?></p>
-            </div>
-            <div class="list-content-item">
-              <img src="assets/images/landing/neon-coin.svg" alt="">
-              <p><?= Ty::get('vip_service') ?></p>
-            </div>
-            <div class="list-content-item">
-              <img src="assets/images/landing/neon-slot.svg" alt="">
-              <p><?= Ty::get('profession') ?></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="game text-center">
-    <div class="container">
-      <div class="row flex-column">
-        <h2 class="text-pink mt-30px"><?= Ty::get('allbetting') ?></h2>
-        <p> <?= Ty::get('easyplay') ?></p>
-        <div class="list-game">
-          <div class="list-game-items game-01">
-            <p><?= Ty::get('cardmillionaire') ?></p>
-          </div>
-          <div class="list-game-items game-02">
-            <p><?= Ty::get('boardgames') ?></p>
-          </div>
-          <div class="list-game-items game-03">
-            <p><?= Ty::get('slots') ?></p>
-          </div>
-          <div class="list-game-items game-04">
-            <p><?= Ty::get('landofarcade') ?></p>
-          </div>
-          <div class="list-game-items game-05">
-            <p><?= Ty::get('onlinefishing') ?></p>
-          </div>
-          <div class="list-game-items game-06">
-            <p><?= Ty::get('sport') ?></p>
-          </div>
-          <div class="list-game-items game-07">
-            <p><?= Ty::get('onlinecasino') ?></p>
-          </div>
-          <div class="list-game-items game-08">
-            <p><?= Ty::get('lottery') ?></p>
-          </div>
-          <div class="list-game-items game-09">
-          </div>
-        </div>
-        <a href="login.php" class="btn-parallelogram-pink mt-25px arrow mx-auto"><?= Ty::get('tryforfree') ?></a>
-      </div>
-    </div>
-  </section>
-  <section class="footer text-center mb-30px">
-    <div class="container">
-      <div class="row">
-        <div class="logo">
-          <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
-        </div>
         <p class="footer-detail">
           WEBSITE NAME <?= Ty::get('center_online') ?>
         </p>

@@ -16,7 +16,7 @@ function renderFooterNav()
         <div>เล่นเกม</div>
       </div>
     </a>
-    <a href="wallet.php" style="text-decoration: none;">
+    <a href="#" style="text-decoration: none;">
       <div class="item">
         <img src="source/icon-wallet.svg" alt="กระเป๋า">
         <div>กระเป๋า</div>

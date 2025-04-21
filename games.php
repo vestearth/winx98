@@ -66,9 +66,9 @@ $get_game_setting = [
   'is_open_casinolive_game' => 1,
   'is_open_arcade_game' => 1,
   'is_open_fishing_game' => 1,
-  'is_open_sport_game' => 1,
-  'is_open_sportbook' => 1,
-  'is_open_lotto' => 1,
+  'is_open_sport_game' => 0,
+  'is_open_sportbook' => 0,
+  'is_open_lotto' => 0,
   'is_open_trading' => 1,
 ];
 
@@ -204,7 +204,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
     <div class="row">
       <div class="col-12">
 
-        <div class="game-slider">
+        <div class="game-slider d-none">
           <swiper-container id="gameSlider" class="mySwiper" slides-per-view="2" navigation="true" space-between="10" free-mode="true" clickable="true">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <swiper-slide class="<?= $key == $type ? 'swiper-slide-active' : '' ?>">
@@ -256,7 +256,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
       <?php if (!$firm) {
         if ($type != 'LOTTO' && $type != 'SOCCER') {
       ?>
-          <div class="col-md-12">
+          <div class="col-md-12 mb-100px">
             <div class="text-white">
               <div class="row">
                 <?php
@@ -305,28 +305,31 @@ $system_line =  nga_management::getGeneralWebsite($code);
                 foreach ($game_group as $key => $game) {
                   $condition_key = $key + 1;
                   $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
-                  //dive left and right col 
-                  if (in_array($game, $game_list)) {
-                    //dive left and right col 
-                    $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                    if ($game == "AMBSLOT2") {
-                      $game_img = "AMBSLOT";
-                      // } else if ($game == "CG") {
-                      //   $game_img = "placeholder-banner";
-                    } else {
-                      $game_img = $game;
-                    }
+                  $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
+                  $game_img = 'assets/images/firm_game/' . $game . '.webp';
+
+                  $forForceCSS = '';
+                  // Check if the image file exists, use mockup image if not
+                  if (!file_exists($game_img)) {
+                    $game_img = 'assets/images/firm_game/mockup-game.png';
+                    $forForceCSS = 'set-mockup-img';
+                  }
                 ?>
-                    <div class="<?= $col; ?>">
-                      <div class="w-100 d-flex justify-content-center">
-                        <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px" firm_name="<?= $game; ?>">
-                          <img src="assets/images/firm_game/<?= $game_img; ?>.webp" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
-                        </div>
+                  <div class="<?= $col; ?>">
+                    <div class="w-100 d-flex justify-content-center">
+                      <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px <?= $forForceCSS; ?>" firm_name="<?= $game; ?>">
+                        <img src="<?= $game_img; ?>" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
+                        <?php if ($forForceCSS) { ?>
+                          <div class="txt-preview">
+                            <?= $game; ?>
+                          </div>
+                        <?php } ?>
                       </div>
                     </div>
+                  </div>
                 <?php
-                  }
-                } ?>
+                }
+                ?>
                 <?php if ($type == 'SPORT' && $get_game_setting['is_open_sportbook'] == 1) {
                   $soccer_callback = nga_api_seamless_sbobet::loginSbobetSession($code);
                   $soccer_data = isset($soccer_callback['response_data']) ? $soccer_callback['response_data'] : [];
@@ -408,11 +411,13 @@ $system_line =  nga_management::getGeneralWebsite($code);
               foreach ($popular_game_list as $key => $game_name) {
                 if (isset($feature_game[$game_name])) {
                   $game_list = $feature_game[$game_name];
+
                   if (isset($game_list['webp_path']) && $game_list['webp_path'] != '') {
                     $game_image = $game_list['webp_path'];
                   } else {
                     $game_image = $game_list['img'];
                   }
+                  $game_image = $game_list['img'];
               ?>
                   <div class="col-lg-2 col-4 mb-5px">
                     <div class="w-100 d-flex justify-content-center">
@@ -434,13 +439,16 @@ $system_line =  nga_management::getGeneralWebsite($code);
             <div class="text-gold mb-10px">เกมทั้งหมด</div>
             <div class="row">
               <?php foreach ($select_game as $key => $game_list) {
+
                 $condition_key = $key + 1;
                 $loading = ($condition_key >= 4) ? 'eager' : 'lazy';
-                if (isset($game_list['webp_path']) && $game_list['webp_path'] != '') {
-                  $game_image = $game_list['webp_path'];
-                } else {
-                  $game_image = $game_list['img'];
-                }
+                // if (isset($game_list['webp_path']) && $game_list['webp_path'] != '') {
+                //   $game_image = $game_list['webp_path'];
+                // } else {
+                //   $game_image = $game_list['img'];
+                // }
+                $game_image = $game_list['img'];
+
                 $avoid_game_list = [
                   'Baccarat Deluxe'
                 ];

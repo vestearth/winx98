@@ -114,7 +114,7 @@ $this_page = 'index';
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <!-- <div class="col-12">
         <div class="games-slide-list-container">
           <div class="games-slide-list-header">
             <div class="type-list">
@@ -145,7 +145,7 @@ $this_page = 'index';
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <?php renderFooterNav(); ?>
