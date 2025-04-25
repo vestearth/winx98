@@ -99,14 +99,14 @@ $this_page = 'index';
         </div>
         <div class="row g-1">
           <div class="col-6">
-            <a href="withdraw.php" class="preloader-link text-decoration-none">
+            <a href="deposit.php" class="preloader-link text-decoration-none">
               <div class="profile style2 unset-top-radius border">
                 ฝากเงิน
               </div>
             </a>
           </div>
           <div class="col-6">
-            <a href="deposit.php" class="preloader-link text-decoration-none">
+            <a href="withdraw.php" class="preloader-link text-decoration-none">
               <div class="profile style2 unset-top-radius border">
                 ถอนเงิน
               </div>
