@@ -1,4 +1,4 @@
-<?php 
+<?php
 $bank_config = Bank::select();
 $options_bank = [
   'list' => [],
@@ -46,6 +46,12 @@ foreach ($bank_config as $key => $data) {
     </div>
   </div>
   <div class="form-group">
+    <label for="bank_name"><?= "ผู้แนะนำ"; ?></label>
+    <div class="input-icon account">
+      <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>">
+    </div>
+  </div>
+  <div class="form-group">
     <label for="upline_member_code"><?= "ผู้แนะนำ"; ?></label>
     <div class="input-icon aff">
       <input type="text" name="upline_member_code" id="affiliate" value="" class="form-input-custom" placeholder="<?= "กรอกรหัสผู้แนะนำหากมี" ?>">
@@ -58,7 +64,7 @@ foreach ($bank_config as $key => $data) {
   </div>
   <div class="group-btn mt-10px">
     <a href="login.php" class="btn btn-cancel w-100">
-        <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
+      <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
     </a>
   </div>
 </form>

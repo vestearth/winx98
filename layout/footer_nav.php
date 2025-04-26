@@ -33,7 +33,7 @@ function renderFooterNav()
   <div id="rightNav">
     <div class="pos-rel d-flex align-items-center closeBtn" onclick="closeNav()">
       <img src="source/icon-mockup.png?v=<?= rand(1, 999) ?>" alt="Logo" class="mr-5px">
-      Mock Casino.
+      WinX98
     </div>
     <?php
     $links = [

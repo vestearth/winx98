@@ -96,13 +96,13 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
       </div>
       <div class="intro">
         <p>
-          <span class="gold-txt">Mock Casino</span> เว็บเดิมพันออนไลน์ คาสิโนครบ
+          <span class="gold-txt">WinX98</span> เว็บเดิมพันออนไลน์ คาสิโนครบ
           วงจร มาพร้อมระบบและบริการที่ยอดเยี่ยมถึงใจ
           สมัครรับโบนัสฟรี <span class="gold-txt">100%</span>
         </p>
         <p>
-          ถ้าพูดถึงเว็บพนันออนไลน์ Mock Casino ที่ดีและได้รับ
-          มาตรฐานสากลต้อง Mock Casino เท่านั้นเพราะเป็นเว็บ
+          ถ้าพูดถึงเว็บพนันออนไลน์ WinX98 ที่ดีและได้รับ
+          มาตรฐานสากลต้อง WinX98 เท่านั้นเพราะเป็นเว็บ
           betflik ทางเข้า พนันออนไลน์ที่ได้รับ ลิขสิทธิ์แท้จากต่าง
           ประเทศ ถูกต้องของแท้แน่นอน...อ่านทั้งหมด
         </p>
@@ -158,11 +158,11 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
           <div class="d-flex title">
             <img src="source/icon-mockup.png" alt="">
             <div class="text">
-              Mock Casino.
+              WinX98
             </div>
           </div>
           <span class="content">
-            Mock Casino เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
+            WinX98 เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
             เกมสล็อตมากกว่า 1,000 เกมกับ 21 ค่ายชื่อดัง รวมเกม
             แตกบ่อย ที่หลายเว็บไม่มีให้เล่น ทุกอย่างครบจบภายใน
             กระเป๋าเดียว ไม่ต้องโยกเงินให้เสียเวลา ระบบอัตโนมัติทุก
@@ -182,7 +182,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
                 <ul class="menu-ul">
                   <?php
                   $menu_items = [
-                    ['text' => 'Mock Casino.'],
+                    ['text' => 'WinX98'],
                     ['text' => 'ฝากถอน'],
                     ['text' => 'โปรโมชั่น'],
                     ['text' => 'กิจกรรม'],
