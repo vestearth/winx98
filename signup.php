@@ -51,7 +51,10 @@ if ($_POST) {
       'upline_member_code' => $_POST['upline_member_code'],
       'user_type_id' => 2,
     ];
+
     $result = nga_user::addNewUser($code, $data, false, true);
+    Aww::display($result);
+    die();
     if ($result['response_status'] || $result['response_message'] == 'มีบัญชีนี้ในระบบแล้ว') {
       $force_login = User::login($_POST['username'], $password);
       $response_message = $force_login['response_message'];

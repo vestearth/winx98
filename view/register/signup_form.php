@@ -40,17 +40,18 @@ foreach ($bank_config as $key => $data) {
     </div>
   </div>
   <div class="form-group">
+    <label for="bank_name"><?= "ชื่อบัญชีธนาคาร"; ?></label>
+    <div class="input-icon account">
+      <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>">
+    </div>
+  </div>
+  <div class="form-group">
     <label for="account"><?= Ty::get('acc_numb', [], ["case" => "ucfirst"]) ?></label>
     <div class="input-icon account">
       <input type="number" name="bank_account" id="account" class="form-input-custom" placeholder="<?= Ty::get('accnumb_fill') ?>" required>
     </div>
   </div>
-  <div class="form-group">
-    <label for="bank_name"><?= "ผู้แนะนำ"; ?></label>
-    <div class="input-icon account">
-      <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>">
-    </div>
-  </div>
+
   <div class="form-group">
     <label for="upline_member_code"><?= "ผู้แนะนำ"; ?></label>
     <div class="input-icon aff">
