@@ -1,5 +1,8 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
+
 if ($is_login) {
   $user_data = User::getCurrent();
   $data = [
@@ -60,11 +63,9 @@ if ($_POST) {
 <body>
   <?php include 'layout/nmg_bg.php'; ?>
   <div class="container">
+    <?php renderBannerBorder(); ?>
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-6 text-center">
-        <div class="logo">
-          <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
-        </div>
         <div class="card-login min-h-100px">
           <div class="card-login-nav">
             <a href="#" class="active w-100"><?= Ty::get('set_pass1', [], ["case" => "ucfirst"]) ?></a>

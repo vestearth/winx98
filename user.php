@@ -30,6 +30,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
 </head>
 
@@ -98,9 +99,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
           <?= Ty::get('changepass') ?>
         </a>
         <?php if (!$user_data['birth_date']) { ?>
-          <a href="change_birthday.php" class="btn btn-outline-light mb-15px d-block w-100 mb-20px">
+          <!-- <a href="change_birthday.php" class="btn btn-outline-light mb-15px d-block w-100 mb-20px">
             <?= Ty::get('changehbd') ?>
-          </a>
+          </a> -->
         <?php } ?>
         <button class="btn btn-logout" <?php Tiwdal::register('modal_logout', []); ?>>
           <?= Ty::get('Logout') ?>

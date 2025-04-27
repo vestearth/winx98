@@ -2,7 +2,6 @@
 require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
 
-
 function textFormat($text = '', $pattern = '', $ex = '')
 {
   $cid = ($text == '') ? '0000000000000' : $text;
@@ -30,8 +29,6 @@ function textFormat($text = '', $pattern = '', $ex = '')
   Aww::loadAsset('assets/css/main.css');
   Aww::loadAsset('assets/css/custom.css');
   ?>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -40,40 +37,52 @@ function textFormat($text = '', $pattern = '', $ex = '')
     $user_data = User::getCurrent();
     $data = [
       'user_id' => $user_data['id'],
-      'detail' => 'เข้าหน้าฝากเงิน',
+      'detail' => 'เข้าหน้าถอนเงิน',
     ];
     $user_log = nga_user::addNewUserLog($code, $data);
-    $bank_data = nga_management_bot::getBankForTransfer($code, $user_data['id']);
+
+    $customer_data = nga_user::getUserByID($code, $user_data['id']);
     $get_auto_wd = nga_management::getAutoDepositWithdraw($code);
-    $system_line =  nga_management::getGeneralWebsite($code);
 
     $check_bank_allow = nga_user::getBankNameByBankNo($code, $user_data['bank_abb'], $user_data['bank_number']);
     $user_group = nga_management::getUserGroupByID($code, $user_data['user_group_id']);
-    $is_kbank = isset($user_group['deposit_bank_abb']) ? $user_group['deposit_bank_abb'] : false;
+    $is_kbank = isset($user_group['withdraw_bank_abb']) ? $user_group['withdraw_bank_abb'] : false;
 
-    $where = [
-      'user_id' => $user_data['id'],
-      'is_read' => "'0'"
-    ];
-    $options = [
-      'sort'        => ['insert_date_time' => 'DESC']
-    ];
-    $notification = User_Notification::selectNotification($code, $where);
-    $promotion_list = nga_management::selectUserPromotion($code, $user_data['id'], $options);
-    $promo_rank_first_depo = nga_management::selectPromotionDepositForUser($code, $user_data['id']);
+    // New API 
+    $check_deposit = nga_bank_pg_api::checkDeposit($code, $user_data['id']);
+    $check_deposit_response = isset($check_deposit['response_data']) ? $check_deposit['response_data'] : [];
+    $transaction_status = is_array($check_deposit_response) && isset($check_deposit_response['transaction_status']) ? $check_deposit_response['transaction_status'] : '';
 
-    $ref_id = [];
-    if ($notification) {
-      foreach ($notification as $key => $value) {
-        $ref_id[] = $value['ref_id'];
+    if ($check_deposit['response_status'] == false) {
+      Aww::notification($check_deposit['response_message'], 'error');
+      Aww::redirect('');
+    }
+    if ($_POST) {
+      if (isset($_POST['submit_deposit'])) {
         $data = [
-          'is_read' => 1
+          'user_id' => $user_data['id'],
+          'credit_amount' => $_POST['credit_amount'],
         ];
-        User_Notification::updateNotification($code, $value['id'], $data);
+        $result = nga_bank_pg_api::addDeposit($code, $data);
+      } else if (isset($_POST['submit_image'])) {
+        $upload_image = isset($_FILES['upload_image']) ? $_FILES['upload_image'] : false;
+        $result = nga_bank_pg_api::verifyDeposit($code, $user_data['id'], $upload_image);
+        // Aww::display($result);
+        // die();
+      } else if (isset($_POST['submit_cancel_image'])) {
+        $result = nga_bank_pg_api::cancelDeposit($code, $user_data['id']);
+      }
+      if (isset($result)) {
+        $response_message = isset($response_message) ? $response_message : $result['response_message'];
+        $response_status = $result['response_status'] ? 'success' : 'error';
+        $response_redirect = isset($response_redirect) ? $response_redirect : '';
+
+        Aww::notification($response_message, $response_status);
+        Aww::redirect($response_redirect);
       }
     }
   } else {
-    // Aww::redirectOG('landing.php');
+    Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
@@ -100,27 +109,78 @@ function textFormat($text = '', $pattern = '', $ex = '')
             *<?= Ty::get('plsuseregistered') ?>
           </div>
         </div>
-        <div class="card-content mb-10px m-height-unset">
-          <div class="card-content-body text-center">
-            <div class="card-bank">
-              <div class="icon-bank">
-                <img src="source/mock_bank.png" class="rounded">
-                <!-- <img src="<?= $bank_data['image'] ?>" alt="" class="rounded"> -->
+        <form method="post" enctype="multipart/form-data">
+          <?php
+          if ($check_deposit_response['step'] == 1) {
+            $bank_data = $check_deposit_response['transaction_pg_get_bank'];
+          ?>
+            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+              <div class="card-content-body text-center mb-20px">
+                <div class="card-bank">
+                  <div class="icon-bank">
+                    <img src="https://winx98.com/system/resource/bank/<?= $bank_data['bank_code'] ?>.png" alt="" class="rounded">
+                  </div>
+                  <p class="text-white mb-5px"><?= $bank_data['bank_name'] ?></p>
+                  <h2 class="font-24px mb-10px font-Bold"><?= textFormat($bank_data['bank_account_number'], '___-_-_____-_', '-'); ?></h2>
+                  <span class="d-none number_copy"><?= $bank_data['bank_account_number']; ?></span>
+                  <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['account_name']; ?></p>
+                  <p class="text-white mb-5px">กรุณาโอนภายใน <?= Aww::formatDate($bank_data['expired_date'], 'd-M-Y H:i:s'); ?></p>
+                  <button class="btn btn-copy-code border event_btn_copy">
+                    <img src="assets/icon/copy.svg" alt="copy">
+                    <?= Ty::get('copyaccuntnmb') ?>
+                  </button>
+                </div>
               </div>
-              <p class="text-white mb-5px"><?= $bank_data['name_th'] ?></p>
-              <h2 class="font-24px mb-10px font-Bold number_copy"><?= textFormat($bank_data['bank_account_no'], '___-_-_____-_', '-'); ?></h2>
-              <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['bank_account_name']; ?></p>
-              <button class="btn btn-copy-code border event_btn_copy">
-                <img src="assets/icon/copy.svg" alt="copy">
-                <?= Ty::get('copyaccuntnmb') ?>
-              </button>
             </div>
-          </div>
-        </div>
+            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+              <div class="card-content-body text-center">
+                <div class="d-flex justify-content-lg-center align-items-center">
+                  <span class="text-white mb-10px"><?= "อัพโหลดรูปภาพ" ?></span>
+                </div>
+                <input type="file" name="upload_image" class="input-custom mb-15px" accept="image/*">
+                <button name="submit_image" type="submit" class="btn-main btn-withdraw max-w-305px">
+                  <?= 'อัพโหลดสลิป'; ?>
+                </button>
+                <button name="submit_cancel_image" type="submit" class="btn-main btn-cancel btn-withdraw max-w-305px event_refresh mt-10px">
+                  <?= 'ยกเลิกการอัพโหลด'; ?>
+                </button>
+
+              </div>
+            </div>
+          <?php } else if ($check_deposit_response['step'] == 0) { ?>
+            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+              <div class="card-content-body text-center">
+                <div class="d-flex justify-content-lg-center align-items-center">
+                  <span class="text-white mb-10px"><?= "จำนวนเงินที่ต้องการฝาก" ?></span>
+                </div>
+                <input type="number" name="credit_amount" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 100; ?>" step="any">
+                <!-- event_send_data -->
+                <button name="submit_deposit" type="submit" class="btn-main btn-withdraw max-w-305px event_submit_deposit" <?php Tiwdal::register('modal_confirm_deposit', []); ?>
+                  <?= $check_deposit['response_status'] == false ? 'disabled' : '' ?>>
+                  <?= Ty::get('confirm2') ?>
+                </button>
+                <div class="detail max-w-305px m-auto mt-15px">
+                  <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
+                  <ul>
+                    <li>Mockup 1</li>
+                    <li>Mockup 2</li>
+                    <li>Mockup 3</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <?php } else if ($check_deposit_response['step'] == 2) { ?>
+            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+              <div class="card-content-body text-center mb-20px">
+                กรุณารอการทำรายการ
+              </div>
+            </div>
+          <?php } ?>
+        </form>
       </div>
       <div class="col-md-6">
         <div class="title-table">
-          <?= Ty::get('deposithistory') ?>
+          <?= Ty::get('withdrawal_history') ?>
         </div>
         <div id="deposit_list" class="container-pagination table-custom" <?= Homepagify::createHomepagify('deposit_list', '', '', 'รายการถอน', ''); ?>>
           <div class="table-responsive">
@@ -138,64 +198,110 @@ function textFormat($text = '', $pattern = '', $ex = '')
       </div>
     </div>
   </div>
-  <?php renderFooterNav(); ?>
 
-  <?php Tiwdal::startModal('modal_detail', 'modal-sm modal-no-more modal-dialog-centered'); ?>
+  <div class="backdrop-claim" style="display: none;">
+    <div class="claim-container">
+      <p class="text-gold font-22px"><?= Ty::get('withdraw_done') ?>!</p>
+      <div class="lottie-box">
+        <lottie-player src="assets/images/lottie/success.json" background="transparent" speed="1" loop autoplay></lottie-player>
+      </div>
+      <div class="detail">
+        <p class="font-18px">
+          <?= Ty::get('trans_check') ?> <br>
+          <?= Ty::get('trans_bank') ?>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <?php Tiwdal::startModal('modal_confirm_deposit', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
   <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
     <?= file_get_contents('assets/icon/cross.svg') ?>
   </button>
   <div class="modal-body">
-    <div class="title">
-      <?= Ty::get('trans_time', [], ["case" => "ucfirst"]) ?>
+    <div class="title text-center text-pink-2">
+      <?= 'ยืนยันการฝาก'; ?>
     </div>
-    <p class="detail">
+    <p class="detail text-center mt-20px font-18px">
+      <span>
+        <?= "ฝากเข้าบัญชี"; ?>
+      </span>
+    </p>
+    <p class="detail text-center mb-0 font-18px"><?= "ยอดฝาก" ?> <span class="event_number_input"></span> <?= Ty::get('baht', [], ["case" => "strtolower"]) ?></p>
+  </div>
+  <div class="modal-footer">
+    <button dtype="submit" class="btn btn-main event_confirm" data-bs-dismiss="modal" aria-label="Close">
+      <?= Ty::get('confirm2') ?>
+    </button>
+  </div>
+  <?php Tiwdal::endModal() ?>
+
+  <?php Tiwdal::startModal('modal_detail', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
+  <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
+    <?= file_get_contents('assets/icon/cross.svg') ?>
+  </button>
+  <div class="modal-body">
+    <div class="title ">
+      <?= Ty::get('time_withdraw') ?>
+    </div>
+    <p class="detail font-18px">
       <span name="{date_trans}"></span>
     </p>
     <div class="title">
-      <?= Ty::get('transfer_acc', [], ["case" => "ucfirst"]) ?>
+      <?= Ty::get('trans_to', [], ["case" => "ucfirst"]) ?>
     </div>
-    <p class="detail">
+    <p class="detail font-18px">
       <span name="{transfer_data}"></span>
     </p>
     <div class="title">
-      <?= Ty::get('dep_balance') ?>
+      <?= Ty::get('withdraw_bal') ?>
     </div>
-    <p class="detail">
+    <p class="detail font-18px">
       <span name="{credit_amount}"></span>
       <?= Ty::get('baht') ?>
     </p>
     <div class="title">
       <?= Ty::get('status') ?>
     </div>
-    <p class="detail text-success">
+    <p class="detail text-success mb-0 font-18px">
       <span name="{status_complete}"></span>
     </p>
-    <p class="detail text-warning">
+    <p class="detail text-warning mb-0 font-18px">
       <span name="{status_waiting}"></span>
     </p>
-    <div class="title">
+    <p class="detail text-danger mb-0 font-18px">
+      <span name="{status_cancel}"></span>
+    </p>
+    <div class="title mt-12px">
       <?= Ty::get('reason') ?>
     </div>
-    <p class="detail">
-      <span name="{remark}"></span>
+    <p class="detail font-18px">
+      <span name="{remark_data}"></span>
     </p>
   </div>
   <div class="modal-footer">
-    <button data-bs-dismiss="modal" aria-label="Close" class="btn-main rounded ">
+    <button data-bs-dismiss="modal" aria-label="Close" class="btn btn-main rounded">
       <?= Ty::get('okay') ?>
     </button>
   </div>
   <?php Tiwdal::endModal() ?>
 
-  <div class="menu-fix-right">
-    <a href="<?= $system_line['line_link'] ?>" target="_blank">
-      <div class="menu-line">
-        <div class="box-close event_close_fix_menu">
-          <?= file_get_contents('assets/icon/close.svg') ?>
-        </div>
-      </div>
-    </a>
+
+  <?php Tiwdal::startModal('modal_show_withdraw_condition', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
+  <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
+    <?= file_get_contents('assets/icon/cross.svg') ?>
+  </button>
+  <div class="modal-body">
+    <p class="detail font-16px text-center" style="white-space: pre-line">
+      <?= $get_auto_wd['withdraw_condition'] ?>
+    </p>
   </div>
+  <div class="modal-footer">
+    <button data-bs-dismiss="modal" aria-label="Close" class="btn btn-main rounded">
+      <?= Ty::get('okay') ?>
+    </button>
+  </div>
+  <?php Tiwdal::endModal() ?>
 
   <?php Tiwdal::startModal('modal_kbank_condition', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
   <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
@@ -203,7 +309,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   </button>
   <div class="modal-body">
     <p class="detail font-16px text-center" style="white-space: pre-line">
-      ขณะนี้ไม่สามารถดึงรายการฝากได้ เนื่องจากเว็บธนาคารใช้งานไม่ได้ ขออภัยในความไม่สะดวก
+      ไม่สามารถถอนเงินได้ในขณะนี้ เนื่องจากเว็บธนาคารใช้งานไม่ได้ ขออภัยในความไม่สะดวก
     </p>
   </div>
   <div class="modal-footer">
@@ -239,8 +345,19 @@ function textFormat($text = '', $pattern = '', $ex = '')
   </div>
   <?php Tiwdal::endModal() ?>
 
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+  <div class="menu-fix-right">
+    <a href="<?= $system_line['line_link'] ?>" target="_blank">
+      <div class="menu-line">
+        <div class="box-close event_close_fix_menu">
+          <?= file_get_contents('assets/icon/close.svg') ?>
+        </div>
+      </div>
+    </a>
+  </div>
+
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
@@ -251,7 +368,6 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <script>
     $(document).ready(function() {
       var currentTime = new Date(); // Get the current time
-
       var currentHour = currentTime.getHours(); // Get the current hour
       // Check if the current time is within the specified range
       if ((currentHour >= 16 && currentHour <= 23) || (currentHour >= 0 && currentHour <= 6)) {
@@ -264,7 +380,12 @@ function textFormat($text = '', $pattern = '', $ex = '')
       if (!bank_run && is_kbank == 'KBANK') {
         $('#modal_kbank_condition').modal('show');
       }
-
+      $(document).on('keypress', '.event_check_int', function(event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+          event.preventDefault();
+        }
+      });
       $(document).on('click', '.event_close_fix_menu', function(e) {
         e.preventDefault();
         $(this).parents('a').fadeOut(300, function() {
@@ -272,38 +393,38 @@ function textFormat($text = '', $pattern = '', $ex = '')
         });
       });
 
+      $(document).on("click", ".event_refresh", function(e) {
+        location.reload();
+      });
+
       $(document).on("click", ".event_btn_copy", function(e) {
         copyToClipboard($(".number_copy"));
         Aww.notification("success", "Copied");
       });
 
-      $(document).on('click', '.event_confirm', function() {
-        var user_id = $(this).attr('user_id');
-        var promotion_id = $(this).attr('promotion_id');
-        var promotion_name = $(this).attr('promotion_name');
-        var type = $(this).attr('unit_type');
-        var amount = $(this).attr('amount');
-        if (type == 'credit') {
-          var type_msg = '<?= Ty::get('credit', [], ['case' => 'ucfirst']) ?>';
-          var currency = '<?= Ty::get('baht', [], ['case' => 'ucfirst']) ?>';
-        } else {
-          var type_msg = '<?= Ty::get('point', [], ['case' => 'ucfirst']) ?>';
-          var currency = '<?= Ty::get('point', [], ['case' => 'ucfirst']) ?>';
-        }
+      $(document).on("click", ".event_send_data", function(e) {
+        var price = $('.event_text_data').val();
+        $(".event_number_input").text(Aww.formatMoney(price, 2));
+        $(".event_number_input").attr('data-amount', price);
+      });
 
-        var params = {
-          user_id: user_id,
-          promotion_id: promotion_id,
-          promotion_name: promotion_name,
+
+      $(document).on("click", ".event_submit_deposit", function(e) {
+        var price = $('.event_text_data').val();
+        $(".event_number_input").text(Aww.formatMoney(price, 2));
+        $(".event_number_input").attr('data-amount', price);
+      });
+      $(document).on("click", ".event_confirm", function(e) {
+        $(this).attr("disabled", true);
+        var modal = $(this).parents(".modal-content");
+        var credit_amount = modal.find(".event_number_input").data('amount');
+        params = {
+          "credit_amount": credit_amount,
         };
-
-        $.post('ajax/ajax_promotion_redemption.php', params)
+        $.post('ajax/ajax_send_withdraw.php', params)
           .done(function(data) {
             var result = JSON.parse(data);
             if (result.response_status) {
-              $('.backdrop-claim').find('.scope_type').text(type_msg)
-              $('.backdrop-claim').find('.scope_amount_receive').text(Aww.formatMoney(amount) + ' ' + currency);
-
               setTimeout(() => {
                 $('.backdrop-claim').fadeIn('fast', function() {
                   setTimeout(() => {
@@ -312,43 +433,14 @@ function textFormat($text = '', $pattern = '', $ex = '')
                 });
               }, 1000);
             } else {
-              Aww.notification('error', result.response_message)
-            }
-          })
-      });
-
-      $(document).on('click', '.event_confirm_deposit', function() {
-        var user_id = $(this).attr('user_id');
-        var promotion_id = $(this).attr('promotion_id');
-        var type = $(this).attr('unit_type');
-        var amount = $(this).attr('amount');
-        var type_msg = '<?= Ty::get('credit', [], ['case' => 'ucfirst']) ?>';
-        var currency = '<?= Ty::get('baht', [], ['case' => 'ucfirst']) ?>';
-
-        var params = {
-          user_id: user_id,
-          promotion_id: promotion_id,
-        };
-
-        $.post('ajax/ajax_promotion_deposit.php', params)
-          .done(function(data) {
-            var result = JSON.parse(data);
-            if (result.response_status) {
-              $('.backdrop-claim').find('.scope_type').text(type_msg)
-              $('.backdrop-claim').find('.scope_amount_receive').text(Aww.formatMoney(amount) + ' ' + currency);
-
+              Aww.notification('error', result.response_message);
               setTimeout(() => {
-                $('.backdrop-claim').fadeIn('fast', function() {
-                  setTimeout(() => {
-                    location.reload();
-                  }, 2000);
-                });
+                location.reload();
               }, 1000);
-            } else {
-              Aww.notification('error', result.response_message)
             }
-          })
+          });
       });
+      $('script').remove();
     });
   </script>
 </body>
