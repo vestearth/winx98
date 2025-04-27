@@ -109,45 +109,53 @@ function textFormat($text = '', $pattern = '', $ex = '')
             *<?= Ty::get('plsuseregistered') ?>
           </div>
         </div>
-        <form method="post" enctype="multipart/form-data">
-          <?php
-          if ($check_deposit_response['step'] == 1) {
-            $bank_data = $check_deposit_response['transaction_pg_get_bank'];
-          ?>
-            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
-              <div class="card-content-body text-center mb-20px">
-                <div class="card-bank">
-                  <div class="icon-bank">
-                    <img src="https://winx98.com/system/resource/bank/<?= $bank_data['bank_code'] ?>.png" alt="" class="rounded">
-                  </div>
-                  <p class="text-white mb-5px"><?= $bank_data['bank_name'] ?></p>
-                  <h2 class="font-24px mb-10px font-Bold"><?= textFormat($bank_data['bank_account_number'], '___-_-_____-_', '-'); ?></h2>
-                  <span class="d-none number_copy"><?= $bank_data['bank_account_number']; ?></span>
-                  <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['account_name']; ?></p>
-                  <p class="text-white mb-5px">กรุณาโอนภายใน <?= Aww::formatDate($bank_data['expired_date'], 'd-M-Y H:i:s'); ?></p>
-                  <button class="btn btn-copy-code border event_btn_copy">
-                    <img src="assets/icon/copy.svg" alt="copy">
-                    <?= Ty::get('copyaccuntnmb') ?>
-                  </button>
+        <!-- <form method="post" enctype="multipart/form-data">
+        </form> -->
+
+        <?php
+        if ($check_deposit_response['step'] == 1) {
+          $bank_data = $check_deposit_response['transaction_pg_get_bank'];
+        ?>
+          <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+            <div class="card-content-body text-center mb-20px">
+              <div class="card-bank">
+                <div class="icon-bank">
+                  <img src="https://winx98.com/system/resource/bank/<?= $bank_data['bank_code'] ?>.png" alt="" class="rounded">
                 </div>
+                <p class="text-white mb-5px"><?= $bank_data['bank_name'] ?></p>
+                <h2 class="font-24px mb-10px font-Bold"><?= textFormat($bank_data['bank_account_number'], '___-_-_____-_', '-'); ?></h2>
+                <span class="d-none number_copy"><?= $bank_data['bank_account_number']; ?></span>
+                <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['account_name']; ?></p>
+                <p class="text-white mb-5px">กรุณาโอนภายใน <?= Aww::formatDate($bank_data['expired_date'], 'd-M-Y H:i:s'); ?></p>
+                <button class="btn btn-copy-code border event_btn_copy">
+                  <img src="assets/icon/copy.svg" alt="copy">
+                  <?= Ty::get('copyaccuntnmb') ?>
+                </button>
               </div>
             </div>
-            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
-              <div class="card-content-body text-center">
+          </div>
+          <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+            <div class="card-content-body text-center">
+              <form method="post" enctype="multipart/form-data">
                 <div class="d-flex justify-content-lg-center align-items-center">
                   <span class="text-white mb-10px"><?= "อัพโหลดรูปภาพ" ?></span>
                 </div>
-                <input type="file" name="upload_image" class="input-custom mb-15px" accept="image/*">
+                <input type="file" name="upload_image" class="input-custom mb-5px" accept="image/*" required>
                 <button name="submit_image" type="submit" class="btn-main btn-withdraw max-w-305px">
                   <?= 'อัพโหลดสลิป'; ?>
                 </button>
-                <button name="submit_cancel_image" type="submit" class="btn-main btn-cancel btn-withdraw max-w-305px event_refresh mt-10px">
-                  <?= 'ยกเลิกการอัพโหลด'; ?>
-                </button>
-
-              </div>
+              </form>
+              <form method="post">
+                <div class="d-flex justify-content-center align-items-center mt-10px">
+                  <button name="submit_cancel_image" type="submit" class="btn-main btn-cancel btn-withdraw max-w-305px event_refresh">
+                    <?= 'ยกเลิกการอัพโหลด'; ?>
+                  </button>
+                </div>
+              </form>
             </div>
-          <?php } else if ($check_deposit_response['step'] == 0) { ?>
+          </div>
+        <?php } else if ($check_deposit_response['step'] == 0) { ?>
+          <form method="post" enctype="multipart/form-data">
             <div class="card-content mb-20px pb-0 have-bg min-h-200px">
               <div class="card-content-body text-center">
                 <div class="d-flex justify-content-lg-center align-items-center">
@@ -169,14 +177,14 @@ function textFormat($text = '', $pattern = '', $ex = '')
                 </div>
               </div>
             </div>
-          <?php } else if ($check_deposit_response['step'] == 2) { ?>
-            <div class="card-content mb-20px pb-0 have-bg min-h-200px">
-              <div class="card-content-body text-center mb-20px">
-                กรุณารอการทำรายการ
-              </div>
+          </form>
+        <?php } else if ($check_deposit_response['step'] == 2) { ?>
+          <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+            <div class="card-content-body text-center mb-20px">
+              กรุณารอการทำรายการ
             </div>
-          <?php } ?>
-        </form>
+          </div>
+        <?php } ?>
       </div>
       <div class="col-md-6">
         <div class="title-table">
