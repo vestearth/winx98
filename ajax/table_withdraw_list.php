@@ -31,25 +31,43 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
       $list['transfer_data'] = '-';
     }
 
-    if ($list['status'] == 'completed') {
-      $list['status_th'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
-      $list['status_complete'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
-      $list['status_waiting'] = '';
-      $list['status_cancel'] = '';
-      $list['remark_data'] = ($list['remark']) ? $list['remark'] : '-';
-    } else if ($list['status'] == 'cancel') {
-      $list['status_th'] = Ty::get('cancel', [], ["case" => "ucfirst"]);
-      $list['status_complete'] = '';
-      $list['status_waiting'] = '';
-      $list['status_cancel'] = Ty::get('cancel', [], ["case" => "ucfirst"]);
-      $list['remark_data'] = ($list['cancel_remark']) ? $list['cancel_remark'] : '-';
-    } else {
-      $list['status_th'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
-      $list['status_complete'] = '';
-      $list['status_waiting'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
-      $list['status_cancel'] = '';
-      $list['remark_data'] = ($list['remark']) ? $list['remark'] : '-';
+    $status = $list['status'];
+    if ($status == 'waiting_user') {
+      $text = 'รอผู้ใช้ทำรายการ';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_system') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
+    } else if ($status == 'success') {
+      $text = 'สำเร็จ';
+      $textClass = 'text-success';
+    } else if ($status == 'cancel') {
+      $text = 'ยกเลิก';
+      $textClass = 'text-danger';
+    } else if ($status == 'expired') {
+      $text = 'หมดอายุ';
+      $textClass = 'text-danger';
     }
+
+    // if ($list['status'] == 'completed') {
+    //   $list['status_th'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
+    //   $list['status_complete'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
+    //   $list['status_waiting'] = '';
+    //   $list['status_cancel'] = '';
+    //   $list['remark_data'] = ($list['remark']) ? $list['remark'] : '-';
+    // } else if ($list['status'] == 'cancel') {
+    //   $list['status_th'] = Ty::get('cancel', [], ["case" => "ucfirst"]);
+    //   $list['status_complete'] = '';
+    //   $list['status_waiting'] = '';
+    //   $list['status_cancel'] = Ty::get('cancel', [], ["case" => "ucfirst"]);
+    //   $list['remark_data'] = ($list['cancel_remark']) ? $list['cancel_remark'] : '-';
+    // } else {
+    //   $list['status_th'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
+    //   $list['status_complete'] = '';
+    //   $list['status_waiting'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
+    //   $list['status_cancel'] = '';
+    //   $list['remark_data'] = ($list['remark']) ? $list['remark'] : '-';
+    // }
     if (!($list['transaction_type'] == 'withdraw' && $list['transaction_by'] == 'admin' && $list['receive_from'] == 'admin_add_manual')) {
   ?>
       <tr <?php Tiwdal::register('modal_detail', $list); ?>>
@@ -59,20 +77,10 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
           </div>
         </td>
         <td nowrap class="text-end text-white"><?= number_format($list['credit_amount'], 2); ?></td>
-        <td nowrap class="text-center">
-          <?php if ($list['status'] == 'completed') { ?>
-            <div class="text-success text-end">
-              <?= Ty::get('creditreceived', [], ["case" => "ucfirst"]) ?>
-            </div>
-          <?php } else if ($list['status'] == 'cancel') { ?>
-            <div class="text-danger text-end">
-              <?= Ty::get('cancel', [], ["case" => "ucfirst"]) ?>
-            </div>
-          <?php } else { ?>
-            <div class="text-warning text-end">
-              <?= Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]) ?>
-            </div>
-          <?php } ?>
+        <td nowrap class="text-end">
+          <div class="<?= $textClass; ?>">
+            <?= $text; ?>
+          </div>
         </td>
       </tr>
     <?php } ?>

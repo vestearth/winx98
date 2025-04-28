@@ -53,9 +53,13 @@ function textFormat($text = '', $pattern = '', $ex = '')
     $check_deposit_response = isset($check_deposit['response_data']) ? $check_deposit['response_data'] : [];
     $transaction_status = is_array($check_deposit_response) && isset($check_deposit_response['transaction_status']) ? $check_deposit_response['transaction_status'] : '';
 
+    if (!isset($check_deposit_response['step'])) {
+      $check_deposit_response['step'] = -1;
+    }
+
     if ($check_deposit['response_status'] == false) {
       Aww::notification($check_deposit['response_message'], 'error');
-      // Aww::redirect('');
+      Aww::redirect('');
     }
     if ($_POST) {
       if (isset($_POST['submit_deposit'])) {
@@ -179,7 +183,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
             </div>
           </form>
         <?php } else if ($check_deposit_response['step'] == 2) { ?>
-          <div class="card-content mb-20px pb-0 have-bg min-h-200px">
+          <div class="card-content mb-20px pb-0 have-bg min-h-200px d-flex align-items-center justify-content-between">
             <div class="card-content-body text-center mb-20px">
               กรุณารอการทำรายการ
             </div>

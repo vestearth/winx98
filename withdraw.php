@@ -32,6 +32,32 @@ $user_data['money_balance'] = 0;
     $check_bank_allow = nga_user::getBankNameByBankNo($code, $user_data['bank_abb'], $user_data['bank_number']);
     $user_group = nga_management::getUserGroupByID($code, $user_data['user_group_id']);
     $is_kbank = isset($user_group['withdraw_bank_abb']) ? $user_group['withdraw_bank_abb'] : false;
+
+    $check_withdraw = nga_bank_pg_withdraw_api::checkWithdraw($code, $user_data['id']);
+    $check_withdraw_response = isset($check_withdraw['response_data']) ? $check_withdraw['response_data'] : [];
+    // Aww::display($check_withdraw_response);
+    // die();
+    if ($_POST) {
+      if (isset($_POST['submit_withdraw'])) {
+        $data = [
+          'user_id' => $user_data['id'],
+          'credit_amount' => $_POST['credit_amount'],
+        ];
+        $result = nga_bank_pg_withdraw_api::addWithdraw($code, $data);
+        // Aww::display($result);
+        // die();
+        // } else if (isset($_POST['submit_withdraw_cancel'])) {
+        //   $result = nga_bank_pg_withdraw_api::cancelWithdraw($code, $user_data['id']);
+      }
+      if (isset($result)) {
+        $response_message = isset($response_message) ? $response_message : $result['response_message'];
+        $response_status = $result['response_status'] ? 'success' : 'error';
+        $response_redirect = isset($response_redirect) ? $response_redirect : '';
+
+        Aww::notification($response_message, $response_status);
+        Aww::redirect($response_redirect);
+      }
+    }
   } else {
     // Aww::redirectOG('landing.php');
   }
@@ -71,18 +97,22 @@ $user_data['money_balance'] = 0;
             <?php
             $get_auto_wd['is_withdraw_active'] = true; // For testing purposes, set to true to show the withdraw button
             ?>
-            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 //$get_auto_wd['withdraw_minimum'] 
-                                                                                                                                                                                ?>" max="<?= 2 //number_format($get_auto_wd['withdraw_maximum'], 2); 
-                                                                                                                                                                                          ?>" step="any">
-            <?php if ($get_auto_wd['is_withdraw_active']) { ?>
-              <button type="button" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
-                <?= Ty::get('confirm2') ?>
-              </button>
-            <?php } else { ?>
-              <button type="button" class="btn btn-main max-w-305px " <?php Tiwdal::register('modal_show_withdraw_condition', []); ?>>
-                <?= Ty::get('confirm2') ?>
-              </button>
-            <?php } ?>
+            <form method="post">
+              <input type="number" name="credit_amount" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 ?>" max="<?= 200000 ?>" step="any">
+              <?php /*
+            <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 //$get_auto_wd['withdraw_minimum']?>" max="<?= 2 //number_format($get_auto_wd['withdraw_maximum'], 2);?>" step="any">
+             */
+              ?>
+              <?php if ($check_withdraw_response['step'] == 0) { ?>
+                <button name="submit_withdraw" type="submit" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
+                  <?= Ty::get('confirm2') ?>
+                </button>
+              <?php } else { ?>
+                <button type="button" class="btn btn-main max-w-305px " <?php Tiwdal::register('modal_show_withdraw_condition', []); ?>>
+                  <?= Ty::get('confirm2') ?>
+                </button>
+              <?php } ?>
+            </form>
             <div class="detail max-w-305px m-auto mt-15px">
               <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
               <ul>
@@ -162,7 +192,7 @@ $user_data['money_balance'] = 0;
     <p class="detail text-center mb-0 font-18px"><?= Ty::get('withdraw_bal', [], ["case" => "strtolower"]) ?> <span class="event_number_input"></span> <?= Ty::get('baht', [], ["case" => "strtolower"]) ?></p>
   </div>
   <div class="modal-footer">
-    <button dtype="submit" class="btn btn-main event_confirm" data-bs-dismiss="modal" aria-label="Close">
+    <button dtype="submit" class="btn btn-main" data-bs-dismiss="modal" aria-label="Close">
       <?= Ty::get('confirm2') ?>
     </button>
   </div>
@@ -225,7 +255,7 @@ $user_data['money_balance'] = 0;
   </button>
   <div class="modal-body">
     <p class="detail font-16px text-center" style="white-space: pre-line">
-      <?= $get_auto_wd['withdraw_condition'] ?>
+      <?= $get_auto_wd['withdraw_condition']; ?>
     </p>
   </div>
   <div class="modal-footer">
