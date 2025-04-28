@@ -30,7 +30,11 @@ if ($_POST) {
     Aww::redirect($response_redirect);
   }
 };
-$system_line =  nga_management::getGeneralWebsite($code);
+$system_line = nga_management::getGeneralWebsite($code);
+if (empty($system_line)) {
+  $system_line['line_id'] = '';
+  $system_line['line_link'] = '';
+}
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
 
 if ($is_login) {

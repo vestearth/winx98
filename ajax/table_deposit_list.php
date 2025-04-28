@@ -31,38 +31,50 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
       $list['transfer_data'] = '-';
     }
 
-    if ($list['status'] == 'completed') {
-      $list['status_th'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
-      $list['status_complete'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
-      $list['status_waiting'] = '';
-    } else {
-      $list['status_th'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
-      $list['status_complete'] = '';
-      $list['status_waiting'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
-    }
+    // if ($list['status'] == 'completed') {
+    //   $list['status_th'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
+    //   $list['status_complete'] = Ty::get('creditreceived', [], ["case" => "ucfirst"]);
+    //   $list['status_waiting'] = '';
+    // } else {
+    //   $list['status_th'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
+    //   $list['status_complete'] = '';
+    //   $list['status_waiting'] = Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]);
+    // }
+
     $list['remark'] = ($list['remark']) ? $list['remark'] : '-';
+    $status = $list['status'];
+    if ($status == 'waiting_user') {
+      $text = 'รอผู้ใช้ทำรายการ';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_system') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
+    } else if ($status == 'success') {
+      $text = 'สำเร็จ';
+      $textClass = 'text-success';
+    } else if ($status == 'cancel') {
+      $text = 'ยกเลิก';
+      $textClass = 'text-danger';
+    } else if ($status == 'expired') {
+      $text = 'หมดอายุ';
+      $textClass = 'text-danger';
+    }
   ?>
     <tr class="cursor-pointer" <?php Tiwdal::register('modal_detail', $list); ?>>
       <td nowrap class="text-white">
         <div>
-          <?php echo Aww::formatDate($list['transaction_date_time'], 'd/m/Y, H:i'); ?>
+          <?php if (!empty($list['transaction_date_time'])): ?>
+            <?php echo Aww::formatDate($list['transaction_date_time'], 'd/m/Y, H:i'); ?>
+          <?php else: ?>
+            -
+          <?php endif; ?>
         </div>
       </td>
       <td nowrap class="text-end text-white"><?= number_format($list['credit_amount'], 2); ?></td>
       <td nowrap class="text-end ">
-        <?php if ($list['status'] == 'completed') { ?>
-          <div class="text-success">
-            <?= Ty::get('creditreceived', [], ["case" => "ucfirst"]) ?>
-          </div>
-        <?php } else if ($list['status'] == 'cancel') { ?>
-          <div class="text-danger">
-            <?= Ty::get('cancel', [], ['case' => 'ucfirst']) ?>
-          </div>
-        <?php } else { ?>
-          <div class="text-warning">
-            <?= Ty::get('waitingtobeprocessed', [], ["case" => "ucfirst"]) ?>
-          </div>
-        <?php } ?>
+        <div class="<?= $textClass; ?>">
+          <?= $text; ?>
+        </div>
       </td>
     </tr>
   <?php } ?>

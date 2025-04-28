@@ -41,21 +41,21 @@ function textFormat($text = '', $pattern = '', $ex = '')
     ];
     $user_log = nga_user::addNewUserLog($code, $data);
 
-    $customer_data = nga_user::getUserByID($code, $user_data['id']);
-    $get_auto_wd = nga_management::getAutoDepositWithdraw($code);
+    // $customer_data = nga_user::getUserByID($code, $user_data['id']);
+    // $get_auto_wd = nga_management::getAutoDepositWithdraw($code);
 
-    $check_bank_allow = nga_user::getBankNameByBankNo($code, $user_data['bank_abb'], $user_data['bank_number']);
-    $user_group = nga_management::getUserGroupByID($code, $user_data['user_group_id']);
-    $is_kbank = isset($user_group['withdraw_bank_abb']) ? $user_group['withdraw_bank_abb'] : false;
+    // $check_bank_allow = nga_user::getBankNameByBankNo($code, $user_data['bank_abb'], $user_data['bank_number']);
+    // $user_group = nga_management::getUserGroupByID($code, $user_data['user_group_id']);
+    // $is_kbank = isset($user_group['withdraw_bank_abb']) ? $user_group['withdraw_bank_abb'] : false;
 
     // New API 
-    $check_deposit = nga_bank_pg_api::checkDeposit($code, $user_data['id']);
+    $check_deposit = nga_bank_pg_deposit_api::checkDeposit($code, $user_data['id']);
     $check_deposit_response = isset($check_deposit['response_data']) ? $check_deposit['response_data'] : [];
     $transaction_status = is_array($check_deposit_response) && isset($check_deposit_response['transaction_status']) ? $check_deposit_response['transaction_status'] : '';
 
     if ($check_deposit['response_status'] == false) {
       Aww::notification($check_deposit['response_message'], 'error');
-      Aww::redirect('');
+      // Aww::redirect('');
     }
     if ($_POST) {
       if (isset($_POST['submit_deposit'])) {
@@ -63,14 +63,14 @@ function textFormat($text = '', $pattern = '', $ex = '')
           'user_id' => $user_data['id'],
           'credit_amount' => $_POST['credit_amount'],
         ];
-        $result = nga_bank_pg_api::addDeposit($code, $data);
+        $result = nga_bank_pg_deposit_api::addDeposit($code, $data);
       } else if (isset($_POST['submit_image'])) {
         $upload_image = isset($_FILES['upload_image']) ? $_FILES['upload_image'] : false;
-        $result = nga_bank_pg_api::verifyDeposit($code, $user_data['id'], $upload_image);
+        $result = nga_bank_pg_deposit_api::verifyDeposit($code, $user_data['id'], $upload_image);
         // Aww::display($result);
         // die();
       } else if (isset($_POST['submit_cancel_image'])) {
-        $result = nga_bank_pg_api::cancelDeposit($code, $user_data['id']);
+        $result = nga_bank_pg_deposit_api::cancelDeposit($code, $user_data['id']);
       }
       if (isset($result)) {
         $response_message = isset($response_message) ? $response_message : $result['response_message'];
@@ -301,7 +301,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
   </button>
   <div class="modal-body">
     <p class="detail font-16px text-center" style="white-space: pre-line">
-      <?= $get_auto_wd['withdraw_condition'] ?>
+      <? // $get_auto_wd['withdraw_condition'] 
+      ?>
     </p>
   </div>
   <div class="modal-footer">
@@ -355,7 +356,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
 
 
   <div class="menu-fix-right">
-    <a href="<?= $system_line['line_link'] ?>" target="_blank">
+    <a href="<? // $system_line['line_link'] 
+              ?>" target="_blank">
       <div class="menu-line">
         <div class="box-close event_close_fix_menu">
           <?= file_get_contents('assets/icon/close.svg') ?>
@@ -383,11 +385,13 @@ function textFormat($text = '', $pattern = '', $ex = '')
         // $('#modal_maintenance').modal('show');
       }
 
-      var bank_run = '<?= $check_bank_allow['account_name']; ?>';
-      var is_kbank = '<?= $is_kbank; ?>';
-      if (!bank_run && is_kbank == 'KBANK') {
-        $('#modal_kbank_condition').modal('show');
-      }
+      // var bank_run = '<? // $check_bank_allow['account_name']; 
+                          ?>';
+      // var is_kbank = '<? // $is_kbank; 
+                          ?>';
+      // if (!bank_run && is_kbank == 'KBANK') {
+      //   $('#modal_kbank_condition').modal('show');
+      // }
       $(document).on('keypress', '.event_check_int', function(event) {
         $(this).val($(this).val().replace(/[^\d].+/, ""));
         if ((event.which < 48 || event.which > 57)) {
