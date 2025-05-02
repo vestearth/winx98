@@ -116,16 +116,17 @@ $user_data['money_balance'] = 0;
             <div class="detail max-w-305px m-auto mt-15px">
               <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
               <ul>
-                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 2 //number_format($get_auto_wd['withdraw_minimum'], 2); 
+                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 100 //number_format($get_auto_wd['withdraw_minimum'], 2); 
                                                                               ?> <?= Ty::get('baht') ?></li>
-                <li><?= Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <?= 3 //number_format($get_auto_wd['withdraw_maximum'], 2); 
+                <li><? Ty::get('max_withdraw', [], ["case" => "ucfirst"]) ?> <? 3 //number_format($get_auto_wd['withdraw_maximum'], 2); 
                                                                               ?> / <?= Ty::get('times') ?></li>
-                <li><?= Ty::get('withdraw_amount') ?> <?= 4 //number_format($get_auto_wd['withdraw_limit_per_day'], 0); 
-                                                      ?> <?= Ty::get('times_day') ?> (<?= Ty::get('reset_mid') ?>)</li>
+                <li><? Ty::get('withdraw_amount') ?> <?= 4 //number_format($get_auto_wd['withdraw_limit_per_day'], 0); 
+                                                      ?> <?= Ty::get('times_day') ?> (<? Ty::get('reset_mid') ?>)</li>
               </ul>
             </div>
           </div>
         </div>
+        <?php /*
         <div class="card-turnover  mt-35px">
           <div class="w-100">
             <p class="font-14px font-SemiBold text-gold mb-5px"><?= Ty::get('turnover') ?></p>
@@ -139,6 +140,7 @@ $user_data['money_balance'] = 0;
             </div>
           </div>
         </div>
+         */ ?>
       </div>
       <div class="col-md-6">
         <div class="title-table">

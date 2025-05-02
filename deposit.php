@@ -174,9 +174,10 @@ function textFormat($text = '', $pattern = '', $ex = '')
                 <div class="detail max-w-305px m-auto mt-15px">
                   <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
                   <ul>
-                    <li>Mockup 1</li>
-                    <li>Mockup 2</li>
-                    <li>Mockup 3</li>
+                    <li>ฝากเงินขั้นต่ำ 100 บาท
+                    </li>
+                    <!-- <li>Mockup 2</li>
+                    <li>Mockup 3</li> -->
                   </ul>
                 </div>
               </div>

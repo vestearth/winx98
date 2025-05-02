@@ -67,7 +67,7 @@ $get_game_setting = [
   'is_open_arcade_game' => 1,
   'is_open_fishing_game' => 1,
   'is_open_sport_game' => 1,
-  'is_open_sportbook' => 0,
+  'is_open_sportbook' => 1,
   'is_open_lotto' => 0,
   'is_open_trading' => 1,
 ];
