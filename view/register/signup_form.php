@@ -31,7 +31,7 @@ foreach ($bank_config as $key => $data) {
   <div class="form-group">
     <label for="bank"><?= Ty::get('bank', [], ["case" => "ucfirst"]) ?></label>
     <div class="input-icon bank">
-      <select name="bank_id" class="event_select_bank empty" required>
+      <select name="bank_id" class="bank event_select_bank empty" required>
         <option value="" selected><?= Ty::get('bank_select') ?></option>
         <?php foreach ($options_bank['list'] as $bank) { ?>
           <option value="<?= $bank['value'] ?>"><?= $bank['name'] ?></option>

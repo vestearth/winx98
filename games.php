@@ -302,32 +302,35 @@ $system_line =  nga_management::getGeneralWebsite($code);
                   "PRAGMATIC_SLOT",
                   // "CG",
                 );
-                foreach ($game_group as $key => $game) {
-                  $condition_key = $key + 1;
-                  $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
-                  $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                  $game_img = 'assets/images/firm_game/' . $game . '.webp';
+                if ($type != 'SPORT') {
+                  foreach ($game_group as $key => $game) {
+                    // die();
+                    $condition_key = $key + 1;
+                    $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
+                    $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
+                    $game_img = 'assets/images/firm_game/' . $game . '.webp';
 
-                  $forForceCSS = '';
-                  // Check if the image file exists, use mockup image if not
-                  if (!file_exists($game_img)) {
-                    $game_img = 'assets/images/firm_game/mockup-game.png';
-                    $forForceCSS = 'set-mockup-img';
-                  }
+                    $forForceCSS = '';
+                    // Check if the image file exists, use mockup image if not
+                    if (!file_exists($game_img)) {
+                      $game_img = 'assets/images/firm_game/mockup-game.png';
+                      $forForceCSS = 'set-mockup-img';
+                    }
                 ?>
-                  <div class="<?= $col; ?>">
-                    <div class="w-100 d-flex justify-content-center">
-                      <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px <?= $forForceCSS; ?>" firm_name="<?= $game; ?>">
-                        <img src="<?= $game_img; ?>" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
-                        <?php if ($forForceCSS) { ?>
-                          <div class="txt-preview">
-                            <?= $game; ?>
-                          </div>
-                        <?php } ?>
+                    <div class="<?= $col; ?>">
+                      <div class="w-100 d-flex justify-content-center">
+                        <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px <?= $forForceCSS; ?>" firm_name="<?= $game; ?>">
+                          <img src="<?= $game_img; ?>" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
+                          <?php if ($forForceCSS) { ?>
+                            <div class="txt-preview">
+                              <?= $game; ?>
+                            </div>
+                          <?php } ?>
+                        </div>
                       </div>
                     </div>
-                  </div>
                 <?php
+                  }
                 }
                 ?>
                 <?php if ($type == 'SPORT' && $get_game_setting['is_open_sportbook'] == 1) {

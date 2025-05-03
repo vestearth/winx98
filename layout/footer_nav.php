@@ -16,7 +16,7 @@ function renderFooterNav()
         <div>เล่นเกม</div>
       </div>
     </a>
-    <a href="#" style="text-decoration: none;">
+    <a href="wallet.php" style="text-decoration: none;">
       <div class="item">
         <img src="source/icon-wallet.svg" alt="กระเป๋า">
         <div>กระเป๋า</div>
@@ -39,7 +39,7 @@ function renderFooterNav()
     $links = [
       ["หน้าแรก", "source/icon-home-menu.svg", "index.php"],
       ["เล่นเกม", "source/icon-gaming-menu.svg", "games.php"],
-      ["กระเป๋าเงิน", "source/icon-wallet-menu.svg", "#"],
+      ["กระเป๋าเงิน", "source/icon-wallet-menu.svg", "wallet.php"],
       ["ฝากเงิน", "source/icon-deposit-menu.svg", "deposit.php"],
       ["ถอนเงิน", "source/icon-withdraw-menu.svg", "withdraw.php"],
       ["โปรโมชั่น", "source/icon-promotion-menu.svg", "promotion.php"],

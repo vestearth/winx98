@@ -117,6 +117,11 @@
     option:hover {
       background-color: #5F1F62 !important;
     }
+
+    &.bank {
+      min-height: 53px;
+      height: auto; // Added fallback height
+    }
   }
 
   &.user {
@@ -145,6 +150,7 @@
       background: url(../icon/dark-safebox.svg) no-repeat center;
     }
   }
+
   &.aff {
     &::after {
       background: url(../icon/dark-photo.svg) no-repeat center;
@@ -283,8 +289,8 @@
 .btn-main {
   border: 1px solid #76060B !important;
   // background: radial-gradient(circle, #CC00D3 0%, #CC00D2 10%, #320134 100%);
-  background: rgb(118,6,11);
-  background: linear-gradient(180deg, rgba(118,6,11,1) 0%, rgba(59,3,6,1) 100%);
+  background: rgb(118, 6, 11);
+  background: linear-gradient(180deg, rgba(118, 6, 11, 1) 0%, rgba(59, 3, 6, 1) 100%);
   border: 1px solid #37210A !important;
   border-radius: 5px;
   color: #ffffff;
@@ -422,6 +428,7 @@
   color: #F5EABE;
   font-size: 16px;
   padding: 15px;
+
   &.style2 {
     background: #260B0B;
   }
@@ -478,6 +485,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     &.unposition {
       position: unset;
     }
@@ -524,7 +532,7 @@
   justify-content: center;
   height: 75px;
   border-radius: 15px;
-  background: #521D1D ;
+  background: #521D1D;
   color: #F5EABE;
   cursor: pointer;
   position: relative;
@@ -1815,7 +1823,7 @@
       bottom: 0;
       right: 0;
       background: #CC00D2;
-      background: linear-gradient(180deg, rgba(189, 101, 192,0.5) 0%, rgba(204, 0, 210,0.5) 100%);
+      background: linear-gradient(180deg, rgba(189, 101, 192, 0.5) 0%, rgba(204, 0, 210, 0.5) 100%);
       padding: 10px;
       text-align: center;
       min-width: 140px;
@@ -3408,7 +3416,8 @@
       white-space: nowrap;
       text-shadow: 0 0 5px #000000;
       color: #FFFFFF;
-      .gold-text, 
+
+      .gold-text,
       .amount {
         color: #F3D17C;
       }
@@ -3746,6 +3755,7 @@ section.game {
         background: url('../images/landing/game-08.webp?v=2') no-repeat center;
         background-size: contain;
       }
+
       &.game-09 {
         background: url('../images/landing/game-09.webp?v=2') no-repeat center;
         background-size: contain;
@@ -4561,10 +4571,11 @@ footer {
       }
 
       &.active {
-        .game-menu-name { 
+        .game-menu-name {
           color: rgba(255, 255, 255, 1);
           font-weight: 600;
         }
+
         &::before {
           content: '';
           position: absolute;
@@ -4634,12 +4645,13 @@ footer {
         }
 
         &.active {
-            .game-menu-name { 
+          .game-menu-name {
             color: rgba(255, 255, 255, 1) !important;
             text-shadow: 0 0 5px #ffffff, 0 0 10px rgb(118, 6, 11), 0 0 15px rgb(118, 6, 11), 0 0 20px rgb(118, 6, 11);
 
             font-weight: 700 !important;
           }
+
           &::before {
             border-radius: 10px;
           }
