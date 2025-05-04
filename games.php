@@ -25,60 +25,69 @@ $type_game = [
   ],
 ];
 $type_game_template = [
-  'CARD' => [
-    'name' => Ty::get('card'),
-    'img' => 'assets/images/games/game-001.webp',
-    'ordering' => 5
-  ],
-  'BOARD' => [
-    'name' => Ty::get('board'),
-    'img' => 'assets/images/games/game-002.webp',
-    'ordering' => 6
-  ],
-  'SLOT' => [
-    'name' => Ty::get('slot'),
-    'img' => 'assets/images/games/game-003.webp',
-    'ordering' => 2
-  ],
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
+    'typeName' => 'CASINOLIVE',
     'img' => 'assets/images/games/game-006.webp',
     'ordering' => 1
   ],
-  'ARCADE' => [
-    'name' => Ty::get('arcade'),
-    'img' => 'assets/images/games/game-004.webp',
-    'ordering' => 5
+  'SLOT' => [
+    'name' => Ty::get('slot'),
+    'typeName' => 'SLOT',
+    'img' => 'assets/images/games/game-003.webp',
+    'ordering' => 2,
   ],
-  'FISHING' => [
-    'name' => Ty::get('fishing'),
-    'img' => 'assets/images/games/game-005.webp',
-    'ordering' => 4
-  ],
-  'LOTTO' => [
-    'name' => Ty::get('lottery'),
-    'img' => 'assets/images/games/game-008.webp',
-    'ordering' => 7
-  ],
-  'SPORT' => [
+  'SPORTBOOK' => [
     'name' => Ty::get('sport'),
+    'typeName' => 'SPORTBOOK',
     'img' => 'assets/images/games/game-007.webp',
     'ordering' => 3
   ],
+  'FISHING' => [
+    'name' => Ty::get('fishing'),
+    'typeName' => 'FISHING',
+    'img' => 'assets/images/games/game-005.webp',
+    'ordering' => 4
+  ],
+  'ARCADE' => [
+    'name' => Ty::get('arcade'),
+    'typeName' => 'ARCADE',
+    'img' => 'assets/images/games/game-004.webp',
+    'ordering' => 5
+  ],
+  'CARD' => [
+    'name' => Ty::get('card'),
+    'typeName' => 'CARD',
+    'img' => 'assets/images/games/game-001.webp',
+    'ordering' => 6
+  ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/images/games/game-002.webp',
+    'ordering' => 7
+  ],
+  'LOTTO' => [
+    'name' => Ty::get('lottery'),
+    'typeName' => 'LOTTO',
+    'img' => 'assets/images/games/game-008.webp',
+    'ordering' => 8
+  ],
+
 ];
 
-$get_game_setting = [
-  'is_open_card_game' => 1,
-  'is_open_board_game' => 1,
-  'is_open_slot_game' => 1,
-  'is_open_casinolive_game' => 1,
-  'is_open_arcade_game' => 1,
-  'is_open_fishing_game' => 1,
-  'is_open_sport_game' => 1,
-  'is_open_sportbook' => 1,
-  'is_open_lotto' => 0,
-  'is_open_trading' => 1,
-];
+// $get_game_setting = [
+//   'is_open_card_game' => 1,
+//   'is_open_board_game' => 1,
+//   'is_open_slot_game' => 1,
+//   'is_open_casinolive_game' => 1,
+//   'is_open_arcade_game' => 1,
+//   'is_open_fishing_game' => 1,
+//   'is_open_sport_game' => 1,
+//   'is_open_sportbook' => 1,
+//   'is_open_lotto' => 0,
+//   'is_open_trading' => 1,
+// ];
 
 $get_game_setting = nga_management::getGameActiveStatus($code);
 
@@ -100,16 +109,16 @@ if ($get_game_setting['is_open_arcade_game'] == 0) {
 if ($get_game_setting['is_open_fishing_game'] == 0) {
   unset($type_game_template['FISHING']);
 }
-if ($get_game_setting['is_open_sport_game'] == 0 && $get_game_setting['is_open_sportbook'] == 0) {
-  unset($type_game_template['SPORT']);
-}
+// if ($get_game_setting['is_open_sport_game'] == 0 && $get_game_setting['is_open_sportbook_game'] == 0) {
+//   unset($type_game_template['SPORTBOOK']);
+// }
 if ($get_game_setting['is_open_lotto'] == 0) {
   unset($type_game_template['LOTTO']);
 }
 
-if ($get_game_setting['is_open_sportbook'] == 0) {
+if ($get_game_setting['is_open_sportbook_game'] == 0) {
   // unset($type_game_template['SOCCER']);
-  unset($type_game_template['SPORT']);
+  unset($type_game_template['SPORTBOOK']);
 }
 $temp_type = '';
 foreach ($type_game_template as $key => $value) {
@@ -232,13 +241,13 @@ $system_line =  nga_management::getGeneralWebsite($code);
           <div class="game-menu-group">
             <?php
             // Sort the $type_game_template array by the 'ordering' key in ascending order
-            usort($type_game_template, function ($a, $b) {
-              return $a['ordering'] <=> $b['ordering'];
-            });
+            // usort($type_game_template, function ($a, $b) {
+            //   return $a['ordering'] <=> $b['ordering'];
+            // });
 
             foreach ($type_game_template as $key => $type_games) {
             ?>
-              <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
+              <a href="?type=<?= $key; ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
                 <div class="game-menu-image">
                   <img src="<?= $type_games['img'] ?>" alt="<?= $type_games['name']; ?>">
                 </div>
@@ -317,38 +326,37 @@ $system_line =  nga_management::getGeneralWebsite($code);
                   "PRAGMATIC_SLOT",
                   // "CG",
                 );
-                if ($type != 'SPORT') {
-                  foreach ($game_group as $key => $game) {
-                    // die();
-                    $condition_key = $key + 1;
-                    $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
-                    $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                    $game_img = 'assets/images/firm_game/' . $game . '.webp';
+                // if ($type != 'SPORT') {
+                foreach ($game_group as $key => $game) {
+                  $condition_key = $key + 1;
+                  $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
+                  $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
+                  $game_img = 'assets/images/firm_game/' . $game . '.webp';
 
-                    $forForceCSS = '';
-                    // Check if the image file exists, use mockup image if not
-                    if (!file_exists($game_img)) {
-                      $game_img = 'assets/images/firm_game/mockup-game.png';
-                      $forForceCSS = 'set-mockup-img';
-                    }
+                  $forForceCSS = '';
+                  // Check if the image file exists, use mockup image if not
+                  if (!file_exists($game_img)) {
+                    $game_img = 'assets/images/firm_game/mockup-game.png';
+                    $forForceCSS = 'set-mockup-img';
+                  }
                 ?>
-                    <div class="<?= $col; ?>">
-                      <div class="w-100 d-flex justify-content-center">
-                        <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px <?= $forForceCSS; ?>" firm_name="<?= $game; ?>">
-                          <img src="<?= $game_img; ?>" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
-                          <?php if ($forForceCSS) { ?>
-                            <div class="txt-preview">
-                              <?= $game; ?>
-                            </div>
-                          <?php } ?>
-                        </div>
+                  <div class="<?= $col; ?>">
+                    <div class="w-100 d-flex justify-content-center">
+                      <div class="firm-game-list-img even_firm_lists cursor-pointer mb-10px <?= $forForceCSS; ?>" firm_name="<?= $game; ?>">
+                        <img src="<?= $game_img; ?>" class="img-responsive" loading="<?= $loading; ?>" alt="<?= $game; ?>">
+                        <?php if ($forForceCSS) { ?>
+                          <div class="txt-preview">
+                            <?= $game; ?>
+                          </div>
+                        <?php } ?>
                       </div>
                     </div>
+                  </div>
                 <?php
-                  }
                 }
+                // }
                 ?>
-                <?php if ($type == 'SPORT' && $get_game_setting['is_open_sportbook'] == 1) {
+                <?php /* if ($type == 'SPORT' && $get_game_setting['is_open_sportbook'] == 1) {
                   $soccer_callback = nga_api_seamless_sbobet::loginSbobetSession($code);
                   $soccer_data = isset($soccer_callback['response_data']) ? $soccer_callback['response_data'] : [];
                 ?>
@@ -361,7 +369,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
                       </a>
                     </div>
                   </div>
-                <?php } ?>
+                <?php } */ ?>
               </div>
             </div>
           </div>
