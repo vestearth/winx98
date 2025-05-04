@@ -80,7 +80,7 @@ $get_game_setting = [
   'is_open_trading' => 1,
 ];
 
-// $get_game_setting = nga_management::getGameActiveStatus($code);
+$get_game_setting = nga_management::getGameActiveStatus($code);
 
 if ($get_game_setting['is_open_card_game'] == 0) {
   unset($type_game_template['CARD']);
