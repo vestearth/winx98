@@ -27,35 +27,43 @@ $type_game = [
 $type_game_template = [
   'CARD' => [
     'name' => Ty::get('card'),
-    'img' => 'assets/images/games/game-001.webp'
+    'img' => 'assets/images/games/game-001.webp',
+    'ordering' => 5
   ],
   'BOARD' => [
     'name' => Ty::get('board'),
-    'img' => 'assets/images/games/game-002.webp'
+    'img' => 'assets/images/games/game-002.webp',
+    'ordering' => 6
   ],
   'SLOT' => [
     'name' => Ty::get('slot'),
-    'img' => 'assets/images/games/game-003.webp'
+    'img' => 'assets/images/games/game-003.webp',
+    'ordering' => 2
   ],
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
-    'img' => 'assets/images/games/game-006.webp'
+    'img' => 'assets/images/games/game-006.webp',
+    'ordering' => 1
   ],
   'ARCADE' => [
     'name' => Ty::get('arcade'),
-    'img' => 'assets/images/games/game-004.webp'
+    'img' => 'assets/images/games/game-004.webp',
+    'ordering' => 5
   ],
   'FISHING' => [
     'name' => Ty::get('fishing'),
-    'img' => 'assets/images/games/game-005.webp'
+    'img' => 'assets/images/games/game-005.webp',
+    'ordering' => 4
   ],
   'LOTTO' => [
     'name' => Ty::get('lottery'),
-    'img' => 'assets/images/games/game-008.webp'
+    'img' => 'assets/images/games/game-008.webp',
+    'ordering' => 7
   ],
   'SPORT' => [
     'name' => Ty::get('sport'),
-    'img' => 'assets/images/games/game-007.webp'
+    'img' => 'assets/images/games/game-007.webp',
+    'ordering' => 3
   ],
 ];
 
@@ -222,7 +230,14 @@ $system_line =  nga_management::getGeneralWebsite($code);
 
         <div class="game-menu-responsive show-on-desktop">
           <div class="game-menu-group">
-            <?php foreach ($type_game_template as $key => $type_games) { ?>
+            <?php
+            // Sort the $type_game_template array by the 'ordering' key in ascending order
+            usort($type_game_template, function ($a, $b) {
+              return $a['ordering'] <=> $b['ordering'];
+            });
+
+            foreach ($type_game_template as $key => $type_games) {
+            ?>
               <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
                 <div class="game-menu-image">
                   <img src="<?= $type_games['img'] ?>" alt="<?= $type_games['name']; ?>">
