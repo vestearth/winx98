@@ -42,9 +42,9 @@ function renderFooterNav()
       ["กระเป๋าเงิน", "source/icon-wallet-menu.svg", "wallet.php"],
       ["ฝากเงิน", "source/icon-deposit-menu.svg", "deposit.php"],
       ["ถอนเงิน", "source/icon-withdraw-menu.svg", "withdraw.php"],
-      ["โปรโมชั่น", "source/icon-promotion-menu.svg", "promotion.php"],
+      // ["โปรโมชั่น", "source/icon-promotion-menu.svg", "promotion.php"],
       ["คืนยอดเสีย", "source/icon-refund-menu.svg", "refund.php"],
-      ["สร้างรายได้", "source/icon-earning-menu.svg", "earning.php"],
+      // ["สร้างรายได้", "source/icon-earning-menu.svg", "earning.php"],
       ["ข้อมูลส่วนตัว", "source/icon-profile-menu.svg", "user.php"],
       ["ติดต่อเรา", "source/icon-contact-menu.svg", "#"],
       ["แสดงความคิดเห็น", "source/icon-comment-menu.svg", "comment.php"]
