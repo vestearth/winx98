@@ -506,9 +506,8 @@
 }
 
 .set-mockup-img {
-  max-height: 208px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
 }
 .set-mockup-img img {

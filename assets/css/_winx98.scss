@@ -536,9 +536,9 @@
 
 
 .set-mockup-img {
-  max-height: 208px;
+  // max-height: 208px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
   img {
     object-fit: cover;

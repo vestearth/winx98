@@ -336,7 +336,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
                   if (!file_exists($game_img)) {
-                    $game_img = 'assets/images/firm_game/mockup-game.png';
+                    $game_img = 'assets/images/firm_game/DEFAULT.webp';
                     $forForceCSS = 'set-mockup-img';
                   }
                 ?>
