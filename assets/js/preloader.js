@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to handle link clicks
   function redirectHref(link) {
     // Show preloader on link click
-    showPreloader();
+    // showPreloader();
 
     // Check if the link has a data-link attribute
     if (link.getAttribute("data-link")) {
