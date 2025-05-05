@@ -45,6 +45,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
   <?php
   Structure::loadMeta('', $og_data);
   Aww::loadAsset('assets/css/main.css');
+  Aww::loadAsset('assets/css/custom.css');
   ?>
 </head>
 
