@@ -1340,14 +1340,14 @@
 }
 .card-comment textarea {
   width: 100%;
-  background: #B25E5E;
+  background: #411313;
   border-radius: 5px;
   margin-bottom: 15px;
   border: none;
   outline: none !important;
   font-weight: 200;
   padding: 10px;
-  color: #E57F9B;
+  color: #FFFFFF;
 }
 .card-comment textarea::-moz-placeholder {
   color: #c5798d;
@@ -1368,7 +1368,7 @@
 .file-custom .btn-upload-file {
   border: none !important;
   border: 0px !important;
-  background: #320134;
+  background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%) !important;
   color: #FFFFFF;
 }
 .file-custom .btn-upload-file svg path {
@@ -2963,8 +2963,8 @@
   border: 2px solid transparent;
 }
 .rating-radio label:hover {
-  border-color: #F428FA;
-  box-shadow: 0 4px 3px rgba(243, 40, 250, 0.5), 0 3px 3px rgba(243, 40, 250, 0.5) inset;
+  border-color: #FFF;
+  box-shadow: 0 4px 3px rgba(118, 6, 11, 0.5), 0 3px 3px rgba(118, 6, 11, 0.5) inset;
 }
 .rating-radio label img {
   width: 45px;
@@ -2974,8 +2974,8 @@
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
 }
 .rating-radio input:checked + label {
-  border-color: #F428FA;
-  box-shadow: 0 4px 3px rgba(243, 40, 250, 0.5), 0 3px 3px rgba(243, 40, 250, 0.5) inset;
+  border-color: #FFF;
+  box-shadow: 0 4px 3px rgba(118, 6, 11, 0.5), 0 3px 3px rgba(118, 6, 11, 0.5) inset;
 }
 .rating-radio:nth-child(1) label {
   color: #C3FDBA;

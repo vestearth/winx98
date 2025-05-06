@@ -1566,14 +1566,14 @@
 
   textarea {
     width: 100%;
-    background: #B25E5E;
+    background: #411313;
     border-radius: 5px;
     margin-bottom: 15px;
     border: none;
     outline: none !important;
     font-weight: 200;
     padding: 10px;
-    color: #E57F9B;
+    color: #FFFFFF;
 
     &::placeholder {
       color: #c5798d;
@@ -1596,7 +1596,8 @@
   .btn-upload-file {
     border: none !important;
     border: 0px !important;
-    background: #320134;
+    // background: #320134;
+    background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%) !important;
     color: #FFFFFF;
 
     svg {
@@ -3466,8 +3467,8 @@
     border: 2px solid transparent;
 
     &:hover {
-      border-color: #F428FA;
-      box-shadow: 0 4px 3px rgba(243, 40, 250, 0.5), 0 3px 3px rgba(243, 40, 250, 0.5) inset;
+      border-color: #FFF;
+      box-shadow: 0 4px 3px rgba(118, 6, 11, 0.5), 0 3px 3px rgba(118, 6, 11, 0.5) inset;
     }
 
     img {
@@ -3480,8 +3481,10 @@
   }
 
   input:checked+label {
-    border-color: #F428FA;
-    box-shadow: 0 4px 3px rgba(243, 40, 250, 0.5), 0 3px 3px rgba(243, 40, 250, 0.5) inset;
+    // border-color: #F428FA;
+    // box-shadow: 0 4px 3px rgba(243, 40, 250, 0.5), 0 3px 3px rgba(243, 40, 250, 0.5) inset;
+    border-color: #FFF;
+    box-shadow: 0 4px 3px rgba(118, 6, 11, 0.5), 0 3px 3px rgba(118, 6, 11, 0.5) inset;
   }
 
   &:nth-child(1) {
