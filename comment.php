@@ -200,7 +200,7 @@ $rating_list = [
                   <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
                 </a>
                 <button type="submit" class="btn btn-sub" type="submit" name="submit_comment">
-                  <?= Ty::get('confirm') ?>
+                  <?= 'ยืนยันความคิดเห็น'; ?>
                 </button>
               </div>
             </form>

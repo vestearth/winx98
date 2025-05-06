@@ -1328,7 +1328,7 @@
 }
 
 .card-comment {
-  background: #160117;
+  background: #280C0C;
   border-radius: 10px;
   padding: 15px;
   color: #fff;
@@ -1340,7 +1340,7 @@
 }
 .card-comment textarea {
   width: 100%;
-  background: #320134;
+  background: #B25E5E;
   border-radius: 5px;
   margin-bottom: 15px;
   border: none;
