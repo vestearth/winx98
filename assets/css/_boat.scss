@@ -746,7 +746,7 @@
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    // background: #fff;
     // height: 390px;
     display: flex;
     justify-content: center;
@@ -795,13 +795,13 @@
   .swiper-pagination-bullet {
     height: 3px !important;
     width: 10px !important;
-    background-color: #E57F9B !important;
+    background-color: #411808 !important;
     border-radius: 3px !important;
     opacity: 1 !important;
 
     &.swiper-pagination-bullet-active {
       width: 20px !important;
-      background-color: #CD00D3 !important;
+      background-color: #70060A !important;
     }
   }
 
@@ -810,7 +810,7 @@
     top: 57%;
 
     &::after {
-      color: #CD00D3;
+      color: #70060A;
     }
   }
 

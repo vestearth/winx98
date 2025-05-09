@@ -64,7 +64,8 @@ $this_page = 'index';
               <? // = $runnertext['full_text']; 
               ?>
               <?php
-              $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
+              $text = $runnertext['full_text'];
+              // $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
               $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
               echo $text;
               ?>
@@ -74,11 +75,33 @@ $this_page = 'index';
       </div>
     <?php } ?>
     <div class="row">
-      <div class="col-12">
+      <div class="col-md-12 banner">
+        <div class="outlaw-swiper full-size-banner">
+          <div class="swiper bannerSwiper pos-rel mt-0">
+            <div class="swiper-wrapper">
+              <?php
+              if ($banner) {
+                foreach ($banner as $banner_index) {
+              ?>
+                  <div class="swiper-slide">
+                    <img src="<?= $banner_index['banner_image']; ?>">
+                  </div>
+              <?php
+                }
+              }
+              ?>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-12">
         <div class="full-size-banner">
           <img src="source/full_banner.png" alt="Full Size Banner" class="">
         </div>
-      </div>
+      </div> -->
       <div class="col-lg-12 mt-15px">
         <div class="profile border unset-bottom-radius">
           <div class="profile-detail">
