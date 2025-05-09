@@ -1,0 +1,265 @@
+:root {
+  --bg-color: #EEEEED;
+  --bg-card: #FBFBFB;
+  --bg-card-optional-1: #D5D5D5;
+  --bg-card-optional-2: #DEDEDE;
+  --bg-card-navbar: #E6E6E6;
+  --bg-card-back: #DADEE3;
+  --bg-table: #F7F7F7;
+  --bg-table-hover: #E6E6E6;
+  --bg-hover-optional-1: #F5F5F5;
+  --bg-hover-optional-2: #EAEAEA;
+  --color-line: #DADEE3;
+  --color-field: #D0D6DD;
+  --color-field-active: #5C9CFF;
+  --color-info: #3A4248;
+  --color-secondary: #58606E;
+  --color-place-holder: #9CA2A8;
+  --color-primary: #3E88FB;
+  --color-success: #0BAA22;
+  --color-warning: #FFBD3A;
+  --color-danger: #FE635B;
+  --color-light: #E6E6E6;
+  --color-dark: #000000;
+  --color-sub-table: #F2F2F2;
+  --color-active-table: #DAE7FB;
+  --color-search-border: #CED2D5;
+  --color-dark-or-light: #ffffff;
+  --v2-color-text-info: #202125;
+  --v2-color-text-secondary: #676A6F;
+  --v2-color-text-placeholder: #979898;
+  --v2-color-border-input: #B3D7FF;
+  --v2-color-select-input: #E3F5FF;
+  --v2-color-hover: #ECF3F7;
+  --v2-color-border: #DBDCDF;
+  --v2-color-bg-card: #FFFFFF;
+  --v2-color-bg: #F1F3F4;
+  --v2-color-optional-1: #C8E9FC;
+  --v2-color-table-secondary: #F8F8F8;
+  --v2-color-table-disable: #EDEDED;
+  --v2-color-info: #202125;
+  --v2-color-info-hover: #3A4248;
+  --v2-color-secondary: #676A6F;
+  --v2-color-secondary-hover: #58606E;
+  --v2-color-primary: #3872E1;
+  --v2-color-primary-hover: #004EE2;
+  --v2-color-success: #1FA700;
+  --v2-color-success-hover: #198B00;
+  --v2-color-warning: #FFAD00;
+  --v2-color-warning-hover: #FFC400;
+  --v2-color-danger: #ED4234;
+  --v2-color-danger-hover: #DE1100;
+}
+
+[data-theme='dark'] {
+  --bg-color: #232B32;
+  --bg-card: #2E373D;
+  --bg-card-optional-1: #1B2126;
+  --bg-card-optional-2: #282E33;
+  --bg-card-navbar: #3A4248;
+  --bg-card-back: #2A3238;
+  --bg-table: #2E373D;
+  --bg-table-hover: #3A4248;
+  --bg-hover-optional-1: #1B2126;
+  --bg-hover-optional-2: #1B2126;
+  --color-line: #2A3238;
+  --color-field: #454C52;
+  --color-field-active: #89B3F7;
+  --color-info: #DADBE0;
+  --color-secondary: #A5AABE;
+  --color-place-holder: #778396;
+  --color-primary: #3E88FB;
+  --color-success: #31C947;
+  --color-warning: #FFBD3A;
+  --color-danger: #FE635B;
+  --color-light: #3A4248;
+  --color-dark: #FFFFFF;
+  --color-sub-table: #3A4248;
+  --color-active-table: #354d70;
+  --color-search-border: #CED2D5;
+  --color-dark-or-light: #000000;
+  --v2-color-text-info: #FFFFFF;
+  --v2-color-text-secondary: #9CA2AC;
+  --v2-color-text-placeholder: #3F454E;
+  --v2-color-border-input: #1A2F58;
+  --v2-color-select-input: #2C3341;
+  --v2-color-hover: #111117;
+  --v2-color-border: #2C2D2F;
+  --v2-color-bg-card: #17171C;
+  --v2-color-bg: #121215;
+  --v2-color-optional-1: #222E45;
+  --v2-color-table-secondary: #1A1A1F;
+  --v2-color-table-disable: #1B1D21;
+  --v2-color-info: #FFFFFF;
+  --v2-color-info-hover: #DADBE0;
+  --v2-color-secondary: #9CA2AC;
+  --v2-color-secondary-hover: #A5AABE;
+  --v2-color-primary: #245CC7;
+  --v2-color-primary-hover: #3872E1;
+  --v2-color-success: #198B00;
+  --v2-color-success-hover: #1FA700;
+  --v2-color-warning: #FFAD00;
+  --v2-color-warning-hover: #FFC400;
+  --v2-color-danger: #DE1100;
+  --v2-color-danger-hover: #ED4234;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--v2-color-text-info);
+  transition: all 0.3s;
+}
+
+
+
+.w-card {
+  background-color: var(--v2-color-bg-card);
+  width: 100%;
+  min-height: 88vmin;
+  transition: ease 0.3s;
+
+  .w-card-title-bar {
+    min-height: 50px;
+    height: 100%;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--v2-color-border);
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--v2-color-text-info);
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+
+    .detail {
+      margin-right: auto;
+      color: var(--v2-color-text-secondary);
+      margin-bottom: 0;
+      padding: 9px 0px 5px;
+    }
+
+    .btn-edit-container {
+      display: flex;
+      min-width: 150px;
+      border-left: 1px solid var(--v2-color-border);
+      text-align: center;
+      height: auto;
+
+      .btn-edit {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        transition: ease 0.3s;
+        border: none;
+        outline: none;
+
+        &.edit {
+          width: 100%;
+          color: var(--v2-color-primary);
+          text-transform: uppercase;
+          background-color: transparent;
+
+          &:hover {
+            color: var(--color-dark-or-light);
+            background-color: var(--v2-color-info);
+          }
+        }
+
+        &.cancel {
+          width: 100px;
+          color: var(--v2-color-text-secondary);
+          text-transform: capitalize;
+
+          &:hover {
+            background-color: var(--v2-color-bg);
+          }
+        }
+
+        &.save {
+          outline: none !important;
+          border: none !important;
+          width: 120px;
+          color: #ffffff;
+          background-color: var(--v2-color-primary);
+          text-transform: uppercase;
+
+          &:hover {
+            background-color: var(--v2-color-primary-hover);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+$colors: 'info', 'secondary', 'primary', 'success', 'warning', 'danger';
+
+@each $color in $colors {
+  .text-#{$color} {
+    color: var(--v2-color-#{$color}) !important;
+  }
+}
+
+@each $color in $colors {
+  .bg-#{$color} {
+    background-color: var(--v2-color-#{$color}) !important;
+  }
+}
+
+@mixin color_text_btn($color) {
+
+  @if $color ==info {
+    color: var(--color-dark-or-light) !important;
+  }
+}
+
+@each $color in $colors {
+  .btn-#{$color} {
+    @include color_text_btn($color);
+    background-color: var(--v2-color-#{$color}) !important;
+    border-color: var(--v2-color-#{$color}) !important;
+
+    &:hover {
+      background-color:var(--v2-color-#{$color}-hover) !important;
+    }
+  }
+
+  .btn-outline-#{$color} {
+    color: var(--v2-color-#{$color});
+    border-color: var(--v2-color-#{$color}) !important;
+
+    &:hover {
+      background-color:var(--v2-color-#{$color}) !important;
+    }
+  }
+}
+
+
+.switch-color-mode {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+
+  .icon-mode {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+
+    svg {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

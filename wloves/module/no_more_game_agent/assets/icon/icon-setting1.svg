@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.21" height="15" viewBox="0 0 13.21 15">
+  <g id="Group_83850" data-name="Group 83850" transform="translate(-38.123 -155)">
+    <path id="post-it" d="M43.75,1.928a.439.439,0,0,0-.439-.439H42.143a1.611,1.611,0,0,0-3.212,0H32.784a.439.439,0,0,0-.439.439V3.293H30.979a.439.439,0,0,0-.439.439V14.56a.439.439,0,0,0,.439.439H41.506a.439.439,0,0,0,.439-.439V11.692l1.676-1.676a.439.439,0,0,0,.128-.292c0-.006,0-.012,0-.019V1.928ZM40.537.879a.732.732,0,1,1-.732.732.733.733,0,0,1,.732-.732ZM33.223,2.368h5.891l.016.029L37.969,3.558a.439.439,0,1,0,.621.621l1.162-1.162a1.609,1.609,0,0,0,2.207-.65h.912v6.9H40.26a.439.439,0,0,0-.439.439v2.611h-6.6Zm7.843,11.753H31.419V4.172h.926v8.583a.439.439,0,0,0,.439.439H40.26l.035,0a.439.439,0,0,0,.276-.127l.5-.5v1.55ZM41.2,11.2h0l-.5.5v-1.55h1.55Z" transform="translate(7.583 155)" fill="#3a4248"/>
+    <g id="Rectangle_102394" data-name="Rectangle 102394" transform="translate(42 164)" fill="#fff" stroke="#3a4248" stroke-width="1">
+      <rect width="5" height="1" rx="0.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="4" fill="none"/>
+    </g>
+    <g id="Rectangle_102395" data-name="Rectangle 102395" transform="translate(42 162)" fill="#fff" stroke="#3a4248" stroke-width="1">
+      <rect width="7" height="1" rx="0.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="6" fill="none"/>
+    </g>
+    <g id="Rectangle_102396" data-name="Rectangle 102396" transform="translate(42 160)" fill="#fff" stroke="#3a4248" stroke-width="1">
+      <rect width="7" height="1" rx="0.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="6" fill="none"/>
+    </g>
+  </g>
+</svg>

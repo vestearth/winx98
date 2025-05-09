@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="Group_58870" data-name="Group 58870" transform="translate(-1174 -110)">
+    <rect id="Rectangle_73200" data-name="Rectangle 73200" width="35" height="35" rx="5" transform="translate(1174 110)" fill="#3a4248"/>
+    <g id="up-and-down-arrows-button" transform="translate(1180.633 118)">
+      <g id="Group_58869" data-name="Group 58869" transform="translate(1.367)">
+        <path id="Path_80990" data-name="Path 80990" d="M11.942,62.26a.4.4,0,0,0,.4.4H26.668a.4.4,0,0,0,.4-.4V53.591H11.942Zm4.447-6.067a.382.382,0,0,1,.344-.215h5.548a.382.382,0,0,1,.3.619l-2.774,3.526a.383.383,0,0,1-.6,0L16.432,56.6a.381.381,0,0,1-.043-.4Z" transform="translate(-9.786 -42.663)" fill="#89b3f7"/>
+        <path id="Path_80991" data-name="Path 80991" d="M27.072.4a.4.4,0,0,0-.4-.4H12.346a.4.4,0,0,0-.4.4V9.072H27.072V.4ZM22.626,6.47a.382.382,0,0,1-.344.215H16.733a.382.382,0,0,1-.3-.618l2.774-3.527a.383.383,0,0,1,.6,0l2.774,3.527a.383.383,0,0,1,.043.4Z" transform="translate(-9.786)" fill="#89b3f7"/>
+        <path id="Path_80992" data-name="Path 80992" d="M87.99,44.487H86.136v1.856H87.99a.3.3,0,0,0,.3-.3V44.789A.3.3,0,0,0,87.99,44.487Z" transform="translate(-68.85 -35.415)" fill="#89b3f7"/>
+        <path id="Path_80993" data-name="Path 80993" d="M1.669,44.485a.3.3,0,0,0-.3.3v1.252a.3.3,0,0,0,.3.3H3.524V44.485Z" transform="translate(-1.367 -35.414)" fill="#89b3f7"/>
+      </g>
+    </g>
+  </g>
+</svg>

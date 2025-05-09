@@ -1,0 +1,16 @@
+@import "theme";
+@import "core";
+
+body {
+  @import "forms_switch";
+  @import "forms_radio";
+  @import "forms_checkbox";
+  @import "forms";
+  @import "layouts";
+  @import "structure";
+  @import "login";
+  @import "landing";
+  @import "custom";
+  @import "profile";
+  @import "installation";
+}

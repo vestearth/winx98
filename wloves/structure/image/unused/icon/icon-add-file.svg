@@ -1,0 +1,11 @@
+<svg id="Component_368_1" data-name="Component 368 – 1" xmlns="http://www.w3.org/2000/svg" width="65" height="30" viewBox="0 0 65 30">
+  <g id="Group_58352" data-name="Group 58352" transform="translate(-1305 -290)">
+    <g id="Group_57663" data-name="Group 57663" transform="translate(1305 290)">
+      <g id="Group_56485" data-name="Group 56485" transform="translate(0)">
+        <rect id="Rectangle_72857" data-name="Rectangle 72857" width="65" height="30" rx="5" fill="#3a4248"/>
+      </g>
+    </g>
+  </g>
+  <text id="Add" transform="translate(30 20)" fill="#a5aabe" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Add</tspan></text>
+  <path id="paperclip" d="M5,16a5.005,5.005,0,0,1-5-5V4A.667.667,0,0,1,1.333,4v7a3.667,3.667,0,0,0,7.333,0V3.667A2.333,2.333,0,0,0,4,3.667v6.667a1,1,0,0,0,2,0V4A.667.667,0,0,1,7.333,4v6.333a2.333,2.333,0,0,1-4.667,0V3.667a3.667,3.667,0,0,1,7.333,0V11A5.005,5.005,0,0,1,5,16Zm0,0" transform="translate(10 7)" fill="#778498"/>
+</svg>

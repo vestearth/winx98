@@ -1,0 +1,116 @@
+<?php
+
+$_PAGE['permission'] = ['no_more_game_agent', 'alliance', 'loss_win_with_alliance'];
+require_once '../../.framework/import.php';
+
+$code = $_GET['c'];
+$a_id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : null;
+$options['admin_view'] = true;
+$alliance_data = nga_management::getAllianceByID($code, $a_id, $options);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <?php
+  Structure::loadMeta('../../');
+  Aww::loadAsset('assets/css/no_more_gaming.css');
+  ?>
+</head>
+
+<body class="<?= Structure::getThemeClass(); ?>">
+  <?php include_once '../../structure/layout/header-default.php'; ?>
+
+  <div class='bg-whites pb-10px mb-10px'>
+    <div class="d-flex top-tap justify-content-between  pt-10px px-15px">
+      <div class="msg ">
+        <div class='topic'>ยอดแพ้ - ชนะพันธมิตร (เดือนปัจจุบันเท่านั้น)</div>
+        <div class="font-14px text-sub">
+          ข้อมูลรายละเอียดยอดพันธมิตร
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-whites pt-15px">
+    <div class="form-row px-15px ">
+      <div class="col-lg-3">
+        <div class="mb-10px">
+          <div class="card-header-primary py-10px  font-SemiBold font-14px">
+            รายละเอียดพันธมิตร
+          </div>
+          <div class="card-white px-15px py-10px font-Medium">
+            <div class=" font-14px">
+              ลิงก์แนะนำเพื่อน
+            </div>
+            <div class="d-xl-flex align-items-center">
+              <a class="mr-5px scope_link_hilight" href="<?= $alliance_data['link']; ?>"> <u><?= $alliance_data['link']; ?></u> </a>
+              <span class="cursor-pointer  btn-clipboard event-copy-noti copy-icon-w-20px" data-clipboard-text="<?= $alliance_data['link']; ?>"> <?= file_get_contents('assets/icon/icon-copy-green-2.svg') ?></span>
+            </div>
+          </div>
+          <div class="pb-5px"></div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="mb-10px">
+          <div class="card-header-success py-10px font-SemiBold font-14px">
+            จำนวนสมาชิกทั้งหมด
+          </div>
+          <div class="card-white px-15px pt-10px pb-20px font-Medium h-100">
+            <div class=" font-14px">
+              <span class="font-20px font-Bold text-success"><?= number_format($alliance_data['user_count']); ?> </span> คน
+            </div>
+            <div class="pb-25px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="mb-10px">
+          <div class="card-header-purple  font-SemiBold font-14px">
+            จำนวนฝากทั้งหมด
+          </div>
+          <div class="card-white px-15px py-10px font-Medium">
+            <div class=" font-14px">
+              <span class="font-20px font-Bold text-success"><?= number_format($alliance_data['sum_user_deposit']); ?> </span> คน
+              <div class="pt-5px">
+                คิดเป็น <span class="text-success font-20px font-Bold"><?= number_format($alliance_data['sum_user_deposit_percent']); ?></span> % จากสมาชิกทั้งหมด
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+      </div>
+    </div>
+  </div>
+  <div id="loss_win_with_alliance_detail" class="container-pagination bg-white  no-border-radius" <?= Homepagify::createHomepagify('loss_win_with_alliance_detail', '?c=' . $code . '&id=' . $a_id, '', 'รายการ') ?>>
+    <div class="table-responsive">
+      <table class="table table-sort table-search ">
+        <thead>
+          <tr>
+            <th nowrap data-sort="date_register" data-filter="<?= Homepagify::dataFilter('deposit_first_time_date', 'date') ?>">วันที่ฝากครั้งแรก</th>
+            <th nowrap data-sort="user_count_by_date_register" data-filter="<?= Homepagify::dataFilter('user_count_by_date_register', 'number') ?>">จำนวนคนสมัคร</th>
+            <th nowrap data-sort="count_deposit_first_time" data-filter="<?= Homepagify::dataFilter('count_deposit_first_time', 'number') ?>">ฝากครั้งแรก (คน)</th>
+            <th nowrap data-sort="count_deposit_first_time_percent" data-filter="<?= Homepagify::dataFilter('count_deposit_first_time_percent', 'number') ?>">เปอร์เซ็นต์การฝาก</th>
+            <th nowrap data-sort="count_user_active" data-filter="<?= Homepagify::dataFilter('count_user_active', 'number') ?>">จำนวนสมาชิก Active</th>
+            <th nowrap data-sort="count_user_active_percent" data-filter="<?= Homepagify::dataFilter('count_user_active_percent', 'number') ?>">เปอร์เซ็นต์ Active</th>
+            <th nowrap></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <?php include_once '../../structure/layout/footer.php'; ?>
+  <?php Structure::loadFooter('../../'); ?>
+
+
+  <script>
+    $(document).on('click', '.event-copy-noti', function() {
+      Aww.notification('success', 'copy success');
+    })
+  </script>
+
+</body>
+
+</html>
+
+<?php Aww::loadAsset('assets/js/force_logout.js'); ?>

@@ -1,0 +1,6 @@
+<svg id="Component_830_3" data-name="Component 830 – 3" xmlns="http://www.w3.org/2000/svg" width="45" height="35" viewBox="0 0 45 35">
+  <g id="Component_829_1" data-name="Component 829 – 1">
+    <rect id="Rectangle_72813" data-name="Rectangle 72813" width="45" height="35" rx="10" fill="#007bff"/>
+  </g>
+  <path id="Icon_awesome-lock" data-name="Icon awesome-lock" d="M11.719,6.563h-.7V4.453a4.453,4.453,0,0,0-8.906,0V6.563h-.7A1.407,1.407,0,0,0,0,7.969v5.625A1.407,1.407,0,0,0,1.406,15H11.719a1.407,1.407,0,0,0,1.406-1.406V7.969A1.407,1.407,0,0,0,11.719,6.563Zm-3.047,0H4.453V4.453a2.109,2.109,0,0,1,4.219,0Z" transform="translate(16 10)" fill="#fff"/>
+</svg>

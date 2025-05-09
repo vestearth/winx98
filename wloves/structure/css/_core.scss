@@ -1,0 +1,128 @@
+$font_family_primary: "Sarabun";
+
+$font_default_size: 15px;
+
+$font_Thin: 100;
+$font_ExtraLight: 200;
+$font_Light: 300;
+$font_Regular: 400;
+$font_Medium: 500;
+$font_SemiBold: 600;
+$font_Bold: 700;
+$font_ExtraBold: 800;
+
+// media
+$media_min_xsm: 375px;
+$media_max_xsm: 374.98px;
+$media_min_sm: 576px;
+$media_max_sm: 575.98px;
+$media_min_md: 768px; 
+$media_max_md: 767.98px;
+$media_min_lg: 992px;
+$media_max_lg: 991.98px;
+$media_min_xl: 1200px;
+$media_max_xl: 1199.98px;
+
+// // bootstrap color
+$color_primary: #cc1ebd;
+$color_secondary: #cc1ebd;
+$color_success: #31c947;
+$color_danger: #fe635b;
+$color_warning: #ffbd3a;
+$color_info: #cc1ebd;
+$color_dark: #cc1ebd;
+$color_light: #cc1ebd;
+$color_black: #000000;
+$color_white: #ffffff;
+
+// scrollbar color
+$scroll_bar_track: #182027;
+$color_secondary_highlight: #89b3f7;
+$lynch_color: #72849a;
+$custom_switch_color: #4a92fa;
+
+::-webkit-scrollbar {
+  width: 7.5px;
+  height: 7.5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $scroll_bar_track;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color_secondary_highlight;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($color_secondary_highlight, 5);
+}
+
+body {
+  font: {
+    family: $font_family_primary;
+    size: $font_default_size;
+  }
+
+  -webkit-font-smoothing: antialiased;
+}
+// $color_pagebackground
+// #232b32 (darkmode) (Background colour,Black line color,main menu hover)
+// #F5F5F5 (lightmode) (Background colour)
+//------------------------------
+// $color_cardbackground
+// #2e373d (darkmode) (Top bar & card BG colour)
+// #FFFFFF (lightmode) (Top bar & card BG colour)
+//------------------------------
+// $color_hover
+// #3a4248 (darkmode) (Secondary card BG Colour,input line colour,HOVER TABLE AND DETAIL)
+// #F7F8F7 (lightmode) (Secondary card BG Colour,HOVER,HOVER TABLE AND DETAIL)
+//------------------------------
+// $color_primary_highlight
+// #3E88FB (darkmode) Primary highlight
+// #3E88FB (lightmode) Primary highlight
+//------------------------------
+// $color_secondary_highlight
+// #89b3f7 (darkmode) (Secondary highlight)
+// #EBF2FE (lightmode) (Secondary highlight,Selected Menu bg)
+//------------------------------
+// $color_selected_menu_dark
+// #89b3f7 (darkmode) (Selected Menu bg)
+//------------------------------
+// $color_primary_icon_colour
+// #778498 (darkmode) (Primary icon colour, secondary font colour, under search)
+// #778498 (lightmode) (Primary icon colour, field title, secondary font colour, under search)
+//------------------------------
+// $color_primary_font
+// #dadbe0 (darkmode) (primary font colour)
+// #4E575C (lightmode) (primary font colour)
+//------------------------------
+// $color_secondary_font
+// #A5AABE (darkmode) (field title font, description)
+// #778498 (lightmode) (field title font, description)
+//------------------------------
+// $color_line
+// #232b32 (darkmode) (Line colour)
+// #EDF2F9 (lightmode) (Line colour)
+//------------------------------
+// $color_place_holder
+// #778498 (darkmode) (Search font colour, place holder)
+// #c4cbd5 (lightmode) (Search font colour, place holder)
+//------------------------------
+// $color_input_field
+// #3a4248 (darkmode) (input field colour)
+// #D3DFEF (lightmode) (input field colour)
+//------------------------------
+// $color_warning
+// #FFBD3A (darkmode) (waiting / warning)
+// #FFBD3A (lightmode) (warning)
+//------------------------------
+// $color_error
+// #FE635B (darkmode) (Alert / error)
+// #FE635B (lightmode) (Alert / error)
+//------------------------------
+// $color_approve
+// #31C947 (darkmode) (good / complete / approve)
+// #31C947 (lightmode) (good / complete / approve)
+//------------------------------

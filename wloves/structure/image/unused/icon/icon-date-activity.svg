@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_74858" data-name="Rectangle 74858" width="15" height="15" transform="translate(655 420)" fill="#c6c6c6" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_35" data-name="Mask Group 35" transform="translate(-655 -420)" clip-path="url(#clip-path)">
+    <g id="weekly-calendar-page-symbol" transform="translate(655 420)">
+      <path id="Path_80375" data-name="Path 80375" d="M13.5,0H1.5A1.5,1.5,0,0,0,0,1.5v12A1.505,1.505,0,0,0,1.5,15h12A1.505,1.505,0,0,0,15,13.5V1.5A1.5,1.5,0,0,0,13.5,0ZM4.048,13.2H1.75V11.157h2.3V13.2Zm0-2.729H1.75V8.429h2.3v2.043Zm-.173-8.2a.637.637,0,1,1,.636-.637A.636.636,0,0,1,3.875,2.273ZM7.115,13.2h-2.3V11.157h2.3Zm0-2.729h-2.3V8.429h2.3Zm0-2.727h-2.3V5.7h2.3ZM6.864,1.637a.636.636,0,1,1,.636.637A.636.636,0,0,1,6.864,1.637Zm3.319,8.835h-2.3V8.429h2.3v2.043Zm0-2.727h-2.3V5.7h2.3V7.744Zm.306-6.108a.637.637,0,1,1,.636.637A.636.636,0,0,1,10.489,1.637Zm2.762,8.835h-2.3V8.429h2.3Zm0-2.727h-2.3V5.7h2.3Z" fill="#c6c6c6"/>
+    </g>
+  </g>
+</svg>

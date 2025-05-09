@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_58366" data-name="Group 58366" transform="translate(-830 -600)">
+    <g id="Group_58355" data-name="Group 58355" transform="translate(-475 310)">
+      <g id="Group_57663" data-name="Group 57663" transform="translate(37 21)">
+        <g id="Group_56485" data-name="Group 56485" transform="translate(-2 139)">
+          <rect id="Rectangle_72857" data-name="Rectangle 72857" width="30" height="30" rx="5" transform="translate(1270 130)" fill="#2e373d"/>
+        </g>
+      </g>
+    </g>
+    <g id="layer1" transform="translate(836.742 316.088)">
+      <path id="path9443" d="M8.249,290.912a.727.727,0,0,0-.718.741v9.83l-1.647-1.7a.726.726,0,1,0-1.04,1.013l2.9,2.983a.726.726,0,0,0,1.04,0l2.913-2.977a.726.726,0,1,0-1.036-1.019l-1.673,1.707v-9.841a.726.726,0,0,0-.735-.741ZM.935,305.455A.728.728,0,0,0,1,306.908H15.532a.727.727,0,1,0,0-1.453H1q-.035,0-.07,0Z" transform="translate(0)" fill="#778498"/>
+    </g>
+  </g>
+</svg>

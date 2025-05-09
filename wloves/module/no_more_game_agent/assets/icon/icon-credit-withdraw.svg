@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="13.706" viewBox="0 0 19 13.706">
+  <g id="Component_743_1" data-name="Component 743 – 1" transform="translate(0)">
+    <g id="credit-card" transform="translate(0 1.947)">
+      <g id="Group_94148" data-name="Group 94148">
+        <path id="Path_137112" data-name="Path 137112" d="M16.107,82.82H1.276A1.277,1.277,0,0,0,0,84.1V93.3a1.277,1.277,0,0,0,1.276,1.276H16.107A1.277,1.277,0,0,0,17.382,93.3V84.1A1.277,1.277,0,0,0,16.107,82.82ZM5.347,90.476H7.07a.374.374,0,1,1,0,.749H5.347a.374.374,0,1,1,0-.749ZM1.619,86.722a.374.374,0,0,1,.374-.374H4.235a.374.374,0,0,1,.374.374v1.621a.374.374,0,0,1-.374.374H1.993a.374.374,0,0,1-.374-.374Zm.374,3.754H3.716a.374.374,0,1,1,0,.749H1.993a.374.374,0,1,1,0-.749Zm6.152,2.413H1.993a.374.374,0,0,1,0-.749H8.145a.374.374,0,0,1,0,.749Zm2.279-1.664H8.7a.374.374,0,1,1,0-.749h1.723a.374.374,0,1,1,0,.749Zm3.354,0H12.055a.374.374,0,1,1,0-.749h1.723a.374.374,0,1,1,0,.749Zm1.611-5.468H11.325a.374.374,0,1,1,0-.749h4.064a.374.374,0,1,1,0,.749Z" transform="translate(0 -82.82)" fill="#235e88"/>
+      </g>
+    </g>
+    <g id="Group_94157" data-name="Group 94157" transform="translate(14)">
+      <circle id="Ellipse_1921" data-name="Ellipse 1921" cx="2.5" cy="2.5" r="2.5" fill="#fe635b"/>
+      <line id="Line_2" data-name="Line 2" x2="2" transform="translate(1.5 2.5)" fill="none" stroke="#fbfbfb" stroke-linecap="round" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>
