@@ -1374,7 +1374,7 @@
   fill: #FFFFFF;
 }
 .file-custom .form-file .detail {
-  background: #320134;
+  background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%) !important;
   border: none !important;
   color: #FFFFFF;
 }

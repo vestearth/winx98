@@ -94,11 +94,8 @@ $rating_list = [
       $sub_comment =  nga_management::selectCommentTitle($code, $where);
     }
     if ($sub_id) {
-      $comment_detail =   nga_management::getCommentTitleByID($code, $sub_id);
+      $comment_detail =  nga_management::getCommentTitleByID($code, $sub_id);
     }
-    // Aww::display($comment);
-    Aww::display($sub_comment);
-    // die();
     $type_name = '';
     if ($type_id) {
       foreach ($comment as $key => $value) {
@@ -160,63 +157,57 @@ $rating_list = [
         <?php } ?>
       </div>
       <div class="col-lg-8 col-md-6 <?= !$sub_id ? 'mobile-page' : ''  ?>">
-        <?php if ($comment_detail) {  ?>
+        <?php if ($comment_detail) { ?>
           <div class="card-comment mb-15px">
             <h3 class="font-16px mb-5px text-gold"><?= $comment_detail['title_name'] ?></h3>
             <div class="detail">
               <?= $comment_detail['description'] ?>
             </div>
           </div>
-        <?php } ?>
 
-        <div class="card-comment">
-          <form method="post" enctype="multipart/form-data">
-            <?php // if ($comment_detail['is_have_rating']) { 
-            ?>
-            <h4 class="font-16px font-Medium text-gold"><?= Ty::get('ratesatisfaction') ?></h4>
-            <div class="d-flex">
-              <?php foreach ($rating_list as $key => $value) { ?>
-                <div class="rating-radio">
-                  <input type="radio" name="rating" id="rating-<?= $value['value'] ?>" value="<?= $value['value'] ?>">
-                  <label for="rating-<?= $value['value'] ?>">
-                    <img src="<?= $value['img'] ?>" alt="">
-                    <span><?= $value['name'] ?></span>
-                  </label>
+          <div class="card-comment">
+            <form method="post" enctype="multipart/form-data">
+              <?php if ($comment_detail['is_have_rating']) { ?>
+                <h4 class="font-16px font-Medium text-gold"><?= Ty::get('ratesatisfaction') ?></h4>
+                <div class="d-flex">
+                  <?php foreach ($rating_list as $key => $value) { ?>
+                    <div class="rating-radio">
+                      <input type="radio" name="rating" id="rating-<?= $value['value'] ?>" value="<?= $value['value'] ?>">
+                      <label for="rating-<?= $value['value'] ?>">
+                        <img src="<?= $value['img'] ?>" alt="">
+                        <span><?= $value['name'] ?></span>
+                      </label>
+                    </div>
+                  <?php } ?>
                 </div>
               <?php } ?>
-            </div>
-            <?php // } 
-            ?>
-            <?php // if ($comment_detail['is_have_detail']) { 
-            ?>
-            <p class="font-16px mb-10px text-gold font-Medium">
-              <?= Ty::get('detail', [], ["case" => "ucfirst"]) ?>
-            </p>
-            <textarea name="detail" rows="5" placeholder="<?= Ty::get('explainmoredetail') ?>"></textarea>
-            <?php // } 
-            ?>
-            <?php // if ($comment_detail['is_have_file']) { 
-            ?>
-            <div class="d-flex align-items-center mobile-colume mobile-aligh-start">
-              <p class="font-16px mb-0 mr-10px font-Medium">
-                <?= Ty::get('attachedfile') ?>
-              </p>
-              <div class="max-w-300px file-custom">
-                <?php TiwForm::normal('file', '', ['name' => 'file', 'accept' => "image/png, image/jpeg"], ['prefix' => '']); ?>
+              <?php if ($comment_detail['is_have_detail']) { ?>
+                <p class="font-16px mb-10px text-gold font-Medium">
+                  <?= Ty::get('detail', [], ["case" => "ucfirst"]) ?>
+                </p>
+                <textarea name="detail" rows="5" placeholder="<?= Ty::get('explainmoredetail') ?>"></textarea>
+              <?php } ?>
+              <?php if ($comment_detail['is_have_file']) { ?>
+                <div class="d-flex align-items-center mobile-colume mobile-aligh-start">
+                  <p class="font-16px mb-0 mr-10px font-Medium">
+                    <?= Ty::get('attachedfile') ?>
+                  </p>
+                  <div class="max-w-300px file-custom">
+                    <?php TiwForm::normal('file', '', ['name' => 'file', 'accept' => "image/png, image/jpeg"], ['prefix' => '']); ?>
+                  </div>
+                </div>
+              <?php } ?>
+              <div class="group-btn mt-15px">
+                <a href="comment.php?type=<?= $type_id ?>" class="btn btn-cancel">
+                  <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
+                </a>
+                <button type="submit" class="btn btn-sub" type="submit" name="submit_comment">
+                  <?= 'ยืนยันความคิดเห็น'; ?>
+                </button>
               </div>
-            </div>
-            <?php // } 
-            ?>
-            <div class="group-btn mt-15px">
-              <a href="comment.php?type=<?= $type_id ?>" class="btn btn-cancel">
-                <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
-              </a>
-              <button type="submit" class="btn btn-sub" type="submit" name="submit_comment">
-                <?= 'ยืนยันความคิดเห็น'; ?>
-              </button>
-            </div>
-          </form>
-        </div>
+            </form>
+          </div>
+        <?php } ?>
       </div>
     </div>
   </div>
