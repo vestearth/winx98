@@ -51,13 +51,14 @@ foreach ($bank_config as $key => $data) {
       <input type="number" name="bank_account" id="account" class="form-input-custom" placeholder="<?= Ty::get('accnumb_fill') ?>" required>
     </div>
   </div>
-
+  <!-- 
   <div class="form-group">
-    <label for="upline_member_code"><?= "ผู้แนะนำ"; ?></label>
+    <label for="upline_member_code"><? // "ผู้แนะนำ"; 
+                                    ?></label>
     <div class="input-icon aff">
       <input type="text" name="upline_member_code" id="affiliate" value="" class="form-input-custom" placeholder="<?= "กรอกรหัสผู้แนะนำหากมี" ?>">
     </div>
-  </div>
+  </div> -->
   <div class="group-btn">
     <button type="submit" name="submit_register" class="btn btn-sub w-100">
       <?= "ยืนยันบัญชี"; ?>
