@@ -19,7 +19,18 @@ foreach ($bank_config as $key => $data) {
       <input type="hidden" name="ref_id" value="<?= $ref_id; ?>">
       <input type="hidden" name="ref_marketing" value="<?= $ref_marketing; ?>">
       <input type="hidden" name="ref" value="<?= $upline_no; ?>">
-      <input type="number" name="username" id="username" value="<?= $data_username ?>" class="form-input-custom" placeholder="<?= Ty::get('loginwphonenumb') ?>" maxlength="10" required oninput="handlePhoneInput(this)">
+      <input
+        type="text"
+        inputmode="numeric"
+        pattern="(06|08|09)\d{8}"
+        name="username"
+        id="username"
+        maxlength="10"
+        value="<?= $data_username ?>"
+        class="form-input-custom"
+        placeholder="<?= Ty::get('loginwphonenumb') ?>"
+        required
+        oninput="handlePhoneInput(this)">
     </div>
   </div>
   <div class=" form-group">
@@ -81,9 +92,13 @@ foreach ($bank_config as $key => $data) {
 
 <script>
   function handlePhoneInput(el) {
-    el.value = el.value.replace(/\D/g, ''); // Remove non-digits
-    if (el.value.length === 10) {
-      document.getElementById('password').focus(); // Focus next input
+    el.value = el.value.replace(/\D/g, ''); // Only digits
+
+    // Check if valid format
+    const isValidPhone = /^(06|08|09)\d{8}$/.test(el.value);
+
+    if (isValidPhone) {
+      document.getElementById('password').focus();
     }
   }
   document.getElementById('password').addEventListener('input', function(e) {
