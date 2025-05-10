@@ -211,15 +211,44 @@ $get_user = User::getCurrent();
                     <?= ($type == 'deposit') ? 'รอแอดมิน' : 'กำลังโอนเงิน'; ?>
                   </div>
                 </div>
-              <?php } else { ?>
+              <?php } else {
+                $status = $bot_statement['status'];
+                if ($status == 'waiting_user') {
+                  $text = 'รอผู้ใช้ทำรายการ';
+                  $textClass = 'text-warning';
+                } else if ($status == 'waiting_system') {
+                  $text = 'รอระบบประมวลผล';
+                  $textClass = 'text-warning';
+                } else if ($status == 'success') {
+                  $text = 'สำเร็จ';
+                  $textClass = 'text-success';
+                } else if ($status == 'cancel') {
+                  $text = 'ยกเลิก';
+                  $textClass = 'text-danger';
+                } else if ($status == 'expired') {
+                  $text = 'หมดอายุ';
+                  $textClass = 'text-danger';
+                }
+              ?>
                 <div class="col-2 ">
                   <div class="mb-5px">
-                    <?= file_get_contents("./../assets/icon/icon-dot-red.svg"); ?>
+                    <?php
+                    if ($textClass == 'text-danger') {
+                      echo file_get_contents("./../assets/icon/icon-dot-red.svg");
+                    } else if ($textClass == 'text-warning') {
+                      echo file_get_contents("./../assets/icon/icon-dot-yellow.svg");
+                    } else if ($textClass == 'text-success') {
+                      echo file_get_contents("./../assets/icon/icon-dot-green.svg");
+                    }
+                    ?>
                   </div>
                 </div>
                 <div class="col-10 ">
                   <div class="pl-5px">
-                    ยกเลิก
+                    <div class="<?= $textClass; ?>">
+                      <?= $text; ?>
+                    </div>
+                    <!-- ยกเลิก -->
                   </div>
                 </div>
               <?php } ?>
