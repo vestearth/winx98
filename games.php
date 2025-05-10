@@ -90,6 +90,11 @@ $type_game_template = [
 // ];
 
 $get_game_setting = nga_management::getGameActiveStatus($code);
+$get_game_setting = [
+  'is_open_sport_game' => 0,
+  'is_open_sportbook' => 0,
+];
+
 
 if ($get_game_setting['is_open_card_game'] == 0) {
   unset($type_game_template['CARD']);

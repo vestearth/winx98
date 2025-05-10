@@ -19,13 +19,21 @@ foreach ($bank_config as $key => $data) {
       <input type="hidden" name="ref_id" value="<?= $ref_id; ?>">
       <input type="hidden" name="ref_marketing" value="<?= $ref_marketing; ?>">
       <input type="hidden" name="ref" value="<?= $upline_no; ?>">
-      <input type="number" name="username" id="username" value="<?= $data_username ?>" class="form-input-custom" placeholder="<?= Ty::get('loginwphonenumb') ?>" required>
+      <input type="number" name="username" id="username" value="<?= $data_username ?>" class="form-input-custom" placeholder="<?= Ty::get('loginwphonenumb') ?>" maxlength="10" required oninput="handlePhoneInput(this)">
     </div>
   </div>
-  <div class="form-group">
+  <div class=" form-group">
     <label for="password"><?= Ty::get('Password') ?></label>
     <div class="input-icon password">
-      <input type="password" name="password" id="password" class="form-input-custom" placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>" required>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-input-custom"
+        placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>"
+        required
+        inputmode="numeric"
+        pattern="\d*">
     </div>
   </div>
   <div class="form-group">
@@ -72,6 +80,15 @@ foreach ($bank_config as $key => $data) {
 </form>
 
 <script>
+  function handlePhoneInput(el) {
+    el.value = el.value.replace(/\D/g, ''); // Remove non-digits
+    if (el.value.length === 10) {
+      document.getElementById('password').focus(); // Focus next input
+    }
+  }
+  document.getElementById('password').addEventListener('input', function(e) {
+    this.value = this.value.replace(/\D/g, ''); // Remove all non-digits
+  });
   $(document).ready(function() {
     $('#username').on('input', function() {
       var input = $(this).val();
