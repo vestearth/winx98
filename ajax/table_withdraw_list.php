@@ -32,8 +32,8 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
     }
 
     $status = $list['status'];
-    if ($status == 'waiting_user') {
-      $text = 'รอผู้ใช้ทำรายการ';
+    if ($status == 'waiting_system') {
+      $text = 'รอระบบทำรายการ';
       $textClass = 'text-warning';
     } else if ($status == 'waiting_system') {
       $text = 'รอระบบประมวลผล';
