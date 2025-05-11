@@ -45,8 +45,8 @@ $this_page = 'index';
     $user_group_id = $user_info['user_group_id'];
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
   } else {
-    // Aww::redirectOG('landing.php');
-    Aww::redirectOG('login.php');
+    Aww::redirectOG('landing.php');
+    // Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>

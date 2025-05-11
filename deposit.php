@@ -159,7 +159,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
             </div>
           </div>
         <?php } else if ($check_deposit_response['step'] == 0) { ?>
-          <form method="post" enctype="multipart/form-data">
+          <form id="deposit_form" method="post" enctype="multipart/form-data">
             <div class="card-content mb-20px pb-0 have-bg min-h-200px">
               <div class="card-content-body text-center">
                 <div class="d-flex justify-content-lg-center align-items-center">
@@ -167,10 +167,11 @@ function textFormat($text = '', $pattern = '', $ex = '')
                 </div>
                 <input type="number" name="credit_amount" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 100; ?>" step="any">
                 <!-- event_send_data -->
-                <button name="submit_deposit" type="submit" class="btn-main btn-withdraw max-w-305px event_submit_deposit" <?php Tiwdal::register('modal_confirm_deposit', []); ?>
+                <button type="button" class="btn-main btn-withdraw max-w-305px event_submit_deposit" <?php Tiwdal::register('modal_confirm_deposit', []); ?>
                   <?= $check_deposit['response_status'] == false ? 'disabled' : '' ?>>
                   <?= Ty::get('confirm2') ?>
                 </button>
+                <input type="hidden" name="submit_deposit" value="1">
                 <div class="detail max-w-305px m-auto mt-15px">
                   <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
                   <ul>
@@ -245,7 +246,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
     <p class="detail text-center mb-0 font-18px"><?= "ยอดฝาก" ?> <span class="event_number_input"></span> <?= Ty::get('baht', [], ["case" => "strtolower"]) ?></p>
   </div>
   <div class="modal-footer">
-    <button dtype="submit" class="btn btn-main event_confirm" data-bs-dismiss="modal" aria-label="Close">
+    <button type="button" class="btn btn-main event_confirm_deposit" data-bs-dismiss="modal" aria-label="Close">
       <?= Ty::get('confirm2') ?>
     </button>
   </div>
@@ -383,6 +384,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
   ?>
 
   <script>
+    $(document).on('click', '.event_confirm_deposit', function() {
+      $('#deposit_form').submit();
+    });
     $(document).ready(function() {
       var currentTime = new Date(); // Get the current time
       var currentHour = currentTime.getHours(); // Get the current hour

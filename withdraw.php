@@ -97,16 +97,17 @@ $user_data['money_balance'] = 0;
             <?php
             $get_auto_wd['is_withdraw_active'] = true; // For testing purposes, set to true to show the withdraw button
             ?>
-            <form method="post">
+            <form id="withdraw_form" method="post">
               <input type="number" name="credit_amount" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 ?>" max="<?= 200000 ?>" step="any">
               <?php /*
             <input type="number" class="input-custom mb-15px event_text_data event_check_int" placeholder="<?= Ty::get('fillamountofmoney', [], ["case" => "ucfirst"]) ?>" min="<?= 1 //$get_auto_wd['withdraw_minimum']?>" max="<?= 2 //number_format($get_auto_wd['withdraw_maximum'], 2);?>" step="any">
              */
               ?>
               <?php if ($check_withdraw_response['step'] == 0) { ?>
-                <button name="submit_withdraw" type="submit" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
+                <button type="button" class="btn-main btn-withdraw max-w-305px event_send_data " <?php Tiwdal::register('modal_confirm_withdraw', []); ?>>
                   <?= Ty::get('confirm2') ?>
                 </button>
+                <input type="hidden" name="submit_withdraw" value="1">
               <?php } else { ?>
                 <button type="button" class="btn btn-main max-w-305px " <?php Tiwdal::register('modal_show_withdraw_condition', []); ?>>
                   <?= Ty::get('confirm2') ?>
@@ -189,7 +190,7 @@ $user_data['money_balance'] = 0;
     <p class="detail text-center mb-0 font-18px"><?= Ty::get('withdraw_bal', [], ["case" => "strtolower"]) ?> <span class="event_number_input"></span> <?= Ty::get('baht', [], ["case" => "strtolower"]) ?></p>
   </div>
   <div class="modal-footer">
-    <button dtype="submit" class="btn btn-main" data-bs-dismiss="modal" aria-label="Close">
+    <button dtype="submit" class="btn btn-main event_confirm_withdraw" data-bs-dismiss="modal" aria-label="Close">
       <?= Ty::get('confirm2') ?>
     </button>
   </div>
@@ -325,6 +326,10 @@ $user_data['money_balance'] = 0;
   ?>
 
   <script>
+    $(document).on('click', '.event_confirm_withdraw', function() {
+      $('#withdraw_form').submit();
+    });
+
     $(document).ready(function() {
       var currentTime = new Date(); // Get the current time
       var currentHour = currentTime.getHours(); // Get the current hour
