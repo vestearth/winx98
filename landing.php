@@ -4,30 +4,6 @@ require_once 'layout/navbanner.php';
 require_once 'layout/footer_nav_landing.php';
 
 $system_line  = nga_management::getGeneralWebsite($code);
-$menu_landing = [
-  [
-    'image' => 'assets/icon/menu_landing/home.svg',
-    'title' => Ty::get('home'),
-    'url'   => 'index.php',
-  ],
-  [
-    'image' => 'assets/icon/menu_landing/register.svg',
-    'title' => Ty::get('register'),
-    'url'   => 'signup.php',
-  ],
-  [
-    'image' => 'assets/icon/menu_landing/login.svg',
-    'title' => Ty::get('playgame'),
-    'url'   => 'login.php',
-  ],
-  [
-    'image' => 'assets/icon/menu_landing/contact.svg',
-    'title' => Ty::get('contact_us'),
-    'url'   => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
-    // 'link'  => $system_line['line_link'],
-    'link'  => '#',
-  ],
-];
 
 $menu_landing = [
   [
@@ -46,7 +22,7 @@ $menu_landing = [
     'title' => Ty::get('login')
   ],
   [
-    'url' => '#',
+    'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
     'image' => 'source/icon-contact.svg',
     'title' => Ty::get('contact_us'),
   ]
@@ -209,7 +185,6 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
                   <div class="qr-box">
                     <!-- <img src="source/qr-code.png" alt=""> -->
                     <img src="source/qrcode.jpg" alt="">
-
                   </div>
                 </div>
               </div>
