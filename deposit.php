@@ -364,8 +364,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
 
 
   <div class="menu-fix-right">
-    <a href="<? // $system_line['line_link'] 
-              ?>" target="_blank">
+    <a href="<?= 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244'; ?>" target="_blank">
       <div class="menu-line">
         <div class="box-close event_close_fix_menu">
           <?= file_get_contents('assets/icon/close.svg') ?>

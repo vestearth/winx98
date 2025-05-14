@@ -23,7 +23,7 @@ $menu_landing = [
   [
     'image' => 'assets/icon/menu_landing/contact.svg',
     'title' => Ty::get('contact_us'),
-    'url'   => 'landing.php',
+    'url'   => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
     // 'link'  => $system_line['line_link'],
     'link'  => '#',
   ],
@@ -202,12 +202,14 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
                   <img src="source/red-line.png" class="line-icon mr-10px">
                   <div>
                     แอดตรงผ่านไลน์
-                    <p class="mb-0">Mockupcasino</p>
+                    <p class="mb-0">WINX98</p>
                   </div>
                 </div>
                 <div class="qr-code-section">
                   <div class="qr-box">
-                    <img src="source/qr-code.png" alt="">
+                    <!-- <img src="source/qr-code.png" alt=""> -->
+                    <img src="source/qrcode.jpg" alt="">
+
                   </div>
                 </div>
               </div>

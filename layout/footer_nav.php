@@ -64,7 +64,7 @@ function renderFooterNav()
       ["คืนยอดเสีย", "source/icon-refund-menu.svg", "refund.php"],
       // ["สร้างรายได้", "source/icon-earning-menu.svg", "earning.php"],
       ["ข้อมูลส่วนตัว", "source/icon-profile-menu.svg", "user.php"],
-      ["ติดต่อเรา", "source/icon-contact-menu.svg", "comment.php"],
+      ["ติดต่อเรา", "source/icon-contact-menu.svg", "https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244"],
       ["แสดงความคิดเห็น", "source/icon-comment-menu.svg", "comment.php"]
     ];
     $footerLinks = [

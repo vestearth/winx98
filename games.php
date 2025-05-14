@@ -345,11 +345,11 @@ $system_line =  nga_management::getGeneralWebsite($code);
 
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
-                  if (file_exists($game_img_webp)) {
-                    $game_img = $game_img_webp;
-                  } elseif (file_exists($game_img_png)) {
+                  if (file_exists($game_img_png)) {
                     $game_img = $game_img_png;
-                    $forForceCSS = 'custom-cover-firm';
+                    // $forForceCSS = 'custom-cover-firm';
+                  } else if (file_exists($game_img_webp)) {
+                    $game_img = $game_img_webp;
                   } else {
                     $game_img = 'assets/images/firm_game/DEFAULT.webp';
                     $forForceCSS = 'set-mockup-img';

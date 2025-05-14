@@ -33,7 +33,7 @@ if ($_POST) {
 $system_line = nga_management::getGeneralWebsite($code);
 if (empty($system_line)) {
   $system_line['line_id'] = '';
-  $system_line['line_link'] = '';
+  $system_line['line_link'] = 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244';
 }
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
 

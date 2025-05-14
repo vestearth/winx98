@@ -92,7 +92,7 @@ $menu_sub = [
     'image' => 'assets/icon/menu/purple-line.svg',
     'title' => Ty::get('website'),
     // 'url' => $system_line['line_link'],
-    'url' => 'winx.com',
+    'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
     'is_mobile' => true
   ],
   [
@@ -129,7 +129,7 @@ $menu_footer = [
     'image' => 'assets/icon/menu/line_purple.svg',
     'title' => Ty::get('website'),
     // 'url' => $system_line['line_link'],
-    'url' => 'winx.com',
+    'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
   ],
   [
     'image' => 'assets/icon/menu/comment.svg',

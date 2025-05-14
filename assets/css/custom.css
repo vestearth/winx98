@@ -527,6 +527,11 @@
   height: 135px;
   border-radius: 10px;
 }
+.qr-code-section .qr-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
 
 .set-mockup-img {
   overflow: hidden;
