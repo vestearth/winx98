@@ -114,7 +114,7 @@ if ($is_login) {
               <div class="d-flex justify-content-center my-2">หรือ</div>
               <div class="border-gradient w-100">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
-                <span>ติดต่อผ่านไลน์ Mockupcasino</span>
+                <span>ติดต่อผ่านไลน์ WINX98</span>
                 <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
               </div>
               <!-- <span> <?= Ty::get('forgotpassword') ?> <span class="text-pink cursor-pointer" <?php Tiwdal::register('modal_forgot_password', []); ?>> <?= Ty::get('clickhere') ?></span></span> -->
