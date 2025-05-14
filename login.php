@@ -91,18 +91,37 @@ if ($is_login) {
               <div class="form-group">
                 <label for="username"><?= Ty::get('Phonenumber') ?></label>
                 <div class="input-icon user">
-                  <input type="text" name="username" id="username" class="form-input-custom verticle-divide" placeholder="<?= Ty::get('loginwphonenumb') ?>" required>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    pattern="(06|08|09)\d{8}"
+                    name="username"
+                    id="username"
+                    maxlength="10"
+                    value="<?= $data_username ?>"
+                    class="form-input-custom verticle-divide"
+                    placeholder="<?= Ty::get('loginwphonenumb') ?>"
+                    required
+                    oninput="handlePhoneInput(this)">
                 </div>
               </div>
               <div class="form-group">
                 <label for="password"><?= Ty::get('Password') ?></label>
                 <div class="input-icon password">
-                  <input type="password" name="password" id="password" class="form-input-custom" placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>" required>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-input-custom"
+                    placeholder="<?= Ty::get('pass_fill', [], ["case" => "ucfirst"]) ?>"
+                    required
+                    inputmode="numeric"
+                    pattern="\d*">
                 </div>
               </div>
-              <div class="d-flex mb-20px">
+              <!-- <div class="d-flex mb-20px">
                 <span class="text-grey"> <?= "จำรหัสผ่านไม่ได้" ?> <a class="text-white" href="#"> <?= "ลืมรหัสผ่าน" ?></a></span>
-              </div>
+              </div> -->
               <div class="form-group">
                 <button type="submit" class="btn btn-main" name="submit_login">
                   <?= Ty::get('login') ?>
@@ -154,6 +173,19 @@ if ($is_login) {
 </html>
 
 <script>
+  function handlePhoneInput(el) {
+    el.value = el.value.replace(/\D/g, ''); // Only digits
+
+    // Check if valid format
+    const isValidPhone = /^(06|08|09)\d{8}$/.test(el.value);
+
+    if (isValidPhone) {
+      document.getElementById('password').focus();
+    }
+  }
+  document.getElementById('password').addEventListener('input', function(e) {
+    this.value = this.value.replace(/\D/g, ''); // Remove all non-digits
+  });
   $(document).ready(function() {
     $(document).on('click', '.event_view_load_app', function(e) {
       $('#modal_download_app').modal('show');
