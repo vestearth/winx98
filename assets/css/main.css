@@ -103,6 +103,9 @@
 .input-icon select.bank {
   min-height: 53px;
   height: auto;
+  -webkit-appearance: none; /* Prevent iOS auto-styling */
+  -moz-appearance: none;
+       appearance: none; /* Standard reset */
 }
 .input-icon.user::after {
   background: url(../icon/dark-user.svg) no-repeat center;

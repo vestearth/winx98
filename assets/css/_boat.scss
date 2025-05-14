@@ -121,6 +121,8 @@
     &.bank {
       min-height: 53px;
       height: auto; // Added fallback height
+      -webkit-appearance: none; /* Prevent iOS auto-styling */
+      appearance: none;         /* Standard reset */
     }
   }
 
