@@ -4,30 +4,48 @@ function renderFooterNav()
 {
 ?>
   <div class="nav-footer">
-    <a href="index.php" style="text-decoration: none;">
-      <div class="item active">
-        <img src="source/icon-home.svg" alt="หน้าแรก">
-        <div>หน้าแรก</div>
-      </div>
-    </a>
-    <a href="games.php" style="text-decoration: none;">
-      <div class="item">
-        <img src="source/icon-gaming.svg" alt="เล่นเกม">
-        <div>เล่นเกม</div>
-      </div>
-    </a>
-    <a href="wallet.php" style="text-decoration: none;">
-      <div class="item">
-        <img src="source/icon-wallet.svg" alt="กระเป๋า">
-        <div>กระเป๋า</div>
-      </div>
-    </a>
-    <a href="#" style="text-decoration: none;">
-      <div class="item openBtn" onclick="openNav()">
-        <img src="source/icon-other.svg" alt="อื่น ๆ">
-        <div>อื่น ๆ</div>
-      </div>
-    </a>
+    <?php
+    $navItems = [
+      [
+        'href' => 'index.php',
+        'icon' => 'source/icon-home.svg',
+        'alt'  => 'หน้าแรก',
+        'label' => 'หน้าแรก'
+      ],
+      [
+        'href' => 'games.php',
+        'icon' => 'source/icon-gaming.svg',
+        'alt'  => 'เล่นเกม',
+        'label' => 'เล่นเกม'
+      ],
+      [
+        'href' => 'wallet.php',
+        'icon' => 'source/icon-wallet.svg',
+        'alt'  => 'กระเป๋า',
+        'label' => 'กระเป๋า'
+      ],
+      [
+        'href' => '#',
+        'icon' => 'source/icon-other.svg',
+        'alt'  => 'อื่น ๆ',
+        'label' => 'อื่น ๆ',
+        'extra' => 'openBtn" onclick="openNav()'
+      ]
+    ];
+
+    $currentPage = basename($_SERVER['PHP_SELF']);
+
+    foreach ($navItems as $item) {
+      $isActive = ($item['href'] !== '#' && $currentPage === $item['href']) ? ' active' : '';
+      $extraClass = isset($item['extra']) ? ' ' . $item['extra'] : '';
+      echo '<a href="' . $item['href'] . '" style="text-decoration: none;">';
+      echo '<div class="item' . $isActive . $extraClass . '">';
+      echo '<img src="' . $item['icon'] . '" alt="' . $item['alt'] . '">';
+      echo '<div>' . $item['label'] . '</div>';
+      echo '</div>';
+      echo '</a>';
+    }
+    ?>
   </div>
 
   <div id="rightNav">

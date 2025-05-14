@@ -90,10 +90,7 @@ $type_game_template = [
 // ];
 
 $get_game_setting = nga_management::getGameActiveStatus($code);
-$get_game_setting = [
-  'is_open_sport_game' => 0,
-  'is_open_sportbook' => 0,
-];
+
 
 
 if ($get_game_setting['is_open_card_game'] == 0) {
@@ -125,6 +122,9 @@ if ($get_game_setting['is_open_sportbook_game'] == 0) {
   // unset($type_game_template['SOCCER']);
   unset($type_game_template['SPORTBOOK']);
 }
+
+unset($type_game_template['SPORTBOOK']);
+
 $temp_type = '';
 foreach ($type_game_template as $key => $value) {
   if (!$temp_type) {
@@ -264,11 +264,15 @@ $system_line =  nga_management::getGeneralWebsite($code);
           </div>
         </div>
 
+        <!-- <div class="game-menu-group row pt-0"> -->
+        <?php //foreach ($type_game_template as $key => $type_games) { 
+        ?>
+        <!-- <div class="col-3 mt-10px"> -->
         <div class="game-menu-responsive show-on-mobile">
-          <div class="game-menu-group row pt-0">
+          <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
-              <div class="col-3 mt-10px">
-                <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
+              <div class="col-3 mt-10px px-0" style="flex: 0 0 auto;">
+                <a href="?type=<?= $key ?>" class="game-menu-list w-100 <?= $key == $type ? 'active' : '' ?> preloader-link">
                   <div class="game-menu-image">
                     <img src="<?= $type_games['img']; ?>" alt="<?= $type_games['name']; ?>">
                   </div>
@@ -336,14 +340,25 @@ $system_line =  nga_management::getGeneralWebsite($code);
                   $condition_key = $key + 1;
                   $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
                   $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                  $game_img = 'assets/images/firm_game/' . $game . '.webp';
+                  $game_img_webp = 'assets/images/firm_game/' . $game . '.webp';
+                  $game_img_png = 'assets/images/firm_game/' . $game . '.png';
 
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
-                  if (!file_exists($game_img)) {
+                  if (file_exists($game_img_webp)) {
+                    $game_img = $game_img_webp;
+                  } elseif (file_exists($game_img_png)) {
+                    $game_img = $game_img_png;
+                    $forForceCSS = 'custom-cover-firm';
+                  } else {
                     $game_img = 'assets/images/firm_game/DEFAULT.webp';
                     $forForceCSS = 'set-mockup-img';
                   }
+
+                  // if (!file_exists($game_img)) {
+                  //   $game_img = 'assets/images/firm_game/DEFAULT.webp';
+                  //   $forForceCSS = 'set-mockup-img';
+                  // }
                 ?>
                   <div class="<?= $col; ?>">
                     <div class="w-100 d-flex justify-content-center">

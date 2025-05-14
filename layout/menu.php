@@ -168,10 +168,10 @@ if (!$banner_download_web) { ?>
     <?php if (!isset($page)) { ?>
       <img src="assets/images/arrow-left.png" class="arrow-left" onclick="backHistory()">
     <?php } ?>
-    <?php renderBannerBorder(); ?>
+    <?php renderBannerBorder($user_data['money_balance']); ?>
   </div>
   <div class="header-web <?= $this_page ?>">
-    <?php renderBannerBorder(); ?>
+    <?php renderBannerBorder($user_data['money_balance']); ?>
     <?php /* 
     <div class="container-menu">
       <div class="logo cursor-pointer" data-link="index.php" onclick="redirectHref()">

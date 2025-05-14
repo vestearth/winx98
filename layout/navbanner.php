@@ -1,8 +1,9 @@
 <?php
-function renderBannerBorder()
+function renderBannerBorder($user_data = null)
 {
 ?>
-  <div class="d-flex banner-border">
+
+  <div class="d-flex justify-content-between banner-border">
     <a href="index.php" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
         <img src="source/icon-mockup.png?v=<?= rand(1, 999) ?>" alt="Logo">
@@ -12,6 +13,13 @@ function renderBannerBorder()
         </div>
       </div>
     </a>
+    <?php if ($user_data) {
+    ?>
+      <div class="box-cash-nav">
+        <img src="source/wallet-profile.svg" alt="">
+        <div class="text-white font-15px d-flex ml-10px">฿ <?= number_format($user_data, 2) ?></div>
+      </div>
+    <?php } ?>
   </div>
 <?php
 }

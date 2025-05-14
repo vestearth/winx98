@@ -43,7 +43,7 @@ $menu_landing = [
   [
     'url' => 'login.php',
     'image' => 'source/icon-login.svg',
-    'title' => 'Services'
+    'title' => Ty::get('login')
   ],
   [
     'url' => '#',
