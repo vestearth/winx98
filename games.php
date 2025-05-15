@@ -123,8 +123,6 @@ if ($get_game_setting['is_open_sportbook_game'] == 0) {
   unset($type_game_template['SPORTBOOK']);
 }
 
-unset($type_game_template['SPORTBOOK']);
-
 $temp_type = '';
 foreach ($type_game_template as $key => $value) {
   if (!$temp_type) {

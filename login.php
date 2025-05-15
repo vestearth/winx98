@@ -98,7 +98,7 @@ if ($is_login) {
                     name="username"
                     id="username"
                     maxlength="10"
-                    value="<?= $data_username ?>"
+                    value=""
                     class="form-input-custom verticle-divide"
                     placeholder="<?= Ty::get('loginwphonenumb') ?>"
                     required
