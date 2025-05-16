@@ -151,7 +151,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
           <div class="row">
             <!-- <div class="col-6 col-md-3 d-none d-md-block"></div> -->
             <div class="col-6 col-md-6">
-              <div class="title">
+              <div class="title d-none">
                 <div>
                   เมนูเพิ่มเติม
                 </div>

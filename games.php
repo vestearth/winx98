@@ -269,8 +269,8 @@ $system_line =  nga_management::getGeneralWebsite($code);
         <div class="game-menu-responsive show-on-mobile">
           <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
-              <div class="col-3 mt-10px px-0" style="flex: 0 0 auto;">
-                <a href="?type=<?= $key ?>" class="game-menu-list w-100 <?= $key == $type ? 'active' : '' ?> preloader-link">
+              <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
+                <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
                   <div class="game-menu-image">
                     <img src="<?= $type_games['img']; ?>" alt="<?= $type_games['name']; ?>">
                   </div>
@@ -287,9 +287,9 @@ $system_line =  nga_management::getGeneralWebsite($code);
       <?php if (!$firm) {
         if ($type != 'LOTTO' && $type != 'SOCCER') {
       ?>
-          <div class="col-md-12 mb-100px">
+          <div class="col-md-12">
             <div class="text-white">
-              <div class="row">
+              <div class="row mb-100px">
                 <?php
                 $game_no = 1;
                 $game_list = array(
@@ -515,6 +515,7 @@ $system_line =  nga_management::getGeneralWebsite($code);
       <?php } ?>
     </div>
   </div>
+  <div class="my-50px"></div>
   <?php renderFooterNav(); ?>
 
   <div class="scope_firm_form d-none">
