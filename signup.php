@@ -3,7 +3,7 @@ require_once '.framework/import.php';
 require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
 $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
-$ref_marketing = !empty($_GET['ref_m']) ? $_GET['ref_m'] : '';
+$ref_marketing = !empty($_GET['ref_m']) ? $_GET['ref_m'] : 'z0e380297';
 $check_member = nga_user::checkMembercode($code, $ref_id);
 $upline_no = isset($check_member['tel_no']) ? $check_member['tel_no'] : '';
 if ($ref_marketing) {

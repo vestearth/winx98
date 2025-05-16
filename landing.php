@@ -119,11 +119,11 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
           </div>
         </div>
         <div class="row mt-30px">
-          <div class="col-lg-12 mb-20px mb-lg-0">
+          <!-- <div class="col-lg-12 mb-20px mb-lg-0">
             <div class="d-flex justify-content-center align-items-center promote-join">
               <img src="source/promote-join.png" class="">
             </div>
-          </div>
+          </div> -->
           <div class="col-lg-12">
             <div class="d-flex justify-content-center align-items-center promote-auto">
               <img src="source/promote-auto.png" class="">
