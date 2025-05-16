@@ -150,7 +150,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
         <div class="menu-additional">
           <div class="row">
             <!-- <div class="col-6 col-md-3 d-none d-md-block"></div> -->
-            <div class="col-6 col-md-6">
+            <div class="col-12 col-md-6">
               <div class="title d-none">
                 <div>
                   เมนูเพิ่มเติม
@@ -172,7 +172,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
                 </ul>
               </div>
             </div>
-            <div class="col-6 col-md-6">
+            <div class="col-12 col-md-6">
               <div class="border-gradient border-gradient-second w-100">
                 <div class="d-flex justify-content-center align-items-center">
                   <img src="source/red-line.png" class="line-icon mr-10px">
