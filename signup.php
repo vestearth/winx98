@@ -3,7 +3,15 @@ require_once '.framework/import.php';
 require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
 $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
-$ref_marketing = !empty($_GET['ref_m']) ? $_GET['ref_m'] : 'z0e380297';
+if (!empty($_GET['ref_m'])) {
+  $ref_marketing = $_GET['ref_m'];
+  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/"); // 30 days
+} else if (!empty($_COOKIE['ref_marketing'])) {
+  $ref_marketing = $_COOKIE['ref_marketing'];
+} else {
+  $ref_marketing = 'z0e380297';
+}
+$getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 $check_member = nga_user::checkMembercode($code, $ref_id);
 $upline_no = isset($check_member['tel_no']) ? $check_member['tel_no'] : '';
 if ($ref_marketing) {
@@ -23,7 +31,8 @@ $data_bank_account = (isset($_POST['bank_account']) && $_POST['bank_account']) ?
 
 if ($_POST) {
   if (isset($_POST['submit_register'])) {
-    $ref_checked = isset($_POST['ref_marketing']) ? $_POST['ref_marketing'] : '';
+    // $ref_checked = isset($_POST['ref_marketing']) ? $_POST['ref_marketing'] : '';
+    $ref_checked = isset($getAlliasRef) ? $getAlliasRef['ref_link'] : '';
     $password = $_POST['password'];
 
     if (!is_numeric($_POST['username'])) {

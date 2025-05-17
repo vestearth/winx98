@@ -9,6 +9,8 @@ $options = [
   'on_time' => true,
 ];
 $runnertext = nga_management::getRunnerText($code, $options);
+$user_data = User::getCurrent();
+$alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
 $this_page = 'index';
 ?>
 
@@ -46,7 +48,6 @@ $this_page = 'index';
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
   } else {
     Aww::redirectOG('landing.php');
-    // Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>
@@ -226,7 +227,7 @@ $this_page = 'index';
   }
   ?>
   <div class="menu-fix-right">
-    <a href="<?= $system_line['line_link'] ?>" target="_blank">
+    <a href="<?= $alliance_data['line_link'] ?>" target="_blank">
       <div class="menu-line">
         <div class="box-close event_close_fix_menu">
           <?= file_get_contents('assets/icon/close.svg') ?>

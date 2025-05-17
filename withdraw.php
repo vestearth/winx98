@@ -306,7 +306,7 @@ $user_data['money_balance'] = 0;
   <?php Tiwdal::endModal() ?>
 
 
-  <div class="menu-fix-right">
+  <!-- <div class="menu-fix-right">
     <a href="<?= $system_line['line_link'] ?>" target="_blank">
       <div class="menu-line">
         <div class="box-close event_close_fix_menu">
@@ -314,7 +314,7 @@ $user_data['money_balance'] = 0;
         </div>
       </div>
     </a>
-  </div>
+  </div> -->
 
 
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

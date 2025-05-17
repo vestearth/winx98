@@ -25,6 +25,8 @@ if ($_POST) {
 };
 $count_notification = isset($notification) ? count($notification) : 0;
 $user_data = User::getCurrent();
+$alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
+
 
 $this_page = isset($this_page) ? 'index' : '';
 
@@ -91,8 +93,8 @@ $menu_sub = [
   [
     'image' => 'assets/icon/menu/purple-line.svg',
     'title' => Ty::get('website'),
-    // 'url' => $system_line['line_link'],
-    'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
+    'url' => $alliance_data['line_link'],
+    // 'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
     'is_mobile' => true
   ],
   [

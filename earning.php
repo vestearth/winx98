@@ -20,7 +20,8 @@ $summary_type = isset($_GET['sum_type']) ? $_GET['sum_type'] : 'player_detail';
     $user_data = User::getCurrent();
     $get_commission = nga_management::getGameUserCommissionSetting($code);
     $outstand_commission = nga_user::getOuststandingCommission($code);
-    $system_line =  nga_management::getGeneralWebsite($code);
+    // $system_line =  nga_management::getGeneralWebsite($code);
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $get_earning = nga_user::getUserEarning($code, $user_data['id']);
   } else {
     // Aww::redirectOG('landing.php');

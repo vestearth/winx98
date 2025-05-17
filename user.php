@@ -38,13 +38,14 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   if ($is_login) {
     $user_data = User::getCurrent();
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
       'detail' => 'เข้าหน้าข้อมูลส่วนตัว',
     ];
     nga_user::addNewUserLog($code, $data);
     $customer_data = nga_user::getUserByID($code, $user_data['id']);
-    $system_line =  nga_management::getGeneralWebsite($code);
+    // $system_line =  nga_management::getGeneralWebsite($code);
   } else {
     Aww::redirectOG('landing.php');
   }
@@ -89,9 +90,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
               <p class="text-white font-18px mb-5px"><?= $customer_data['bank_name']; ?></p>
             </div>
             <p class="text-pink-2 font-16px my-10px"><?= Ty::get('editinfor') ?></p>
-            <a href="<?= $system_line['line_link'] ?>" class="btn btn-main border max-w-305px">
+            <a href="<?= $alliance_data['line_link'] ?>" class="btn btn-main border max-w-305px">
               <img src="assets/icon/line.svg" class="mr-5px" alt="line">
-              <?= $system_line['line_id'] ?>
+              <?= $alliance_data['line_name'] ?>
             </a>
           </div>
         </div>

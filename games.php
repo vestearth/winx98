@@ -188,6 +188,8 @@ if ($firm) {
 }
 
 $system_line =  nga_management::getGeneralWebsite($code);
+$alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
+
 
 ?>
 

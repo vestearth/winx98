@@ -25,6 +25,7 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
     $user_log = nga_user::addNewUserLog($code, $data);
     $reward_list = nga_management::selectRewardForRedemtion($code);
     $system_line =  nga_management::getGeneralWebsite($code);
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     if ($id) {
       $reward_data = [];
       foreach ($reward_list as $key => $value) {
@@ -84,8 +85,8 @@ $id = isset($_GET['id']) ? $_GET['id'] : '';
                 <p class="font-18px text-gold mt-10px mb-0 "><?= Ty::get('terms_conds') ?></p>
                 <div style="white-space: pre-line;" class="mt--20px">
                   <?= $list['description'] ?>
-                  <a href="<?= $system_line['line_link'] ?>" target="_blank" class="text-success">
-                    <?= $system_line['line_id'] ?>
+                  <a href="<?= $alliance_data['line_link'] ?>" target="_blank" class="text-success">
+                    <?= $alliance_data['line_name'] ?>
                   </a>
                 </div>
               </div>

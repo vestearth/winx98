@@ -48,6 +48,7 @@ require_once '.framework/import.php';
   if ($is_login) {
     $system_line =  nga_management::getGeneralWebsite($code);
     $user_data = User::getCurrent();
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
       'detail' => 'เข้าหน้าโปรโมชั่น',
