@@ -14,7 +14,7 @@ $end_date = (isset($_GET['end_date']) && $_GET['end_date']) ? $_GET['end_date'] 
 // $end_month_where = date('Y-m-t', strtotime($end_month));
 
 
-if ($current_user['user_type_id'] == 3) {
+if ($current_user['user_type'] == "Alliance") {
   $ally_fixed = nga_management::getAllianceByUserID($code, $current_user['id']);
   $alliance_options = [
     'list' => [

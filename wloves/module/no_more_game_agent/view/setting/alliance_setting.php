@@ -171,7 +171,7 @@ function messageTemplate($class = '')
             'height' => '100%',
             'bg-img' => 'assets/image/bg_upload.png',
           ];
-          TiwForm::normal('upload-img', '', ['name' => 'line_image', 'required' => true], $options);
+          TiwForm::normal('upload-img', '', ['name' => 'line_image'], $options);
           ?>
         </div>
         <!-- <div class="col-md-3"></div>
@@ -313,7 +313,7 @@ function messageTemplate($class = '')
             'bg-img' => 'assets/image/bg_upload.png',
             'preview_name' => '{line_image}',
           ];
-          TiwForm::normal('upload-img', '', ['name' => 'line_image', 'required' => true], $options);
+          TiwForm::normal('upload-img', '', ['name' => 'line_image'], $options);
           ?>
         </div>
       </div>
