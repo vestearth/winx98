@@ -49,15 +49,15 @@ $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;
     <tr>
       <td class="font-15px font-Medium" nowrap><?= $data['name']; ?></td>
       <td class="font-15px font-Medium" nowrap><?= $data['username']; ?></td>
+      <?php /*
       <td class="font-15px font-Medium" nowrap><?= $data['line_name']; ?></td>
       <td class="font-15px font-Regular text-primary" nowrap>
-        <?php
         if ($data['line_link']) {
           echo '<img src="assets/icon/clip-link.svg">';
           echo $data['line_link'];
         }
-        ?>
       </td>
+        */ ?>
       <td class="font-15px font-Regular text-primary" nowrap> <img src="assets/icon/clip-link.svg">
         <?= $data['link']; ?>
       </td>

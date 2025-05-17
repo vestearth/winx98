@@ -97,8 +97,8 @@ function messageTemplate($class = '')
           <tr>
             <th nowrap data-sort="name" data-filter="<?= Homepagify::dataFilter('name', 'text') ?>">ชื่อ</th>
             <th nowrap data-sort="ref_link">Username</th>
-            <th nowrap data-sort="line_name">รหัสเพิ่มเพื่อนไลน์</th>
-            <th nowrap data-sort="line_link">Link สำหรับกดแอดเพื่อนไลน์</th>
+            <!-- <th nowrap data-sort="line_name">รหัสเพิ่มเพื่อนไลน์</th>
+            <th nowrap data-sort="line_link">Link สำหรับกดแอดเพื่อนไลน์</th> -->
             <th nowrap data-sort="ref_link">ลิงก์</th>
             <th nowrap data-sort="alliance_type" data-filter="<?= Homepagify::dataFilter('alliance_type', 'select', $table_alliance_options) ?>">ประเภท</th>
             <th nowrap data-sort="category_detail" data-filter="<?= Homepagify::dataFilter('is_active', 'select', $table_ally_options) ?>">สถานะ</th>
