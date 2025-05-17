@@ -49,6 +49,15 @@ $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;
     <tr>
       <td class="font-15px font-Medium" nowrap><?= $data['name']; ?></td>
       <td class="font-15px font-Medium" nowrap><?= $data['username']; ?></td>
+      <td class="font-15px font-Medium" nowrap><?= $data['line_name']; ?></td>
+      <td class="font-15px font-Regular text-primary" nowrap>
+        <?php
+        if ($data['line_link']) {
+          echo '<img src="assets/icon/clip-link.svg">';
+          echo $data['line_link'];
+        }
+        ?>
+      </td>
       <td class="font-15px font-Regular text-primary" nowrap> <img src="assets/icon/clip-link.svg">
         <?= $data['link']; ?>
       </td>
@@ -67,10 +76,11 @@ $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;
         <div class="d-flex align-items-center">
           <?php
           TiwForm::normal('btn', '', ['type' => 'button', 'class' => 'mr-5px'], ['text' => '', 'type' => 'edit', 'prefix' => $prefix, 'modal_id' => 'edit_data', 'modal_data' => $data]);
-          TiwForm::normal('btn', '', ['type' => 'button', 'class' => ''], ['text' => '', 'type' => 'delete', 'prefix' => $prefix, 'modal_id' => 'delete_data', 'modal_data' => $data]);
+          if ($data['username'] != 'alliance1') {
+            TiwForm::normal('btn', '', ['type' => 'button', 'class' => ''], ['text' => '', 'type' => 'delete', 'prefix' => $prefix, 'modal_id' => 'delete_data', 'modal_data' => $data]);
+          }
           ?>
         </div>
-
       </td>
     </tr>
   <?php } ?>

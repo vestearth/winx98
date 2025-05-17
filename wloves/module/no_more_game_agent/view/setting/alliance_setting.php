@@ -3,9 +3,13 @@ if ($_POST) {
   if (isset($_POST['submit_add_alliance'])) {
     unset($_POST['submit_add_alliance']);
     $is_active = isset($_POST['is_active']) ? $_POST['is_active'] : '0';
+    $line_image = isset($_FILES['line_image']) ? $_FILES['line_image'] : null;
     $data = [
       'name' => $_POST['name'],
       'leader_name' => $_POST['leader_name'],
+      'line_name' => $_POST['line_name'],
+      'line_link' => $_POST['line_link'],
+      'line_image' => $line_image,
       'username' => $_POST['username'],
       'password' => $_POST['password'],
       'alliance_type' => $_POST['alliance_type'],
@@ -15,9 +19,13 @@ if ($_POST) {
   } else if (isset($_POST['submit_edit_alliance'])) {
     unset($_POST['submit_edit_alliance']);
     $is_active = isset($_POST['is_active']) ? $_POST['is_active'] : '0';
+    $line_image = isset($_FILES['line_image']) ? $_FILES['line_image'] : null;
     $data = [
       'name' => $_POST['name'],
       'leader_name' => $_POST['leader_name'],
+      'line_name' => $_POST['line_name'],
+      'line_link' => $_POST['line_link'],
+      'line_image' => $line_image,
       'password' => $_POST['password'],
       'is_active' => $is_active,
       // 'alliance_type' => $_POST['alliance_type'],
@@ -89,6 +97,8 @@ function messageTemplate($class = '')
           <tr>
             <th nowrap data-sort="name" data-filter="<?= Homepagify::dataFilter('name', 'text') ?>">ชื่อ</th>
             <th nowrap data-sort="ref_link">Username</th>
+            <th nowrap data-sort="line_name">รหัสเพิ่มเพื่อนไลน์</th>
+            <th nowrap data-sort="line_link">Link สำหรับกดแอดเพื่อนไลน์</th>
             <th nowrap data-sort="ref_link">ลิงก์</th>
             <th nowrap data-sort="alliance_type" data-filter="<?= Homepagify::dataFilter('alliance_type', 'select', $table_alliance_options) ?>">ประเภท</th>
             <th nowrap data-sort="category_detail" data-filter="<?= Homepagify::dataFilter('is_active', 'select', $table_ally_options) ?>">สถานะ</th>
@@ -107,7 +117,7 @@ function messageTemplate($class = '')
 <div class="modal-header">
   <h5 class="modal-title">เพิ่มพันธมิตร</h5>
 </div>
-<form method="post">
+<form method="post" enctype="multipart/form-data" id="form_add_data">
   <div class="modal-body">
     <div class="form-group">
       <div class="form-row">
@@ -127,6 +137,47 @@ function messageTemplate($class = '')
         <div class="col-md-9">
           <?= TiwForm::normal('text', '', ['name' => 'leader_name', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
         </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">รหัสเพิ่มเพื่อนไลน์<br>ที่มี @ นำหน้า<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9">
+          <?= TiwForm::normal('text', '', ['name' => 'line_name', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">Link สำหรับกด<br>แอดเพื่อนไลน์<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9">
+          <?= TiwForm::normal('text', '', ['name' => 'line_link', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">QR สำหรับการเพิ่มเพื่อนไลน์<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9 d-flex align-items-center">
+          <?php
+          $options = [
+            'width' => '200px',
+            'height' => '100%',
+            'bg-img' => 'assets/image/bg_upload.png',
+          ];
+          TiwForm::normal('upload-img', '', ['name' => 'line_image', 'required' => true], $options);
+          ?>
+        </div>
+        <!-- <div class="col-md-3"></div>
+        <div class="col-md-9">
+          <div class="d-flex mt-10px">ขนาดรูปภาพที่แนะนำ : สัดส่วน 1340x536 px</div>
+        </div> -->
       </div>
     </div>
     <div class="form-group">
@@ -207,7 +258,7 @@ function messageTemplate($class = '')
 <div class="modal-header">
   <h5 class="modal-title">แก้ไขพันธมิตร</h5>
 </div>
-<form method="post" id="form_edit_data">
+<form method="post" id="form_edit_data" enctype="multipart/form-data">
   <div class="modal-body">
     <div class="form-group">
       <div class="form-row">
@@ -226,6 +277,44 @@ function messageTemplate($class = '')
         </div>
         <div class="col-md-9">
           <?= TiwForm::normal('text', '', ['name' => '{leader_name}', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">รหัสเพิ่มเพื่อนไลน์<br>ที่มี @ นำหน้า<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9">
+          <?= TiwForm::normal('text', '', ['name' => '{line_name}', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">Link สำหรับกด<br>แอดเพื่อนไลน์<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9">
+          <?= TiwForm::normal('text', '', ['name' => '{line_link}', 'required' => true, 'class' => 'mb-0', 'placeholder' => 'กรอก']); ?>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-md-3 pt-7px">
+          <label class="font-15px font-SemiBold">QR สำหรับการเพิ่มเพื่อนไลน์<span class="text-danger">*</span></label>
+        </div>
+        <div class="col-md-9 d-flex align-items-center">
+          <?php
+          $options = [
+            'width' => '200px',
+            'height' => '100%',
+            'bg-img' => 'assets/image/bg_upload.png',
+            'preview_name' => '{line_image}',
+          ];
+          TiwForm::normal('upload-img', '', ['name' => 'line_image', 'required' => true], $options);
+          ?>
         </div>
       </div>
     </div>
