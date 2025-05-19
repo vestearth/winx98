@@ -53,6 +53,27 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
       $list['confirm_by'] = $list['cancel_admin_username'];
     }
     $list['modal_type_msg'] = ($list['transaction_type'] == 'withdraw') ? 'ถอน' : 'ฝาก';
+
+    $status = $list['status'];
+    if ($status == 'waiting_user') {
+      $text = 'รอผู้ใช้ทำรายการ';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_system') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_admin') {
+      $text = 'รอแอดมินยืนยัน';
+      $textClass = 'text-warning';
+    } else if ($status == 'success') {
+      $text = 'สำเร็จ';
+      $textClass = 'text-success';
+    } else if ($status == 'cancel') {
+      $text = 'ยกเลิก';
+      $textClass = 'text-danger';
+    } else if ($status == 'expired') {
+      $text = 'หมดอายุ';
+      $textClass = 'text-danger';
+    }
   ?>
 
     <?php if ($list['status'] == 'completed') { ?>
@@ -128,21 +149,29 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
                       </div>
                     </div>
                   <?php } else { ?>
-                    <div class="col-2 ">
-                      <div class="mb-5px">
-                        <?= file_get_contents("./../assets/icon/icon-dot-red.svg"); ?>
-                      </div>
+                    <div class="col-2">
+                      <?php
+                      if ($textClass == 'text-danger') {
+                        echo file_get_contents("./../assets/icon/icon-dot-red.svg");
+                      } else if ($textClass == 'text-warning') {
+                        echo file_get_contents("./../assets/icon/icon-dot-yellow.svg");
+                      } else if ($textClass == 'text-success') {
+                        echo file_get_contents("./../assets/icon/icon-dot-green.svg");
+                      }
+                      ?>
                     </div>
-                    <div class="col-10 ">
+                    <div class="col-10">
                       <div class="pl-5px">
-                        ยกเลิก
+                        <div class="<?= $textClass; ?>">
+                          <?= $text; ?>
+                        </div>
                       </div>
                     </div>
                   <?php } ?>
                 </div>
               </div>
               <?php if ($list['transaction_by'] == 'bot') { ?>
-                <div class="col-lg-7">
+                <div class="col-lg-12">
                   <img src="assets/image/bot-auto.png" />
                 </div>
               <?php } else { ?>

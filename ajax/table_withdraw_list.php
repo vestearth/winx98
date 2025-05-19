@@ -38,6 +38,9 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
     } else if ($status == 'waiting_system') {
       $text = 'รอระบบประมวลผล';
       $textClass = 'text-warning';
+    } else if ($status == 'waiting_admin') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
     } else if ($status == 'success') {
       $text = 'สำเร็จ';
       $textClass = 'text-success';
