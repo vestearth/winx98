@@ -188,7 +188,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
           </form>
         <?php } else if ($check_deposit_response['step'] == 2) { ?>
           <div class="card-content mb-20px pb-0 have-bg min-h-200px d-flex align-items-center justify-content-between">
-            <div class="card-content-body text-center mb-20px">
+            <div class="card-content-body text-center mb-20px w-100 font-18px">
               กรุณารอการทำรายการ
             </div>
           </div>

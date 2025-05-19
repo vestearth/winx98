@@ -5,35 +5,58 @@ Structure::loadMetaForAjax('../../../');
 $code = $_GET['c'];
 
 $where = [
-  'transaction_date' => $_POST['transaction_date'],
-  'customer_username' => $_POST['customer_username'],
-  'credit_amount' => $_POST['credit_amount'],
-  'customer_bank_name' => $_POST['customer_bank_name'],
-  'web_bank_name' => $_POST['web_bank_name'],
-  'status' => 'wait_confirm',
-  'is_wallet' => 1,
-  'transaction_type' => 'withdraw',
-  'is_can_withdraw_over_limit' => 0,
+  // 'transaction_date' => $_POST['transaction_date'],
+  // 'customer_username' => $_POST['customer_username'],
+  // 'credit_amount' => $_POST['credit_amount'],
+  // 'customer_bank_name' => $_POST['customer_bank_name'],
+  // 'web_bank_name' => $_POST['web_bank_name'],
+  // 'status' => 'wait_confirm',
+  // 'is_wallet' => 1,
+  // 'transaction_type' => 'withdraw',
+  // 'is_can_withdraw_over_limit' => 0,
 ];
 
 // if ($_POST['transaction_type'] == 'all') {
 //   $where['transaction_type'] = ['withdraw'];
 // }
 $options = [
-  'total_count' => true,
-  'show_bot_not_withdraw' => true,
-  'page_no'     => $_POST['page_no'],
-  'page_size'   => $_POST['page_size'],
-  'sort'        => isset($_POST['data_sort']) && $_POST['data_sort'] ? $_POST['data_sort'] : ['transaction_date_time' => 'DESC']
+  // 'total_count' => true,
+  // 'show_bot_not_withdraw' => true,
+  // 'page_no'     => $_POST['page_no'],
+  // 'page_size'   => $_POST['page_size'],
+  // 'sort'        => isset($_POST['data_sort']) && $_POST['data_sort'] ? $_POST['data_sort'] : ['transaction_date_time' => 'DESC']
 ];
 
 // $call_api = nga_user::selectuserCreditTransaction($code, $where, $options); /// old
-$call_api = Nga_Bank_Pg_Withdraw_Api::selectWaitingAdmin($code, $where, $options);
-$data_list = isset($call_api['list']) ? $call_api['list'] : [];
-$total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
+// $data_list = isset($call_api['list']) ? $call_api['list'] : [];
+// $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
+$call_api = nga_Bank_Pg_Withdraw_Api::selectWaitingAdmin($code, $where, $options);
+$data_list = isset($call_api) ? $call_api : [];
+$total_count = isset($call_api) && is_array($call_api) ? count($call_api) : 0;
 ?>
 <tbody data-total_count="<?= $total_count ?>">
-  <?php foreach ($data_list as $bot_statement) { ?>
+  <?php foreach ($data_list as $bot_statement) {
+    $status = $bot_statement['status'];
+    if ($status == 'waiting_user') {
+      $text = 'รอผู้ใช้ทำรายการ';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_system') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_admin') {
+      $text = 'รอแอดมินยืนยัน';
+      $textClass = 'text-warning';
+    } else if ($status == 'success') {
+      $text = 'สำเร็จ';
+      $textClass = 'text-success';
+    } else if ($status == 'cancel') {
+      $text = 'ยกเลิก';
+      $textClass = 'text-danger';
+    } else if ($status == 'expired') {
+      $text = 'หมดอายุ';
+      $textClass = 'text-danger';
+    }
+  ?>
     <tr class="cursor-pointer" <?php Tiwdal::register('auto_withdraw_detail', $bot_statement, ['prefix' => '', 'modal_id' => 'auto_withdraw_detail', 'is_ajax' => true]); ?>>
       <td nowrap>
         <div class="">
@@ -41,7 +64,7 @@ $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
         </div>
         <div class="text-blue">
           <?php
-          if ($bot_statement['bot_update_status_date_time']) {
+          if (isset($bot_statement['bot_update_status_date_time']) && $bot_statement['bot_update_status_date_time']) {
             echo Aww::formatDate($bot_statement['bot_update_status_date_time'], 'd/m/Y, H:i');
           }
           ?>
@@ -118,14 +141,22 @@ $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
                   </div>
                 </div>
               <?php } else { ?>
-                <div class="col-2 ">
-                  <div class="mb-5px">
-                    <?= file_get_contents("./../assets/icon/icon-dot-red.svg"); ?>
-                  </div>
+                <div class="col-2">
+                  <?php
+                  if ($textClass == 'text-danger') {
+                    echo file_get_contents("./../assets/icon/icon-dot-red.svg");
+                  } else if ($textClass == 'text-warning') {
+                    echo file_get_contents("./../assets/icon/icon-dot-yellow.svg");
+                  } else if ($textClass == 'text-success') {
+                    echo file_get_contents("./../assets/icon/icon-dot-green.svg");
+                  }
+                  ?>
                 </div>
-                <div class="col-10 ">
+                <div class="col-10">
                   <div class="pl-5px">
-                    ยกเลิก
+                    <div class="<?= $textClass; ?>">
+                      <?= $text; ?>
+                    </div>
                   </div>
                 </div>
               <?php } ?>

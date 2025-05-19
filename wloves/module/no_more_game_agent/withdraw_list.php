@@ -256,8 +256,8 @@ $bot_list = nga_management_bot::selectBotGroupList($code, []);
             <th nowrap data-sort="credit_amount" data-filter="<?= Homepagify::dataFilter('credit_amount', 'text') ?>" class="thin-cell">จำนวน</th>
             <th nowrap data-sort="credit_before" class="thin-cell">เครดิต (ก่อน)</th>
             <th nowrap data-sort="credit_after" class="thin-cell">เครดิต (หลัง)</th>
-            <th class="th-right" nowrap>ยอดเงินก่อนถอน</th>
-            <th class="th-right" nowrap>ยอดเงินหลังถอน</th>
+            <!-- <th class="th-right" nowrap>ยอดเงินก่อนถอน</th>
+            <th class="th-right" nowrap>ยอดเงินหลังถอน</th> -->
             <th nowrap data-sort="receive_from" data-filter="<?= Homepagify::dataFilter('receive_from', 'select', $receive_from_list) ?>">ประเภท</th>
             <th nowrap data-sort="confirm_cancel_admin_id" data-filter="<?= Homepagify::dataFilter('confirm_cancel_admin_id', 'select', $admin_list) ?>">แอดมิน</th>
             <th nowrap data-sort="status" width="10%" data-filter="<?= Homepagify::dataFilter('status', 'select', $status_list) ?>">สถานะ</th>

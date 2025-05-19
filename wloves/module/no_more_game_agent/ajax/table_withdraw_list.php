@@ -150,8 +150,10 @@ $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
       <td nowrap class="text-right"><?= number_format($bot_statement['credit_amount'], 2); ?></td>
       <td nowrap class="text-right"><?= number_format($bot_statement['credit_before'], 2); ?></td>
       <td nowrap class="text-right"><?= number_format($bot_statement['credit_after'], 2); ?></td>
+      <?php /* 
       <td nowrap class="text-right"><?= number_format($bot_statement['bot_money_before'], 2); ?></td>
       <td nowrap class="text-right"><?= number_format($bot_statement['bot_money_after'], 2); ?></td>
+      */ ?>
       <td nowrap class="">
         <?php
         if ($type == 'deposit') {

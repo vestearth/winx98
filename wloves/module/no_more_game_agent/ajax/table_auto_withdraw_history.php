@@ -5,25 +5,25 @@ Structure::loadMetaForAjax('../../../');
 $code = $_GET['c'];
 
 $where = [
-  'transaction_date' => $_POST['transaction_date'],
+  // 'transaction_date' => $_POST['transaction_date'],
   // 'transaction_type' => $_POST['transaction_type'],
-  'customer_username' => $_POST['customer_username'],
-  'credit_amount' => $_POST['credit_amount'],
-  'customer_bank_name' => $_POST['customer_bank_name'],
-  'web_bank_name' => $_POST['web_bank_name'],
-  'status' => $_POST['status'],
-  'is_wallet' => 1,
-  'receive_from' => ['admin_confirm_manual', 'admin_cancel_manual'],
-  'transaction_type' => 'withdraw',
+  // 'customer_username' => $_POST['customer_username'],
+  // 'credit_amount' => $_POST['credit_amount'],
+  // 'customer_bank_name' => $_POST['customer_bank_name'],
+  // 'web_bank_name' => $_POST['web_bank_name'],
+  // 'status' => $_POST['status'],
+  // 'is_wallet' => 1,
+  // 'receive_from' => ['admin_confirm_manual', 'admin_cancel_manual'],
+  // 'transaction_type' => 'withdraw',
 
 ];
 
 // if ($_POST['transaction_type'] == 'all') {
 //   $where['transaction_type'] = ['withdraw'];
 // }
-if ($_POST['status'] == 'all') {
-  unset($where['status']);
-}
+// if ($_POST['status'] == 'all') {
+//   unset($where['status']);
+// }
 
 $options = [
   'total_count' => true,
@@ -31,9 +31,13 @@ $options = [
   'page_size'   => $_POST['page_size'],
   'sort'        => isset($_POST['data_sort']) && $_POST['data_sort'] ? $_POST['data_sort'] : ['transaction_date_time' => 'DESC']
 ];
-$call_api = nga_user::selectuserCreditTransaction($code, $where, $options);
-$data_list = isset($call_api['list']) ? $call_api['list'] : [];
-$total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
+// $call_api = nga_user::selectuserCreditTransaction($code, $where, $options);
+// $data_list = isset($call_api['list']) ? $call_api['list'] : [];
+// $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
+$call_api = nga_Bank_Pg_Withdraw_Api::selectWaitingAdmin($code, $where, $options);
+$data_list = isset($call_api) ? $call_api : [];
+$total_count = isset($call_api) && is_array($call_api) ? count($call_api) : 0;
+// Aww::display($call_api);
 ?>
 <tbody data-total_count="<?= $total_count ?>">
   <?php foreach ($data_list as $bot_statement) { ?>

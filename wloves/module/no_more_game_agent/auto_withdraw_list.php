@@ -4,7 +4,8 @@ require_once '../../.framework/import.php';
 Structure::loadModules(['boatnav']);
 
 $code = $_GET['c'];
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+// $page = isset($_GET['page']) ? $_GET['page'] : 1;
+$page = 1;
 $count = nga_user::countWaitDepositWithdraw($code);
 $current_user = User::getCurrentUserID();
 $data_nav = [
@@ -49,7 +50,7 @@ $status_list = [
 if ($_POST) {
   if (isset($_POST['submit_accept'])) {
     // $result = nga_user::confirmWithdraw($code, $_POST['id'], $_POST['bot_group_list_id']);
-    $result = Nga_Bank_Pg_Withdraw_Api::confirmWithdraw($code, $_POST['id']);
+    $result = Nga_Bank_Pg_Withdraw_Api::confirmWaitingWithdraw($code, $_POST['id']);
     if ($result['response_status'] == 'succcess') {
       $data = [
         'admin_id' => $current_user,
@@ -61,7 +62,7 @@ if ($_POST) {
     }
   } else if (isset($_POST['submit_deny'])) {
     // $result = nga_user::cancelWithdraw($code, $_POST['id'], $_POST['remark']);
-    $result = Nga_Bank_Pg_Withdraw_Api::cancelWithdraw($code, $_POST['id'], $_POST['remark']);
+    $result = Nga_Bank_Pg_Withdraw_Api::cancelWaitingWithdraw($code, $_POST['id'], $_POST['remark']);
     if ($result['response_status'] == 'succcess') {
       $data = [
         'admin_id' => $current_user,
@@ -97,9 +98,10 @@ if ($_POST) {
   <?php include_once '../../structure/layout/header-default.php'; ?>
 
   <div class="editable-card core-new border-radius-bottom-0 ">
-    <div class="editable-card-header rounded-0 d-flex justify-content-between p-0 bg-whites nav-lines">
-      <?= Boatnav::dinner($data_nav, $link); ?>
-    </div>
+    <!-- <div class="editable-card-header rounded-0 d-flex justify-content-between p-0 bg-whites nav-lines">
+      <? // = Boatnav::dinner($data_nav, $link); 
+      ?>
+    </div> -->
   </div>
   <?php if ($page == 1) { ?>
     <div id="auto_withdraw" class="container-pagination bg-white  no-border-radius" <?= Homepagify::createHomepagify('auto_withdraw', '?c=' . $code, '', 'รายการ') ?>>
@@ -107,12 +109,23 @@ if ($_POST) {
         <table class="table table-sort table-search ">
           <thead>
             <tr>
+              <?php /*
               <th nowrap data-sort="transaction_date_time" data-filter="<?= Homepagify::dataFilter('transaction_date', 'date') ?>">วัน/เวลา</th>
               <th nowrap data-sort="transaction_type">ประเภท</th>
               <th nowrap data-sort="customer_username" data-filter="<?= Homepagify::dataFilter('customer_username', 'text') ?>">ยูสเซอร์ (agent)</th>
               <th nowrap data-sort="customer_bank_name" data-filter="<?= Homepagify::dataFilter('customer_bank_name', 'text') ?>">บัญชีลูกค้า</th>
               <th nowrap data-sort="web_bank_name" data-filter="<?= Homepagify::dataFilter('web_bank_name', 'text') ?>">บัญชีเว็บ</th>
               <th nowrap data-sort="credit_amount" data-filter="<?= Homepagify::dataFilter('credit_amount', 'text') ?>" class="thin-cell">จำนวน</th>
+              <th nowrap data-sort="credit_before" class="thin-cell">เครดิต (ก่อน)</th>
+              <th nowrap data-sort="credit_after" class="thin-cell">เครดิต (หลัง)</th>
+              <th nowrap data-sort="status" width="10%">สถานะ</th>
+              */ ?>
+              <th nowrap data-sort="transaction_date_time">วัน/เวลา</th>
+              <th nowrap data-sort="transaction_type">ประเภท</th>
+              <th nowrap data-sort="customer_username">ยูสเซอร์ (agent)</th>
+              <th nowrap data-sort=" customer_bank_name">บัญชีลูกค้า</th>
+              <th nowrap data-sort="web_bank_name">บัญชีเว็บ</th>
+              <th nowrap data-sort="credit_amount" class="thin-cell">จำนวน</th>
               <th nowrap data-sort="credit_before" class="thin-cell">เครดิต (ก่อน)</th>
               <th nowrap data-sort="credit_after" class="thin-cell">เครดิต (หลัง)</th>
               <th nowrap data-sort="status" width="10%">สถานะ</th>
