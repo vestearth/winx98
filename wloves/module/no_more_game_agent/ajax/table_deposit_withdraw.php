@@ -262,7 +262,11 @@ $get_user = User::getCurrent();
               if ($substring && $bot_statement['status'] == 'completed') {
                 echo 'โดย ' . $bot_statement['admin_username'];
               } else if ($bot_statement['status'] == 'cancel') {
-                echo 'โดย ' . $bot_statement['cancel_admin_username'];
+                if ($bot_statement['receive_from'] == 'bot_auto_match') {
+                  echo '<img src="assets/image/bot-auto.png" />';
+                } else {
+                  echo 'โดย ' . $bot_statement['cancel_admin_username'];
+                }
               } else {
                 echo '<img src="assets/image/bot-auto.png" />';
               }

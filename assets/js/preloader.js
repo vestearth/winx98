@@ -44,6 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hide the preloader when the page is fully loaded
   window.addEventListener("load", function () {
-    hidePreloader();
+    // hidePreloader();
   });
 });

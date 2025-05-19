@@ -55,7 +55,7 @@ if ($_POST) {
       'bank_abb' => $_POST['bank_id'],
       'bank_number' => $_POST['bank_account'],
       'bank_name' => $_POST['bank_name'],
-      'upline_member_code' => $_POST['upline_member_code'],
+      // 'upline_member_code' => $_POST['upline_member_code'],
       'user_type_id' => 2,
     ];
     if ($ref_checked) {
