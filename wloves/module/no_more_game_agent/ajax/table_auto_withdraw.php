@@ -27,7 +27,8 @@ $options = [
   'sort'        => isset($_POST['data_sort']) && $_POST['data_sort'] ? $_POST['data_sort'] : ['transaction_date_time' => 'DESC']
 ];
 
-$call_api = nga_user::selectuserCreditTransaction($code, $where, $options);
+// $call_api = nga_user::selectuserCreditTransaction($code, $where, $options); /// old
+$call_api = Nga_Bank_Pg_Withdraw_Api::selectWaitingAdmin($code, $where, $options);
 $data_list = isset($call_api['list']) ? $call_api['list'] : [];
 $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
 ?>

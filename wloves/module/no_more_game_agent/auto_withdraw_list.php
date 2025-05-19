@@ -48,7 +48,8 @@ $status_list = [
 
 if ($_POST) {
   if (isset($_POST['submit_accept'])) {
-    $result = nga_user::confirmWithdraw($code, $_POST['id'], $_POST['bot_group_list_id']);
+    // $result = nga_user::confirmWithdraw($code, $_POST['id'], $_POST['bot_group_list_id']);
+    $result = Nga_Bank_Pg_Withdraw_Api::confirmWithdraw($code, $_POST['id']);
     if ($result['response_status'] == 'succcess') {
       $data = [
         'admin_id' => $current_user,
@@ -59,7 +60,8 @@ if ($_POST) {
       $admin_log = nga_user::addNewAdminActionLog($code, $data);
     }
   } else if (isset($_POST['submit_deny'])) {
-    $result = nga_user::cancelWithdraw($code, $_POST['id'], $_POST['remark']);
+    // $result = nga_user::cancelWithdraw($code, $_POST['id'], $_POST['remark']);
+    $result = Nga_Bank_Pg_Withdraw_Api::cancelWithdraw($code, $_POST['id'], $_POST['remark']);
     if ($result['response_status'] == 'succcess') {
       $data = [
         'admin_id' => $current_user,
