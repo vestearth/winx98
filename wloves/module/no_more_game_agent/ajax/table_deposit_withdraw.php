@@ -257,7 +257,8 @@ $get_user = User::getCurrent();
               <?php } ?>
             </div>
           </div>
-          <?php if ($bot_statement['transaction_by'] == 'bot') { ?>
+          <?php if ($bot_statement['transaction_by'] == 'bot') {
+          ?>
             <div class="col-lg-12">
               <?php
               $substring = explode("-", $bot_statement['remark'])[0];

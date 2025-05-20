@@ -158,6 +158,7 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
                       } else if ($textClass == 'text-success') {
                         echo file_get_contents("./../assets/icon/icon-dot-green.svg");
                       }
+
                       ?>
                     </div>
                     <div class="col-10">
@@ -170,23 +171,31 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
                   <?php } ?>
                 </div>
               </div>
-              <?php if ($list['transaction_by'] == 'bot') { ?>
+              <?php
+              // if ($list['transaction_by'] == 'bot') { 
+              if ($list['receive_from'] == 'bot_auto_match') { ?>
                 <div class="col-lg-12">
                   <img src="assets/image/bot-auto.png" />
                 </div>
               <?php } else { ?>
                 <?php if ($list['status'] == 'cancel') {
+                  if ($list['receive_from'] == 'bot_auto_match') {
                 ?>
-                  <div class="col-lg-7">
-                    โดย <?= $list['cancel_admin_username']; ?>
-                  </div>
-                <?php } else if ($list['status'] != 'wait_confirm') {
+                    <div class="col-lg-7">
+                      โดย <?= '<img src="assets/image/bot-auto.png">'; ?>
+                    </div>
+                  <?php } else if ($list['receive_from'] == 'admin_confirm_manual') { ?>
+                    <div class="col-lg-7">
+                      <?= $list['cancel_admin_username']; ?>
+                    </div>
+                  <?php }
+                } else if ($list['status'] != 'wait_confirm') {
                   if ($list['confirm_transaction_by_user_id']) {
                     $admin_or_bot = 'โดย ' . $list['admin_username'];
                   } else {
                     $admin_or_bot = '<img src="assets/image/bot-auto.png">';
                   }
-                ?>
+                  ?>
                   <div class="col-lg-7">
                     <?= $admin_or_bot; ?>
                   </div>

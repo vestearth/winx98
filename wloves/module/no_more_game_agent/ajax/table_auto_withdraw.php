@@ -162,7 +162,7 @@ $total_count = isset($call_api) && is_array($call_api) ? count($call_api) : 0;
               <?php } ?>
             </div>
           </div>
-          <?php if ($bot_statement['transaction_by'] == 'bot') { ?>
+          <?php if ($bot_statement['transaction_by'] == 'bot' && $bot_statement['receive_from'] == "bot_auto_match") { ?>
             <div class="col-lg-12">
               <img src="assets/image/bot-auto.png" />
             </div>
