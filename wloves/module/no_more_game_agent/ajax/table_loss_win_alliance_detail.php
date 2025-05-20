@@ -23,6 +23,7 @@ if ($_POST['is_have_last_online'] == 'all') {
 $options = [
   'total_count' => true,
   'sum_deposit' => true,
+  'cal_win_lost' => true,
   'page_no'     => $_POST['page_no'],
   'page_size'   => $_POST['page_size'],
   'sort'        => isset($_POST['data_sort']) ? $_POST['data_sort'] : []
@@ -43,7 +44,7 @@ $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;
     <td></td>
     <td class="text-right font-Bold font-16px text-primary"><?= number_format($list['list'][0]['sum_count_deposit_time'], 0) ?></td>
     <td class="text-right font-Bold font-16px text-primary"><?= number_format($list['list'][0]['sum_all_deposit'], 2) ?></td>
-    <td class="text-right font-Bold font-16px text-primary"><?= number_format($list['list'][0]['sum_all_win_lost'], 2) ?></td>
+    <td class="text-right font-Bold font-16px  <?= ($list[0]['sum_all_win_lost'] > 0) ? 'text-primary' : 'text-danger' ?>"><?= number_format($list['list'][0]['sum_all_win_lost'], 2) ?></td>
     <td></td>
   </tr>
   <?php foreach ($list['list'] as $key => $ally_data) {

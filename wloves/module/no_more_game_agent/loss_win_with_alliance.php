@@ -96,7 +96,9 @@ $total_summary = nga_management::getSumAllianceDetail($code);
       <table class="table table-sort table-search ">
         <thead>
           <tr>
+            <?php /* 
             <th nowrap data-sort="insert_date_time" data-filter="<?= Homepagify::dataFilter('insert_date', 'date') ?>">วันที่สมัคร</th>
+            */ ?>
             <th nowrap data-sort="name" data-filter="<?= Homepagify::dataFilter('name', 'text') ?>">ชื่อพันธมิตร</th>
             <th nowrap data-sort="user_count" data-filter="<?= Homepagify::dataFilter('user_count', 'number') ?>">จำนวนชวนเพื่อน</th>
             <th nowrap>การฝากครั้งแรก</th>

@@ -6,7 +6,7 @@ $code = $_GET['c'];
 $id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : null;
 
 $where = [
-  'insert_date' => $_POST['insert_date'],
+  // 'insert_date' => $_POST['insert_date'],
   'name' => $_POST['name'],
   // 'count_deposit_first_time' => $_POST['count_deposit_first_time'],
   // 'sum_deposit_first_time' => $_POST['sum_deposit_first_time'],
@@ -37,9 +37,12 @@ $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;
 <tbody data-total_count="<?= $total_count; ?>">
   <?php foreach ($list as $data) { ?>
     <tr class="tr-link cursor-pointer" data-link="loss_win_with_alliance_detail.php?c=<?= $code ?>&id=<?= $data['id'] ?>">
+      <?php
+      /* 
       <td nowrap>
         <div><?= Aww::formatDate($data['insert_date_time'], 'd/m/Y'); ?></div>
       </td>
+        */ ?>
       <td nowrap>
         <div class="text-primary"><?= $data['name']; ?></div>
       </td>
