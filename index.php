@@ -9,8 +9,6 @@ $options = [
   'on_time' => true,
 ];
 $runnertext = nga_management::getRunnerText($code, $options);
-$user_data = User::getCurrent();
-$alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
 $this_page = 'index';
 ?>
 
@@ -30,6 +28,7 @@ $this_page = 'index';
   <?php
   if ($is_login) {
     $user_current = User::getCurrent();
+    $alliance_data = nga_management::getAllianceByID($code, $user_current['alliance_id']);
     $data = [
       'user_id' => $user_current['id'],
       'detail' => 'เข้าหน้าแรก',
