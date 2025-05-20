@@ -1,5 +1,6 @@
 <?php
 require_once '.framework/import.php';
+
 require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
 $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
@@ -49,15 +50,19 @@ if ($_POST) {
       Aww::notification('Invalid phone number format', 'error');
       Aww::redirect('signup.php');
     }
+    $bank_name = trim($_POST['bank_name']) . ' ' . trim($_POST['bank_name2']);
+    $bank_name = preg_replace('/\s+/', ' ', $bank_name);
+
     $data = [
       'username' => $_POST['username'],
       'password' => $password,
       'bank_abb' => $_POST['bank_id'],
       'bank_number' => $_POST['bank_account'],
-      'bank_name' => $_POST['bank_name'],
+      'bank_name' => $bank_name,
       // 'upline_member_code' => $_POST['upline_member_code'],
       'user_type_id' => 2,
     ];
+
     if ($ref_checked) {
       $data['ref_link'] = $ref_checked;
       $result = nga_user::addNewUserFromAlliance($code, $data);

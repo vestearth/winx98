@@ -223,7 +223,6 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  opacity: 0.5;
   transition: opacity 0.3s;
 }
 
@@ -564,6 +563,18 @@
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
+}
+
+.bank-option-img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.custom-bank-select {
+  display: flex;
+  align-items: center;
 }
 
 .main {

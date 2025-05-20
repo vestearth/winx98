@@ -10,6 +10,7 @@ foreach ($bank_config as $key => $data) {
     'img' => $data['image'],
   ];
 }
+// Aww::display($options_bank);
 
 ?>
 <form method="post">
@@ -50,18 +51,26 @@ foreach ($bank_config as $key => $data) {
   <div class="form-group">
     <label for="bank"><?= Ty::get('bank', [], ["case" => "ucfirst"]) ?></label>
     <div class="input-icon bank">
-      <select name="bank_id" class="bank event_select_bank empty" required>
+      <select name="bank_id" class="bank event_select_bank empty" data-show-content="true" required>
         <option value="" selected><?= Ty::get('bank_select') ?></option>
         <?php foreach ($options_bank['list'] as $bank) { ?>
-          <option value="<?= $bank['value'] ?>"><?= $bank['name'] ?></option>
+          <option value="<?= $bank['value'] ?>" data-img="<?= htmlspecialchars($bank['img']) ?>">
+            <?= $bank['name'] ?>
+          </option>
         <?php } ?>
       </select>
     </div>
   </div>
   <div class="form-group">
-    <label for="bank_name"><?= "ชื่อบัญชีธนาคาร"; ?></label>
+    <label for="bank_name"><?= "ชื่อที่ผูกกับธนาคาร"; ?></label>
     <div class="input-icon account">
-      <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>">
+      <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bank_name2"><?= "นามสกุลที่ผูกกับธนาคาร"; ?></label>
+    <div class="input-icon account">
+      <input type="text" name="bank_name2" id="bank_name2" value="" class="form-input-custom" placeholder="<?= "กรอกนามสกุลบัญชี" ?>" required>
     </div>
   </div>
   <div class="form-group">
@@ -104,6 +113,71 @@ foreach ($bank_config as $key => $data) {
   document.getElementById('password').addEventListener('input', function(e) {
     this.value = this.value.replace(/\D/g, ''); // Remove all non-digits
   });
+
+  $(function() {
+    var $select = $('select.bank');
+    // Hide original select
+    $select.hide();
+
+    // Build custom dropdown
+    var $custom = $('<div class="custom-bank-select"></div>');
+    var $selected = $('<div class="selected-bank" style="cursor:pointer;border:1px solid #242424;padding:8px;border-radius:4px;width:100%;color:#FFFFFF;"></div>');
+    var $dropdown = $('<div class="bank-dropdown" style="display:none;position:absolute;z-index:1000;background:#5D5D5D;border:1px solid #ccc;border-radius:4px;max-height:200px;overflow:auto;"></div>');
+
+    function renderSelected() {
+      var $opt = $select.find('option:selected');
+      var img = $opt.data('img');
+      var name = $opt.text();
+      $selected.empty();
+      var $container = $('<div style="display:flex;align-items:center; margin-left: 45px;"></div>');
+      if (img) {
+        $container.append('<img class="bank-option-img" src="' + img + '" alt="">');
+      }
+      $container.append($('<span>').text(name));
+      $selected.append($container);
+    }
+
+    function renderDropdown() {
+      $dropdown.empty();
+      $select.find('option').each(function() {
+        var $opt = $(this);
+        var img = $opt.data('img');
+        var name = $opt.text();
+        var value = $opt.val();
+        var $item = $('<div style="padding:8px;cursor:pointer;display:flex;align-items:center;"></div>');
+        if (img) {
+          $item.append('<img class="bank-option-img" src="' + img + '" alt="">');
+        }
+        $item.append($('<span>').text(name));
+        $item.data('value', value);
+        if ($opt.is(':selected')) $item.css('background', '#343434');
+        $item.on('click', function() {
+          $select.val(value).trigger('change');
+          $dropdown.hide();
+          renderSelected();
+        });
+        $dropdown.append($item);
+      });
+    }
+
+    $selected.on('click', function(e) {
+      e.stopPropagation();
+      $('.bank-dropdown').hide();
+      renderDropdown();
+      $dropdown.toggle();
+    });
+
+    $(document).on('click', function() {
+      $dropdown.hide();
+    });
+
+    $select.after($custom);
+    $custom.append($selected).append($dropdown);
+    renderSelected();
+
+    $select.on('change', renderSelected);
+  });
+
   $(document).ready(function() {
     $('#username').on('input', function() {
       var input = $(this).val();

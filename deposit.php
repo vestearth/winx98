@@ -141,6 +141,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
           <div class="card-content mb-20px pb-0 have-bg min-h-200px">
             <div class="card-content-body text-center">
               <form method="post" enctype="multipart/form-data">
+                <p class="font-19px"><strong>คำเตือน !! โปรดอัพสลิปภายใน 15 นาที </strong></p>
                 <div class="d-flex justify-content-lg-center align-items-center">
                   <span class="text-white mb-10px"><?= "อัพโหลดรูปภาพ" ?></span>
                 </div>
