@@ -97,7 +97,7 @@ if ($_POST) {
                   <?php if ($is_edit) { ?>
                     <div class="form-row align-items-center w-100">
                       <?php
-                      TiwForm::normal('text', $runner_text['full_text'], ['name' => 'field1', 'placeholder' => 'กรอก', 'required' => 'true', 'maxlength' => "10"]);
+                      TiwForm::normal('text', $runner_text['full_text'], ['name' => 'full_text', 'placeholder' => 'กรอก', 'required' => 'true']);
                       ?>
                     <?php } else { ?>
                       <label class="font-15px pt-7px">

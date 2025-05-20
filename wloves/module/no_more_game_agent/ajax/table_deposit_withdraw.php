@@ -257,7 +257,7 @@ $get_user = User::getCurrent();
               <?php } ?>
             </div>
           </div>
-          <?php if ($bot_statement['transaction_by'] == 'bot') {
+          <?php if ($bot_statement['transaction_by'] == 'bot' && $bot_statement['receive_from'] == "bot_auto_match") {
           ?>
             <div class="col-lg-12">
               <?php
@@ -269,7 +269,7 @@ $get_user = User::getCurrent();
                 if ($bot_statement['receive_from'] == 'bot_auto_match') {
                   echo '<img src="assets/image/bot-auto.png" />';
                 } else {
-                  echo 'โดย ' . $bot_statement['cancel_admin_username'];
+                  echo '<div class="badge badge-pill badge-danger" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย ' . $bot_statement['cancel_admin_username'] . '</div>';
                 }
               } else {
                 echo '<img src="assets/image/bot-auto.png" />';
@@ -280,11 +280,11 @@ $get_user = User::getCurrent();
             <?php if ($bot_statement['status'] == 'cancel') {
             ?>
               <div class="col-lg-7">
-                โดย <?= $bot_statement['cancel_admin_username']; ?>
+                <div class="badge badge-pill badge-danger" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย <?= $bot_statement['cancel_admin_username']; ?></div>
               </div>
             <?php } else if ($bot_statement['status'] != 'wait_confirm') {
               if ($bot_statement['confirm_transaction_by_user_id']) {
-                $admin_or_bot = 'โดย ' . $bot_statement['admin_username'];
+                $admin_or_bot = '<div class="badge badge-pill badge-primary" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย ' . $bot_statement['admin_username'] . '</div>';
               } else {
                 $admin_or_bot = '<img src="assets/image/bot-auto.png">';
               }

@@ -281,11 +281,11 @@ $total_count = isset($call_api['total_count']) ? $call_api['total_count'] : 0;
             } else if ($bot_statement['status'] == 'cancel') {
             ?>
               <div class="col-lg-7">
-                โดย <?= $bot_statement['cancel_admin_username']; ?>
+                <div class="badge badge-pill badge-danger" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย <?= $bot_statement['cancel_admin_username']; ?></div>
               </div>
             <?php } else if ($bot_statement['status'] != 'wait_confirm') {
               if ($bot_statement['confirm_transaction_by_user_id']) {
-                $admin_or_bot = 'โดย ' . $bot_statement['admin_username'];
+                $admin_or_bot = '<div class="badge badge-pill badge-primary" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย ' . $bot_statement['admin_username'] . '</div>';
               } else {
                 $admin_or_bot = '<img src="assets/image/bot-auto.png">';
               }

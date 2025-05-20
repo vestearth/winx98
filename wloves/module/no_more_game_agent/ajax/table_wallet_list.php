@@ -123,7 +123,7 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
           </td>
           <td nowrap>
             <div class="form-row ">
-              <div class="col-lg-5">
+              <div class="col-lg-12">
                 <div class="form-row">
                   <?php if ($list['status'] == 'completed') { ?>
                     <div class="col-2 ">
@@ -186,17 +186,17 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
                     </div>
                   <?php } else if ($list['receive_from'] == 'admin_confirm_manual') { ?>
                     <div class="col-lg-7">
-                      <?= $list['cancel_admin_username']; ?>
+                      <div class="badge badge-pill badge-danger" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย <?= $bot_statement['cancel_admin_username']; ?></div>
                     </div>
                   <?php }
                 } else if ($list['status'] != 'wait_confirm') {
                   if ($list['confirm_transaction_by_user_id']) {
-                    $admin_or_bot = 'โดย ' . $list['admin_username'];
+                    $admin_or_bot = '<div class="badge badge-pill badge-primary" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย ' . $list['admin_username'] . '</div>';
                   } else {
                     $admin_or_bot = '<img src="assets/image/bot-auto.png">';
                   }
                   ?>
-                  <div class="col-lg-7">
+                  <div class="col-lg-12">
                     <?= $admin_or_bot; ?>
                   </div>
                 <?php
