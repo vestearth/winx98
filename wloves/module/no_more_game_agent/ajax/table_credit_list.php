@@ -67,6 +67,27 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
     } else {
       $type_class_text = '';
     }
+
+    $status = $list['status'];
+    if ($status == 'waiting_user') {
+      $text = 'รอผู้ใช้ทำรายการ';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_system') {
+      $text = 'รอระบบประมวลผล';
+      $textClass = 'text-warning';
+    } else if ($status == 'waiting_admin') {
+      $text = 'รอแอดมินยืนยัน';
+      $textClass = 'text-warning';
+    } else if ($status == 'success') {
+      $text = 'สำเร็จ';
+      $textClass = 'text-success';
+    } else if ($status == 'cancel') {
+      $text = 'ยกเลิก';
+      $textClass = 'text-danger';
+    } else if ($status == 'expired') {
+      $text = 'หมดอายุ';
+      $textClass = 'text-danger';
+    }
   ?>
     <tr class="cursor-pointer" <?= Tiwdal::register('detail_modal', $list); ?>>
       <td nowrap>
@@ -81,39 +102,47 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
 
       <td nowrap>
         <div class="form-row ">
-          <div class="col-lg-5">
+          <div class="col-lg-12">
             <div class="form-row">
               <?php if ($list['status'] == 'completed') { ?>
-                <div class="col-2 ">
+                <div class="">
                   <div class="mb-5px">
                     <?= file_get_contents("./../assets/icon/icon-dot-green.svg"); ?>
                   </div>
                 </div>
-                <div class="col-10 ">
+                <div class="">
                   <div class="pl-5px">
                     สำเร็จแล้ว
                   </div>
                 </div>
               <?php } else if ($list['status'] == 'wait_confirm') { ?>
-                <div class="col-2 ">
+                <div class="">
                   <div class="mb-5px">
                     <?= file_get_contents("./../assets/icon/icon-dot-yellow.svg"); ?>
                   </div>
                 </div>
-                <div class="col-10 ">
+                <div class="">
                   <div class="pl-5px">
                     ดำเนินการ
                   </div>
                 </div>
               <?php } else { ?>
-                <div class="col-2 ">
-                  <div class="mb-5px">
-                    <?= file_get_contents("./../assets/icon/icon-dot-red.svg"); ?>
-                  </div>
+                <div class="">
+                  <?php
+                  if ($textClass == 'text-danger') {
+                    echo file_get_contents("./../assets/icon/icon-dot-red.svg");
+                  } else if ($textClass == 'text-warning') {
+                    echo file_get_contents("./../assets/icon/icon-dot-yellow.svg");
+                  } else if ($textClass == 'text-success') {
+                    echo file_get_contents("./../assets/icon/icon-dot-green.svg");
+                  }
+                  ?>
                 </div>
-                <div class="col-10 ">
+                <div class="">
                   <div class="pl-5px">
-                    ยกเลิก
+                    <div class="<?= $textClass; ?>">
+                      <?= $text; ?>
+                    </div>
                   </div>
                 </div>
               <?php } ?>
@@ -127,11 +156,11 @@ $total_count = isset($user_customer['total_count']) ? $user_customer['total_coun
             <?php if ($list['status'] == 'cancel') {
             ?>
               <div class="col-lg-7">
-                โดย <?= $list['cancel_admin_username']; ?>
+                <div class="mt-5px badge badge-pill badge-danger" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย <?= $list['cancel_admin_username']; ?></div>
               </div>
             <?php } else if ($list['status'] != 'wait_confirm') {
               if ($list['confirm_transaction_by_user_id']) {
-                $admin_or_bot = 'โดย ' . $list['admin_username'];
+                $admin_or_bot = '<div class="mt-5px badge badge-pill badge-primary" style="padding: 5px;width: 100px;font-size: 13px;font-weight: 300;display: flex;justify-content: center;">โดย ' . $list['admin_username'] . '</div>';
               } else {
                 $admin_or_bot = '<img src="assets/image/bot-auto.png">';
               }
