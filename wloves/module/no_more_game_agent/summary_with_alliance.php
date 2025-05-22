@@ -73,9 +73,7 @@ if ($id) {
   unset($where['alliance_id']);
 }
 
-$options = [
-  'sum_deposit' => true,
-];
+$options = ['sum_deposit' => true,];
 $data_list = nga_user::selectUser($code, $where, $options);
 $summary = isset($data_list['summary']) ? $data_list['summary'] : [];
 $table_list = isset($data_list['list']) ? $data_list['list'] : [];
@@ -135,6 +133,13 @@ $slicedArray = array_slice($table_list, 1);
         </div>
       </div>
     </form>
+    <div class="alert alert-info mt-3" role="alert">
+      <strong>หมายเหตุ:</strong>
+      <ul class="mb-0">
+        <li>หน้านี้จะแสดงข้อมูลจาก <b>วันที่เริ่ม</b> และ <b>วันที่สิ้นสุด</b> โดยอ้างอิงจาก <b>วันที่ฝากครั้งแรก</b> ของลูกค้าเท่านั้น ไม่เกี่ยวข้องกับวันสมัครสมาชิก</li>
+        <li>สามารถแบ่งแยกข้อมูลตาม <b>พันธมิตร</b> ที่เลือกได้ หากไม่เลือกจะแสดงข้อมูลของทุกพันธมิตร</li>
+      </ul>
+    </div>
     <div class="total-list p-15px">
       <table class="table table-striped">
         <thead>
