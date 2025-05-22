@@ -138,11 +138,24 @@ if ($is_login) {
                 <?= "สมัครสมาชิก"; ?>
               </a>
               <div class="d-flex justify-content-center my-2">หรือ</div>
-              <div class="border-gradient w-100">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
-                <span>ติดต่อผ่านไลน์ <?= $getAlliasRef['line_name'] ?></span>
-                <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
-              </div>
+              <?php if (!empty($getAlliasRef)) { ?>
+                <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
+                  <div class="border-gradient w-100">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
+                    <span>ติดต่อผ่านไลน์ <?= $getAlliasRef['line_name'] ?></span>
+                    <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
+                  </div>
+                </a>
+                <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
+                  <div class="qr-code-section">
+                    <div class="qr-box">
+                      <?php if (!empty($getAlliasRef['line_image'])) { ?>
+                        <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
+                      <?php } ?>
+                    </div>
+                  </div>
+                </a>
+              <?php } ?>
               <!-- <span> <?= Ty::get('forgotpassword') ?> <span class="text-pink cursor-pointer" <?php Tiwdal::register('modal_forgot_password', []); ?>> <?= Ty::get('clickhere') ?></span></span> -->
             </form>
           </div>
