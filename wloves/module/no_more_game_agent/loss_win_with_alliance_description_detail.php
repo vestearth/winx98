@@ -97,9 +97,9 @@ $detail_ally = nga_management::getAllianceDetailByDate($code, $id, $date_data);
           </div>
           <div class="card-white px-15px py-10px font-Medium">
             <div class=" font-14px">
-              <span class="font-20px font-Bold text-primary"> <?= isset($detail_ally['count_deposit_first_time']) ? number_format($detail_ally['count_deposit_first_time']) : '0'; ?> </span> คน
+              <span class="font-20px font-Bold text-primary"> <?= isset($detail_ally['user_register_count']) ? number_format($detail_ally['user_register_count']) : '0'; ?> </span> คน
               <div class="pt-5px">
-                ฝากเงินแล้ว <span class="text-success"> <?= isset($detail_ally['count_deposit_first_time']) ? number_format($detail_ally['count_deposit_first_time']) : '0'; ?> </span>คน คิดเป็น <span class="text-success"> <?= number_format($detail_ally['count_deposit_first_time_percent']); ?>%</span>
+                ฝากเงินแล้ว <span class="text-success"> <?= isset($detail_ally['user_count_by_first_time_date']) ? number_format($detail_ally['user_count_by_first_time_date']) : '0'; ?> </span>คน คิดเป็น <span class="text-success"> <?= number_format($detail_ally['count_deposit_first_time_percent']); ?>%</span>
               </div>
             </div>
           </div>
