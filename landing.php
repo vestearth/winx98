@@ -28,9 +28,17 @@ $menu_landing = [
   ]
 ];
 $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
+
+if (!empty($_COOKIE['ref_marketing'])) {
+  $ref_marketing = $_COOKIE['ref_marketing'];
+} else {
+  $ref_marketing = 'z0e380297';
+}
+$getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
+
+
 if ($is_login) {
-  $user_data = User::getCurrent();
-  $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
+  Aww::redirectOG('index.php');
 }
 ?>
 
@@ -182,9 +190,8 @@ if ($is_login) {
                   <img src="source/red-line.png" class="line-icon mr-10px">
                   <div>
                     แอดตรงผ่านไลน์
-                    <p class="mb-0"><?= $alliance_data['line_name'] ?></p>
-                    <?php if ($alliance_data['line_image']) { ?>
-                      <p class="mb-0"><?= $alliance_data['line_name']; ?></p>
+                    <?php if ($getAlliasRef['line_name']) { ?>
+                      <p class="mb-0"><?= $getAlliasRef['line_name']; ?></p>
                     <?php } else { ?>
                       <p class="mb-0"><?= 'WINX98'; ?></p>
                     <?php } ?>
@@ -193,8 +200,8 @@ if ($is_login) {
                 <div class="qr-code-section">
                   <div class="qr-box">
                     <!-- <img src="source/qr-code.png" alt=""> -->
-                    <?php if ($alliance_data['line_image']) { ?>
-                      <img src="<?= $alliance_data['line_name']; ?>" alt="">
+                    <?php if ($getAlliasRef['line_image']) { ?>
+                      <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
                     <?php } else { ?>
                       <img src="source/qr-code.png" alt="">
                     <?php } ?>

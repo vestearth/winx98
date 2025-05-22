@@ -35,6 +35,13 @@ if (empty($system_line)) {
   $system_line['line_id'] = '';
   $system_line['line_link'] = 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244';
 }
+if (!empty($_COOKIE['ref_marketing'])) {
+  $ref_marketing = $_COOKIE['ref_marketing'];
+} else {
+  $ref_marketing = 'z0e380297';
+}
+$getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
+
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
 
 if ($is_login) {
@@ -133,7 +140,7 @@ if ($is_login) {
               <div class="d-flex justify-content-center my-2">หรือ</div>
               <div class="border-gradient w-100">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
-                <span>ติดต่อผ่านไลน์ WINX98</span>
+                <span>ติดต่อผ่านไลน์ <?= $getAlliasRef['line_name'] ?></span>
                 <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
               </div>
               <!-- <span> <?= Ty::get('forgotpassword') ?> <span class="text-pink cursor-pointer" <?php Tiwdal::register('modal_forgot_password', []); ?>> <?= Ty::get('clickhere') ?></span></span> -->
@@ -150,9 +157,9 @@ if ($is_login) {
   </button>
   <div class="modal-body">
     <div class="my-10px text-center">
-      <a href="<?= $system_line['line_link'] ?>" class="link-line text-gold" target="_blank">
+      <a href="<?= $getAlliasRef['line_link']; ?>" class="link-line text-gold" target="_blank">
         <?= Ty::get('contact_forgor_password') ?> :
-        <?= $system_line['line_id'] ?>
+        <?= $getAlliasRef['line_name']; ?>
       </a>
     </div>
   </div>
