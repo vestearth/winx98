@@ -14,6 +14,8 @@ $where = [
 //   unset($where['bank_abb']);
 // }
 $code = $_GET['c'];
+$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+
 $options = [
   'total_count' => true,
   'page_no'     => $_POST['page_no'],
@@ -24,7 +26,7 @@ $options = [
 if ($options['sort'] == []) {
   $options['sort'] = ['insert_date_time' => 'DESC'];
 }
-$user_customer = nga_user::selectUserNoView($code, $where, $options);
+$user_customer = nga_user::selectUserNoView($code, $where, $options, $keyword);
 $data_list = isset($user_customer['list']) ? $user_customer['list'] : [];
 $total_count = isset($user_customer['total_count']) ? $user_customer['total_count'] : 0;
 ?>

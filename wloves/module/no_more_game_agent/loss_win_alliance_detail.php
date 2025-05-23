@@ -19,7 +19,7 @@ if ($_POST) {
         'bank_name',
         'first_time_deposit',
         'insert_date_time',
-        'count_deposit_time',
+        // 'count_deposit_time',
         // 'sum_deposit',
         // 'sum_win_lost'
       ],
@@ -94,9 +94,9 @@ $detail_ally = nga_management::getAllianceDetailByDate($code, $id, $date_data);
           </div>
           <div class="card-white px-15px py-10px font-Medium">
             <div class=" font-14px">
-              <span class="font-20px font-Bold text-primary"><?= number_format($detail_ally['user_count_by_first_time_date']); ?> </span> คน
+              <span class="font-20px font-Bold text-primary"><?= number_format($detail_ally['user_register_count']); ?> </span> คน
               <div class="pt-5px">
-                ฝากเงินแล้ว <span class="text-success"><?= number_format($detail_ally['count_deposit_first_time']); ?> </span>คน คิดเป็น <span class="text-success"> <?= number_format($detail_ally['count_deposit_first_time_percent']); ?>%</span>
+                ฝากเงินแล้ว <span class="text-success"><?= number_format($detail_ally['user_count_by_first_time_date']); ?> </span>คน คิดเป็น <span class="text-success"> <?= number_format($detail_ally['count_deposit_first_time_percent']); ?>%</span>
               </div>
             </div>
           </div>

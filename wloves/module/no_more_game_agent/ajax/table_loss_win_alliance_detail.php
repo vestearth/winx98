@@ -8,7 +8,8 @@ $insert_date = (isset($_GET['date_data']) && $_GET['date_data']) ? $_GET['date_d
 
 $where = [
   'alliance_id' => $alliance_id,
-  'first_time_deposit_date' => $insert_date,
+  // 'first_time_deposit_date' => $insert_date,
+  'insert_date' => $insert_date,
   'username' => $_POST['username'],
   'bank_name' => $_POST['bank_name'],
   'first_time_deposit' => $_POST['first_time_deposit'],
@@ -29,7 +30,7 @@ $options = [
   'sort'        => isset($_POST['data_sort']) ? $_POST['data_sort'] : []
 ];
 
-$data_list = nga_user::selectUser($code, $where, $options);
+$data_list = nga_user::selectUserNew($code, $where, $options);
 $list = isset($data_list['list']) ? $data_list['list'] : [];
 $slicedArray = array_slice($list, 1);
 $total_count = isset($data_list['total_count']) ? $data_list['total_count'] : 0;

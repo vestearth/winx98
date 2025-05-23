@@ -6,6 +6,7 @@ $code = $_GET['c'];
 $current_user = User::getCurrentUserID();
 $user_permission = User::getUserByID($current_user);
 $count_refresh = isset($_GET['times']) ? $_GET['times'] : 1;
+$searchData = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 $get_auto_refresh = nga_management::getAutoRefreshPage($code);
 
 
@@ -185,7 +186,16 @@ $arr_remark = ['เติมเครดิตผิดยูสเซอร์'
         <div class="font-14px">ข้อมูลรายละเอียดลูกค้า</div>
       </div>
       <div class="d-flex align-items-center">
-        <div class="text-primary font-16px font-SemiBold mr-10px"><span id="timing">60</span> S</div>
+        <form method="get" class="input-group ml-10px" style="width: 250px;">
+          <input type="hidden" name="c" value="<?= htmlspecialchars($code) ?>">
+          <input type="text" name="keyword" class="form-control" placeholder="ตรงนี้ค้นหาทุกจุด..." id="customer-search" value="<?= htmlspecialchars($searchData) ?>">
+          <div class="input-group-append">
+            <button type="submit" class="input-group-text" style="border: none; background: none;">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+        <div class="text-primary font-16px font-SemiBold mx-10px"><span id="timing">60</span> S</div>
         <?= file_get_contents('assets/icon/icon-cooldown.svg') ?>
         <form method="post" class="event_auto_refresh my-auto">
           <?php
@@ -220,7 +230,7 @@ $arr_remark = ['เติมเครดิตผิดยูสเซอร์'
       </div>
     </div>
     */ ?>
-    <div id="customer_list" class="container-pagination mx--15px no-border-radius" <?= Homepagify::createHomepagify('customer_list', '?c=' . $code, '', 'ลูกค้า') ?>>
+    <div id="customer_list" class="container-pagination mx--15px no-border-radius" <?= Homepagify::createHomepagify('customer_list', '?c=' . $code . '&keyword=' . $searchData, '', 'ลูกค้า') ?>>
       <div class="table-responsive">
         <table class="table table-sort table-search">
           <thead>
