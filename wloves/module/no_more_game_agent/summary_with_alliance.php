@@ -74,7 +74,8 @@ if ($id) {
 }
 
 $options = ['sum_deposit' => true,];
-$data_list = nga_user::selectUser($code, $where, $options);
+// $data_list = nga_user::selectUser($code, $where, $options);
+$data_list = nga_user::selectUserNew($code, $where, $options);
 $summary = isset($data_list['summary']) ? $data_list['summary'] : [];
 $table_list = isset($data_list['list']) ? $data_list['list'] : [];
 $slicedArray = array_slice($table_list, 1);
