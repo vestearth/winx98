@@ -532,15 +532,15 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 </html>
 
 <script>
-  function showPreloader() {
-    var preloader = document.querySelector(".preloader");
-    preloader.style.display = "flex"; // Show the preloader
-  }
+  // function showPreloader() {
+  //   var preloader = document.querySelector(".preloader");
+  //   preloader.style.display = "flex"; // Show the preloader
+  // }
 
-  function hidePreloader() {
-    var preloader = document.querySelector(".preloader");
-    preloader.style.display = "none"; // Hide the preloader
-  }
+  // function hidePreloader() {
+  //   var preloader = document.querySelector(".preloader");
+  //   preloader.style.display = "none"; // Hide the preloader
+  // }
 
   $(document).ready(function() {
     $(".game-menu-responsive").mousewheel(function(event, delta) {
@@ -558,7 +558,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 
 
   $(document).on('click', '.even_firm_lists', function() {
-    showPreloader();
     var firm_name = $(this).attr('firm_name');
     var type = $('.scope_category_game').val();
     var scope = $('.scope_firm_form');
@@ -573,7 +572,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
   });
 
   $(document).on('click', '.even_game_lists', function() {
-    showPreloader();
 
     var product_id = $(this).attr('product_id');
     var game_type = $(this).attr('game_type');
