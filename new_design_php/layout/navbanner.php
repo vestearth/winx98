@@ -53,7 +53,7 @@ function renderBannerUser($user_data = null)
     <div class="header-bar">
       <div class="icon-container">
         <!-- Notification Bell with Badge -->
-        <div class="icon-wrapper">
+        <!-- <div class="icon-wrapper">
           <button class="icon-btn notification-btn" id="notificationBtn">
             <svg class="icon bell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
@@ -61,14 +61,23 @@ function renderBannerUser($user_data = null)
             </svg>
             <span class="notification-badge" id="notificationBadge">3</span>
           </button>
-        </div>
+        </div> -->
 
         <!-- User Profile Icon -->
         <div class="icon-wrapper">
-          <button class="icon-btn profile-btn" id="profileBtn">
+          <button class="icon-btn profile-btn" id="profileBtn" onclick="window.location.href='user.php'">
             <svg class="icon profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+        </div>
+        <div class="icon-wrapper">
+          <button class="icon-btn logout-btn" onclick="window.location.href='logout.php'">
+            <svg class="icon logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16,17 21,12 16,7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
             </svg>
           </button>
         </div>

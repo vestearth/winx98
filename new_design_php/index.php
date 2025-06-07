@@ -126,7 +126,7 @@ $type_game_template = [
     <div class="row">
       <div class="col-12">
         <!-- Popup Banner Suggest Install APP -->
-        <div id="app-install-banner" class="bg-granit" style="display:none; position:relative; z-index:1050; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:18px 24px 18px 54px; min-width:260px; max-width:100vw;">
+        <div id="app-install-banner d-none" class="bg-granit" style="display:none; position:relative; z-index:1050; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:18px 24px 18px 54px; min-width:260px; max-width:100vw;">
           <button id="close-app-install-banner" style="position:absolute; left:10px; top:0px; background:transparent; border:none; font-size:50px; color:white; cursor:pointer;">&times;</button>
           <div class="justify-content-between" style="display:flex; align-items:center;">
             <div>
@@ -258,7 +258,7 @@ $type_game_template = [
           </div>
 
           <!-- Row 2 -->
-          <div class="user-main-menu-item" onclick="window.location.href='profile.php'">
+          <div class="user-main-menu-item" onclick="window.location.href='user.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-profile.svg" alt="">
             </div>
