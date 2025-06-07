@@ -37,12 +37,6 @@ $type_game_template = [
     'img' => 'assets/img/icon/fish-game.png',
     'ordering' => 4
   ],
-  // 'ARCADE' => [
-  //   'name' => Ty::get('arcade'),
-  //   'typeName' => 'ARCADE',
-  //   'img' => 'assets/images/games/game-004.webp',
-  //   'ordering' => 5
-  // ],
   'CARD' => [
     'name' => Ty::get('card'),
     'typeName' => 'CARD',
@@ -61,25 +55,12 @@ $type_game_template = [
     'img' => 'assets/img/icon/lotto-game.png',
     'ordering' => 8
   ],
-  // 'COCKFIGHT' => [
-  //   'name' => Ty::get('cockfight'),
-  //   'typeName' => 'COCKFIGHT',
-  //   'img' => 'assets/img/icon/cockfight-game.png',
-  //   'ordering' => 8
-  // ],
   'ARCADE' => [
     'name' => 'ARCADE',
     'typeName' => 'ARCADE',
     'img' => 'assets/img/icon/esport-game.png',
     'ordering' => 8
   ],
-  // 'ETC' => [
-  //   'name' => 'อื่น ๆ',
-  //   'typeName' => 'ETC',
-  //   'img' => 'assets/img/icon/other-game.png',
-  //   'ordering' => 8
-  // ],
-
 ];
 ?>
 

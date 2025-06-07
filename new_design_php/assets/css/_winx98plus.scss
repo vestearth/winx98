@@ -571,6 +571,9 @@
     // add border red 
     border: 5px solid #772929;
     box-shadow: 0 0 10px rgb(119, 41, 41), 0 0 20px rgb(119, 41, 41), 0 0 30px rgb(119, 41, 41);
+    // temporary 
+    height: 180px;
+    width: 200px;
   }
   .txt-preview {
     position: absolute;
@@ -787,6 +790,13 @@
     justify-content: center;
     align-items: center;
   }
+  .grey-placeholder {
+    background-color: #cccccc; /* Light grey */
+    background-image: none !important;
+    width: 140px;
+    height: 180px; /* Set desired height */
+    border-radius: 15px;
+}
 }
 
 .sponsor-game-swiper {

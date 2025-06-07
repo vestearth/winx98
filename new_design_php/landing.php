@@ -212,17 +212,22 @@ if ($is_login) {
           </div>
           <div class="swiper swiper1">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 1"></div>
+              <!-- <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 1"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 2"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 3"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/green-chilli.png" alt="Logo 4"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/green-chilli.png" alt="Logo 5"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 6"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 7"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 7"></div> -->
+              <?php for ($i = 1; $i <= 7; $i++): ?>
+                <div class="swiper-slide">
+                  <div class="grey-placeholder"></div>
+                </div>
+              <?php endfor; ?>
             </div>
           </div>
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-            <button class="thai-button">ดูเกมทั้งหมด</button>
+            <button class="thai-button" onclick="window.location.href='login.php'">ดูเกมทั้งหมด</button>
           </div>
         </div>
 
@@ -259,9 +264,9 @@ if ($is_login) {
             </div>
             <div class="faq-section">
               <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
                   <span class="arrow">▶</span>
-                  <span class="question-text">จับสามารถสมัครสมาชิกได้อย่างไร ?</span>
+                  <span class="question-text">ฉันสามารถสมัครสมาชิกได้อย่างไร ?</span>
                 </div>
                 <div class="faq-answer">
                   <p>คุณสามารถสมัครสมาชิกได้โดยคลิกที่ปุ่ม "สมัครสมาชิก" ที่หน้าหลัก แล้วกรอกข้อมูลส่วนตัวให้ครบถ้วน</p>
@@ -269,7 +274,7 @@ if ($is_login) {
               </div>
 
               <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
                   <span class="arrow">▶</span>
                   <span class="question-text">ถอนเงินขั้นต่ำเท่าไหร่ ?</span>
                 </div>
@@ -279,7 +284,7 @@ if ($is_login) {
               </div>
 
               <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
                   <span class="arrow">▶</span>
                   <span class="question-text">ใช้เวลาในการฝาก - ถอนนานแค่ไหน ?</span>
                 </div>
@@ -289,7 +294,7 @@ if ($is_login) {
               </div>
 
               <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
                   <span class="arrow">▶</span>
                   <span class="question-text">มีเคมจากค่ายไหนบ้าง ?</span>
                 </div>
@@ -299,7 +304,7 @@ if ($is_login) {
               </div>
 
               <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
                   <span class="arrow">▶</span>
                   <span class="question-text">ติดต่อทีมงานอย่างไร ?</span>
                 </div>

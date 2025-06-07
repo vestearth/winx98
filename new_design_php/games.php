@@ -50,34 +50,22 @@ $type_game_template = [
     'img' => 'assets/img/icon/fish-game.png',
     'ordering' => 4
   ],
-  // 'ARCADE' => [
-  //   'name' => Ty::get('arcade'),
-  //   'typeName' => 'ARCADE',
-  //   'img' => 'assets/images/games/game-004.webp',
-  //   'ordering' => 5
-  // ],
   'CARD' => [
     'name' => Ty::get('card'),
     'typeName' => 'CARD',
     'img' => 'assets/img/icon/card-game.png',
     'ordering' => 6
   ],
-  // 'BOARD' => [
-  //   'name' => Ty::get('board'),
-  //   'typeName' => 'BOARD',
-  //   'img' => 'assets/images/games/game-002.webp',
-  //   'ordering' => 7
-  // ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/img/icon/other-game.png',
+    'ordering' => 7
+  ],
   'LOTTO' => [
     'name' => Ty::get('lottery'),
     'typeName' => 'LOTTO',
     'img' => 'assets/img/icon/lotto-game.png',
-    'ordering' => 8
-  ],
-  'COCKFIGHT' => [
-    'name' => Ty::get('cockfight'),
-    'typeName' => 'COCKFIGHT',
-    'img' => 'assets/img/icon/cockfight-game.png',
     'ordering' => 8
   ],
   'ARCADE' => [
@@ -86,27 +74,7 @@ $type_game_template = [
     'img' => 'assets/img/icon/esport-game.png',
     'ordering' => 8
   ],
-  'ETC' => [
-    'name' => 'อื่น ๆ',
-    'typeName' => 'ETC',
-    'img' => 'assets/img/icon/other-game.png',
-    'ordering' => 8
-  ],
-
 ];
-
-// $get_game_setting = [
-//   'is_open_card_game' => 1,
-//   'is_open_board_game' => 1,
-//   'is_open_slot_game' => 1,
-//   'is_open_casinolive_game' => 1,
-//   'is_open_arcade_game' => 1,
-//   'is_open_fishing_game' => 1,
-//   'is_open_sport_game' => 1,
-//   'is_open_sportbook' => 1,
-//   'is_open_lotto' => 0,
-//   'is_open_trading' => 1,
-// ];
 
 $get_game_setting = nga_management::getGameActiveStatus($code);
 
@@ -291,12 +259,12 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
           <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
-                <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
-                  <div class="game-menu-image">
-                    <img src="<?= $type_games['img']; ?>" alt="<?= $type_games['name']; ?>">
-                  </div>
-                  <div class="game-menu-name">
-                    <?= $type_games['name'] ?>
+                <a href="?type=<?= $key; ?>" class="<?= $key == $type ? 'active' : '' ?> preloader-link text-decoration-none">
+                  <div class="game-category-item">
+                    <div class="game-category-card mr-15px">
+                      <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
+                    </div>
+                    <span class="game-category-label"><?= $type_games['name'] ?></span>
                   </div>
                 </a>
               </div>
@@ -358,10 +326,11 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
                 foreach ($game_group as $key => $game) {
                   $condition_key = $key + 1;
                   $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
-                  $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                  $game_img_webp = 'assets/images/firm_game/' . $game . '.webp';
-                  $game_img_png = 'assets/images/firm_game/' . $game . '.png';
-
+                  $col = ($game_no % 2 == 0) ? 'col-md-3 col-6' : 'col-md-3 col-6';
+                  // $game_img_webp = 'assets/images/firm_game/' . $game . '.webp';
+                  // $game_img_png = 'assets/images/firm_game/' . $game . '.png';
+                  $game_img_webp = "";
+                  $game_img_png = "";
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
                   if (file_exists($game_img_png)) {
@@ -373,11 +342,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
                     $game_img = 'assets/images/firm_game/DEFAULT.webp';
                     $forForceCSS = 'set-mockup-img';
                   }
-
-                  // if (!file_exists($game_img)) {
-                  //   $game_img = 'assets/images/firm_game/DEFAULT.webp';
-                  //   $forForceCSS = 'set-mockup-img';
-                  // }
                 ?>
                   <div class="<?= $col; ?>">
                     <div class="w-100 d-flex justify-content-center">
