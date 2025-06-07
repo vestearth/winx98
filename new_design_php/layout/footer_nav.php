@@ -1,6 +1,6 @@
 <?php
 // Footer navigation menu function
-function renderFooterNav()
+function renderFooterNav($linelink = null)
 {
 ?>
   <div class="nav-footer">
@@ -31,7 +31,7 @@ function renderFooterNav()
         'label' => 'ความเห็น'
       ],
       [
-        'href' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
+        'href' => $linelink ? $linelink : 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
         'icon' => 'assets/img/icon/nav-line.svg',
         'alt'  => 'ติดต่อ',
         'label' => 'ติดต่อ'

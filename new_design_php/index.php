@@ -11,6 +11,76 @@ $options = [
 ];
 $runnertext = nga_management::getRunnerText($code, $options);
 $this_page = 'index';
+
+$type_game_template = [
+  'CASINOLIVE' => [
+    'name' => Ty::get('casino'),
+    'typeName' => 'CASINOLIVE',
+    'img' => 'assets/img/icon/casino-game.png',
+    'ordering' => 1
+  ],
+  'SLOT' => [
+    'name' => Ty::get('slot'),
+    'typeName' => 'SLOT',
+    'img' => 'assets/img/icon/slot-game.png',
+    'ordering' => 2,
+  ],
+  'SPORTBOOK' => [
+    'name' => Ty::get('sport'),
+    'typeName' => 'SPORTBOOK',
+    'img' => 'assets/img/icon/sport-game.png',
+    'ordering' => 3
+  ],
+  'FISHING' => [
+    'name' => Ty::get('fishing'),
+    'typeName' => 'FISHING',
+    'img' => 'assets/img/icon/fish-game.png',
+    'ordering' => 4
+  ],
+  // 'ARCADE' => [
+  //   'name' => Ty::get('arcade'),
+  //   'typeName' => 'ARCADE',
+  //   'img' => 'assets/images/games/game-004.webp',
+  //   'ordering' => 5
+  // ],
+  'CARD' => [
+    'name' => Ty::get('card'),
+    'typeName' => 'CARD',
+    'img' => 'assets/img/icon/card-game.png',
+    'ordering' => 6
+  ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/img/icon/other-game.png',
+    'ordering' => 7
+  ],
+  'LOTTO' => [
+    'name' => Ty::get('lottery'),
+    'typeName' => 'LOTTO',
+    'img' => 'assets/img/icon/lotto-game.png',
+    'ordering' => 8
+  ],
+  // 'COCKFIGHT' => [
+  //   'name' => Ty::get('cockfight'),
+  //   'typeName' => 'COCKFIGHT',
+  //   'img' => 'assets/img/icon/cockfight-game.png',
+  //   'ordering' => 8
+  // ],
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
+  // 'ETC' => [
+  //   'name' => 'อื่น ๆ',
+  //   'typeName' => 'ETC',
+  //   'img' => 'assets/img/icon/other-game.png',
+  //   'ordering' => 8
+  // ],
+
+];
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +96,31 @@ $this_page = 'index';
 </head>
 
 <body>
-  <?php renderFooterNav(); ?>
+  <?php
+  if ($is_login) {
+    $user_current = User::getCurrent();
+    $alliance_data = nga_management::getAllianceByID($code, $user_current['alliance_id']);
+    $data = [
+      'user_id' => $user_current['id'],
+      'detail' => 'เข้าหน้าแรก',
+    ];
+    $user_log = nga_user::addNewUserLog($code, $data);
+    $user_info = nga_user::getUserByID($code, $user_current['id']);
+    $get_card = nga_management::getCardSetting($code);
+    $get_slot = nga_management::getSlotSetting($code);
+    $banner = nga_management::selectBanner($code);
+    $where = [
+      'user_id' => $user_current['id'],
+      'is_read' => "'0'"
+    ];
+    $notification = User_Notification::selectNotification($code, $where);
+    $user_group_id = $user_info['user_group_id'];
+    $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
+  } else {
+    Aww::redirectOG('landing.php');
+  }
+  ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
   <div class="container-fluid mb-200px">
     <?php renderBannerUser(); ?>
     <div class="row">
@@ -80,7 +174,12 @@ $this_page = 'index';
           <div class="ticker-content">
             <span class="ticker-label">ประกาศ</span>
             <div class="ticker-text">
-              <span>สล็อต คาสิโน กีฬา หวย ครบจบในที่เดียว พร้อมโบนัสต้อนรับ 100%
+              <?php
+              $text = $runnertext['full_text'];
+              $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
+              ?>
+              <span>
+                <?= $text; ?>
               </span>
             </div>
           </div>
@@ -92,13 +191,19 @@ $this_page = 'index';
           <div class="balance-card">
             <div class="balance-left">
               <p class="balance-label">กระเป๋าเงิน</p>
-              <p class="phone-number">089 919 9218</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
             </div>
             <div class="balance-right">
               <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
               <div class="balance-amount">
-                <span class="amount-main">50,000</span>
-                <span class="amount-decimal">.00</span>
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
               </div>
             </div>
           </div>
@@ -106,11 +211,11 @@ $this_page = 'index';
 
         <!-- Action Buttons -->
         <div class="action-buttons">
-          <button class="action-btn deposit-btn">
+          <button class="action-btn deposit-btn" onclick="window.location.href='deposit.php'">
             <img src="assets/img/icon/deposit.svg" alt="Deposit" class="btn-icon">
             <span>ฝากเงิน</span>
           </button>
-          <button class="action-btn withdraw-btn">
+          <button class="action-btn withdraw-btn" onclick="window.location.href='withdraw.php'">
             <img src="assets/img/icon/withdraw.svg" alt="Withdraw" class="btn-icon">
             <span>ถอนเงิน</span>
           </button>
@@ -124,28 +229,28 @@ $this_page = 'index';
 
         <div class="user-main-menu-grid">
           <!-- Row 1 -->
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='games.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-game.svg" alt="">
             </div>
             <span class="user-main-menu-label">เล่นเกม</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-wallet.svg" alt="">
             </div>
             <span class="user-main-menu-label">กระเป๋าเงิน</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='promotion.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-promotion.svg" alt="">
             </div>
             <span class="user-main-menu-label">โปรโมชั่น</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='refund.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-refund.svg" alt="">
             </div>
@@ -153,21 +258,21 @@ $this_page = 'index';
           </div>
 
           <!-- Row 2 -->
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='profile.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-profile.svg" alt="">
             </div>
             <span class="user-main-menu-label">โปรไฟล์</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='<?= $alliance_data['line_link']; ?>'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-line.svg" alt="">
             </div>
             <span class="user-main-menu-label">ติดต่อเรา</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <div class="user-main-menu-item" onclick="window.location.href='comment.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-comment.svg" alt="">
             </div>
@@ -253,76 +358,14 @@ $this_page = 'index';
 
       <div class="game-categories-container">
         <div class="game-categories-grid">
-          <!-- Row 1 -->
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/sport-game.png" alt="Fish Game" class="game-category-image">
+          <?php foreach ($type_game_template as $gameType => $gameData): ?>
+            <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
+              <div class="game-category-card">
+                <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+              </div>
+              <span class="game-category-label"><?= $gameData['name'] ?></span>
             </div>
-            <span class="game-category-label">กีฬา</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/slot-game.png" alt="Slot Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">สล็อต</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/casino-game.png" alt="Casino Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">คาสิโน</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/card-game.png" alt="Card Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">เกมไพ่</span>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/fish-game.png" alt="Fishing Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">ยิงปลา</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/lotto-game.png" alt="Lottery Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">หวย</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/cockfight-game.png" alt="Cockfight Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">ไก่ชน</span>
-          </div>
-
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/esport-game.png" alt="Esport Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">ESPORT</span>
-          </div>
-
-          <!-- Row 3 -->
-          <div class="game-category-item">
-            <div class="game-category-card">
-              <img src="assets/img/icon/other-game.png" alt="Keno Game" class="game-category-image">
-            </div>
-            <span class="game-category-label">เกมอื่น ๆ</span>
-          </div>
-
-          <!-- Empty slots for future games -->
-          <div class="game-category-item game-category-empty"></div>
-          <div class="game-category-item game-category-empty"></div>
-          <div class="game-category-item game-category-empty"></div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
