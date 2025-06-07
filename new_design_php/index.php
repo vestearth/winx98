@@ -217,12 +217,12 @@ $type_game_template = [
             <span class="user-main-menu-label">เล่นเกม</span>
           </div>
 
-          <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
+          <!-- <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-wallet.svg" alt="">
             </div>
             <span class="user-main-menu-label">กระเป๋าเงิน</span>
-          </div>
+          </div> -->
 
           <div class="user-main-menu-item" onclick="window.location.href='promotion.php'">
             <div class="user-main-menu-icon">

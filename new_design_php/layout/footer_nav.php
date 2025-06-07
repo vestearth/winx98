@@ -18,12 +18,12 @@ function renderFooterNav($linelink = null)
         'alt'  => 'เล่นเกม',
         'label' => 'เล่นเกม'
       ],
-      [
-        'href' => 'wallet.php',
-        'icon' => 'source/icon-wallet.svg',
-        'alt'  => 'กระเป๋า',
-        'label' => 'กระเป๋า'
-      ],
+      // [
+      //   'href' => 'wallet.php',
+      //   'icon' => 'source/icon-wallet.svg',
+      //   'alt'  => 'กระเป๋า',
+      //   'label' => 'กระเป๋า'
+      // ],
       [
         'href' => 'comment.php',
         'icon' => 'assets/img/icon/nav-comment.svg',
