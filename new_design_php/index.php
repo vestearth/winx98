@@ -335,6 +335,7 @@ $this_page = 'index';
   Structure::loadFooter();
   Aww::loadAsset('assets/js/force_logout.js');
   Aww::loadAsset('assets/js/main.js');
+  Aww::loadAsset('assets/js/notification.js');
 
   ?>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

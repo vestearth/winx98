@@ -60,17 +60,76 @@ function renderBannerUser($user_data = null)
         <img src="assets/img/winx98.svg" alt="Logo">
       </div>
     </a>
-    <div class="d-flex align-items-center">
-      <button class="btn menu-icon-user mr-10px" onclick="window.location.href='signup.php'">
-        <div class="font-gold">
-          สมัคร
+    <div class="header-bar">
+      <div class="icon-container">
+        <!-- Notification Bell with Badge -->
+        <div class="icon-wrapper">
+          <button class="icon-btn notification-btn" id="notificationBtn">
+            <svg class="icon bell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notification-badge" id="notificationBadge">3</span>
+          </button>
         </div>
-      </button>
-      <button class="btn menu-icon-user" onclick="window.location.href='login.php'">
-        <div class="">
-          เข้าสู่ระบบ
+
+        <!-- User Profile Icon -->
+        <div class="icon-wrapper">
+          <button class="icon-btn profile-btn" id="profileBtn">
+            <svg class="icon profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
         </div>
-      </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown-menu notification-dropdown" id="notificationDropdown">
+    <div class="dropdown-header">
+      <h3>Notifications</h3>
+      <button class="clear-all-btn">Clear All</button>
+    </div>
+    <div class="notification-list">
+      <div class="notification-item unread">
+        <div class="notification-content">
+          <span class="notification-text">New message received</span>
+          <span class="notification-time">2 minutes ago</span>
+        </div>
+      </div>
+      <div class="notification-item unread">
+        <div class="notification-content">
+          <span class="notification-text">Your order has been shipped</span>
+          <span class="notification-time">1 hour ago</span>
+        </div>
+      </div>
+      <div class="notification-item unread">
+        <div class="notification-content">
+          <span class="notification-text">Weekly report is ready</span>
+          <span class="notification-time">3 hours ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown-menu profile-dropdown" id="profileDropdown">
+    <div class="profile-info">
+      <div class="profile-avatar">
+        <span>VE</span>
+      </div>
+      <div class="profile-details">
+        <span class="profile-name">vestearth</span>
+        <span class="profile-email">user@example.com</span>
+      </div>
+    </div>
+    <hr class="dropdown-divider">
+    <div class="dropdown-links">
+      <a href="#" class="dropdown-link">Profile Settings</a>
+      <a href="#" class="dropdown-link">Account</a>
+      <a href="#" class="dropdown-link">Preferences</a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-link logout">Sign Out</a>
     </div>
   </div>
 <?php
