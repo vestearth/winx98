@@ -1,5 +1,5 @@
 <?php
-require_once '.framework/import.php';
+require_once '../.framework/import.php';
 require_once 'layout/footer_nav.php';
 
 $user_data['money_balance'] = 0;

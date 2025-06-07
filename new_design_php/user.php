@@ -1,5 +1,5 @@
 <?php
-require_once '.framework/import.php';
+require_once '../.framework/import.php';
 if ($is_login) {
   $user_data = User::getCurrent();
 } else {

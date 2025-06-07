@@ -1,5 +1,5 @@
 <?php
-require_once '.framework/import.php';
+require_once '../.framework/import.php';
 require_once 'layout/footer_nav.php'; // Include the file containing renderBannerBorder
 $page = 'index';
 

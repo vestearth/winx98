@@ -1,5 +1,5 @@
 <?php
-require_once '.framework/import.php';
+require_once '../.framework/import.php';
 require_once 'layout/footer_nav.php';
 require_once 'layout/navbanner.php';
 
