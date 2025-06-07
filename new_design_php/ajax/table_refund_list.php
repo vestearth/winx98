@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '../../.framework/import.php';
 Structure::loadMetaForAjax('../');
 $code = Aww::API_CODE['winx'];
 $user_data = User::getCurrent();
@@ -14,6 +14,7 @@ $options = [
     'turn_over_date' => 'DESC'
   ]
 ];
+
 $user_turnover = nga_user::selectUserTurnOver($code, $where, $options);
 $data_list = isset($user_turnover['list']) ? $user_turnover['list'] : [];
 $total_count = isset($user_turnover['total_count']) ? $user_turnover['total_count'] : 0;

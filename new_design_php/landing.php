@@ -221,7 +221,7 @@ if ($is_login) {
               <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 7"></div> -->
               <?php for ($i = 1; $i <= 7; $i++): ?>
                 <div class="swiper-slide">
-                  <div class="grey-placeholder"></div>
+                  <div class="grey-placeholder" onclick="window.location.href='login.php'"></div>
                 </div>
               <?php endfor; ?>
             </div>

@@ -278,7 +278,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
       ?>
           <div class="col-md-12">
             <div class="text-white">
-              <div class="row mb-100px">
+              <div class="row mb-100px mx-auto" style="max-width: 700px;">
                 <?php
                 $game_no = 1;
                 $game_list = array(

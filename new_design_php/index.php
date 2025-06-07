@@ -94,9 +94,38 @@ $type_game_template = [
       'user_id' => $user_current['id'],
       'is_read' => "'0'"
     ];
+    Aww::display($where);
     $notification = User_Notification::selectNotification($code, $where);
     $user_group_id = $user_info['user_group_id'];
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
+
+    $get_game_setting = nga_management::getGameActiveStatus($code);
+
+    if ($get_game_setting['is_open_card_game'] == 0) {
+      unset($type_game_template['CARD']);
+    }
+    if ($get_game_setting['is_open_board_game'] == 0) {
+      unset($type_game_template['BOARD']);
+    }
+    if ($get_game_setting['is_open_slot_game'] == 0) {
+      unset($type_game_template['SLOT']);
+    }
+    if ($get_game_setting['is_open_casinolive_game'] == 0) {
+      unset($type_game_template['CASINOLIVE']);
+    }
+    if ($get_game_setting['is_open_arcade_game'] == 0) {
+      unset($type_game_template['ARCADE']);
+    }
+    if ($get_game_setting['is_open_fishing_game'] == 0) {
+      unset($type_game_template['FISHING']);
+    }
+    if ($get_game_setting['is_open_lotto'] == 0) {
+      unset($type_game_template['LOTTO']);
+    }
+
+    if ($get_game_setting['is_open_sportbook_game'] == 0) {
+      unset($type_game_template['SPORTBOOK']);
+    }
   } else {
     Aww::redirectOG('landing.php');
   }
@@ -260,14 +289,13 @@ $type_game_template = [
             <span class="user-main-menu-label">ความคิดเห็น</span>
           </div>
 
-          <div class="user-main-menu-item">
+          <!-- <div class="user-main-menu-item">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-review.svg" alt="">
             </div>
             <span class="user-main-menu-label">รีวิว</span>
           </div>
 
-          <!-- Row 3 -->
           <div class="user-main-menu-item">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-vip.svg" alt="">
@@ -296,61 +324,61 @@ $type_game_template = [
             </div>
             <span class="user-main-menu-label">แนะนำเพื่อน</span>
           </div>
+        </div> -->
         </div>
-      </div>
 
-      <div class="jackpot-swiper unset-height">
-        <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-          <img src="assets/img/text-customer.svg">
-        </div>
-        <div class="swiper swiperJackpot">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="jackpot-title">
-                <img src="assets/img/jackpot-img.png" alt="">
-              </div>
-              <div class="jackpot-card">
-                <div class="jackpot-message">
-                  ยินดีกับลูกค้า 089 919 XXXX<br>
-                  แตกแจ็คพอต <b>5,000฿</b>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="jackpot-title">
-                <img src="assets/img/jackpot-img.png" alt="">
-              </div>
-              <div class="jackpot-card">
-                <div class="jackpot-message">
-                  ยินดีกับลูกค้า 086 777 XXXX<br>
-                  แตกแจ็คพอต <b>3,200฿</b>
-                </div>
-              </div>
-            </div>
-            <!-- Add more slides as needed -->
+        <div class="jackpot-swiper unset-height">
+          <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+            <img src="assets/img/text-customer.svg">
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-
-      <div class="text-center my-25px">
-        <img src="assets/img/game-text.svg" alt="">
-      </div>
-
-      <div class="game-categories-container">
-        <div class="game-categories-grid">
-          <?php foreach ($type_game_template as $gameType => $gameData): ?>
-            <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
-              <div class="game-category-card">
-                <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+          <div class="swiper swiperJackpot">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 089 919 XXXX<br>
+                    แตกแจ็คพอต <b>5,000฿</b>
+                  </div>
+                </div>
               </div>
-              <span class="game-category-label"><?= $gameData['name'] ?></span>
+              <div class="swiper-slide">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 086 777 XXXX<br>
+                    แตกแจ็คพอต <b>3,200฿</b>
+                  </div>
+                </div>
+              </div>
+              <!-- Add more slides as needed -->
             </div>
-          <?php endforeach; ?>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="text-center my-25px">
+          <img src="assets/img/game-text.svg" alt="">
+        </div>
+
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                </div>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
