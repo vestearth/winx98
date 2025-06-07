@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="67" height="67" viewBox="0 0 67 67">
+  <defs>
+    <filter id="headset" x="0" y="0" width="67" height="67" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5a9ef9"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#headset)">
+    <path id="headset-2" data-name="headset" d="M18.5,0A18.5,18.5,0,1,1,0,18.5,18.5,18.5,0,0,1,18.5,0Zm2.363,29.34V27.192a1.029,1.029,0,0,0-1.028-1.028h-2.67a1.029,1.029,0,0,0-1.028,1.028V29.34Zm8.471-1.982-6.976,0V29.34H27.2a2.147,2.147,0,0,0,2.138-1.982Zm-21.668-9.2H9.723a8.783,8.783,0,0,1,17.554,0h2.058a10.84,10.84,0,0,0-21.669,0Zm1.758,1.5H7.66v5.177a1.029,1.029,0,0,0,1.028,1.028h.735a1.915,1.915,0,0,0,1.913-1.913V21.571A1.915,1.915,0,0,0,9.423,19.658ZM29.34,24.835V19.658H27.577a1.915,1.915,0,0,0-1.913,1.913v2.378a1.915,1.915,0,0,0,1.913,1.914h.735A1.029,1.029,0,0,0,29.34,24.835Z" transform="translate(15 15)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.179" y1="-0.179" x2="-0.179" y2="1.168" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f4c165"/>
+      <stop offset="0.271" stop-color="#f7eeac"/>
+      <stop offset="0.557" stop-color="#e3a242"/>
+      <stop offset="0.857" stop-color="#fcfce4"/>
+      <stop offset="1" stop-color="#ebb539"/>
+    </linearGradient>
+  </defs>
+  <g id="Icon" transform="translate(-1.25 -1.25)">
+    <path id="Path_156350" data-name="Path 156350" d="M21.122,41.25H39.855a1.395,1.395,0,0,0,.967-2.4l-4.56-4.391a20,20,0,1,0-15.14,6.791ZM11.948,18.459A2.791,2.791,0,1,1,9.157,21.25a2.792,2.792,0,0,1,2.791-2.791Zm9.3,0a2.791,2.791,0,1,1-2.791,2.791A2.792,2.792,0,0,1,21.25,18.459Zm9.3,0a2.791,2.791,0,1,1-2.791,2.791A2.792,2.792,0,0,1,30.552,18.459Z" transform="translate(0 0)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

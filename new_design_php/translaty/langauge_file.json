@@ -1,0 +1,1454 @@
+{
+    "login": {
+        "en": "Login",
+        "th": "เข้าสู่ระบบ"
+    },
+    "Sign up": {
+        "en": "Sign up",
+        "th": "สมัครสมาชิก"
+    },
+    "Phonenumber": {
+        "en": "Telephone Number",
+        "th": "เบอร์โทรศัพท์"
+    },
+    "loginwphonenumb": {
+        "en": "Login with telephone number",
+        "th": "กรอกเบอร์โทรศัพท์"
+    },
+    "Password": {
+        "en": "Password",
+        "th": "รหัสผ่าน"
+    },
+    "forgotpassword": {
+        "en": "Forgot your password?",
+        "th": "ลืมรหัสผ่าน?"
+    },
+    "clickhere": {
+        "en": "Click here",
+        "th": "คลิกที่นี่"
+    },
+    "hitthejackpot": {
+        "en": "Congratulations!! ID xxx just hit the jackpot - valued at THB xxx.",
+        "th": "Super Jackpot!! ยินดีกับไอดี xxx ได้รับ jackpot xxx บาท"
+    },
+    "walletbalance": {
+        "en": "Your Wallet Balance",
+        "th": "ยอดเงินในกระเป๋า"
+    },
+    "deposit": {
+        "en": "Deposit",
+        "th": "ฝากเงิน"
+    },
+    "playgame": {
+        "en": "Play Game",
+        "th": "เข้าสู่เกม"
+    },
+    "withdraw": {
+        "en": "Withdraw",
+        "th": "ถอนเงิน"
+    },
+    "promotion": {
+        "en": "Promotion",
+        "th": "โปรโมชัน"
+    },
+    "lossreturn": {
+        "en": "Loss Return",
+        "th": "คืนยอดเสีย"
+    },
+    "earnmoney": {
+        "en": "Earn Money",
+        "th": "สร้างรายได้"
+    },
+    "event": {
+        "en": "Event",
+        "th": "กิจกรรม"
+    },
+    "recommendation": {
+        "en": "Recommendation",
+        "th": "ความคิดเห็น"
+    },
+    "rewardredemption": {
+        "en": "Rewards Redemption",
+        "th": "แลกรางวัล"
+    },
+    "profile": {
+        "en": "Profile",
+        "th": "ข้อมูลส่วนตัว"
+    },
+    "home": {
+        "en": "Home",
+        "th": "หน้าแรก"
+    },
+    "banktransfer": {
+        "en": "Bank Transfer",
+        "th": "โอนแบบธนาคาร"
+    },
+    "accountname": {
+        "en": "Account Name",
+        "th": "ชื่อบัญชี"
+    },
+    "copyaccuntnmb": {
+        "en": "Copy Account Number",
+        "th": "คัดลอกเลขบัญชี"
+    },
+    "plsuseregistered": {
+        "en": "Please use your registered account to transfer money",
+        "th": "โปรดใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น"
+    },
+    "aftertransaction": {
+        "en": "After transaction, receive your credit. If you are unable to claim credit within 3 mins, please contact our admin @LineID ",
+        "th": "โอนเงินเข้าบัญชีแล้วรอรับเครดิตได้เลย ถ้าหากไม่ได้รับเครดิตภายใน 3 นาที กรุณาติดต่อแอดมินได้ที่"
+    },
+    "termsandconditions": {
+        "en": "Terms and Conditions",
+        "th": "ข้อตกลงและเงื่อนไข"
+    },
+    "deposithistory": {
+        "en": "Deposit History",
+        "th": "ประวัติการเติมเงิน"
+    },
+    "dateandtime": {
+        "en": "Date\/ Time",
+        "th": "วันที่\/ เวลา"
+    },
+    "amount": {
+        "en": "Amount",
+        "th": "จำนวนเงิน"
+    },
+    "status": {
+        "en": "Status",
+        "th": "สถานะ"
+    },
+    "cardgames": {
+        "en": "Card Games",
+        "th": "เปิดไพ่"
+    },
+    "boardgames": {
+        "en": "Board Games",
+        "th": "บอร์ดเกม"
+    },
+    "arcade": {
+        "en": "Arcade",
+        "th": "ตู้เกม"
+    },
+    "slotgames": {
+        "en": "Slot Games",
+        "th": "สล็อต"
+    },
+    "onlinecasino": {
+        "en": "Online Casino",
+        "th": "คาสิโน"
+    },
+    "onlinefishing": {
+        "en": "Online Fishing",
+        "th": "เกมตกปลา"
+    },
+    "turnover": {
+        "en": "Turnover",
+        "th": "ยอดเทิร์น"
+    },
+    "moneycanwithdraw": {
+        "en": "amount of money you can withdraw",
+        "th": "จำนวนเงินที่ถอนได้"
+    },
+    "fillamountofmoney": {
+        "en": "fill amount of money",
+        "th": "ระบุจำนวนเงิน"
+    },
+    "confirm": {
+        "en": "Confirm",
+        "th": "ยืนยันการถอน"
+    },
+    "note": {
+        "en": "note",
+        "th": "หมายเหตุ"
+    },
+    "minamountwithdraw": {
+        "en": "Minimum amount for withdrawal is THB10.00",
+        "th": "ถอนเงินขั้นต่ำ 10.00 บาท"
+    },
+    "maxamountwithdraw": {
+        "en": "Maximum amount for withdrawal is THB20,000\/ time",
+        "th": "ถอนเงินได้สูงสุด 20,000.00 \/ ครั้ง"
+    },
+    "timewithdrawal": {
+        "en": "You can withdraw 10 times a day (reset time: 12.00 A.M. )",
+        "th": "ถอนเงินได้จำนวน 10 ครั้ง \/ วัน (เริ่มนับใหม่ทุกเที่ยงคืน)"
+    },
+    "withdrawalhistory": {
+        "en": "Withdrawal History",
+        "th": "ประวัติรายการถอน"
+    },
+    "creditreceived": {
+        "en": "credit received",
+        "th": "ได้รับเครดิตแล้ว"
+    },
+    "transfering": {
+        "en": "transfering",
+        "th": "กำลังโอนเงิน"
+    },
+    "yougotbonus": {
+        "en": "You have got bonus!",
+        "th": "ท่านได้รับโบนัส"
+    },
+    "waitingtobeprocessed": {
+        "en": "waiting to be processed",
+        "th": "รอดำเนินการ"
+    },
+    "getcredit": {
+        "en": "Get 100 credits when losing money",
+        "th": "มียอดเสียรับ 100 เครดิต"
+    },
+    "yourbonus": {
+        "en": "Your bonus",
+        "th": "โบนัสสะสม"
+    },
+    "losingmoney": {
+        "en": "Losing money than THBxxx, receive x% credit of loss money, not more than THBxxx",
+        "th": "มียอดเสียเกิน xxx บาท รับเครดิตคืน x% ของยอดเสีย รับเครดิตคืนไม่เกิน xxx บาท"
+    },
+    "lossingcreditreturnedtoday": {
+        "en": "Lossing credit returned today",
+        "th": "เครดิตยอดเสียที่ได้คืนวันนี้"
+    },
+    "claim": {
+        "en": "Claim",
+        "th": "รับเข้าเครดิต"
+    },
+    "lossreturnhistory": {
+        "en": "Loss Return History",
+        "th": "ประวัติการคืนยอดเสีย"
+    },
+    "refundpromotion": {
+        "en": "Refund promotion of every x% of loss is restricted for card games only.",
+        "th": "โปรโมชั่นคืนเงินทุกยอดเสีย x%  สำหรับการเล่น เกมไพ่ เท่านั้น"
+    },
+    "minandmaxamount": {
+        "en": "min. amount is at 10.00 and max. is at 1000.00. The more playing, the more discount you get",
+        "th": "ยอดขั้นต่ำ 10.00 และ 1000.00 เพดานสูงสุด ยิ่งเล่นเยอะยิ่งลดได้เยอะ"
+    },
+    "link": {
+        "en": "Link",
+        "th": "ลิงก์รับทรัพย์"
+    },
+    "earnmoneyyourself": {
+        "en": "Earn yourself THB100,000 a month! Just recommend No More Gaming to your friends",
+        "th": "สร้างรายได้ให้กับตัวท่านเอง หลักแสนบาทต่อเดือน เพียงแนะนำ No More Gaming ให้เพื่อนๆ รู้จัก"
+    },
+    "yourfriendsregisternomoregame": {
+        "en": "0 of your friend(s) registered into No More Gaming",
+        "th": "เพื่อนของท่านสมัครแล้ว 0 บัญชี"
+    },
+    "earn70": {
+        "en": "You earn THB70 when you friend reaches THB10,000 in betting.",
+        "th": "เพื่อน 1 คน มียอดเล่น 10,000 บาท ท่านจะได้ 70 บาท"
+    },
+    "earn700": {
+        "en": "When 10 of your friends reach THB10,000, you earn THB700.",
+        "th": "เพื่อน 10 คน มียอดเล่นคนละ 10,000 บาท ท่านจะได้ 700 บาท"
+    },
+    "earn7000": {
+        "en": "When 100 of your friends reach THB10,000, you earn THB7,000.",
+        "th": "เพื่อน 100 คน มียอดเล่นคนละ 10,000 บาท ท่านจะได้ 7,000 บาท "
+    },
+    "hereeasilyearn": {
+        "en": "Here you can easily earn more than THB100,000 per month. Reliable, quick, and safe payment. The more you share, the more you earn.",
+        "th": "สามารถทำรายได้มากว่า 100,000 บาทต่อเดือนได้ง่ายๆ เลยทีเดียว แจกจริง จ่ายเร็ว ตรวจสอบได้ทุกขั้นตอน ยิ่งแชร์มาก ยิ่งได้มาก"
+    },
+    "copylinkandshare": {
+        "en": "What are you waiting for? Copy the link and share!",
+        "th": "ก็อปลิงก์แล้วแชร์เลย"
+    },
+    "incomesummary": {
+        "en": "Income Summary",
+        "th": "สรุปรายได้"
+    },
+    "income": {
+        "en": "Income (THB)",
+        "th": "รายได้ (บาท)"
+    },
+    "cardofmillionaire": {
+        "en": "Card of Millionaire",
+        "th": "เปิดไพ่ลุ้นล้าน"
+    },
+    "fortunesslot": {
+        "en": "Fortunes Slots",
+        "th": "สล็อตเสี่ยงโชค"
+    },
+    "selectcategory": {
+        "en": "Please select the category",
+        "th": "กรุณาเลือกหมวดหมู่"
+    },
+    "ratesatisfaction": {
+        "en": "Rate your satisfaction",
+        "th": "คะแนนความพึงพอใจ"
+    },
+    "detail": {
+        "en": "detail",
+        "th": "รายละเอียด"
+    },
+    "explainmoredetail": {
+        "en": "Please explain more detail",
+        "th": "ระบุรายละเอียดของท่าน"
+    },
+    "perfect": {
+        "en": "Perfect",
+        "th": "ดีมาก"
+    },
+    "excellent": {
+        "en": "Excellent",
+        "th": "ดี"
+    },
+    "fair": {
+        "en": "Fair",
+        "th": "พอใช้"
+    },
+    "bad": {
+        "en": "Bad",
+        "th": "แย่"
+    },
+    "terrible": {
+        "en": "Terrible",
+        "th": "แย่มาก"
+    },
+    "attachedfile": {
+        "en": "Attached file (if available)",
+        "th": "ไฟล์แนบ (หากมี)"
+    },
+    "back": {
+        "en": "back",
+        "th": "ย้อนกลับ"
+    },
+    "confirm2": {
+        "en": "Confirm",
+        "th": "ยืนยัน"
+    },
+    "mypoint": {
+        "en": "My Points",
+        "th": "แต้มของฉัน"
+    },
+    "point": {
+        "en": "point(s)",
+        "th": "แต้ม"
+    },
+    "usepoints": {
+        "en": "use 100 points",
+        "th": "ใช้แต้ม 100 แต้ม"
+    },
+    "claimreward": {
+        "en": "claim reward",
+        "th": "แลกรางวัล"
+    },
+    "rewardexchange": {
+        "en": "Rewards Exchange History",
+        "th": "ประวัติการแลกรางวัล"
+    },
+    "checking": {
+        "en": "checking",
+        "th": "รอตรวจสอบ"
+    },
+    "usedpoints": {
+        "en": "used points",
+        "th": "แต้มที่แลก"
+    },
+    "rewards": {
+        "en": "Rewards",
+        "th": "รางวัล"
+    },
+    "editinfor": {
+        "en": "If you want to edit your account information, please contact admin",
+        "th": "ต้องการเปลี่ยนแปลงข้อมูลบัญชี กรุณาติดต่อแอดมิน"
+    },
+    "changepass": {
+        "en": "Change Password",
+        "th": "เปลี่ยนรหัสผ่าน"
+    },
+    "Logout": {
+        "en": "Logout",
+        "th": "ออกจากระบบ"
+    },
+    "provideyougreatservice": {
+        "en": "We provide you a great quality of service with several special benefits to serve you the feeling of amusement",
+        "th": "บริการของเรามาพร้อมกับสิทธิพิเศษที่ให้ทุกท่านได้พบกับความสนุกสนาน"
+    },
+    "onlinebettingsite": {
+        "en": "Online betting site that has more than 100,000 users",
+        "th": "เกมเดิมพันออนไลน์ในปัจจุบันมีสมาชิกเข้ามาใช้บริการมากกว่า 100,000 user"
+    },
+    "herelies": {
+        "en": "Here lies the online casino with many privileges",
+        "th": "รวมคาสิโน ออนไลน์สุดคุ้ม"
+    },
+    "bestonlinecasinowebsite": {
+        "en": "The best online casino website",
+        "th": "เว็บคาสิโนออนไลน์อันดับ 1"
+    },
+    "gotthemostusers": {
+        "en": "Online betting website that got the most users",
+        "th": "เว็บเดิมพันออนไลน์ ที่คนเล่นเยอะที่สุดอันดับ 1"
+    },
+    "weinviteyou": {
+        "en": "We invite you to get to know the joy of various kinds of game with worthy payout ratio",
+        "th": "ให้ทุกท่านได้พบกับกิจกรรมความสนุกสนานของเกมที่หลากหลาย ที่มาพร้อมกับรูปแบบของการเล่นที่มีอัตราการจ่ายสุดคุ้ม"
+    },
+    "autodeposit": {
+        "en": "auto-deposit and withdrawal",
+        "th": "ฝาก-ถอนออโต้ 24 ชม."
+    },
+    "simpletouse": {
+        "en": "simple to use, all banks are welcomed",
+        "th": "ใช้งานง่าย รองรับทุกธนาคาร"
+    },
+    "takecarevip": {
+        "en": "We take care of you as our VIP guest",
+        "th": "ดูแลลูกค้าแบบ VIP"
+    },
+    "professionalteam": {
+        "en": "by our professional teams",
+        "th": ""
+    },
+    "1strank": {
+        "en": "The 1st ranking online casino games ",
+        "th": "เกมเดิมพันชั้นนำอันดับ 1"
+    },
+    "enjoyableevents": {
+        "en": "includes a lot of enjoyable events",
+        "th": "รวมถึงกิจกรรมสนุกสนานมากมาย"
+    },
+    "cardmillionaire": {
+        "en": "Card of Millionaire",
+        "th": "เกมไพ่ลุ้นล้าน"
+    },
+    "treasureboardgames": {
+        "en": "Treasure Board Games",
+        "th": "กระดานรับทรัพย์"
+    },
+    "slots": {
+        "en": "fortunes Slots",
+        "th": "เกมสล็อตลุ้นโชค"
+    },
+    "landofarcade": {
+        "en": "Land of Arcade",
+        "th": "ตู้เกม Arcade"
+    },
+    "catchfish": {
+        "en": "let's catch some fish!",
+        "th": "เกมตกปลา"
+    },
+    "tryforfree": {
+        "en": "Try for Free",
+        "th": "ทดลองเล่น"
+    },
+    "anewchoice": {
+        "en": "A new choice of online casino with the safe way of transaction",
+        "th": "คาสิโนออนไลน์ทางเลือกใหม่ ที่มาพร้อมกับความปลอดภัยในการทำธุรกรรม"
+    },
+    "includeevent": {
+        "en": "including several fun events and a lot of good-quality betting games",
+        "th": "รวมถึงมีกิจกรรมความสนุกสนานมากมาย ที่เต็มไปด้วยเกมเดิมพันชั้นนำที่ดีอันดับ 1 "
+    },
+    "wetryourbest": {
+        "en": "We try our best to provide customers a great experince as VIP guests by the teams who could take care of you all the way",
+        "th": "คัดสรรข้อดีต่างๆ ให้ท่านทั้งหลายสามารถเข้าใช้บริการได้อย่างคุ้มค่า ด้วยการดูแลแบบ VIP ที่จะมีทีมงานคอยดูแลและแนะนำตลอดเวลาในการใช้งาน"
+    },
+    "casinoonline": {
+        "en": "Online Casino, Easy and Reliable",
+        "th": "คาสิโนออนไลน์ เล่นง่าย ได้เงินจริง"
+    },
+    "brandnewweb": {
+        "en": "A brand-new website, up to standard, provide services through automatic system",
+        "th": "เว็บเกมสายพันธุ์ใหม่ ได้รับมาตรฐาน ให้บริการผ่านระบบอัตโนมัติ"
+    },
+    "quickcor": {
+        "en": "quick, correct, accurate, and safe for your information, easy to use, convenient deposit-withdrawal",
+        "th": "รวดเร็ว ถูกต้อง แม่นยำ ปลอดภัยต่อข้อมูล ใช้งานง่าย ฝากถอนสะดวก"
+    },
+    "xperiencejoy": {
+        "en": "Experince the smoothness of joy with auto-deposit and withdrawal system",
+        "th": "สนุกได้ ไม่มีสะดุดด้วยระบบฝากถอนใหม่ล่าสุดออโต้ 24 ชั่วโมง"
+    },
+    "joingame": {
+        "en": "to join our game to the full, we serve you up-todate version of deposit-withdrawal system",
+        "th": "ช่วยให้ท่านสามารถเข้ามาเล่นได้อย่างเต็มที่ ให้บริการด้วยระบบการฝากเงินแบบออโต้ที่ทันสมัย"
+    },
+    "diy": {
+        "en": "where you can do the transactions yourself in easy way without admin 24\/7.",
+        "th": "ที่จะช่วยให้ท่านสามารถทำรายการได้ด้วยตนเองในแบบง่าย ๆ ไม่ต้องผ่านแอดมิน ทุกวัน ตลอด 24 ชั่วโมง "
+    },
+    "alotgame": {
+        "en": "A lot of games with a lot of users",
+        "th": "เรามีเกมที่คัดสรรมาให้ท่านเลือกเล่นมากมาย และมีสมาชิกเข้ามาร่วมเล่นกันเป็นจำนวนมาก "
+    },
+    "uptostndrd": {
+        "en": "up to standard and up-to-date",
+        "th": "มีมาตรฐาน และทันสมัย"
+    },
+    "easy": {
+        "en": "easy with auto-system to support you experience in playing game",
+        "th": "เล่นง่ายด้วยระบบอัตโนมัติที่สนับสนุนให้ท่านได้เล่นอย่างคล่องแคล่ว"
+    },
+    "fullsecure": {
+        "en": "full of security and reliability",
+        "th": "มากที่สุดด้วยความมั่นคงปลอดภัย และสามารถเชื่อถือได้"
+    },
+    "assure": {
+        "en": "We assure you will gain profit as well as the feeling of joy!",
+        "th": "ท่านจะได้รับกำไรไปพร้อมกับความสนุกสนานเพลิดเพลินอย่างแน่นอน"
+    },
+    "signupbonus": {
+        "en": "Sign up to get bonus!",
+        "th": "สมัครใหม่รับโบนัสฟรี ๆ"
+    },
+    "global-ranking": {
+        "en": "Here lies the global-ranking casino and online games in one place",
+        "th": "คาสิโนสด และเกมส์ออนไลน์ ระดับโลกรวมไว้ที่เดียว"
+    },
+    "onlinebet": {
+        "en": "Online Betting with new system",
+        "th": "เดิมพันออนไลน์ ระบบใหม่ล่าสุด"
+    },
+    "getbonus": {
+        "en": "Sign up to get bonus for both new and old customers.",
+        "th": "สมัครใหม่วันนี้พร้อมรับโบนัสแจกให้ฟรีๆ ทั้งลูกค้าเก่าและใหม่"
+    },
+    "newregister": {
+        "en": "regardless of new registered account promotion, loss return promotion, and a lot of new promotions updated monthly.",
+        "th": "ไม่ว่าจะเป็นโปรโมชั่นสมัครสมาชิกใหม่ โปรคืนยอดเสีย และโปรใหม่ๆที่จะอัปเดตให้ทุกเดือน"
+    },
+    "withproteam": {
+        "en": "with professional team to take care of you as VIP guset, and help you for web using.",
+        "th": " พร้อมทีมงานมืออาชีพดูแลแบบ VIP คอยแนะนำทุกการใช้งานสำหรับทุกท่าน"
+    },
+    "autovip": {
+        "en": "Auto-system VIP care Professional",
+        "th": "ระบบออโต้ บริการแบบ VIP มืออาชีพ"
+    },
+    "allbetting": {
+        "en": "All of betting games",
+        "th": "รวมทุกเกมเดิมพัน"
+    },
+    "easyplay": {
+        "en": "easy to play, available on mobile",
+        "th": "เล่นง่าย ผ่านมือถือ"
+    },
+    "onlinebetting": {
+        "en": "The center of all online betting ",
+        "th": "ศูนย์รวมเว็บเกมเดิมพัน ออนไลน์ทุกชนิด"
+    },
+    "maketrans": {
+        "en": "auto-deposit and withdrawal, making transaction in a few seconds",
+        "th": "ฝาก-ถอนด้วยระบบออโต้ ทำรายการไม่กี่วินาที"
+    },
+    "simplegame": {
+        "en": "with simple gameplay, few steps of registration",
+        "th": "พร้อมรูปแบบการเล่นง่าย สมัครง่ายในไม่กี่ขั้นตอน"
+    },
+    "globalstndrd": {
+        "en": "We serve our customers global standard of online system with unlimited payment and no limitation per day",
+        "th": " บริการด้วยระบบออนไลน์มาตรฐานสากล เท่าไหร่ก็จ่าย ไม่มีลิมิตต่อวัน"
+    },
+    "casinosite": {
+        "en": "Online Casino Site and Sport Games ",
+        "th": "เว็บไซต์คาสิโนและเกมกีฬาออนไลน์"
+    },
+    "copyright": {
+        "en": "Copyright website with experience in delivering both domestic and international services",
+        "th": "เว็บลิขสิทธิ์แท้ที่ให้บริการมาอย่างยาวนาน ทั้งในและต่างประเทศ"
+    },
+    "newestsystem": {
+        "en": "Online Betting with the newest system",
+        "th": "เดิมพันออนไลน์ ระบบใหม่ล่าสุด"
+    },
+    "managewbot": {
+        "en": "Manage your deposit and withdrawal with autobot",
+        "th": "จัดการฝากถอนด้วย ออโต้บอท"
+    },
+    "quickandeff": {
+        "en": "Quick, Efficient, Link Directly to Bank Account",
+        "th": "รวดเร็ว มีประสิทธิภาพ เชื่อมตรงกับธนาคาร"
+    },
+    "Varioussport": {
+        "en": "Various Kinds of Sport Games and Online Games",
+        "th": "เกมกีฬาและเกมออนไลน์มากมาย"
+    },
+    "casinobetting": {
+        "en": "Online Casino Betting",
+        "th": "เดิมพันคาสิโนออนไลน์"
+    },
+    "Slotmachine": {
+        "en": "Slot Machine for Lucky Draw",
+        "th": "เกมสล็อตลุ้นโชค"
+    },
+    "severalcardgames": {
+        "en": "Several Card Games",
+        "th": "เกมไพ่มากมาย"
+    },
+    "sportgames": {
+        "en": "Enjoy Playing Sport Games",
+        "th": "สนุกไปกับเกมกีฬา"
+    },
+    "luckynumber": {
+        "en": "Win Lucky Number",
+        "th": "ลุ้นรางวัลไปกับหวย"
+    },
+    "Stockxchange": {
+        "en": "Online Stock Exchanging and Investing",
+        "th": "ลงทุน ทายหุ้นออนไลน์"
+    },
+    "Tryforfree": {
+        "en": "Try for Free",
+        "th": "ทดลองเล่น"
+    },
+    "center": {
+        "en": "No more gaming, the center of online gambling site with auto-deposit and withdrawal",
+        "th": "No more gaming ศูนย์รวมเว็บพนันออนไลน์ทุกชนิด ฝาก-ถอนด้วยระบบออโต้"
+    },
+    "highspeed": {
+        "en": "lightning-fast transaction speed, simple pattern of gameplay, easy registration in a few clicks",
+        "th": "ทำรายการไม่กี่วินาที พร้อมรูปแบบการเล่นง่าย สมัครง่ายในไม่กี่ขั้นตอน"
+    },
+    "pass_change": {
+        "en": "The password has been changed successfully.",
+        "th": "เปลี่ยนรหัสผ่านเรียบร้อยแล้ว"
+    },
+    "pass_match": {
+        "en": "Passwords do not match",
+        "th": "รหัสผ่านใหม่ไม่ตรงกัน"
+    },
+    "pass_setting": {
+        "en": "Password Setting",
+        "th": "ตั้งค่ารหัสผ่าน"
+    },
+    "contact_ad": {
+        "en": "Contact Administrator",
+        "th": "ติดต่อแอดมิน"
+    },
+    "verify_otp": {
+        "en": "Verify OTP number (6 digits)",
+        "th": "ยืนยัน OTP 6 หลัก"
+    },
+    "fewmins_otp": {
+        "en": "It might need a few minutes to send OTP number.",
+        "th": "OTP อาจใช้เวลาสักครู่ ในการส่ง"
+    },
+    "new_pass": {
+        "en": "New Password",
+        "th": "รหัสผ่านใหม่"
+    },
+    "newpass_conf": {
+        "en": "Confirm your new password",
+        "th": "ยืนยันรหัสผ่านใหม่"
+    },
+    "pass_fill": {
+        "en": "fill password",
+        "th": "กรอกรหัสผ่าน"
+    },
+    "next": {
+        "en": "Next",
+        "th": "ต่อไป"
+    },
+    "set_pass": {
+        "en": "Set Password",
+        "th": "ตั้งรหัสผ่าน"
+    },
+    "bank_acc": {
+        "en": "Bank Account",
+        "th": "บัญชีธนาคาร"
+    },
+    "succeed": {
+        "en": "succeed",
+        "th": "สำเร็จ"
+    },
+    "bank_select": {
+        "en": "select bank account",
+        "th": "เลือกธนาคาร"
+    },
+    "acc_numb": {
+        "en": "account number",
+        "th": "เลขที่บัญชี"
+    },
+    "accnumb_fill": {
+        "en": "fill account number",
+        "th": "กรอกเลขบัญชีธนาคาร"
+    },
+    "acc_notfound": {
+        "en": "Bank account not found",
+        "th": "ไม่พบบัญชีธนาคารนี้"
+    },
+    "name_phone": {
+        "en": "Username\/ telephone number",
+        "th": "ชื่อผู้ใช้ \/ เบอร์โทรศัพท์"
+    },
+    "promotions": {
+        "en": "Promotions",
+        "th": "โปรโมชั่น"
+    },
+    "want_logout": {
+        "en": "Do you want to logout?",
+        "th": "ท่านต้องการออกจากระบบ ใช่หรือไม่"
+    },
+    "trans_time": {
+        "en": "time of money transfer",
+        "th": "เวลาที่แจ้งโอน"
+    },
+    "transfer_acc": {
+        "en": "tranfer from bank account",
+        "th": "โอนจากบัญชี"
+    },
+    "dep_balance": {
+        "en": "Deposit Balance",
+        "th": "ยอดฝาก"
+    },
+    "baht": {
+        "en": "Baht",
+        "th": "บาท"
+    },
+    "reason": {
+        "en": "Reason",
+        "th": "เหตุผล"
+    },
+    "okay": {
+        "en": "Okay",
+        "th": "ตกลง"
+    },
+    "min_withdraw": {
+        "en": "minimum withdraw",
+        "th": "ถอนเงินขั้นต่ำ"
+    },
+    "max_withdraw": {
+        "en": "maximum withdraw",
+        "th": "ถอนเงินได้สูงสุด"
+    },
+    "withdraw_amount": {
+        "en": "Amount of withdrawal",
+        "th": "ถอนเงินได้จำนวน"
+    },
+    "times": {
+        "en": "time(s)",
+        "th": "ครั้ง"
+    },
+    "times_day": {
+        "en": "time(s)\/ day",
+        "th": "ครั้ง \/ วัน"
+    },
+    "reset_mid": {
+        "en": "Reset at midnight every day",
+        "th": "เริ่มนับใหม่ทุกเที่ยงคืน"
+    },
+    "withdraw_done": {
+        "en": "Withdrawal transaction done",
+        "th": "สร้างรายการถอนเงินแล้ว"
+    },
+    "trans_check": {
+        "en": "Transaction is been checking.",
+        "th": "ระบบกำลังตรวจสอบรายการ"
+    },
+    "trans_bank": {
+        "en": "The system will transfer money to your bank account ASAP.",
+        "th": "และจะดำเนินการโอนเงินเข้าบัญชีของท่านโดยเร็วที่สุด"
+    },
+    "trans_to": {
+        "en": "transfer to",
+        "th": "โอนเข้าบัญชี"
+    },
+    "withdraw_bal": {
+        "en": "Withdrawal Balance",
+        "th": "ยอดถอน"
+    },
+    "time_withdraw": {
+        "en": "Time of money withdraw",
+        "th": "เวลาที่แจ้งถอน"
+    },
+    "cancel": {
+        "en": "cancel",
+        "th": "ยกเลิก"
+    },
+    "card_game": {
+        "en": "Card Games",
+        "th": "เกมไพ่"
+    },
+    "sport": {
+        "en": "Sport",
+        "th": "กีฬา"
+    },
+    "lottery": {
+        "en": "lottery",
+        "th": "หวย"
+    },
+    "trading": {
+        "en": "Trading",
+        "th": "เทรดดิ้ง"
+    },
+    "join_game": {
+        "en": "Join Games",
+        "th": "เข้าเล่นเกม"
+    },
+    "receive": {
+        "en": "Receive",
+        "th": "รับ"
+    },
+    "terms_conds": {
+        "en": "Terms and Conditions",
+        "th": "ข้อกำหนดและเงื่อนไข"
+    },
+    "deposit_bal": {
+        "en": "Deposit Balance",
+        "th": "มียอดฝาก"
+    },
+    "notmore": {
+        "en": "Not more than",
+        "th": "จำนวนครั้งต่อวันไม่เกิน"
+    },
+    "times_person": {
+        "en": "times\/ person",
+        "th": "ครั้ง \/ คน"
+    },
+    "time_per": {
+        "en": "times per person",
+        "th": "จำนวนครั้งต่อคน"
+    },
+    "times_pro": {
+        "en": "times\/ promotion time",
+        "th": "ครั้ง \/ ช่วงโปรโมชั่น"
+    },
+    "begin_datetime": {
+        "en": "beginning date\/ time",
+        "th": "วัน\/เวลาที่เริ่ม"
+    },
+    "end_datetime": {
+        "en": "Ending date\/ time",
+        "th": "วัน\/เวลาที่สิ้นสุด"
+    },
+    "amount_limit": {
+        "en": "amount limitation",
+        "th": "จำกัดจำนวน"
+    },
+    "complete_invite": {
+        "en": "Complete friend invitations",
+        "th": "ชวนเพื่อนครบ"
+    },
+    "contact": {
+        "en": "Contact",
+        "th": "ช่องทางการติดต่อ"
+    },
+    "loss_than": {
+        "en": "loss more than",
+        "th": "มียอดเสียเกิน"
+    },
+    "return": {
+        "en": "return",
+        "th": "คืน"
+    },
+    "loss_money": {
+        "en": "of loss money",
+        "th": "ของยอดเสีย"
+    },
+    "re_not_more": {
+        "en": "return not more than",
+        "th": "คืนไม่เกิน"
+    },
+    "complete_games": {
+        "en": "Complete all the games",
+        "th": "เข้าเล่นเกมครบ"
+    },
+    "time_player": {
+        "en": "times per a player not more than",
+        "th": "จำนวนครั้งต่อลูกค้าไม่เกิน"
+    },
+    "nopro_avai": {
+        "en": "No promotion available",
+        "th": "ไม่มีรายการโปรโมชั่น"
+    },
+    "bonus_transfer": {
+        "en": "Bonus has been transfered",
+        "th": "ระบบได้โอนโบนัส จำนวน"
+    },
+    "to_credit": {
+        "en": "to your credit",
+        "th": "ไปยังเครดิตของท่านเรียบร้อยแล้ว"
+    },
+    "credit": {
+        "en": "credit",
+        "th": "เครดิต"
+    },
+    "credit_cut": {
+        "en": "Credit amount will be cut daily at",
+        "th": "ระบบจะตัดยอดเครดิตคืนเป็นรายวัน ณ เวลา"
+    },
+    "claim_credit": {
+        "en": "please be sure to claim your credit before",
+        "th": "กรุณารับเครดิตก่อนเวลา"
+    },
+    "every_day": {
+        "en": "every day",
+        "th": "ของทุกวัน"
+    },
+    "loss_promotion": {
+        "en": "Loss return promotion",
+        "th": "โปรโมชั่นคืนเงินทุกยอดเสีย"
+    },
+    "for": {
+        "en": "for",
+        "th": "สำหรับการเล่น"
+    },
+    "only": {
+        "en": "only",
+        "th": "เท่านั้น"
+    },
+    "min_amount": {
+        "en": "minimum amount",
+        "th": "ยอดขั้นต่ำ"
+    },
+    "and": {
+        "en": "and",
+        "th": "และ"
+    },
+    "maximum": {
+        "en": "maximum",
+        "th": "เพดานสูงสุด"
+    },
+    "no_min": {
+        "en": "No minimum amount and no maximum limitation",
+        "th": "ไม่มีขั้นต่ำ และไม่จำกัดเพดานสูงสุด"
+    },
+    "moreplay_moredis": {
+        "en": "the more you play, the more discount you get",
+        "th": "ยิ่งเล่นเยอะยิ่งลดได้เยอะ"
+    },
+    "credit_received": {
+        "en": "credit received",
+        "th": "รับเครดิตแล้ว"
+    },
+    "credit_loss": {
+        "en": "system has already transfered credit of loss",
+        "th": "ระบบได้โอนเครดิตยอดเสียที่ได้คืน จำนวน"
+    },
+    "toyourcre": {
+        "en": "to you credit",
+        "th": "ไปยังเครดิตของท่านเรียบร้อยแล้ว"
+    },
+    "received": {
+        "en": "",
+        "th": "แล้ว"
+    },
+    "income_": {
+        "en": "income",
+        "th": "รายได้"
+    },
+    "earn_foryou": {
+        "en": "Earn money for yourself",
+        "th": "สร้างรายได้ให้กับตัวท่านเอง"
+    },
+    "hundred_month": {
+        "en": "around hundred thousand per month",
+        "th": "หลักแสนบาทต่อเดือน"
+    },
+    "recommend_nmg": {
+        "en": "just recommend No More Gaming to your friends",
+        "th": "เพียงแนะนำ No More Gaming ให้เพื่อนๆ รู้จัก"
+    },
+    "friend_regis": {
+        "en": "Your friend(s) has registered",
+        "th": "เพื่อนของท่านสมัครแล้ว"
+    },
+    "account": {
+        "en": "account(s)",
+        "th": "บัญชี"
+    },
+    "income_friend": {
+        "en": "income from friend invitations",
+        "th": "รายได้จากเพื่อน"
+    },
+    "bal_cut": {
+        "en": "The balance will be cut daily at 12.00 A.M.",
+        "th": "ระบบจะตัดยอดทุก 00:00 น."
+    },
+    "income_history": {
+        "en": "income withdrawal history",
+        "th": "ประวัติการถอนรายได้"
+    },
+    "day": {
+        "en": "day",
+        "th": "วัน"
+    },
+    "days": {
+        "en": "days",
+        "th": "วัน"
+    },
+    "fixed_deposit ": {
+        "en": "fixed deposit ",
+        "th": "ฝากประจำ"
+    },
+    "choose_card": {
+        "en": "Choose a card to see what you get",
+        "th": "เลือกไพ่เพื่อสุ่มเปิด"
+    },
+    "used_up": {
+        "en": "You have used up  your chances to win prize for today",
+        "th": "วันนี้คุณใช้สิทธิ์ครบแล้ว"
+    },
+    "chance_prize": {
+        "en": "Your chance(s) to win prize",
+        "th": "สิทธิ์ลุ้นรางวัลคงเหลือ"
+    },
+    "chance": {
+        "en": "chance(s)",
+        "th": "สิทธิ์"
+    },
+    "got_chance": {
+        "en": "You have got chance(s) to win prize",
+        "th": "ได้รับสิทธิ์ลุ้นรางวัล"
+    },
+    "there_are": {
+        "en": "There are",
+        "th": "มีสิทธิ์ลุ้นรางวัล"
+    },
+    "draw_prize": {
+        "en": "times\/ day to draw the prize",
+        "th": "ครั้ง ต่อวัน"
+    },
+    "question": {
+        "en": "Any questions? Feel free to contact our administrator",
+        "th": "สอบถามเพิ่มเติมติดต่อแอดมิน"
+    },
+    "reward_history": {
+        "en": "Reward Claiming History",
+        "th": "ประวัติการรับรางวัล"
+    },
+    "congrats": {
+        "en": "Congratulations!",
+        "th": "ขอแสดงความยินดี"
+    },
+    "special": {
+        "en": "special prize",
+        "th": "รางวัลพิเศษ"
+    },
+    "claim_reward": {
+        "en": "Please contact Administrator to claim your reward",
+        "th": "กรุณาติดต่อแอดมินเพื่อรับรางวัล"
+    },
+    "close_page": {
+        "en": "Close this page",
+        "th": "ปิดหน้านี้"
+    },
+    "card_reward": {
+        "en": "Card of Millionnaire Reward Claiming history",
+        "th": "ประวัติการรับรางวัลเปิดไพ่ลุ้นล้าน"
+    },
+    "play_time": {
+        "en": "play time",
+        "th": "เวลาที่เล่น"
+    },
+    "credit_not": {
+        "en": "Credit not received",
+        "th": "ยังไม่ได้รับเครดิต"
+    },
+    "fixed_atleast": {
+        "en": "fixed deposit at least",
+        "th": "ฝากประจำทุกวัน ขั้นต่ำ"
+    },
+    "intotal": {
+        "en": "in total of",
+        "th": "ครบ"
+    },
+    "get_bonus": {
+        "en": "get credit bonus",
+        "th": "รับโบนัสเครดิต"
+    },
+    "credit_bonus": {
+        "en": "credit bonus",
+        "th": "โบนัสเครดิต"
+    },
+    "back1": {
+        "en": "back",
+        "th": "กลับ"
+    },
+    "dep_click": {
+        "en": "deposit money click",
+        "th": "ฝากเงิน คลิก"
+    },
+    "play": {
+        "en": "play",
+        "th": "เล่น"
+    },
+    "used_up1": {
+        "en": "You have used up your chances to win prize for today",
+        "th": "วันนี้คุณใช้สิทธิ์ครบแล้ว"
+    },
+    "chance_prize1": {
+        "en": "Your chance(s) to win prize",
+        "th": "สิทธิ์ลุ้นรางวัลคงเหลือ"
+    },
+    "you_got": {
+        "en": "You have got",
+        "th": "คุณได้รับ"
+    },
+    "slot_reward": {
+        "en": "Slot Machine for Lucky Draw Reward Claiming History",
+        "th": "ประวัติการรับรางวัลสล็อตเสี่ยงโชค"
+    },
+    "opinion_sent": {
+        "en": "opinion sent",
+        "th": "ส่งความคิดเห็นแล้ว"
+    },
+    "check_action": {
+        "en": "We will check and take action ASAP",
+        "th": "ทีมงานจะทำการตรวจสอบและดำเนินการโดยเร็วที่สุด"
+    },
+    "free_credit": {
+        "en": "get free credit",
+        "th": "รับเครดิตฟรี"
+    },
+    "point_enough": {
+        "en": "Your points are not enough",
+        "th": "แต้มของคุณไม่พอ"
+    },
+    "use_point": {
+        "en": "use your points",
+        "th": "ใช้แต้ม"
+    },
+    "reward_exchange": {
+        "en": "No reward exchange availble",
+        "th": "ไม่มีรายการของรางวัล"
+    },
+    "reward_confirm": {
+        "en": "confirm reward exchange",
+        "th": "ยืนยันการแลกรางวัล"
+    },
+    "doyouwant": {
+        "en": "Do you want to use",
+        "th": "คุณต้องการใช้"
+    },
+    "exchange_reward": {
+        "en": "Do you want to use {{point}} points to exchange reward?",
+        "th": "คุณต้องการใช้ {{point}} แต้ม ในการแลกรางวัล <p class='font-16px mb-0'\/>ใช่หรือไม่<\/p>"
+    },
+    "reward_succeed": {
+        "en": "Reward exchange succeeded",
+        "th": "แลกรางวัลสำเร็จ"
+    },
+    "you_used": {
+        "en": "You have used",
+        "th": "คุณได้ใช้"
+    },
+    "toexchange": {
+        "en": "to exchange reward",
+        "th": "เพื่อแลกรางวัล"
+    },
+    "system_checking": {
+        "en": "System is checking the process. We will get back to you to send the reward ASAP. More information? Please contact us",
+        "th": "ขณะนี้ระบบกำลังตรวจสอบการทำรายการ และจะทำการติดต่อกลับเพื่อส่งมอบรางวัลโดยเร็วที่สุด สอบถามเพิ่มเติม ติดต่อ"
+    },
+    "see_history": {
+        "en": "See the reward exchange history",
+        "th": "ดูประวัติการแลกรางวัล"
+    },
+    "edit_acc": {
+        "en": "Edit you account information",
+        "th": "ต้องการเปลี่ยนแปลงข้อมูลบัญชี"
+    },
+    "contact_admin": {
+        "en": "please contact administrator",
+        "th": "กรุณาติดต่อแอดมิน"
+    },
+    "set_pass1": {
+        "en": "set new password",
+        "th": "ตั้งค่ารหัสผ่านใหม่"
+    },
+    "reward_claimed": {
+        "en": "Reward Claimed",
+        "th": "ได้รับรางวัลแล้ว"
+    },
+    "disapprove": {
+        "en": "disapprove",
+        "th": "ไม่อนุมัติ"
+    },
+    "contact_us": {
+        "en": "contact us",
+        "th": "ติดต่อเรา"
+    },
+    "dep_trans": {
+        "en": "deposit transaction",
+        "th": "รายการฝาก"
+    },
+    "copied": {
+        "en": "copied",
+        "th": "คัดลอกแล้ว"
+    },
+    "unlimited_amount": {
+        "en": "unlimited amount",
+        "th": "ไม่จำกัดจำนวน"
+    },
+    "person": {
+        "en": "person(s)",
+        "th": "คน"
+    },
+    "withdrawal_history": {
+        "en": "Withdrawal History",
+        "th": "ประวัติการถอนเงิน"
+    },
+    "time": {
+        "en": "",
+        "th": "เวลา"
+    },
+    "midnight": {
+        "en": "12.00 A.M.",
+        "th": "00.00 น."
+    },
+    "register": {
+        "en": "Register",
+        "th": "สมัครสมาชิก"
+    },
+    "comment": {
+        "en": "Comment",
+        "th": "ความคิดเห็น"
+    },
+    "free": {
+        "en": "Free",
+        "th": "ฟรี"
+    },
+    "win_1_prize": {
+        "en": "Get a chance to win 1 prize",
+        "th": "ได้รับสิทธิ์ลุ้นรางวัล 1 สิทธิ์"
+    },
+    "claim_free": {
+        "en": "Claim credit free THB {{amount}} ",
+        "th": "รับเครดิตฟรี {{amount}} บาท"
+    },
+    "_days": {
+        "en": "{{day}} days",
+        "th": "{{day}} วัน"
+    },
+    "copy_link": {
+        "en": "Copy link to invite friends",
+        "th": "คัดลอกลิงก์ชวนเพื่อน"
+    },
+    "recommend": {
+        "en": "Just recommend your friends",
+        "th": "เพียงแนะนำให้เพื่อนๆ รู้จัก"
+    },
+    "got_bonus": {
+        "en": "You have got bonus",
+        "th": "ท่านได้รับโบนัส"
+    },
+    "bank": {
+        "en": "Bank",
+        "th": "ธนาคาร"
+    },
+    "money_friend": {
+        "en": "System has already transfered money gained from friend invitation",
+        "th": "ระบบได้โอนรายได้จากเพื่อน"
+    },
+    "sign_bonus": {
+        "en": "Sign up to get free bonus. All casino and games online, the center of world-ranking live casino and online games",
+        "th": "สมัครใหม่รับโบนัสฟรี ๆ All casino and games online คาสิโนสด และเกมส์ออนไลน์ ระดับโลกรวมไว้ที่เดียว"
+    },
+    "newest_system": {
+        "en": "Online betting with the newest system",
+        "th": "เดิมพันออนไลน์ ระบบใหม่ล่าสุด"
+    },
+    "sign_now": {
+        "en": "Sign up right now to get free bonus for both old and new customers, regardless of new register promotion, loss return promotion, and various monthly up-to-date promotions.Our professional team will take care of you as VIP guests and suggest every step to use the website ",
+        "th": "สมัครใหม่วันนี้พร้อมรับโบนัสแจกให้ฟรีๆ ทั้งลูกค้าเก่าและใหม่ ไม่ว่าจะเป็นโปรโมชั่นสมัครสมาชิกใหม่ โปรคืนยอดเสีย และโปรใหม่ๆ ที่จะอัปเดตให้ทุกเดือน พร้อมทีมงานมืออาชีพดูแลแบบ VIP คอยแนะนำทุกการใช้งานสำหรับทุกท่าน"
+    },
+    "auto_syst": {
+        "en": "auto system",
+        "th": "ระบบออโต้"
+    },
+    "vip_service": {
+        "en": "VIP service",
+        "th": "บริการแบบ VIP"
+    },
+    "profession": {
+        "en": "profession",
+        "th": "มืออาชีพ"
+    },
+    "center_online": {
+        "en": "The center of online betting games, auto-deposit and withdrawal system, high transaction speed, simple pattern of gameplay, easy registration in a few clicks with global-standard online system, unlimited payment and no limitation per day",
+        "th": "ศูนย์รวมเว็บเกมเดิมพันออนไลน์ทุกชนิด ฝาก-ถอนด้วยระบบออโต้ ทำรายการไม่กี่วินาที พร้อมรูปแบบการเล่นง่าย  สมัครง่ายในไม่กี่ขั้นตอน บริการด้วยระบบออนไลน์ มาตรฐานสากล เท่าไหร่ก็จ่าย ไม่มีลิมิตต่อวัน"
+    },
+    "point_reward": {
+        "en": "points to exchange reward",
+        "th": "แต้ม ในการแลกรางวัล"
+    },
+    "yes_no": {
+        "en": "yes or no?",
+        "th": "ใช่หรือไม่"
+    },
+    "money_invite": {
+        "en": "System has already transfered {{money}} THB gained from friend invitation to your credit",
+        "th": "ระบบได้โอนรายได้จากเพื่อน จำนวน {{money}} บาท ไปยังเครดิตของท่านเรียบร้อยแล้ว"
+    },
+    "card": {
+        "en": "Card",
+        "th": "เปิดไพ่"
+    },
+    "board": {
+        "en": "Board",
+        "th": "บอร์ดเกม"
+    },
+    "slot": {
+        "en": "Slot",
+        "th": "สล็อต"
+    },
+    "casino": {
+        "en": "Casino",
+        "th": "คาสิโน"
+    },
+    "fishing": {
+        "en": "Fishing",
+        "th": "เกมตกปลา"
+    },
+    "com_play": {
+        "en": "Earn up to 2 more commissions from your friends' play!",
+        "th": "รับรายได้จากยอดเล่นของเพื่อนได้ถึง 2 ต่อ! "
+    },
+    "creditwillbecutdaily": {
+        "en": "Credit will be cut daily at 06.00 A.M. You can receive credit from 06.00 onwards.",
+        "th": "ระบบจะตัดยอดเครดิตคืนเป็นรายวัน <br>ท่านสามารถกดรับเครดิตได้ตั้งแต่ 06:00 เป็นต้นไป"
+    },
+    "website": {
+        "en": "Contact us",
+        "th": "ติดต่อเรา"
+    },
+    "contact_forgor_password": {
+        "en": "please contact staff",
+        "th": "กรุณาติดต่อพนักงานเพื่อแจ้งเปลี่ยนรหัสผ่าน"
+    },
+    "mock_key_1": {
+        "en": "Claim money within 06.00 A.M. every day, or else those money will be canceled",
+        "th": "กดรับเงิน ภายในเวลา 06.00 น. ของทุกวัน  มิเช่นนั้นเงินที่ได้รับจะถูกยกเลิกไป"
+    },
+    "tel_no_invalid": {
+        "en": "Invalid phone number format",
+        "th": "เบอร์โทรศัพท์ของคุณไม่ถูกต้อง"
+    },
+    "cockfight": {
+        "en": "Cockfight",
+        "th": "ไก่ชน"
+    },
+    "changehbd": {
+        "en": "Edit Birthday",
+        "th": "แก้ไขวันเกิด"
+    },
+    "set_birthday": {
+        "en": "Setting Birthday",
+        "th": "ตั้งค่าวันเกิด"
+    },
+    "birthday": {
+        "en": "Birthday",
+        "th": "วันเกิด"
+    },
+    "telegram-contact": {
+        "en": "Subscribe",
+        "th": "ติดตามข่าวสาร\r\n"
+    },
+    "total_turn_monthly": {
+        "en": "Current Total Turnover this month",
+        "th": "ยอดเทิร์นปัจจุบันของเดือนนี้"
+    },
+    "minimun_turnover": {
+        "en": "Minimum turnover before receiving promotion",
+        "th": "ยอดเทิร์นขั้นต่ำก่อนรับโปรโมชันในเดือนเกิด"
+    },
+    "โบนัสที่จะได้รับ": {
+        "en": "Bonus to receive",
+        "th": "โบนัสที่จะได้รับ"
+    },
+    "total_deposit_amount": {
+        "en": "Min accumulated deposit amount",
+        "th": "ยอดฝากเงินสะสมขั้นต่ำ"
+    },
+    "current_deposit": {
+        "en": "Accumulated deposit amount from previous month",
+        "th": "ยอดฝากสะสมเดือนก่อนหน้า"
+    },
+    "firm_allow": {
+        "en": "Game camps that can be played",
+        "th": "ค่ายเกมที่เล่นได้"
+    },
+    "game_allow": {
+        "en": "Game categories that can be played",
+        "th": "หมวดหมู่ที่เล่นได้"
+    },
+    "total_result": {
+        "en": "Summary",
+        "th": "สรุปยอด"
+    },
+    "current_level": {
+        "en": "Current Level :\t",
+        "th": "เลเวลปัจจุบัน :"
+    },
+    "summary_players": {
+        "en": "Summary Players",
+        "th": "สรุปยอดผู้เล่น"
+    },
+    "player_detail": {
+        "en": "Details of player",
+        "th": "รายละเอียดยอดผู้เล่น"
+    },
+    "player_list": {
+        "en": "Lists of player",
+        "th": "รายชื่อผู้เล่น"
+    },
+    "deposit_withdraw": {
+        "en": "Deposit \/ withdrawal players",
+        "th": "ยอดฝาก \/ ถอนผู้เล่น"
+    },
+    "first_last_name": {
+        "en": "Firstname-Lastname",
+        "th": "ชื่อ-นามสกุล"
+    },
+    "name": {
+        "en": "Username",
+        "th": "ชื่อผู้ใช้"
+    },
+    "aff_deposit_withdraw": {
+        "en": "Affiliate deposit\/withdrawal balance",
+        "th": ""
+    },
+    "total_player_deposit": {
+        "en": "Total Players \/ Deposits",
+        "th": "ผู้เล่นทั้งหมด \/ ฝากเงิน"
+    },
+    "sum_date": {
+        "en": "Summary date",
+        "th": "วันที่สรุป"
+    },
+    "income_friend_3": {
+        "en": "Income with ladder friends",
+        "th": "รายได้จากเพื่อนสามชั้น"
+    },
+    "today_player_bet": {
+        "en": "Today's players \/ bets",
+        "th": "ยอดผู้เล่นวันนี้ \/ เดิมพัน"
+    },
+    "new_player_deposit": {
+        "en": "New Player \/ Deposit",
+        "th": "ผู้เล่นใหม่ \/ ฝากเงิน"
+    },
+    "register_date": {
+        "en": "Application date",
+        "th": "วันที่สมัคร"
+    },
+    "old1stcomm": {
+        "en": "1st Commission: When your first friend reaches 10,000 baht, you gain 70 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 1 รับรายได้จากยอดเล่นของเพื่อนชั้นที่ 1 เช่น เพื่อนของท่านมียอดเล่น 10,000 บาท ท่านจะได้รับ 70 บาท และหากเพื่อนของท่าน ชวนเพื่อนมาเล่นต่ออีก รับรายได้เพิ่มอีก"
+    },
+    "old2ndcomm": {
+        "en": "2nd Commission: When your first friend reaches 10,000 baht, you gain 7 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 2 จากเพื่อนชั้นที่ 2 รับจากยอดเล่น (10,000 บาท ท่านจะได้รับ 7 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
+    },
+    "3ndcomm": {
+        "en": "3rd Commission: From bet of your friend's friends (10,000 baht you gain 1,000 baht). The more you invite, the more you gain. Share to your friends!",
+        "th": "ต่อที่ 3 จากเพื่อนชั้นที่ 3 รับจากยอดแพ้\/ชนะ (10,000 บาท ท่านจะได้รับ 1,000 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
+    },
+    "1stcomm": {
+        "en": "1st Commission: When your first friend reaches 10,000 baht, you gain 1,000 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 1 รับรายได้จากยอดแพ้\/ชนะเพื่อนชั้นที่ 1 เช่น เพื่อนของท่านมียอดเล่น 10,000 บาท ท่านจะได้รับ 1,000 บาท และหากเพื่อนของท่าน ชวนเพื่อนมาเล่นต่ออีก รับรายได้เพิ่มอีก"
+    },
+    "2ndcomm": {
+        "en": "2nd Commission: From bet of your friend's friends (10,000 baht you gain 7 baht). The more you invite, the more you gain. Share to your friends!",
+        "th": "ต่อที่ 2 จากเพื่อนชั้นที่ 2 รับจากยอดแพ้\/ชนะ (10,000 บาท ท่านจะได้รับ 300 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
+    }
+}

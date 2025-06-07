@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="37" viewBox="0 0 48 37">
+  <defs>
+    <filter id="FAQ" x="0" y="0" width="48" height="37" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.384"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#FAQ)">
+    <text id="FAQ-2" data-name="FAQ" transform="translate(24 21)" fill="#f3d17c" font-size="15" font-family="Anuphan-Bold, Anuphan" font-weight="700"><tspan x="-14.003" y="0">FAQ</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg id="check_5_" data-name="check (5)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#CC00D3"/>
+      <stop offset="0.532" stop-color="#CC00D3"/>
+      <stop offset="1" stop-color="#320134"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_195967" data-name="Path 195967" d="M10,0A10,10,0,1,0,20,10,10.011,10.011,0,0,0,10,0Zm0,18.182A8.182,8.182,0,1,1,18.182,10,8.191,8.191,0,0,1,10,18.182Z" fill="url(#linear-gradient)"/>
+  <path id="Path_195968" data-name="Path 195968" d="M86.573,102.537,81.43,107.68l-2.357-2.357a.909.909,0,1,0-1.286,1.286l3,3a.909.909,0,0,0,.643.266h0a.909.909,0,0,0,.643-.266l5.786-5.785a.909.909,0,0,0-1.286-1.286Z" transform="translate(-72.823 -96.073)" fill="url(#linear-gradient)"/>
+</svg>

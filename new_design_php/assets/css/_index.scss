@@ -1,0 +1,884 @@
+.casino-app {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+// Header Section
+.header-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 300px;
+    @media (max-width: 480px) {
+      min-height: 200px;
+    }
+    overflow: hidden;
+    .header-background-image  {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+
+      @media (max-width: 768px) {
+        object-fit: contain;
+        object-position: center;
+      }
+
+      @media (max-width: 480px) {
+        // height: 150px;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+}
+
+.promotion-content {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+    z-index: 2;
+    
+    .promo-title {
+        color: #FFD700;
+        font-size: 32px;
+        font-weight: 800;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .promo-subtitle {
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+    
+    .promo-amount {
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        
+        .amount {
+            color: #FFD700;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    }
+}
+
+.models-image {
+    position: relative;
+    width: 120px;
+    height: 150px;
+    z-index: 2;
+    
+    .model {
+        position: absolute;
+        width: 60px;
+        height: 120px;
+        background: linear-gradient(135deg, #DC143C, #8B0000);
+        border-radius: 30px;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #F4A460;
+            border-radius: 50%;
+        }
+        
+        &.model-1 {
+            left: 0;
+            background: linear-gradient(135deg, #DC143C, #B91C1C);
+        }
+        
+        &.model-2 {
+            right: 0;
+            background: linear-gradient(135deg, #DC143C, #B91C1C);
+        }
+    }
+}
+
+// News Ticker
+.border-top-gradient {
+  background: linear-gradient(to right, #f4c165, #f7eeac, #e3a242, #fcfce4, #ebb539);
+  height: 2px;
+}
+.ticker-label {
+    background: #ad140a;
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    z-index: 50;
+}
+.news-ticker {
+    position: relative;
+    background: #530306;
+    padding: 12px 20px;
+    overflow: hidden;
+    
+    .ticker-content {
+        display: flex;
+        align-items: center;
+        
+        .ticker-text {
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+            animation: scroll-text 15s linear infinite;
+            white-space: nowrap;
+        }
+    }
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+// Wallet Section
+.wallet-section {
+    padding: 20px;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #600406, #B91113);
+  border: 2px solid #600406;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+  .balance-left {
+    position: relative;
+    
+    .balance-label {
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .phone-number {
+      color: #F05050;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  
+  .balance-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+    background-color: #67070A;
+    border-radius: 25px;
+    min-width: 180px;
+    padding: 15px;
+    
+    .coins-icon {
+      font-size: 24px;
+    }
+    
+    .balance-amount {
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      
+      .amount-decimal {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 17px;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: linear-gradient(145deg, #70060A, #EDA16F, #724B20);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+// Action Buttons
+.action-buttons {
+    padding: 0 20px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.action-btn {
+    background: linear-gradient(135deg, #600406, #B91113);
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 2px solid #600406;
+
+     &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      border-radius: inherit;
+      background: linear-gradient(145deg, #70060A, #EDA16F, #724B20);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      }
+    
+    .btn-icon {
+        font-size: 20px;
+    }
+    
+    &:hover {
+        background: linear-gradient(135deg, #B91113, #600406);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        
+        .promotion-content {
+            margin: 15px 0;
+            
+            .promo-title {
+                font-size: 28px;
+            }
+        }
+        
+        .models-image {
+            margin-top: 10px;
+        }
+    }
+    
+    .balance-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        
+        .balance-right {
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .promotion-content {
+        .promo-title {
+            font-size: 24px;
+        }
+    }
+    
+    .balance-amount {
+        font-size: 20px !important;
+    }
+}
+
+
+// เมนูหลัก
+
+.user-main-menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-main-menu-header {
+    margin-bottom: 30px;
+    text-align: left;
+    
+    .user-main-menu-title {
+        color: #bf5151;
+        font-size: 20px;
+        font-weight: 500;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.user-main-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // gap: 20px;
+    
+    // @media (max-width: 768px) {
+    //     grid-template-columns: repeat(3, 1fr);
+    //     gap: 15px;
+    // }
+    
+    // @media (max-width: 480px) {
+    //     grid-template-columns: repeat(2, 1fr);
+    //     gap: 12px;
+    // }
+}
+
+.user-main-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px 10px;
+    border-radius: 12px;
+    
+    &:hover {
+        transform: translateY(-5px);
+        
+        .user-main-menu-icon {
+            // transform: scale(1.1);
+            background: linear-gradient(135deg, #8B0000, #A52A2A);
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+        }
+        
+        .user-main-menu-label {
+            color: #FFD700;
+        }
+    }
+    
+    // &:active {
+    //     transform: translateY(-2px);
+    // }
+}
+
+.user-main-menu-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    
+    i {
+        color: #FFD700;
+        font-size: 24px;
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+        transition: all 0.3s ease;
+    }
+    
+    // Hover glow effect
+    &::before {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+    }
+    
+    &:hover::before {
+        opacity: 0.2;
+    }
+}
+
+.user-main-menu-label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease;
+    line-height: 1.2;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+// Special styling for specific icons using user-main-menu prefix
+.user-main-menu-item:nth-child(1) .user-main-menu-icon i { // เล่นเกม
+    color: #FF6B6B;
+}
+
+.user-main-menu-item:nth-child(2) .user-main-menu-icon i { // กระเป๋าเงิน
+    color: #4ECDC4;
+}
+
+.user-main-menu-item:nth-child(3) .user-main-menu-icon i { // โปรโมชั่น
+    color: #FFE66D;
+}
+
+.user-main-menu-item:nth-child(4) .user-main-menu-icon i { // คืนยอดเสีย
+    color: #FF8E53;
+}
+
+.user-main-menu-item:nth-child(5) .user-main-menu-icon i { // โปรไฟล์
+    color: #A8E6CF;
+}
+
+.user-main-menu-item:nth-child(6) .user-main-menu-icon i { // ติดต่อเรา (LINE)
+    color: #00C300;
+}
+
+.user-main-menu-item:nth-child(7) .user-main-menu-icon i { // ความคิดเห็น
+    color: #87CEEB;
+}
+
+.user-main-menu-item:nth-child(8) .user-main-menu-icon i { // รีวิว
+    color: #DDA0DD;
+}
+
+.user-main-menu-item:nth-child(9) .user-main-menu-icon i { // VIP
+    color: #FFD700;
+}
+
+.user-main-menu-item:nth-child(10) .user-main-menu-icon i { // บิ๊ดเกมส์
+    color: #FFA07A;
+}
+
+.user-main-menu-item:nth-child(11) .user-main-menu-icon i { // กิจกรรม
+    color: #98FB98;
+}
+
+.user-main-menu-item:nth-child(12) .user-main-menu-icon i { // แนะนำเพื่อน
+    color: #F0E68C;
+}
+
+// Pulse animation for special items
+// .user-main-menu-item:nth-child(9) .user-main-menu-icon { // VIP
+//     animation: user-main-menu-pulse-gold 2s infinite;
+// }
+
+@keyframes user-main-menu-pulse-gold {
+    0% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Loading animation
+.user-main-menu-item {
+    opacity: 0;
+    animation: user-main-menu-fadeInUp 0.6s ease forwards;
+    
+    @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{($i - 1) * 0.1}s;
+        }
+    }
+}
+
+@keyframes user-main-menu-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .user-main-menu-container {
+        padding: 15px;
+    }
+    
+    .user-main-menu-header {
+        margin-bottom: 25px;
+        
+        .user-main-menu-title {
+            font-size: 18px;
+        }
+    }
+    
+    .user-main-menu-icon {
+        width: 55px;
+        height: 55px;
+        
+        i {
+            font-size: 22px;
+        }
+    }
+    
+    .user-main-menu-label {
+        font-size: 13px;
+        min-height: 28px;
+    }
+    
+    .user-main-menu-item {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-main-menu-container {
+        padding: 10px;
+    }
+    
+    .user-main-menu-header {
+        margin-bottom: 20px;
+        
+        .user-main-menu-title {
+            font-size: 16px;
+        }
+    }
+    
+    .user-main-menu-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .user-main-menu-label {
+        font-size: 12px;
+        min-height: 24px;
+    }
+    
+    .user-main-menu-item {
+        padding: 10px 6px;
+    }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .user-main-menu-label {
+        color: #f0f0f0;
+    }
+}
+
+// Accessibility improvements
+.user-main-menu-item {
+    &:focus {
+        outline: 2px solid #FFD700;
+        outline-offset: 2px;
+    }
+    
+    &:focus-visible {
+        outline: 2px solid #FFD700;
+        outline-offset: 2px;
+    }
+}
+
+// Print styles
+@media print {
+    .user-main-menu-grid {
+        display: none;
+    }
+}
+
+
+.game-categories-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+}
+
+.game-category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:not(.game-category-empty) {
+        &:hover {
+            transform: translateY(-8px);
+            
+            .game-category-card {
+                transform: scale(1.05);
+                box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+                border-color: #FFD700;
+            }
+            
+            .game-category-label {
+                color: #FFD700;
+                transform: scale(1.05);
+            }
+        }
+        
+        &:active {
+            transform: translateY(-4px);
+        }
+    }
+}
+
+.game-category-card {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    
+    // Gradient overlay for better image blending
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(139, 0, 0, 0.2),
+            rgba(165, 42, 42, 0.1)
+        );
+        border-radius: 13px;
+        z-index: 1;
+    }
+}
+
+.game-category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 13px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 0;
+    
+    // Fallback styling if image doesn't load
+    &:not([src]) {
+        background: linear-gradient(135deg, #4A2C2A, #8B4513);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &::after {
+            content: '🎮';
+            font-size: 32px;
+        }
+    }
+}
+
+.game-category-label {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+    line-height: 1.2;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+// Empty slot styling for future expansion
+.game-category-empty {
+    .game-category-card {
+        background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(165, 42, 42, 0.3));
+        border: 2px dashed rgba(255, 215, 0, 0.2);
+        
+        &::after {
+            content: '+';
+            color: rgba(255, 215, 0, 0.4);
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 2;
+            position: relative;
+        }
+    }
+    
+    &:hover .game-category-card {
+        background: linear-gradient(135deg, rgba(139, 0, 0, 0.5), rgba(165, 42, 42, 0.5));
+        border-color: rgba(255, 215, 0, 0.4);
+        
+        &::after {
+            color: rgba(255, 215, 0, 0.6);
+        }
+    }
+}
+
+// Loading animation
+.game-category-item {
+    opacity: 0;
+    animation: game-categories-fadeInUp 0.6s ease forwards;
+    
+    @for $i from 1 through 12 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{($i - 1) * 0.1}s;
+        }
+    }
+}
+
+@keyframes game-categories-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Glow effect for special categories
+.game-category-item:nth-child(1) .game-category-card { // ค่ีฟ้า
+    box-shadow: 0 6px 20px rgba(0, 150, 255, 0.3);
+}
+
+.game-category-item:nth-child(2) .game-category-card { // สล็อต
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.game-category-item:nth-child(3) .game-category-card { // คาสิโน
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
+}
+
+.game-category-item:nth-child(4) .game-category-card { // เกมไพ่
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.3);
+}
+
+.game-category-item:nth-child(5) .game-category-card { // ยิงปลา
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.3);
+}
+
+.game-category-item:nth-child(6) .game-category-card { // หวย
+    box-shadow: 0 6px 20px rgba(50, 205, 50, 0.3);
+}
+
+.game-category-item:nth-child(7) .game-category-card { // ไก่ชน
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+}
+
+.game-category-item:nth-child(8) .game-category-card { // ESPORT
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
+}
+
+.game-category-item:nth-child(9) .game-category-card { // เคนอื น ๆ
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.3);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .game-categories-container {
+        padding: 15px;
+    }
+    
+    .game-category-card {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .game-category-label {
+        font-size: 14px;
+        min-height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-categories-container {
+        padding: 10px;
+    }
+    
+    .game-category-card {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .game-category-label {
+        font-size: 13px;
+        min-height: 28px;
+    }
+}
+
+// Accessibility improvements
+.game-category-item {
+    &:focus {
+        outline: 2px solid #FFD700;
+        outline-offset: 4px;
+        border-radius: 8px;
+    }
+    
+    &:focus-visible {
+        outline: 2px solid #FFD700;
+        outline-offset: 4px;
+        border-radius: 8px;
+    }
+}
+
+// Print styles
+@media print {
+    .game-categories-grid {
+        display: none;
+    }
+}

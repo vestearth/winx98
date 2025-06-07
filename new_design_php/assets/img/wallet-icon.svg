@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.179" y1="-0.179" x2="-0.179" y2="1.168" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f4c165"/>
+      <stop offset="0.271" stop-color="#f7eeac"/>
+      <stop offset="0.557" stop-color="#e3a242"/>
+      <stop offset="0.857" stop-color="#fcfce4"/>
+      <stop offset="1" stop-color="#ebb539"/>
+    </linearGradient>
+  </defs>
+  <g id="money_9_" data-name="money (9)" transform="translate(-2 -2)">
+    <path id="Path_156183" data-name="Path 156183" d="M2,22v5a1.437,1.437,0,0,0,1.425,1.425H16.287V22.712H4.862A5.7,5.7,0,0,1,2,22Z" transform="translate(0 5)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+    <path id="Path_156184" data-name="Path 156184" d="M2,29.22v3.112a2.85,2.85,0,0,0,2.862,2.862H16.287V29.483H3.425A3.962,3.962,0,0,1,2,29.22Z" transform="translate(0 6.805)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+    <path id="Path_156185" data-name="Path 156185" d="M15.71,22.57h5.712V36.857H15.71Z" transform="translate(3.427 5.142)" fill="url(#linear-gradient)"/>
+    <g id="Group_25" data-name="Group 25" transform="translate(2 2)">
+      <path id="Path_156186" data-name="Path 156186" d="M22.57,29.483v5.712H33.995a2.85,2.85,0,0,0,2.862-2.862V29.22a3.963,3.963,0,0,1-1.425.263Z" transform="translate(3.142 4.805)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Path_156187" data-name="Path 156187" d="M33.995,22.712H22.57v5.712H35.432A1.437,1.437,0,0,0,36.857,27V22A5.7,5.7,0,0,1,33.995,22.712Z" transform="translate(3.142 3)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Path_156188" data-name="Path 156188" d="M22,10.575a2.862,2.862,0,1,0,2.862,2.862A2.862,2.862,0,0,0,22,10.575Zm0,0a2.862,2.862,0,1,0,2.862,2.862A2.862,2.862,0,0,0,22,10.575ZM39.137,2H4.863A2.862,2.862,0,0,0,2,4.862V22a2.85,2.85,0,0,0,2.862,2.862H39.137A2.862,2.862,0,0,0,42,22V4.862A2.862,2.862,0,0,0,39.137,2ZM7.712,20.575A1.425,1.425,0,1,1,9.137,19.15,1.425,1.425,0,0,1,7.712,20.575Zm0-11.425a1.431,1.431,0,1,0,0-.013ZM22,19.15a5.705,5.705,0,1,0,0-.013Zm14.287,1.425a1.425,1.425,0,1,1,1.425-1.425A1.425,1.425,0,0,1,36.287,20.575Zm0-11.425a1.419,1.419,0,1,0,0-.012ZM22,10.575a2.862,2.862,0,1,0,2.862,2.862A2.862,2.862,0,0,0,22,10.575Zm0,0a2.862,2.862,0,1,0,2.862,2.862A2.862,2.862,0,0,0,22,10.575Zm0,0a2.862,2.862,0,1,0,2.862,2.862A2.862,2.862,0,0,0,22,10.575Z" transform="translate(-2 -2)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

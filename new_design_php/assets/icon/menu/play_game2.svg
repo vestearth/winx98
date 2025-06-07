@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78" height="79" viewBox="0 0 78 79">
+  <defs>
+    <filter id="Ellipse_1427" x="0" y="0" width="78" height="79" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5a9ef9"/>
+      <feComposite operator="in" in2="blur"/>
+    </filter>
+  </defs>
+  <g id="Component_57_8" data-name="Component 57 – 8" transform="translate(13 15)">
+    <g transform="matrix(1, 0, 0, 1, -13, -15)" filter="url(#Ellipse_1427)">
+      <ellipse id="Ellipse_1427-2" data-name="Ellipse 1427" cx="24" cy="24.5" rx="24" ry="24.5" transform="translate(15 15)" fill="#fff"/>
+    </g>
+    <g id="Group_92794" data-name="Group 92794" transform="translate(-163 -5)">
+      <circle id="Ellipse_1435" data-name="Ellipse 1435" cx="25" cy="25" r="25" transform="translate(163 5)" fill="#38a6ff"/>
+    </g>
+    <g id="game-controller_1_" data-name="game-controller (1)" transform="translate(6.159 6)">
+      <path id="XMLID_948_" d="M35.8,15.638A11.4,11.4,0,0,0,24.656,6H14.517A11.433,11.433,0,0,0,3.252,15.638C2.376,21.521,2,24.15,2,25.151c0,6.133,8.386,8.136,11.14,2.629l2.128-4.256h8.512l2.128,4.256c2.754,5.507,11.14,3.5,11.14-2.629C37.047,24.275,37.047,25.4,35.8,15.638Zm-1.252,9.513c0,3.5-4.882,4.756-6.384,1.5l-2.5-5.007a1.315,1.315,0,0,0-1.127-.626H14.517a1.2,1.2,0,0,0-1.127.751l-2.5,5.007C9.385,29.907,4.5,28.656,4.5,25.151l1.252-9.137A8.855,8.855,0,0,1,14.392,8.5H24.53a8.758,8.758,0,0,1,8.637,7.51c.125.125,1.5,9.763,1.377,9.137Z" fill="#fff"/>
+      <path id="XMLID_82_" d="M15.51,13.755a1.183,1.183,0,0,1-1.252,1.252H13.007v1.252a1.183,1.183,0,0,1-1.252,1.252A1.183,1.183,0,0,1,10.5,16.258V15.007H9.252A1.183,1.183,0,0,1,8,13.755,1.183,1.183,0,0,1,9.252,12.5H10.5V11.252A1.183,1.183,0,0,1,11.755,10a1.183,1.183,0,0,1,1.252,1.252V12.5h1.252A1.183,1.183,0,0,1,15.51,13.755Z" transform="translate(1.51 1.007)" fill="#fff"/>
+      <path id="XMLID_84_" d="M20.5,13.252a1.252,1.252,0,1,1-2.5,0,1.252,1.252,0,1,1,2.5,0Z" transform="translate(4.027 1.51)" fill="#fff"/>
+      <path id="XMLID_85_" d="M22.5,15.252A1.252,1.252,0,1,1,21.252,14,1.183,1.183,0,0,1,22.5,15.252Z" transform="translate(4.53 2.014)" fill="#fff"/>
+      <path id="XMLID_86_" d="M24.5,13.252a1.252,1.252,0,1,1-2.5,0,1.252,1.252,0,1,1,2.5,0Z" transform="translate(5.034 1.51)" fill="#fff"/>
+      <path id="XMLID_87_" d="M20,11.252a1.252,1.252,0,1,1,2.5,0,1.252,1.252,0,1,1-2.5,0Z" transform="translate(4.53 1.007)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

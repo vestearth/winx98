@@ -1,0 +1,12 @@
+<svg id="chat_3_" data-name="chat (3)" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35.2" height="33" viewBox="0 0 35.2 33">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.648" y1="1.464" x2="1.992" y2="-0.954" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7e622d"/>
+      <stop offset="0.532" stop-color="#ecd798"/>
+      <stop offset="1" stop-color="#bd9a5f"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_20007" data-name="Group 20007" transform="translate(0 0)">
+    <path id="Path_138761" data-name="Path 138761" d="M17.531,16C7.864,16,0,22.939,0,31.469a14.415,14.415,0,0,0,4.021,9.862A6.271,6.271,0,0,1,2.365,47.24,1.032,1.032,0,0,0,3.094,49a11.37,11.37,0,0,0,7.876-3.181,19.447,19.447,0,0,0,6.561,1.119C27.2,46.938,35.2,40,35.2,31.469S27.2,16,17.531,16ZM9.419,34.563a3.094,3.094,0,1,1,3.094-3.094A3.1,3.1,0,0,1,9.419,34.563Zm8.25,0a3.094,3.094,0,1,1,3.094-3.094A3.1,3.1,0,0,1,17.669,34.563Zm8.25,0a3.094,3.094,0,1,1,3.094-3.094A3.1,3.1,0,0,1,25.919,34.563Z" transform="translate(0 -16)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <filter id="comm-16_chat" x="0" y="0" width="60" height="60" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5a9ef9"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#comm-16_chat)">
+    <path id="comm-16_chat-2" data-name="comm-16_chat" d="M15.53.529A14.956,14.956,0,0,0,2.589,23.057l-2.033,6.1a.5.5,0,0,0,.633.633l5.834-1.944A14.987,14.987,0,1,0,15.53.529Zm-5.013,13.5a1.5,1.5,0,1,1-1.5,1.5A1.508,1.508,0,0,1,10.517,14.029Zm5.013,0a1.5,1.5,0,1,1-1.5,1.5A1.508,1.508,0,0,1,15.53,14.029Zm4.987,0a1.5,1.5,0,1,1-1.5,1.5A1.508,1.508,0,0,1,20.517,14.029Z" transform="translate(14.47 14.47)" fill="#fff"/>
+  </g>
+</svg>

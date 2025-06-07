@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.501" height="40" viewBox="0 0 32.501 40">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.179" y1="-0.179" x2="-0.179" y2="1.168" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f4c165"/>
+      <stop offset="0.271" stop-color="#f7eeac"/>
+      <stop offset="0.557" stop-color="#e3a242"/>
+      <stop offset="0.857" stop-color="#fcfce4"/>
+      <stop offset="1" stop-color="#ebb539"/>
+    </linearGradient>
+  </defs>
+  <g id="payment_3_" data-name="payment (3)" transform="translate(-5 -2)">
+    <circle id="Ellipse_1432" data-name="Ellipse 1432" cx="4.45" cy="4.45" r="4.45" transform="translate(12.35 16.813)" fill="url(#linear-gradient)"/>
+    <g id="Group_288" data-name="Group 288" transform="translate(5 2)">
+      <path id="Path_156347" data-name="Path 156347" d="M27.788,2.875A2.938,2.938,0,0,0,25.7,2H7.913a2.988,2.988,0,0,0-2.1.875A2.95,2.95,0,0,0,5,4.962V36.075a2.95,2.95,0,0,0,2.963,2.962h17.75a4.6,4.6,0,0,0-.863-2.175L22.788,34.1a7.325,7.325,0,0,1-1.537-4.437v-2.5a7.25,7.25,0,0,1-4.45,1.512,7.413,7.413,0,1,1,7.313-8.587,4.537,4.537,0,0,1,1.587-.3h2.85l.112-1.537V4.962a2.913,2.913,0,0,0-.875-2.087ZM10.875,31.625a1.488,1.488,0,1,1-1.351,1.481A1.488,1.488,0,0,1,10.875,31.625Zm0-22.212a1.475,1.475,0,1,1,1.056-.432,1.488,1.488,0,0,1-1.056.432Zm11.863,0a1.487,1.487,0,1,1,1.475-1.488,1.488,1.488,0,0,1-1.475,1.488Z" transform="translate(-5 -2)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Path_156348" data-name="Path 156348" d="M33.66,19.15v20H24.823v-2.5a7.5,7.5,0,0,0-1.25-4.075c-.075-.175-2.163-2.9-2.325-3.125a4.487,4.487,0,0,1-.888-2.662V21.375a1.5,1.5,0,0,1,.425-1.05,1.538,1.538,0,0,1,1.063-.438H24.81v4.45a1.481,1.481,0,0,0,2.963,0V13.4l3.463,1.737A4.412,4.412,0,0,1,33.66,19.15Z" transform="translate(-1.16 0.85)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>
