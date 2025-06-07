@@ -174,42 +174,6 @@ if (!$banner_download_web) { ?>
   </div>
   <div class="header-web <?= $this_page ?>">
     <?php renderBannerBorder($user_data['money_balance']); ?>
-    <?php /* 
-    <div class="container-menu">
-      <div class="logo cursor-pointer" data-link="index.php" onclick="redirectHref()">
-        <img src="assets/images/logo.png?v=<?= rand(1, 999) ?>" alt="Logo">
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-link preloader-link" data-link="index.php" onclick="redirectHref()"><?= Ty::get('home') ?></li>
-        <li class="nav-link preloader-link" data-link="user.php" onclick="redirectHref()"><?= Ty::get('profile') ?></li>
-        <li class="nav-link preloader-link" data-link="<?= $system_line['line_link']; ?>" onclick="redirectHref()"><?= Ty::get('website') ?></li>
-        <li class="nav-link preloader-link" data-link="comment.php" onclick="redirectHref()"><?= Ty::get('comment') ?></li>
-      </ul>
-      <div class="renew-header">
-        <div class="menu-card-main">
-          <div class="menu-card-body">
-            <div class="d-flex justify-content-between align-items-center text-white text-nowrap">
-              <span class="title"><?= Ty::get('walletbalance') ?></span>
-              <span class="ml-25px amount">฿ <?= number_format($user_data['money_balance'], 2); ?></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="game-play ml-10px" data-link="games.php" onclick="redirectHref()">
-        <div class="play">
-          <div class="btn-body" data-link="index.php" onclick="redirectHref()">
-            <div class="label"><?= Ty::get('playgame') ?></div>
-          </div>
-        </div>
-      </div>
-      <form action="" method="post" class="d-flex align-items-center">
-        <input type="hidden" name="language_value" value="<?= Ty::getLg() ?>">
-        <button class=" btn btn-lang border-0" type="submit">
-          <img src="assets/icon/lang.svg" alt="">
-        </button>
-      </form>
-    </div>
-    */ ?>
   </div>
 </div>
 

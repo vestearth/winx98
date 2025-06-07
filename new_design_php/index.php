@@ -1,7 +1,7 @@
 <?php
 require_once '../.framework/import.php';
 require_once 'layout/navbanner.php';
-require_once 'layout/footer_nav.php'; // Include the file containing renderBannerBorder
+require_once 'layout/footer_nav.php';
 $page = 'index';
 
 
@@ -94,7 +94,6 @@ $type_game_template = [
       'user_id' => $user_current['id'],
       'is_read' => "'0'"
     ];
-    Aww::display($where);
     $notification = User_Notification::selectNotification($code, $where);
     $user_group_id = $user_info['user_group_id'];
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
@@ -253,12 +252,12 @@ $type_game_template = [
             <span class="user-main-menu-label">กระเป๋าเงิน</span>
           </div> -->
 
-          <div class="user-main-menu-item" onclick="window.location.href='promotion.php'">
+          <!-- <div class="user-main-menu-item" onclick="window.location.href='promotion.php'">
             <div class="user-main-menu-icon">
               <img src="assets/img/icon/main-promotion.svg" alt="">
             </div>
             <span class="user-main-menu-label">โปรโมชั่น</span>
-          </div>
+          </div> -->
 
           <div class="user-main-menu-item" onclick="window.location.href='refund.php'">
             <div class="user-main-menu-icon">

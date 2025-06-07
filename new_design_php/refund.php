@@ -1,5 +1,6 @@
 <?php
 require_once '../.framework/import.php';
+require_once 'layout/footer_nav.php';
 
 $list_games = [
   [
@@ -64,10 +65,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
   <?php include 'layout/nmg_bg.php'; ?>
+  <?php require_once 'layout/navbanner.php'; ?>
+  <?php require_once 'layout/footer_nav.php'; ?>
+  <?php renderFooterNav(); ?>
+  <?php renderBannerUser(); ?>
   <div class="container position-relative">
-
     <div class="row">
       <div class="col-12">
         <nav aria-label="breadcrumb">
