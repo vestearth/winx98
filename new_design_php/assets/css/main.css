@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap");
 .card-login {
-  background: #530306;
+  background: #1C1C1C;
   border-radius: 15px;
   min-height: 380px;
   color: #ffffff;
@@ -57,8 +57,8 @@
   transform: translateY(-50%);
 }
 .input-icon input {
-  border: 2px solid #242424;
-  background-color: transparent;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   font-size: 17px;
   color: #FFFFFF;
   border-radius: 5px;
@@ -87,7 +87,8 @@
   margin: 0;
 }
 .input-icon select {
-  background-color: #090909;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   font-size: 17px;
   color: #FFF;
   border-radius: 5px;
@@ -233,7 +234,7 @@
 .btn-main {
   border: 1px solid #76060B !important;
   background: rgb(118, 6, 11);
-  background: linear-gradient(180deg, rgb(118, 6, 11) 0%, rgb(59, 3, 6) 100%);
+  background: linear-gradient(180deg, #C62828 0%, rgb(59, 3, 6) 100%);
   border: 1px solid #37210A !important;
   border-radius: 5px;
   color: #ffffff;
@@ -3775,6 +3776,7 @@ footer .menu-footer.active .text {
   transition: all 0.3s;
   padding: 0 5px 10px 5px;
   background: linear-gradient(180deg, rgb(119, 41, 41) 0%, #3a1111 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
   border-radius: 20px;
 }
 .game-menu-responsive .game-menu-group .game-menu-list .game-menu-image {

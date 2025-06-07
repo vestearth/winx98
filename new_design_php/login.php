@@ -62,6 +62,7 @@ if ($is_login) {
 
 <body>
   <?php include 'layout/nmg_bg.php'; ?>
+  <?php renderBannerBorder(); ?>
   <div class="container">
     <?php
     $lhb_style = 'style-web-close-banner';
@@ -81,7 +82,6 @@ if ($is_login) {
     <?php } ?>
     <div class="row justify-content-center custom-header-layout <?= $lhb_style; ?>">
       <div class="col-lg-5 col-md-6 text-center">
-        <?php renderBannerBorder(); ?>
         <div class="card-login">
           <!-- <div class="card-login-nav">
             <a href="login.php" class="active"><?= Ty::get('login') ?></a>

@@ -26,7 +26,7 @@ $this_page = 'index';
 </head>
 
 <body>
-  <?php renderUserFooterNav(); ?>
+  <?php renderFooterNav(); ?>
   <div class="container-fluid mb-200px">
     <?php renderBannerUser(); ?>
     <div class="row">
@@ -41,7 +41,7 @@ $this_page = 'index';
             </div>
             <div>
               <button class="btn btn-light event_view_load_app" style="margin-top:8px; padding:4px 16px; font-size:14px;">
-                <div class="my-12px mx-15px">
+                <div class="my-12px mx-15px text-nowrap">
                   <img src="assets/img/app-install.svg" alt="App Install" style="width:20px; height:20px; margin-right:8px;">
                   <span class="font-16px" style="font-weight: 600;">
                     APP INSTALL

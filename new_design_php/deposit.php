@@ -86,7 +86,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
       }
     }
   } else {
-    Aww::redirectOG('login.php');
+    // Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/menu.php'; ?>

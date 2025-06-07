@@ -121,7 +121,7 @@ foreach ($bank_config as $key => $data) {
 
     // Build custom dropdown
     var $custom = $('<div class="custom-bank-select"></div>');
-    var $selected = $('<div class="selected-bank" style="cursor:pointer;border:1px solid #242424;padding:8px;border-radius:4px;width:100%;color:#FFFFFF;"></div>');
+    var $selected = $('<div class="selected-bank" style="background: rgba(0, 0, 0, 0.5); cursor:pointer;border:1px solid rgba(255, 255, 255, 0.2);padding:8px;border-radius:4px;width:100%;color:#FFFFFF;"></div>');
     var $dropdown = $('<div class="bank-dropdown" style="display:none;position:absolute;z-index:1000;background:#5D5D5D;border:1px solid #ccc;border-radius:4px;max-height:200px;overflow:auto;"></div>');
 
     function renderSelected() {

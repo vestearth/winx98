@@ -1,6 +1,6 @@
 <?php
 // Footer navigation menu function
-function renderUserFooterNav()
+function renderFooterNav()
 {
 ?>
   <div class="nav-footer">
@@ -25,7 +25,7 @@ function renderUserFooterNav()
         'label' => 'กระเป๋า'
       ],
       [
-        'href' => 'wallet.php',
+        'href' => 'comment.php',
         'icon' => 'assets/img/icon/nav-comment.svg',
         'alt'  => 'ความเห็น',
         'label' => 'ความเห็น'

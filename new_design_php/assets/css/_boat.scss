@@ -1,5 +1,5 @@
 .card-login {
-  background: #530306;
+  background: #1C1C1C;
   border-radius: 15px;
   min-height: 380px;
   color: #ffffff;
@@ -67,8 +67,10 @@
 
   input {
     // background-color: #320134;
-    border: 2px solid #242424;
-    background-color: transparent;
+    // border: 2px solid #242424;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    // background-color: transparent;
     font-size: 17px;
     color: #FFFFFF;
     border-radius: 5px;
@@ -101,8 +103,8 @@
   }
 
   select {
-    background-color: #090909;
-    // background-color: transparent;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     font-size: 17px;
     color: #FFF;
     border-radius: 5px;
@@ -290,9 +292,9 @@
 
 .btn-main {
   border: 1px solid #76060B !important;
-  // background: radial-gradient(circle, #CC00D3 0%, #CC00D2 10%, #320134 100%);
   background: rgb(118, 6, 11);
-  background: linear-gradient(180deg, rgba(118, 6, 11, 1) 0%, rgba(59, 3, 6, 1) 100%);
+  // background: linear-gradient(180deg, rgba(118, 6, 11, 1) 0%, rgba(59, 3, 6, 1) 100%);
+  background: linear-gradient(180deg, #C62828 0%, rgb(59, 3, 6) 100%);
   border: 1px solid #37210A !important;
   border-radius: 5px;
   color: #ffffff;
@@ -4530,6 +4532,7 @@ footer {
       transition: all 0.3s;
       padding: 0 5px 10px 5px;
       background: linear-gradient(180deg, rgb(119, 41, 41) 0%, #3a1111 100%);
+      border: 2px solid rgba(255, 215, 0, 0.3);
       border-radius: 20px;
 
       .game-menu-image {

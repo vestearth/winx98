@@ -103,10 +103,10 @@ if ($_POST) {
 
 <body>
   <?php include 'layout/nmg_bg.php'; ?>
+  <?php renderBannerBorder(); ?>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-6 text-center">
-        <?php renderBannerBorder(); ?>
         <div class="card-login">
           <div class="card-login-body">
             <div class="login-thread d-flex">

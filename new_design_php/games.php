@@ -1,6 +1,7 @@
 <?php
 require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 
 $type_game = [
   [
@@ -28,49 +29,67 @@ $type_game_template = [
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
     'typeName' => 'CASINOLIVE',
-    'img' => 'assets/images/games/game-006.webp',
+    'img' => 'assets/img/icon/casino-game.png',
     'ordering' => 1
   ],
   'SLOT' => [
     'name' => Ty::get('slot'),
     'typeName' => 'SLOT',
-    'img' => 'assets/images/games/game-003.webp',
+    'img' => 'assets/img/icon/slot-game.png',
     'ordering' => 2,
   ],
   'SPORTBOOK' => [
     'name' => Ty::get('sport'),
     'typeName' => 'SPORTBOOK',
-    'img' => 'assets/images/games/game-007.webp',
+    'img' => 'assets/img/icon/sport-game.png',
     'ordering' => 3
   ],
   'FISHING' => [
     'name' => Ty::get('fishing'),
     'typeName' => 'FISHING',
-    'img' => 'assets/images/games/game-005.webp',
+    'img' => 'assets/img/icon/fish-game.png',
     'ordering' => 4
   ],
-  'ARCADE' => [
-    'name' => Ty::get('arcade'),
-    'typeName' => 'ARCADE',
-    'img' => 'assets/images/games/game-004.webp',
-    'ordering' => 5
-  ],
+  // 'ARCADE' => [
+  //   'name' => Ty::get('arcade'),
+  //   'typeName' => 'ARCADE',
+  //   'img' => 'assets/images/games/game-004.webp',
+  //   'ordering' => 5
+  // ],
   'CARD' => [
     'name' => Ty::get('card'),
     'typeName' => 'CARD',
-    'img' => 'assets/images/games/game-001.webp',
+    'img' => 'assets/img/icon/card-game.png',
     'ordering' => 6
   ],
-  'BOARD' => [
-    'name' => Ty::get('board'),
-    'typeName' => 'BOARD',
-    'img' => 'assets/images/games/game-002.webp',
-    'ordering' => 7
-  ],
+  // 'BOARD' => [
+  //   'name' => Ty::get('board'),
+  //   'typeName' => 'BOARD',
+  //   'img' => 'assets/images/games/game-002.webp',
+  //   'ordering' => 7
+  // ],
   'LOTTO' => [
     'name' => Ty::get('lottery'),
     'typeName' => 'LOTTO',
-    'img' => 'assets/images/games/game-008.webp',
+    'img' => 'assets/img/icon/lotto-game.png',
+    'ordering' => 8
+  ],
+  'COCKFIGHT' => [
+    'name' => Ty::get('cockfight'),
+    'typeName' => 'COCKFIGHT',
+    'img' => 'assets/img/icon/cockfight-game.png',
+    'ordering' => 8
+  ],
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
+  'ETC' => [
+    'name' => 'อื่น ๆ',
+    'typeName' => 'ETC',
+    'img' => 'assets/img/icon/other-game.png',
     'ordering' => 8
   ],
 
@@ -207,10 +226,10 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 </head>
 
 <body>
-  <?php include 'layout/menu.php'; ?>
   <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
+  <?php renderBannerUser(); ?>
 
+  <div class="container position-relative">
     <div class="row">
       <div class="col-12">
         <nav aria-label="breadcrumb">
@@ -252,12 +271,12 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 
             foreach ($type_game_template as $key => $type_games) {
             ?>
-              <a href="?type=<?= $key; ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
-                <div class="game-menu-image">
-                  <img src="<?= $type_games['img'] ?>" alt="<?= $type_games['name']; ?>">
-                </div>
-                <div class="game-menu-name">
-                  <?= $type_games['name'] ?>
+              <a href="?type=<?= $key; ?>" class="<?= $key == $type ? 'active' : '' ?> preloader-link text-decoration-none">
+                <div class="game-category-item">
+                  <div class="game-category-card mr-15px">
+                    <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
+                  </div>
+                  <span class="game-category-label"><?= $type_games['name'] ?></span>
                 </div>
               </a>
             <?php } ?>
