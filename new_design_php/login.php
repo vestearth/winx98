@@ -61,7 +61,7 @@ if ($is_login) {
 </head>
 
 <body>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <?php renderBannerBorder(); ?>
   <div class="container">
     <?php
@@ -147,7 +147,7 @@ if ($is_login) {
                   </div>
                 </a>
                 <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
-                  <div class="qr-code-section">
+                  <div class="qr-code-section mt-15px">
                     <div class="qr-box">
                       <?php if (!empty($getAlliasRef['line_image'])) { ?>
                         <img src="<?= $getAlliasRef['line_image']; ?>" alt="">

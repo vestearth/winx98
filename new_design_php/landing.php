@@ -337,7 +337,7 @@ if ($is_login) {
           </div>
           <div class="intro2">
             <div class="d-flex justify-content-center">
-              <img src="assets/img/winx98x2.svg" alt="">
+              <img src="assets/img/winx98x2.png" alt="">
             </div>
             <span class="content text-center">
               WinX98 เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
@@ -348,8 +348,32 @@ if ($is_login) {
               เพียง 3 วินาที รับฟรีสิทธิพิเศษสำหรับลูกค้า
             </span>
           </div>
-          <div class="menu-additional">
-            <img src="assets/img/winx98-line.png" alt="line" class="img-responsive">
+          <div class="border-gradient border-gradient-second mx-auto p-10px" style="width: 345px;">
+            <div class="d-flex justify-content-between w-100">
+              <div class="mx-15px d-flex align-items-center">
+                <div>
+                  <img src="source/red-line.png" class="line-icon mr-5px">
+                  <span class="font-16px" style="font-weight: 500;">แอดตรงผ่านไลน์</span>
+                  <div>
+                    <?php if ($getAlliasRef['line_name']) { ?>
+                      <p class="mb-0 line-txt"><?= $getAlliasRef['line_name']; ?></p>
+                    <?php } else { ?>
+                      <p class="mb-0 line-txt"><?= 'WINX98'; ?></p>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <div class="qr-code-section">
+                <div class="qr-box">
+                  <!-- <img src="source/qr-code.png" alt=""> -->
+                  <?php if ($getAlliasRef['line_image']) { ?>
+                    <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
+                  <?php } else { ?>
+                    <img src="source/qr-code.png" alt="">
+                  <?php } ?>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="my-25px">
             <img src="assets/img/sponsor-game.svg" alt="">
