@@ -90,7 +90,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   }
   ?>
   <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <div class="container position-relative">
 
     <div class="row">
@@ -173,18 +173,19 @@ function textFormat($text = '', $pattern = '', $ex = '')
                   <?= Ty::get('confirm2') ?>
                 </button>
                 <input type="hidden" name="submit_deposit" value="1">
-                <div class="detail max-w-305px m-auto mt-15px">
-                  <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
-                  <ul>
-                    <li>ฝากเงินขั้นต่ำ 100 บาท
-                    </li>
-                    <li>กรุณาคัดลอกเลขที่บัญชีใหม่ทุกครั้งก่อนทำรายการโอนเงิน</li>
-                    <li>ห้ามใช้เลขบัญชีจากประวัติการโอนเด็ดขาด</li>
-                    <li>เนื่องจากระบบใช้เลขบัญชีแบบ ครั้งเดียวเท่านั้น</li>
-                    <li>หากลูกค้าโอนเงินซ้ำโดยใช้เลขบัญชีเดิม บริษัทจะไม่รับผิดชอบในทุกกรณี</li>
-                  </ul>
-                </div>
               </div>
+            </div>
+
+            <div class="detail max-w-305px m-auto mt-15px">
+              <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
+              <ul>
+                <li>ฝากเงินขั้นต่ำ 100 บาท
+                </li>
+                <li>กรุณาคัดลอกเลขที่บัญชีใหม่ทุกครั้งก่อนทำรายการโอนเงิน</li>
+                <li>ห้ามใช้เลขบัญชีจากประวัติการโอนเด็ดขาด</li>
+                <li>เนื่องจากระบบใช้เลขบัญชีแบบ ครั้งเดียวเท่านั้น</li>
+                <li>หากลูกค้าโอนเงินซ้ำโดยใช้เลขบัญชีเดิม บริษัทจะไม่รับผิดชอบในทุกกรณี</li>
+              </ul>
             </div>
           </form>
         <?php } else if ($check_deposit_response['step'] == 2) { ?>
@@ -204,9 +205,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
             <table class="table table-sort table-theme">
               <thead>
                 <tr>
-                  <th nowrap class="text-white" data-sort=""><?= Ty::get('dateandtime') ?></th>
-                  <th nowrap class="text-white thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
-                  <th nowrap class="text-white text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
+                  <th nowrap class="text-gold" data-sort=""><?= Ty::get('dateandtime') ?></th>
+                  <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
+                  <th nowrap class="text-gold text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
                 </tr>
               </thead>
             </table>

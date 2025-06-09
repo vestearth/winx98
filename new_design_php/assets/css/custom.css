@@ -1826,6 +1826,22 @@
   opacity: 0.2;
 }
 
+.user-main-menu-icon--blockout {
+  background: #520307;
+  border: 2px solid #520307;
+}
+.user-main-menu-icon--blockout::before {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+}
+.user-main-menu-icon--blockout img {
+  filter: brightness(0.15) saturate(50%) sepia(50%) hue-rotate(0deg) invert(10%) contrast(0%) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.9));
+  opacity: 0.6;
+}
+.user-main-menu-icon--blockout:hover {
+  background: linear-gradient(135deg, #3D0000, #5B0000, #7C0000);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 4px 15px rgba(139, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
 .user-main-menu-label {
   color: white;
   font-size: 14px;

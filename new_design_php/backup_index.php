@@ -50,7 +50,7 @@ $this_page = 'index';
   }
   ?>
   <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <!-- layout mobile -->
   <div class="container index-container position-relative main">
 

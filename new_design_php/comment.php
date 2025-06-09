@@ -118,7 +118,7 @@ $rating_list = [
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <?php renderFooterNav($alliance_data['line_link']); ?>
   <?php renderBannerUser(); ?>
 

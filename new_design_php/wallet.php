@@ -28,7 +28,7 @@ $this_page = 'index';
   <?php
   if ($is_login) {
     $user_current = User::getCurrent();
-    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
+    $alliance_data = nga_management::getAllianceByID($code, $user_current['alliance_id']);
     $data = [
       'user_id' => $user_current['id'],
       'detail' => 'เข้าหน้าแรก',
@@ -51,7 +51,7 @@ $this_page = 'index';
   }
   ?>
   <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <!-- layout mobile -->
   <div class="container index-container position-relative main">
     <div class="row">
@@ -66,37 +66,43 @@ $this_page = 'index';
         </nav>
       </div>
       <div class="col-lg-12 mt-15px">
-        <div class="profile border unset-bottom-radius">
-          <div class="profile-detail">
-            <div class="profile-name">
-              <p><?= $user_info['username'] ?><span class="text-pink-2"><?= $user_info['user_group_name'] ?></span></p>
+        <!-- Wallet Section -->
+        <div class="wallet-section">
+          <div class="balance-card">
+            <div class="balance-left">
+              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
             </div>
-            <div class="profile-balance">
-              <div class="box-cash">
-                <img src="source/wallet-profile.svg" alt="">
-                <p class="text-white font-17px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
+            <div class="balance-right">
+              <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
+              <div class="balance-amount">
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="row g-1">
-          <div class="col-6">
-            <a href="deposit.php" class="preloader-link text-decoration-none">
-              <div class="profile style2 unset-top-radius border">
-                ฝากเงิน
-              </div>
-            </a>
-          </div>
-          <div class="col-6">
-            <a href="withdraw.php" class="preloader-link text-decoration-none">
-              <div class="profile style2 unset-top-radius border">
-                ถอนเงิน
-              </div>
-            </a>
-          </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="action-btn deposit-btn" onclick="window.location.href='deposit.php'">
+            <img src="assets/img/icon/deposit.svg" alt="Deposit" class="btn-icon">
+            <span>ฝากเงิน</span>
+          </button>
+          <button class="action-btn withdraw-btn" onclick="window.location.href='withdraw.php'">
+            <img src="assets/img/icon/withdraw.svg" alt="Withdraw" class="btn-icon">
+            <span>ถอนเงิน</span>
+          </button>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <?php renderFooterNav(); ?>
 

@@ -1155,7 +1155,7 @@
   border-radius: 10px;
   min-height: 410px;
   width: 100%;
-  background: linear-gradient(180deg, #521D1D 0%, #260B0B 100%);
+  background: linear-gradient(45deg, #840508 0%, #E85052 100%);
   font-size: 16px;
   color: #F7EAB9;
   overflow: hidden;
@@ -1255,14 +1255,15 @@
 
     thead {
       th {
-        background-color: #260B0B !important;
-        border-bottom: 1px solid #4A3333 !important;
+        background-color: #800B10 !important;
+        border-bottom: 1px solid #9F2126 !important;
+        color: #F3D17C;
       }
     }
 
     tbody {
       tr {
-        background-color: #260B0B !important;
+        background-color: #800B10 !important;
         color: #ffffff !important;
 
         td {

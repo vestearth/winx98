@@ -120,7 +120,7 @@ require_once '../.framework/import.php';
   }
   ?>
   <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <div class="container position-relative">
 
     <div class="row">

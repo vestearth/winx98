@@ -65,7 +65,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <?php require_once 'layout/navbanner.php'; ?>
   <?php require_once 'layout/footer_nav.php'; ?>
   <?php renderFooterNav(); ?>

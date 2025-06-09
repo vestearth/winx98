@@ -196,7 +196,7 @@ $type_game_template = [
         <div class="border-top-gradient"></div>
 
         <!-- Wallet Section -->
-        <div class="wallet-section">
+        <!-- <div class="wallet-section">
           <div class="balance-card">
             <div class="balance-left">
               <p class="balance-label">กระเป๋าเงิน</p>
@@ -216,10 +216,10 @@ $type_game_template = [
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Action Buttons -->
-        <div class="action-buttons">
+        <!-- <div class="action-buttons">
           <button class="action-btn deposit-btn" onclick="window.location.href='deposit.php'">
             <img src="assets/img/icon/deposit.svg" alt="Deposit" class="btn-icon">
             <span>ฝากเงิน</span>
@@ -229,101 +229,102 @@ $type_game_template = [
             <span>ถอนเงิน</span>
           </button>
         </div>
-      </div>
+      </div> -->
 
-      <div class="user-main-menu-container">
-        <div class="user-main-menu-header">
-          <h2 class="user-main-menu-title">เมนูหลัก</h2>
-        </div>
-
-        <div class="user-main-menu-grid">
-          <!-- Row 1 -->
-          <div class="user-main-menu-item" onclick="window.location.href='games.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-game.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">เล่นเกม</span>
+        <div class="user-main-menu-container">
+          <div class="user-main-menu-header">
+            <h2 class="user-main-menu-title">เมนูหลัก</h2>
           </div>
 
-          <!-- <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-wallet.svg" alt="">
+          <div class="user-main-menu-grid">
+            <!-- Row 1 -->
+            <div class="user-main-menu-item" onclick="window.location.href='games.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-game.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">เล่นเกม</span>
             </div>
-            <span class="user-main-menu-label">กระเป๋าเงิน</span>
-          </div> -->
 
-          <!-- <div class="user-main-menu-item" onclick="window.location.href='promotion.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-promotion.svg" alt="">
+            <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-wallet.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">กระเป๋าเงิน</span>
             </div>
-            <span class="user-main-menu-label">โปรโมชั่น</span>
-          </div> -->
 
-          <div class="user-main-menu-item" onclick="window.location.href='refund.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-refund.svg" alt="">
+            <div class="user-main-menu-item" onclick="window.location.href='<?= $alliance_data['line_link']; ?>'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-line.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">ติดต่อเรา</span>
             </div>
-            <span class="user-main-menu-label">คืนยอดเสีย</span>
+
+            <div class="user-main-menu-item" onclick="window.location.href='refund.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-refund.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">คืนยอดเสีย</span>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="user-main-menu-item" onclick="window.location.href='user.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-profile.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">โปรไฟล์</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-promotion.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">โปรโมชั่น</span>
+            </div>
+
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-comment.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">ความคิดเห็น</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-review.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">รีวิว</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-vip.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">VIP</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-dices.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">มินิเกมส์</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-event.svg" alt="">
+
+              </div>
+              <span class="user-main-menu-label">กิจกรรม</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+                <img src="assets/img/icon/main-aff.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">แนะนำเพื่อน</span>
+            </div>
           </div>
-
-          <!-- Row 2 -->
-          <div class="user-main-menu-item" onclick="window.location.href='user.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-profile.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">โปรไฟล์</span>
-          </div>
-
-          <div class="user-main-menu-item" onclick="window.location.href='<?= $alliance_data['line_link']; ?>'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-line.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">ติดต่อเรา</span>
-          </div>
-
-          <div class="user-main-menu-item" onclick="window.location.href='comment.php'">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-comment.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">ความคิดเห็น</span>
-          </div>
-
-          <!-- <div class="user-main-menu-item">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-review.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">รีวิว</span>
-          </div>
-
-          <div class="user-main-menu-item">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-vip.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">VIP</span>
-          </div>
-
-          <div class="user-main-menu-item">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-dices.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">มินิเกมส์</span>
-          </div>
-
-          <div class="user-main-menu-item">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-event.svg" alt="">
-
-            </div>
-            <span class="user-main-menu-label">กิจกรรม</span>
-          </div>
-
-          <div class="user-main-menu-item">
-            <div class="user-main-menu-icon">
-              <img src="assets/img/icon/main-aff.svg" alt="">
-            </div>
-            <span class="user-main-menu-label">แนะนำเพื่อน</span>
-          </div>
-        </div> -->
         </div>
 
         <div class="jackpot-swiper unset-height">

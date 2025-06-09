@@ -194,7 +194,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 </head>
 
 <body>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
   <?php renderBannerUser(); ?>
 
   <div class="container position-relative">
