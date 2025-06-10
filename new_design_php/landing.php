@@ -127,13 +127,31 @@ if ($is_login) {
               <img src="assets/img/deposit-icon.svg" alt="" />
             </div>
             <div class="features-card-content">
-              <div class="features-card-title">ฝาก-ถอน 10 วินาที</div>
-              <div class="features-card-desc">ระบบอัตโนมัติ รวดเร็วทันใจ</div>
+              <div class="features-card-title">เกมครบ จบในที่เดียว</div>
+              <div class="features-card-desc">สล็อต คาสิโนสด กีฬา อีสปอร์ต หวย และเกมยิงปลา</div>
             </div>
           </div>
           <div class="features-card-row">
             <div class="features-card-icon">
               <img src="assets/img/wallet-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">บริการลูกค้า 24 ชั่วโมง ระดับมืออาชีพ</div>
+              <div class="features-card-desc">ทีมงานมืออาชีพพร้อมช่วยเหลือทุกปัญหา</div>
+            </div>
+          </div>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/game-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">ฝาก-ถอน ด้วยระบบทันสมัย</div>
+              <div class="features-card-desc">ระบบอัตโนมัติ รวดเร็วทันใจ</div>
+            </div>
+          </div>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/trophy-icon.svg" alt="" />
             </div>
             <div class="features-card-content">
               <div class="features-card-title">จ่ายจริง ได้รับเงินแน่นอน</div>
@@ -142,29 +160,11 @@ if ($is_login) {
           </div>
           <div class="features-card-row">
             <div class="features-card-icon">
-              <img src="assets/img/game-icon.svg" alt="" />
-            </div>
-            <div class="features-card-content">
-              <div class="features-card-title">เกมใหม่ทุกสัปดาห์</div>
-              <div class="features-card-desc">อัปเดตจากค่ายเกมชั้นนำ</div>
-            </div>
-          </div>
-          <div class="features-card-row">
-            <div class="features-card-icon">
-              <img src="assets/img/trophy-icon.svg" alt="" />
-            </div>
-            <div class="features-card-content">
-              <div class="features-card-title">อัตราต่อรอง & คอมฯ ดี</div>
-              <div class="features-card-desc">ตอบโจทย์นักเดิมพันกีฬา</div>
-            </div>
-          </div>
-          <div class="features-card-row">
-            <div class="features-card-icon">
               <img src="assets/img/lottery-icon.svg" alt="" />
             </div>
             <div class="features-card-content">
-              <div class="features-card-title">หวยครบทุกประเภท</div>
-              <div class="features-card-desc">หวยไทย หวยต่างประเทศ ที่เดียวครบ</div>
+              <div class="features-card-title">เกมใหม่อัพเดททุกสัปดาห์</div>
+              <div class="features-card-desc">อัปเดตจากค่ายเกมชั้นนำกว่า 100 ค่าย</div>
             </div>
           </div>
         </div>
@@ -264,52 +264,53 @@ if ($is_login) {
             </div>
             <div class="faq-section">
               <div class="faq-item">
-                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
+                <div class="faq-question">
                   <span class="arrow">▶</span>
-                  <span class="question-text">ฉันสามารถสมัครสมาชิกได้อย่างไร ?</span>
+                  <span class="question-text">สมัครสมาชิกต้องทำอย่างไรบ้าง ?</span>
                 </div>
                 <div class="faq-answer">
-                  <p>คุณสามารถสมัครสมาชิกได้โดยคลิกที่ปุ่ม "สมัครสมาชิก" ที่หน้าหลัก แล้วกรอกข้อมูลส่วนตัวให้ครบถ้วน</p>
+                  <p>กรอกชื่อเบอร์โทร เลขบัญชีธนาคาร พร้อมเริ่มเล่นได้เลย!</p>
                 </div>
               </div>
 
               <div class="faq-item">
-                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
+                <div class="faq-question">
                   <span class="arrow">▶</span>
-                  <span class="question-text">ถอนเงินขั้นต่ำเท่าไหร่ ?</span>
+                  <span class="question-text">ขั้นตอนการฝากเงิน-ถอนเงินทำอย่างไร ?</span>
                 </div>
                 <div class="faq-answer">
-                  <p>การถอนเงินขั้นต่ำเริ่มต้นที่ 100 บาท และสามารถถอนได้สูงสุด 50,000 บาทต่อครั้ง</p>
+                  <p>กดเข้าเมนูกระเป๋าเงิน ดูเลขบัญชีที่หน้าฝากก่อนทำรายการทุกครั้ง และอัพสลิปให้ตามเวลาที่กำหนด</p>
                 </div>
               </div>
 
               <div class="faq-item">
-                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
+                <div class="faq-question">
                   <span class="arrow">▶</span>
                   <span class="question-text">ใช้เวลาในการฝาก - ถอนนานแค่ไหน ?</span>
                 </div>
                 <div class="faq-answer">
-                  <p>การฝากเงินจะเข้าระบบทันที ส่วนการถอนเงินใช้เวลาประมาณ 1-5 นาทีในการดำเนินการ</p>
+                  <p>ฝากเงินไม่เกิน 3 วินาที! คุณลูกค้าสามารถเข้าร่วมเกมเดิมพันกับเราได้ทันที</p>
+                  <!-- <p>การฝากเงินจะเข้าระบบทันที ส่วนการถอนเงินใช้เวลาประมาณ 1-5 นาทีในการดำเนินการ</p> -->
                 </div>
               </div>
 
               <div class="faq-item">
-                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
+                <div class="faq-question">
                   <span class="arrow">▶</span>
                   <span class="question-text">มีเคมจากค่ายไหนบ้าง ?</span>
                 </div>
                 <div class="faq-answer">
-                  <p>เรามีเกมจากค่ายชั้นนำมากมาย เช่น PG Soft, Pragmatic Play, Joker Gaming, Live22 และอีกมากมาย</p>
+                  <p>เรามีเกมยอดนิยมรวมกันมากกว่า 100 ค่าย</p>
                 </div>
               </div>
 
               <div class="faq-item">
-                <div class="faq-question" onclick="window.location.href='<?= $getAlliasRef['line_link'] ?>'">
+                <div class="faq-question">
                   <span class="arrow">▶</span>
-                  <span class="question-text">ติดต่อทีมงานอย่างไร ?</span>
+                  <span class="question-text">ถ้าพบปัญหาเกี่ยวกับการใช้งานทำอย่างไร ?</span>
                 </div>
                 <div class="faq-answer">
-                  <p>สามารถติดต่อทีมงานได้ผ่าน Live Chat 24 ชั่วโมง หรือ Line ID: @support</p>
+                  <p>คุณลูกค้าสามารถกดปุ่มติดต่อเพิ่มขอคำแนะนำจากทีมงานของเราได้เลยตลอด 24 ชม.</p>
                 </div>
               </div>
             </div>
@@ -387,6 +388,16 @@ if ($is_login) {
                 <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sa.svg" alt="Logo C"></div>
                 <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/pg.svg" alt="Logo D"></div>
                 <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sbo.svg" alt="Logo E"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/joker.svg" alt="Logo F"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/dragon.svg" alt="Logo G"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sexy.svg" alt="Logo H"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/dragoon.svg" alt="Logo I"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/simple.svg" alt="Logo J"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/kingmaker.svg" alt="Logo K"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/wcasino.svg" alt="Logo L"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/qalika.svg" alt="Logo M"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/gioco.svg" alt="Logo N"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/rich88.svg" alt="Logo O"></div>
               </div>
             </div>
           </div>
@@ -558,6 +569,34 @@ if ($is_login) {
         window.location.href = link;
       }
     }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
   </script>
 </body>
 

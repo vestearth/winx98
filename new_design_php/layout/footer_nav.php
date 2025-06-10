@@ -18,18 +18,18 @@ function renderFooterNav($linelink = null)
         'alt'  => 'เล่นเกม',
         'label' => 'เล่นเกม'
       ],
-      // [
-      //   'href' => 'wallet.php',
-      //   'icon' => 'source/icon-wallet.svg',
-      //   'alt'  => 'กระเป๋า',
-      //   'label' => 'กระเป๋า'
-      // ],
       [
-        'href' => 'comment.php',
-        'icon' => 'assets/img/icon/nav-comment.svg',
-        'alt'  => 'ความเห็น',
-        'label' => 'ความเห็น'
+        'href' => 'wallet.php',
+        'icon' => 'source/icon-wallet.svg',
+        'alt'  => 'กระเป๋า',
+        'label' => 'กระเป๋า'
       ],
+      // [
+      //   'href' => 'comment.php',
+      //   'icon' => 'assets/img/icon/nav-comment.svg',
+      //   'alt'  => 'ความเห็น',
+      //   'label' => 'ความเห็น'
+      // ],
       [
         'href' => $linelink ? $linelink : 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
         'icon' => 'assets/img/icon/nav-line.svg',

@@ -41,8 +41,9 @@ function renderBannerLanding()
 ?>
 
 <?php
-function renderBannerUser($user_data = null)
+function renderBannerUser()
 {
+  $user_current = User::getCurrent();
 ?>
   <div class="menu-container">
     <a href="index.php" style="color: unset; text-decoration: none;">
@@ -64,6 +65,14 @@ function renderBannerUser($user_data = null)
         </div> -->
 
         <!-- User Profile Icon -->
+        <div class="icon-wrapper">
+          <button class="icon-btn notification-btn" id="notificationBtn">
+            <span class="text-gold text-nowrap">
+              ฿ <?= $user_current['money_balance'] >= 1000000 ? number_format($user_current['money_balance'] / 1000000, 1) . 'M' : ($user_current['money_balance'] >= 100000 ? number_format($user_current['money_balance'] / 1000, 1) . 'K' : number_format($user_current['money_balance'], 2)); ?>
+            </span>
+          </button>
+        </div>
+
         <div class="icon-wrapper">
           <button class="icon-btn profile-btn" id="profileBtn" onclick="window.location.href='user.php'">
             <svg class="icon profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">

@@ -846,10 +846,10 @@
   text-decoration: none;
 }
 .breadcrumb-custom .breadcrumb-item.active {
-  color: #ACACAC;
+  color: #FFFFFF;
 }
 .breadcrumb-custom .breadcrumb-item.active a {
-  color: #ACACAC;
+  color: #FFFFFF;
 }
 .breadcrumb-custom .breadcrumb-item::before {
   color: #F05050;

@@ -365,6 +365,24 @@ $type_game_template = [
           <img src="assets/img/winner-of-the-day.svg" alt="">
         </div>
 
+        <div class="row">
+          <div class="col-12">
+            <div id="winner_list" class="container-pagination table-custom" <?= Homepagify::createHomepagify('winner_list', '', '', 'รายการผู้ชนะ', ''); ?>>
+              <div class="table-responsive">
+                <table class="table table-sort table-theme">
+                  <thead>
+                    <tr>
+                      <th nowrap class="text-gold" data-sort=""><?= "ยูส" ?></th>
+                      <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "ยอดรับ" ?></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <?php /*
         <div class="game-categories-container">
           <div class="game-categories-grid">
             <?php foreach ($type_game_template as $gameType => $gameData): ?>
@@ -377,6 +395,7 @@ $type_game_template = [
             <?php endforeach; ?>
           </div>
         </div>
+         */ ?>
       </div>
     </div>
   </div>
