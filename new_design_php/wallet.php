@@ -1,6 +1,7 @@
 <?php
 require_once '../.framework/import.php';
-require_once 'layout/footer_nav.php'; // Include the file containing renderBannerBorder
+require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 $page = 'index';
 
 
@@ -50,8 +51,9 @@ $this_page = 'index';
     Aww::redirectOG('login.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
   <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <?php renderBannerUser(); ?>
   <!-- layout mobile -->
   <div class="container index-container position-relative main">
     <div class="row">

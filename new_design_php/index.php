@@ -362,7 +362,7 @@ $type_game_template = [
         </div>
 
         <div class="text-center my-25px">
-          <img src="assets/img/game-text.svg" alt="">
+          <img src="assets/img/winner-of-the-day.svg" alt="">
         </div>
 
         <div class="game-categories-container">

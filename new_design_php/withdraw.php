@@ -1,6 +1,7 @@
 <?php
 require_once '../.framework/import.php';
 require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 
 $user_data['money_balance'] = 0;
 
@@ -21,6 +22,7 @@ $user_data['money_balance'] = 0;
   <?php
   if ($is_login) {
     $user_data = User::getCurrent();
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
       'detail' => 'เข้าหน้าถอนเงิน',
@@ -59,11 +61,12 @@ $user_data['money_balance'] = 0;
       }
     }
   } else {
-    // Aww::redirectOG('landing.php');
+    Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
   <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <?php renderBannerUser(); ?>
   <div class="container position-relative">
 
     <div class="row">
@@ -77,6 +80,7 @@ $user_data['money_balance'] = 0;
           </ol>
         </nav>
       </div>
+      <? navDepositWithdraw('withdraw'); ?>
       <div class="col-md-6">
         <div class="mt-20px mb-15px">
           <div class="tltle-page d-flex justify-content-center">
@@ -114,13 +118,14 @@ $user_data['money_balance'] = 0;
                 </button>
               <?php } ?>
             </form>
-            <div class="detail max-w-305px m-auto mt-15px">
-              <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
-              <ul>
-                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 100; ?> <?= Ty::get('baht') ?></li>
-              </ul>
-            </div>
           </div>
+        </div>
+
+        <div class="detail max-w-305px m-auto mt-15px">
+          <span class="text-gold"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
+          <ul>
+            <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 100; ?> <?= Ty::get('baht') ?></li>
+          </ul>
         </div>
         <?php /*
         <div class="card-turnover  mt-35px">
@@ -182,7 +187,7 @@ $user_data['money_balance'] = 0;
     <div class="title text-center text-pink-2">
       <?= Ty::get('confirm') ?>
     </div>
-    <p class="detail text-center mt-20px font-18px">
+    <p class="detail text-center font-18px">
       <span>
         <?= Ty::get('trans_to', [], ["case" => "ucfirst"]) ?>
       </span>

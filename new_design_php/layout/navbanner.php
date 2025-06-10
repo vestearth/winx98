@@ -134,3 +134,33 @@ function renderBannerUser($user_data = null)
 <?php
 }
 ?>
+
+<?php
+function navDepositWithdraw($type = '')
+{
+  $depositActive = $type === 'deposit' ? 'active' : '';
+  $withdrawActive = $type === 'withdraw' ? 'active' : '';
+?>
+  <div class="col-12 mb-20px">
+    <nav class="nav-container">
+      <button class="nav-button left <?= $depositActive; ?>" id="downloadBtn" onclick="window.location.href='deposit.php'">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mr-10px">
+            <?= file_get_contents('assets/img/icon/icon-deposit.svg'); ?>
+          </div>
+          <span>ฝากเงิน</span>
+        </div>
+      </button>
+      <button class="nav-button right <?= $withdrawActive; ?>" id="loginBtn" onclick="window.location.href='withdraw.php'">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="mr-10px">
+            <?= file_get_contents('assets/img/icon/icon-withdraw.svg'); ?>
+          </div>
+          <span>ถอนเงิน</span>
+        </div>
+      </button>
+    </nav>
+  </div>
+<?php
+}
+?>

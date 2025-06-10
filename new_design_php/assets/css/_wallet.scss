@@ -1,0 +1,129 @@
+.nav-container {
+    display: flex;
+    // background: linear-gradient(135deg, #c41e3a, #8b1538);
+    // background-color: #B91113;
+    border-radius: 30px;
+    // padding: 8px;
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.nav-button {
+    flex: 1;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: none;
+    background: #800B10;
+    color: #F05050;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    &.left {
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+    &.right {
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    &:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+    }
+
+    &.active {
+        background: #B91113;
+        color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+    }
+
+    i {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    span {
+        white-space: nowrap;
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// Ripple effect
+.nav-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    // background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.nav-button:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+// Responsive design
+@media (max-width: 480px) {
+    .nav-container {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .nav-button {
+        padding: 10px 12px;
+        font-size: 13px;
+        
+        i {
+            font-size: 14px;
+        }
+    }
+}
+
+// Animation for icon on hover
+.nav-button:hover i {
+    transform: scale(1.1);
+}
+
+// Loading state
+.nav-button.loading {
+    pointer-events: none;
+    
+    i {
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
