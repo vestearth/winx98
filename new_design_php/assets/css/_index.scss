@@ -908,3 +908,11 @@
         display: none;
     }
 }
+
+
+.winner-table-custom {
+    // hidden or hide class footer-pagination 
+    .footer-pagination {
+        display: none !important;
+    }
+}

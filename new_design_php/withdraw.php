@@ -152,9 +152,9 @@ $user_data['money_balance'] = 0;
             <table class="table table-sort table-theme">
               <thead>
                 <tr>
-                  <th nowrap class="text-white" data-sort=""><?= Ty::get('dateandtime') ?></th>
-                  <th nowrap class="text-white thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
-                  <th nowrap class="text-white text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
+                  <th nowrap class="text-gold" data-sort=""><?= Ty::get('dateandtime') ?></th>
+                  <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
+                  <th nowrap class="text-gold text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
                 </tr>
               </thead>
             </table>

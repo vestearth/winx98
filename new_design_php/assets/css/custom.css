@@ -2291,6 +2291,10 @@
     display: none;
   }
 }
+.winner-table-custom .footer-pagination {
+  display: none !important;
+}
+
 .nav-container {
   display: flex;
   border-radius: 30px;

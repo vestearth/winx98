@@ -26,6 +26,12 @@ $type_game = [
   ],
 ];
 $type_game_template = [
+  'HITGAME' => [
+    'name' => 'เกมฮิต',
+    'typeName' => 'HITGAME',
+    'img' => 'assets/img/icon/hit-game.png',
+    'ordering' => 1
+  ],
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
     'typeName' => 'CASINOLIVE',
@@ -171,6 +177,9 @@ if ($_POST) {
 if ($firm) {
   $select_game = nga_api_seamless::selectGameListByProductIDAndType($code, $firm, $type);
 } else {
+  if ($type == 'HITGAME') {
+    $type = 'CASINOLIVE'; // Default to SLOT for HITGAME
+  }
   $game_group = nga_api_seamless::selectProductIDByType($code, $type);
 }
 

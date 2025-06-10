@@ -245,7 +245,7 @@ $type_game_template = [
               <span class="user-main-menu-label">เล่นเกม</span>
             </div>
 
-            <div class="user-main-menu-item" onclick="window.location.href='wallet.php'">
+            <div class="user-main-menu-item" onclick="window.location.href='deposit.php'">
               <div class="user-main-menu-icon">
                 <img src="assets/img/icon/main-wallet.svg" alt="">
               </div>
@@ -367,7 +367,7 @@ $type_game_template = [
 
         <div class="row">
           <div class="col-12">
-            <div id="winner_list" class="container-pagination table-custom" <?= Homepagify::createHomepagify('winner_list', '', '', 'รายการผู้ชนะ', ''); ?>>
+            <div id="winner_list" class="container-pagination table-custom winner-table-custom" <?= Homepagify::createHomepagify('winner_list', '', '', 'รายการผู้ชนะ', ''); ?>>
               <div class="table-responsive">
                 <table class="table table-sort table-theme">
                   <thead>

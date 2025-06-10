@@ -19,7 +19,7 @@ function renderFooterNav($linelink = null)
         'label' => 'เล่นเกม'
       ],
       [
-        'href' => 'wallet.php',
+        'href' => 'deposit.php',
         'icon' => 'source/icon-wallet.svg',
         'alt'  => 'กระเป๋า',
         'label' => 'กระเป๋า'
