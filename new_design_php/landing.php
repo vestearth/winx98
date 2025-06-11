@@ -233,7 +233,7 @@ if ($is_login) {
 
         <div class="casino-banner">
           <div class="banner-image">
-            <div class="casino-logo"><img src="assets/img/winx98.svg" alt="seo"></div>
+            <div class="casino-logo"><img src="assets/img/winx98v2.svg" alt="seo"></div>
             <div class="casino-scene">
               <img src="assets/img/seo-img.png" alt="seo">
             </div>
@@ -338,7 +338,7 @@ if ($is_login) {
           </div>
           <div class="intro2">
             <div class="d-flex justify-content-center">
-              <img src="assets/img/winx98x2.png" alt="">
+              <img src="assets/img/winx98x2-v2.png" alt="">
             </div>
             <span class="content text-center">
               WinX98 เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี

@@ -5,7 +5,7 @@ function renderBannerBorder($user_data = null)
   <div class="menu-container">
     <a href="index.php" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
-        <img src="assets/img/winx98.svg" alt="Logo">
+        <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
     </a>
   </div>
@@ -20,7 +20,7 @@ function renderBannerLanding()
   <div class="menu-container">
     <a href="index.php" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
-        <img src="assets/img/winx98.svg" alt="Logo">
+        <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
     </a>
     <div class="d-flex align-items-center">
@@ -48,7 +48,7 @@ function renderBannerUser()
   <div class="menu-container">
     <a href="index.php" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
-        <img src="assets/img/winx98.svg" alt="Logo">
+        <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
     </a>
     <div class="header-bar">
