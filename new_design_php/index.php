@@ -74,6 +74,7 @@ $type_game_template = [
   Aww::loadAsset('assets/css/custom.css');
   ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <meta name="google-site-verification" content="7P9DfPbXhqK0AOsk-vKh2LvzdP6rn6_5rcRplswQWiM" />
 </head>
 
 <body>

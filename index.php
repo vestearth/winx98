@@ -22,6 +22,7 @@ $this_page = 'index';
   Aww::loadAsset('assets/css/custom.css');
   ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <meta name="google-site-verification" content="7P9DfPbXhqK0AOsk-vKh2LvzdP6rn6_5rcRplswQWiM" />
 </head>
 
 <body>
