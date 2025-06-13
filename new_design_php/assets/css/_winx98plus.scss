@@ -575,19 +575,17 @@
 
 
 .set-mockup-img {
-  // max-height: 208px;
   overflow: hidden;
   border-radius: 20px;
   position: relative;
   img {
     object-fit: cover;
     border-radius: 20px;
-    // add border red 
     border: 5px solid #772929;
     box-shadow: 0 0 10px rgb(119, 41, 41), 0 0 20px rgb(119, 41, 41), 0 0 30px rgb(119, 41, 41);
-    // temporary 
     height: 180px;
-    width: 140px;
+    min-width: 140px;
+    // width: 140px;
   }
   .txt-preview {
     position: absolute;
@@ -601,12 +599,15 @@
 }
 
 .custom-cover-firm {
-  max-height: 245px;
   overflow: hidden;
   border-radius: 15px;
   img {
     object-fit: cover;
-    width: 100%;
+    min-width: 140px;
+    height: 180px;
+  }
+  .txt-preview {
+    display: none;
   }
 }
 

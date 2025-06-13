@@ -336,15 +336,15 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
                   $condition_key = $key + 1;
                   $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
                   $col = ($game_no % 2 == 0) ? 'col-md-3 col-6' : 'col-md-3 col-6';
-                  // $game_img_webp = 'assets/images/firm_game/' . $game . '.webp';
-                  // $game_img_png = 'assets/images/firm_game/' . $game . '.png';
-                  $game_img_webp = "";
-                  $game_img_png = "";
+                  $game_img_webp = 'assets/images/firm_cover/' . $game . '/' . $game . '.webp';
+                  $game_img_png = 'assets/images/firm_cover/' . $game . '/' . $game . '.png';
+                  // $game_img_webp = "";
+                  // $game_img_png = "";
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
                   if (file_exists($game_img_png)) {
                     $game_img = $game_img_png;
-                    // $forForceCSS = 'custom-cover-firm';
+                    $forForceCSS = 'custom-cover-firm';
                   } else if (file_exists($game_img_webp)) {
                     $game_img = $game_img_webp;
                   } else {

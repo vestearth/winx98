@@ -539,7 +539,7 @@
   border: 5px solid #772929;
   box-shadow: 0 0 10px rgb(119, 41, 41), 0 0 20px rgb(119, 41, 41), 0 0 30px rgb(119, 41, 41);
   height: 180px;
-  width: 140px;
+  min-width: 140px;
 }
 .set-mockup-img .txt-preview {
   position: absolute;
@@ -552,14 +552,17 @@
 }
 
 .custom-cover-firm {
-  max-height: 245px;
   overflow: hidden;
   border-radius: 15px;
 }
 .custom-cover-firm img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 100%;
+  min-width: 140px;
+  height: 180px;
+}
+.custom-cover-firm .txt-preview {
+  display: none;
 }
 
 .bank-option-img {
