@@ -132,7 +132,7 @@
 .nav-footer .item {
   color: #ACACAC;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   transition: color 0.3s ease;
   color: #B25E5E;
   padding: 10px 22px;
@@ -178,7 +178,7 @@
 }
 
 .sub-title-page {
-  color: #F05050;
+  color: #E5D195;
   font-size: 16px;
 }
 
@@ -303,7 +303,7 @@
   justify-content: center;
   align-items: center;
   color: #B25E5E;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500px;
 }
 .games-slide-list-container .icon-button {
@@ -825,7 +825,7 @@
 }
 @media (max-width: 480px) {
   .thai-list li {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
   }
 }
@@ -911,10 +911,10 @@
   }
   .arrow {
     margin-right: 12px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .faq-answer p {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 @media (max-width: 480px) {
@@ -981,7 +981,7 @@
 }
 @media (max-width: 480px) {
   .thai-button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 25px;
     min-width: 160px;
   }
@@ -1009,7 +1009,7 @@
   padding: 8px 15px;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   z-index: 3;
 }
 .casino-logo img {
@@ -1095,7 +1095,7 @@
     font-size: 20px;
   }
   .description {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 @media (max-width: 480px) {
@@ -1255,7 +1255,7 @@
   background: none;
   border: none;
   color: #c41e3a;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -1299,7 +1299,7 @@
   margin-left: 12px;
 }
 .notification-dropdown .notification-item .notification-content .notification-text {
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   line-height: 1.4;
 }
@@ -1338,7 +1338,7 @@
 }
 .profile-dropdown .profile-info .profile-details .profile-email {
   color: #666;
-  font-size: 14px;
+  font-size: 16px;
 }
 .profile-dropdown .dropdown-divider {
   border: none;

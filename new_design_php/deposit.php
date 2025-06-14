@@ -36,6 +36,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   if ($is_login) {
     $user_data = User::getCurrent();
+    $user_info = nga_user::getUserByID($code, $user_data['id']);
     $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
@@ -94,7 +95,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php include 'layout/winx98_bg.php'; ?>
   <?php renderFooterNav($alliance_data['line_link']); ?>
   <?php renderBannerUser(); ?>
-  <div class="container position-relative">
+  <div class="container position-relative mt-100px">
     <div class="row">
       <div class="col-12">
         <nav aria-label="breadcrumb">
@@ -105,6 +106,29 @@ function textFormat($text = '', $pattern = '', $ex = '')
             <li class="breadcrumb-item active" aria-current="page"><?= Ty::get('deposit') ?></li>
           </ol>
         </nav>
+      </div>
+      <div class="col-12">
+        <div class="wallet-section">
+          <div class="balance-card">
+            <div class="balance-left">
+              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
+            </div>
+            <div class="balance-right">
+              <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
+              <div class="balance-amount">
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <? navDepositWithdraw('deposit'); ?>
       <div class="col-md-6">
@@ -199,7 +223,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
           </div>
         <?php } ?>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-75px">
         <div class="title-table">
           <?= Ty::get('withdrawal_history') ?>
         </div>
