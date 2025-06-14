@@ -26,12 +26,12 @@ $type_game = [
   ],
 ];
 $type_game_template = [
-  'HITGAME' => [
-    'name' => 'เกมฮิต',
-    'typeName' => 'HITGAME',
-    'img' => 'assets/img/icon/hit-game.png',
-    'ordering' => 1
-  ],
+  // 'HITGAME' => [
+  //   'name' => 'เกมฮิต',
+  //   'typeName' => 'HITGAME',
+  //   'img' => 'assets/img/icon/hit-game.png',
+  //   'ordering' => 1
+  // ],
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
     'typeName' => 'CASINOLIVE',
@@ -248,8 +248,8 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 
             foreach ($type_game_template as $key => $type_games) {
             ?>
-              <a href="?type=<?= $key; ?>" class="<?= $key == $type ? 'active' : '' ?> preloader-link text-decoration-none">
-                <div class="game-category-item">
+              <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
+                <div class="game-category-item <?= $key == $type ? 'active' : '' ?>">
                   <div class="game-category-card mr-15px">
                     <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
                   </div>
@@ -349,8 +349,8 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
           <div class="game-menu-group row pt-0 flex-nowrap overflow-auto w-100" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
-                <a href="?type=<?= $key; ?>" class="<?= $key == $type ? 'active' : '' ?> preloader-link text-decoration-none">
-                  <div class="game-category-item">
+                <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
+                  <div class="game-category-item <?= $key == $type ? 'active' : '' ?>">
                     <div class="game-category-card">
                       <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
                     </div>
