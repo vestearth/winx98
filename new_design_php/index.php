@@ -175,7 +175,7 @@ $type_game_template = [
       <div class="casino-app">
         <!-- Header Section -->
         <div class="header-section">
-          <img src="assets/img/indexPromo.png" alt="Casino Banner" class="header-background-image">
+          <img src="assets/img/PromoIndex.png" alt="Casino Banner" class="header-background-image">
         </div>
 
         <!-- News Ticker -->
@@ -328,10 +328,7 @@ $type_game_template = [
           </div>
         </div>
 
-        <div class="text-center my-25px">
-          <img src="assets/img/example-game-text.svg" alt="">
-        </div>
-
+        <?php /* 
         <div class="game-categories-container">
           <div class="game-categories-grid">
             <?php foreach ($type_game_template as $gameType => $gameData): ?>
@@ -344,6 +341,7 @@ $type_game_template = [
             <?php endforeach; ?>
           </div>
         </div>
+        */ ?>
 
         <?php /* 
         <div class="jackpot-swiper unset-height">
@@ -394,6 +392,8 @@ $type_game_template = [
                     <tr>
                       <th nowrap class="text-gold" data-sort=""><?= "ยูส" ?></th>
                       <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "ยอดรับ" ?></th>
+                      <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "อัตราชนะ" ?></th>
+                      <th nowrap class="text-gold" data-sort=""><?= "เกมยอดนิยม" ?></th>
                     </tr>
                   </thead>
                 </table>

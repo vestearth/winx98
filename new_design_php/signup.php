@@ -59,6 +59,7 @@ if ($_POST) {
       'bank_abb' => $_POST['bank_id'],
       'bank_number' => $_POST['bank_account'],
       'bank_name' => $bank_name,
+      'line_id' => $_POST['line_id'],
       // 'upline_member_code' => $_POST['upline_member_code'],
       'user_type_id' => 2,
     ];

@@ -23,16 +23,16 @@ $user_data = User::getCurrent();
 <tbody data-total_count="10">
   <?php
   $mockup_data = [
-    ['tel_no' => '0812345678', 'amount' => 1500.00],
-    ['tel_no' => '0823456789', 'amount' => 2750.50],
-    ['tel_no' => '0834567890', 'amount' => 850.25],
-    ['tel_no' => '0845678901', 'amount' => 3200.00],
-    ['tel_no' => '0856789012', 'amount' => 1875.75],
-    ['tel_no' => '0867890123', 'amount' => 4100.00],
-    ['tel_no' => '0878901234', 'amount' => 675.50],
-    ['tel_no' => '0889012345', 'amount' => 2950.25],
-    ['tel_no' => '0890123456', 'amount' => 1225.00],
-    ['tel_no' => '0801234567', 'amount' => 3500.75]
+    ['tel_no' => '123456', 'amount' => 150000.00, 'rate' => 30, 'game' => 'สล็อต Lucky Gems'],
+    ['tel_no' => '789012', 'amount' => 120000.00, 'rate' => 30, 'game' => 'บาคาร่า LiveVIP'],
+    ['tel_no' => '345678', 'amount' => 95500.00, 'rate' => 30, 'game' => 'รูเล็ต European'],
+    ['tel_no' => '901234', 'amount' => 80000.00, 'rate' => 30, 'game' => 'เกมยิงปลา Shark Bay'],
+    ['tel_no' => '567890', 'amount' => 65000.00, 'rate' => 30, 'game' => 'สล็อต Mega Fortune'],
+    // ['tel_no' => '0867890123', 'amount' => 4100.00],
+    // ['tel_no' => '0878901234', 'amount' => 675.50],
+    // ['tel_no' => '0889012345', 'amount' => 2950.25],
+    // ['tel_no' => '0890123456', 'amount' => 1225.00],
+    // ['tel_no' => '0801234567', 'amount' => 3500.75]
   ];
 
   foreach ($mockup_data as $list) {
@@ -44,6 +44,8 @@ $user_data = User::getCurrent();
         </div>
       </td>
       <td nowrap class="text-end text-white"><?= number_format($list['amount'], 2); ?></td>
+      <td nowrap width="25%" class="text-end text-white"><?= $list['rate']; ?>%</td>
+      <td nowrap class="text-white"><?= $list['game']; ?></td>
     </tr>
   <?php } ?>
 </tbody>

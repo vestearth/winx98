@@ -264,13 +264,94 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
         <?php //foreach ($type_game_template as $key => $type_games) { 
         ?>
         <!-- <div class="col-3 mt-10px"> -->
-        <div class="game-menu-responsive show-on-mobile">
-          <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <!-- To achieve slidesPerView 3.5 effect, use flex-basis: 28.57% (100/3.5) for each item -->
+        <style>
+          .game-menu-responsive.show-on-mobile .game-menu-group>.col-md-3 {
+            flex: 0 0 28.57% !important;
+            max-width: 28.57% !important;
+            min-width: 28.57% !important;
+            box-sizing: border-box;
+          }
+
+          @media (min-width: 576px) {
+            .game-menu-responsive.show-on-mobile .game-menu-group>.col-md-3 {
+              flex: 0 0 25% !important;
+              max-width: 25% !important;
+              min-width: 25% !important;
+            }
+          }
+
+          /* Custom scrollbar styles */
+          .game-menu-group::-webkit-scrollbar {
+            height: 8px;
+            background: #222;
+          }
+
+          .game-menu-group::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+          }
+
+          .game-menu-group::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
+
+          /* Firefox */
+          .game-menu-group {
+            scrollbar-color: #ffd90094 #222;
+            scrollbar-width: thin;
+          }
+
+          /* Arrow styles */
+          .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            /* Make not clickable */
+          }
+
+          .scroll-arrow.left {
+            left: 0;
+            top: 50px;
+          }
+
+          .scroll-arrow.right {
+            right: 0;
+            top: 50px;
+          }
+
+          .scroll-arrow svg {
+            width: 18px;
+            height: 18px;
+            fill: #ffd900;
+          }
+        </style>
+        <div class="game-menu-responsive show-on-mobile position-relative" style="position: relative;">
+          <div class="scroll-arrow left">
+            <svg viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </div>
+          <div class="scroll-arrow right">
+            <svg viewBox="0 0 24 24">
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+            </svg>
+          </div>
+          <div class="game-menu-group row pt-0 flex-nowrap overflow-auto w-100" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
                 <a href="?type=<?= $key; ?>" class="<?= $key == $type ? 'active' : '' ?> preloader-link text-decoration-none">
                   <div class="game-category-item">
-                    <div class="game-category-card mr-15px">
+                    <div class="game-category-card">
                       <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
                     </div>
                     <span class="game-category-label"><?= $type_games['name'] ?></span>

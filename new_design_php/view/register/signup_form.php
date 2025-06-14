@@ -81,7 +81,7 @@ foreach ($bank_config as $key => $data) {
   <div class="form-group">
     <label for="account"><?= 'Line ID'; ?></label>
     <div class="input-icon line">
-      <input type="text" name="bank_account" id="account" class="form-input-custom" placeholder="<?= 'กรอก Line ID'; ?>" required>
+      <input type="text" name="line_id" id="account" class="form-input-custom" placeholder="<?= 'กรอก Line ID'; ?>" required>
     </div>
   </div>
   <!-- 

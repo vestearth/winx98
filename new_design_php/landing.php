@@ -253,27 +253,27 @@ if ($is_login) {
           </div>
         </div> -->
 
-        <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-          <img src="assets/img/text-customer.svg">
-        </div>
 
-        <div class="game-categories-container">
-          <div class="game-categories-grid">
-            <?php foreach ($type_game_template as $gameType => $gameData): ?>
-              <div class="game-category-item">
-                <div class="game-category-card">
-                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
-                </div>
-                <span class="game-category-label"><?= $gameData['name'] ?></span>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        </div>
+
 
         <div class="example-game-swiper">
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <img src="assets/img/example-game-text.svg">
           </div>
+
+          <div class="game-categories-container">
+            <div class="game-categories-grid">
+              <?php foreach ($type_game_template as $gameType => $gameData): ?>
+                <div class="game-category-item">
+                  <div class="game-category-card">
+                    <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                  </div>
+                  <span class="game-category-label"><?= $gameData['name'] ?></span>
+                </div>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <? /* 
           <div class="swiper swiper1">
             <div class="swiper-wrapper">
               <!-- <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 1"></div>
@@ -290,6 +290,7 @@ if ($is_login) {
               <?php endfor; ?>
             </div>
           </div>
+          */ ?>
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <button class="thai-button" onclick="window.location.href='login.php'">ดูเกมทั้งหมด</button>
           </div>
@@ -316,7 +317,7 @@ if ($is_login) {
         <div class="row">
           <div class="col-12">
             <div class="text-center my-25px">
-              <img src="assets/img/banner-line.png" alt="suggest-promo" class="img-responsive">
+              <img src="assets/img/bannerLine.png" alt="suggest-promo" class="img-responsive">
             </div>
           </div>
           <div class="col-12">
