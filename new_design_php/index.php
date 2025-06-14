@@ -335,7 +335,7 @@ $type_game_template = [
         <div class="game-categories-container">
           <div class="game-categories-grid">
             <?php foreach ($type_game_template as $gameType => $gameData): ?>
-              <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
+              <div class="game-category-item">
                 <div class="game-category-card">
                   <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
                 </div>
