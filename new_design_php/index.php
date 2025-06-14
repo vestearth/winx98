@@ -276,56 +276,77 @@ $type_game_template = [
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-promotion.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">โปรโมชั่น</span>
             </div>
 
-
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-comment.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">ความคิดเห็น</span>
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-review.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">รีวิว</span>
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-vip.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">VIP</span>
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-dices.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">มินิเกมส์</span>
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-event.svg" alt="">
-
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">กิจกรรม</span>
             </div>
 
             <div class="user-main-menu-item">
-              <div class="user-main-menu-icon user-main-menu-icon--blockout">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
                 <img src="assets/img/icon/main-aff.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
               </div>
               <span class="user-main-menu-label">แนะนำเพื่อน</span>
             </div>
           </div>
+          <style>
+            .badge-soon {
+              position: absolute;
+              top: 2px;
+              right: 2px;
+              background: #ff9800;
+              color: #fff;
+              font-size: 10px;
+              padding: 2px 6px;
+              border-radius: 8px;
+              font-weight: bold;
+              z-index: 2;
+              pointer-events: none;
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            }
+          </style>
         </div>
 
         <?php /* 
@@ -390,6 +411,7 @@ $type_game_template = [
                 <table class="table table-sort table-theme">
                   <thead>
                     <tr>
+                      <th nowrap class="text-gold" data-sort=""><?= "อันดับ" ?></th>
                       <th nowrap class="text-gold" data-sort=""><?= "ยูส" ?></th>
                       <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "ยอดรับ" ?></th>
                       <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "อัตราชนะ" ?></th>

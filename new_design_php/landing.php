@@ -253,44 +253,44 @@ if ($is_login) {
           </div>
         </div> -->
 
+        <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+          <!-- <img src="assets/img/text-customer.svg"> -->
+          <img src="assets/img/allHere.png" style="max-width: 300px;">
+        </div>
 
-
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                </div>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
 
         <div class="example-game-swiper">
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <img src="assets/img/example-game-text.svg">
           </div>
-
-          <div class="game-categories-container">
-            <div class="game-categories-grid">
-              <?php foreach ($type_game_template as $gameType => $gameData): ?>
-                <div class="game-category-item">
-                  <div class="game-category-card">
-                    <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
-                  </div>
-                  <span class="game-category-label"><?= $gameData['name'] ?></span>
-                </div>
-              <?php endforeach; ?>
-            </div>
-          </div>
-          <? /* 
           <div class="swiper swiper1">
             <div class="swiper-wrapper">
-              <!-- <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 1"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 2"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/forge-olympus.png" alt="Logo 3"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/green-chilli.png" alt="Logo 4"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/green-chilli.png" alt="Logo 5"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 6"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/img/big-bass.png" alt="Logo 7"></div> -->
-              <?php for ($i = 1; $i <= 7; $i++): ?>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/PGSOFT/PGSOFT.png" alt="Logo 1"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/AMBPOKER/AMBPOKER.png" alt="Logo 2"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/SIMPLEPLAY/SIMPLEPLAY.png" alt="Logo 3"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/AMBGAMING/AMBGAMING.png" alt="Logo 4"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/EVOPLAY/EVOPLAY.png" alt="Logo 5"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/HACKSAW/HACKSAW.png" alt="Logo 6"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/NINEGAME/NINEGAME.png" alt="Logo 7"></div>
+              <?php /* for ($i = 1; $i <= 7; $i++): ?>
                 <div class="swiper-slide">
                   <div class="grey-placeholder" onclick="window.location.href='login.php'"></div>
                 </div>
-              <?php endfor; ?>
+              <?php endfor; */ ?>
             </div>
           </div>
-          */ ?>
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <button class="thai-button" onclick="window.location.href='login.php'">ดูเกมทั้งหมด</button>
           </div>
