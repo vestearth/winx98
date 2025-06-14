@@ -1,6 +1,6 @@
 <?php
 $_WLOVES['no_check_permission'] = 1;
-require_once '../../.framework/import.php';
+require_once '../.framework/import.php';
 
 if ($_POST['type'] == 'special') {
   $result = nga_management::receivePromotionSpecialDay($code, $_POST['user_id']);

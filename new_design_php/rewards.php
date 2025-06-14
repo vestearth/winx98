@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '.framework/import.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
 ?>

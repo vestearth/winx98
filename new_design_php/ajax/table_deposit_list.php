@@ -1,5 +1,5 @@
 <?php
-require_once '../../.framework/import.php';
+require_once '../.framework/import.php';
 Structure::loadMetaForAjax('../');
 $code = Aww::API_CODE['winx'];
 $user_data = User::getCurrent();

@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '.framework/import.php';
 $user_data = User::getCurrent();
 $data = [
   'user_id' => $user_data['id'],

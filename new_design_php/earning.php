@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '.framework/import.php';
 $type = isset($_GET['type']) ? $_GET['type'] : 'receive';
 $summary_type = isset($_GET['sum_type']) ? $_GET['sum_type'] : 'player_detail';
 ?>

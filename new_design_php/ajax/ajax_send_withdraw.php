@@ -1,6 +1,6 @@
 <?php
 $_WLOVES['no_check_permission'] = 1;
-require_once '../../.framework/import.php';
+require_once '../.framework/import.php';
 
 $user_data = User::getCurrent();
 $get_auto_wd = nga_management::getAutoDepositWithdraw($code);

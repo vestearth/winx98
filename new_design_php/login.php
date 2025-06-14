@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '.framework/import.php';
 require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
 if ($_POST) {
   if (isset($_POST['submit_login'])) {

@@ -1,6 +1,6 @@
 <?php
 $_WLOVES['no_check_permission'] = 1;
-require_once '../../.framework/import.php';
+require_once '../.framework/import.php';
 
 $result = nga_management::confirmPromotionUseHistory($code, $_POST['user_id'], $_POST['promotion_id']);
 if ($result['response_status']) {

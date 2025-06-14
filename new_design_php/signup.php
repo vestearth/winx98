@@ -1,5 +1,5 @@
 <?php
-require_once '../.framework/import.php';
+require_once '.framework/import.php';
 
 require_once 'layout/navbanner.php'; // Include the file containing renderBannerBorder
 $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
