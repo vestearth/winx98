@@ -113,7 +113,7 @@ if ($is_login) {
           </script>
         </div>
       </div>
-      <div class="mx-auto" style="max-width: 700px;">
+      <div class="mx-auto mt-100px" style="max-width: 700px;">
         <div class="row">
           <div class="col-12">
             <div class="img-intro d-flex justify-content-center w-100 mt-20px">

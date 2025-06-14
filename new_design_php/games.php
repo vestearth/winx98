@@ -238,7 +238,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
       </div>
       <div class="col-md-12">
 
-        <div class="game-menu-responsive show-on-desktop">
+        <div class="game-menu-responsive show-on-desktop mt-100px">
           <div class="game-menu-group">
             <?php
             // Sort the $type_game_template array by the 'ordering' key in ascending order
@@ -264,7 +264,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
         <?php //foreach ($type_game_template as $key => $type_games) { 
         ?>
         <!-- <div class="col-3 mt-10px"> -->
-        <div class="game-menu-responsive show-on-mobile">
+        <div class="game-menu-responsive show-on-mobile mt-50px">
           <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">

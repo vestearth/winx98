@@ -171,7 +171,7 @@ $type_game_template = [
         </script>
       </div>
     </div>
-    <div class="mx-auto" style="max-width: 700px;">
+    <div class="mx-auto mt-100px" style="max-width: 700px;">
       <div class="casino-app">
         <!-- Header Section -->
         <div class="header-section">
