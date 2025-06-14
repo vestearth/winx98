@@ -281,7 +281,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
             }
           }
 
-          /* Custom scrollbar styles */
           .game-menu-group::-webkit-scrollbar {
             height: 8px;
             background: #222;
@@ -296,13 +295,13 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
             background: #555;
           }
 
-          /* Firefox */
           .game-menu-group {
             scrollbar-color: #ffd90094 #222;
             scrollbar-width: thin;
+            overflow-y: hidden !important;
+            /* Prevent vertical scroll */
           }
 
-          /* Arrow styles */
           .scroll-arrow {
             position: absolute;
             top: 50%;
@@ -316,7 +315,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
             align-items: center;
             justify-content: center;
             pointer-events: none;
-            /* Make not clickable */
           }
 
           .scroll-arrow.left {
@@ -346,11 +344,12 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
               <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
             </svg>
           </div>
-          <div class="game-menu-group row pt-0 flex-nowrap overflow-auto w-100" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+          <div class="game-menu-group row pt-0 flex-nowrap w-100"
+            style="flex-wrap: nowrap; height:125px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
                 <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
-                  <div class="game-category-item <?= $key == $type ? 'active' : '' ?>">
+                  <div class="game-category-item <?= $key == $type ? 'active' : '' ?>" data-key="<?= $key ?>">
                     <div class="game-category-card">
                       <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
                     </div>
@@ -361,6 +360,21 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
             <?php } ?>
           </div>
         </div>
+        <script>
+          // Scroll active item into view on page load (mobile menu)
+          document.addEventListener("DOMContentLoaded", function() {
+            var menuGroup = document.querySelector('.game-menu-responsive.show-on-mobile .game-menu-group');
+            var activeItem = menuGroup ? menuGroup.querySelector('.game-category-item.active') : null;
+            if (activeItem && activeItem.parentElement) {
+              // Scroll so that the active item is centered (or at least visible)
+              var parent = menuGroup;
+              var itemRect = activeItem.parentElement.getBoundingClientRect();
+              var parentRect = parent.getBoundingClientRect();
+              var offset = itemRect.left - parentRect.left - parentRect.width / 2 + itemRect.width / 2;
+              parent.scrollLeft += offset;
+            }
+          });
+        </script>
 
       </div>
       <?php if (!$firm) {

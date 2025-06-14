@@ -3869,6 +3869,7 @@ footer .menu-footer.active .text {
     margin-bottom: 10px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-y: hidden;
   }
   .game-menu-responsive::-webkit-scrollbar {
     display: none;
