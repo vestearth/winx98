@@ -328,6 +328,24 @@ $type_game_template = [
           </div>
         </div>
 
+        <div class="text-center my-25px">
+          <img src="assets/img/example-game-text.svg" alt="">
+        </div>
+
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                </div>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <?php /* 
         <div class="jackpot-swiper unset-height">
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <img src="assets/img/text-customer.svg">
@@ -361,6 +379,7 @@ $type_game_template = [
             <div class="swiper-pagination"></div>
           </div>
         </div>
+        */ ?>
 
         <div class="text-center my-25px">
           <img src="assets/img/winner-of-the-day.svg" alt="">
@@ -382,21 +401,6 @@ $type_game_template = [
             </div>
           </div>
         </div>
-
-        <?php /*
-        <div class="game-categories-container">
-          <div class="game-categories-grid">
-            <?php foreach ($type_game_template as $gameType => $gameData): ?>
-              <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
-                <div class="game-category-card">
-                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
-                </div>
-                <span class="game-category-label"><?= $gameData['name'] ?></span>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        </div>
-         */ ?>
       </div>
     </div>
   </div>

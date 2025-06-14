@@ -3,6 +3,57 @@ require_once '../.framework/import.php';
 require_once 'layout/navbanner.php';
 require_once 'layout/footer_nav_landing.php';
 
+$type_game_template = [
+  'CASINOLIVE' => [
+    'name' => Ty::get('casino'),
+    'typeName' => 'CASINOLIVE',
+    'img' => 'assets/img/icon/casino-game.png',
+    'ordering' => 1
+  ],
+  'SLOT' => [
+    'name' => Ty::get('slot'),
+    'typeName' => 'SLOT',
+    'img' => 'assets/img/icon/slot-game.png',
+    'ordering' => 2,
+  ],
+  'SPORTBOOK' => [
+    'name' => Ty::get('sport'),
+    'typeName' => 'SPORTBOOK',
+    'img' => 'assets/img/icon/sport-game.png',
+    'ordering' => 3
+  ],
+  'FISHING' => [
+    'name' => Ty::get('fishing'),
+    'typeName' => 'FISHING',
+    'img' => 'assets/img/icon/fish-game.png',
+    'ordering' => 4
+  ],
+  'CARD' => [
+    'name' => Ty::get('card'),
+    'typeName' => 'CARD',
+    'img' => 'assets/img/icon/card-game.png',
+    'ordering' => 6
+  ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/img/icon/other-game.png',
+    'ordering' => 7
+  ],
+  'LOTTO' => [
+    'name' => Ty::get('lottery'),
+    'typeName' => 'LOTTO',
+    'img' => 'assets/img/icon/lotto-game.png',
+    'ordering' => 8
+  ],
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
+];
+
 $system_line  = nga_management::getGeneralWebsite($code);
 
 $menu_landing = [
@@ -169,13 +220,12 @@ if ($is_login) {
           </div>
         </div>
 
-        <div class="jackpot-swiper">
+        <!-- <div class="jackpot-swiper">
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <img src="assets/img/text-customer.svg">
           </div>
           <div class="swiper swiperJackpot">
             <div class="swiper-wrapper">
-              <!-- Slide 1 -->
               <div class="swiper-slide">
                 <div class="jackpot-title">
                   <img src="assets/img/jackpot-img.png" alt="">
@@ -187,7 +237,6 @@ if ($is_login) {
                   </div>
                 </div>
               </div>
-              <!-- Slide 2 -->
               <div class="swiper-slide">
                 <div class="jackpot-title">
                   <img src="assets/img/jackpot-img.png" alt="">
@@ -199,10 +248,25 @@ if ($is_login) {
                   </div>
                 </div>
               </div>
-              <!-- Add more slides as needed -->
             </div>
-            <!-- Pagination Dots -->
             <div class="swiper-pagination"></div>
+          </div>
+        </div> -->
+
+        <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+          <img src="assets/img/text-customer.svg">
+        </div>
+
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item" onclick="window.location.href='games.php?type=<?= $gameData['typeName'] ?>'">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                </div>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
 
