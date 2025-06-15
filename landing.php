@@ -168,7 +168,7 @@ if ($is_login) {
         <div class="row">
           <div class="col-12">
             <div class="img-intro d-flex justify-content-center w-100 mt-20px">
-              <img src="assets/img/01.png" alt="Full Size Banner" class="">
+              <img src="assets/img/01.png?v=2" alt="Full Size Banner" style="border-radius: 50px;">
             </div>
           </div>
         </div>
