@@ -249,7 +249,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
             foreach ($type_game_template as $key => $type_games) {
             ?>
               <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
-                <div class="game-category-item <?= $key == $type ? 'active' : '' ?>">
+                <div class="game-category-item mt-10px <?= $key == $type ? 'active' : '' ?>">
                   <div class="game-category-card mr-15px">
                     <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
                   </div>

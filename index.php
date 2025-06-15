@@ -175,7 +175,7 @@ $type_game_template = [
       <div class="casino-app">
         <!-- Header Section -->
         <div class="header-section">
-          <img src="assets/img/PromoIndex.png" alt="Casino Banner" class="header-background-image">
+          <img src="assets/img/03.png" alt="Casino Banner" class="header-background-image">
         </div>
 
         <!-- News Ticker -->
@@ -402,6 +402,12 @@ $type_game_template = [
 
         <div class="text-center my-25px">
           <img src="assets/img/winner-of-the-day.svg" alt="">
+          <div>
+            <?php
+            $yesterday = date('Y-m-d', strtotime('-1 day'));
+            ?>
+            <span class="text-gold fw-bold">(<?= date('d/m/Y', strtotime($yesterday)); ?>)</span>
+          </div>
         </div>
 
         <div class="row">

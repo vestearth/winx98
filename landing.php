@@ -168,7 +168,7 @@ if ($is_login) {
         <div class="row">
           <div class="col-12">
             <div class="img-intro d-flex justify-content-center w-100 mt-20px">
-              <img src="assets/img/first-landing.png" alt="Full Size Banner" class="">
+              <img src="assets/img/01.png" alt="Full Size Banner" class="">
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@ if ($is_login) {
               <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/AMBGAMING/AMBGAMING.png" alt="Logo 4"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/EVOPLAY/EVOPLAY.png" alt="Logo 5"></div>
               <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/HACKSAW/HACKSAW.png" alt="Logo 6"></div>
-              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/NINEGAME/NINEGAME.png" alt="Logo 7"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/NINESGAME/NINESGAME.png" alt="Logo 7"></div>
               <?php /* for ($i = 1; $i <= 7; $i++): ?>
                 <div class="swiper-slide">
                   <div class="grey-placeholder" onclick="window.location.href='login.php'"></div>
@@ -317,7 +317,7 @@ if ($is_login) {
         <div class="row">
           <div class="col-12">
             <div class="text-center my-25px">
-              <img src="assets/img/bannerLine.png" alt="suggest-promo" class="img-responsive">
+              <img src="assets/img/02.png" alt="suggest-promo" class="img-responsive">
             </div>
           </div>
           <div class="col-12">
