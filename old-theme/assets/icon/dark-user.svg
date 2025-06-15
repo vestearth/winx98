@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="25" viewBox="0 0 17.5 25">
+  <g id="smartphone" transform="translate(-76.8)">
+    <g id="XMLID_1_" transform="translate(76.8 0)">
+      <path id="Path_33" data-name="Path 33" d="M94.3,10v2.5h-.836v10a2.5,2.5,0,0,1-2.5,2.5H79.3a2.515,2.515,0,0,1-1.766-.734A2.484,2.484,0,0,1,76.8,22.5V2.5A2.5,2.5,0,0,1,79.3,0H90.964A2.484,2.484,0,0,1,92.73.734,2.515,2.515,0,0,1,93.464,2.5V5.836H94.3v2.5h-.836V10ZM91.8,22.5V20.836H78.464V22.5a.836.836,0,0,0,.836.836H90.964A.836.836,0,0,0,91.8,22.5Zm0-3.336V2.5a.836.836,0,0,0-.836-.836H79.3a.836.836,0,0,0-.836.836V19.164Z" transform="translate(-76.8 0)" fill="#5d5d5d"/>
+      <rect id="Rectangle_69" data-name="Rectangle 69" width="4.164" height="1.664" transform="translate(7.5 3.336)" fill="#5d5d5d"/>
+      <circle id="Ellipse_1428" data-name="Ellipse 1428" cx="0.836" cy="0.836" r="0.836" transform="translate(4.164 3.328)" fill="#5d5d5d"/>
+    </g>
+  </g>
+</svg>

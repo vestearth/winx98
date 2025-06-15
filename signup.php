@@ -59,6 +59,7 @@ if ($_POST) {
       'bank_abb' => $_POST['bank_id'],
       'bank_number' => $_POST['bank_account'],
       'bank_name' => $bank_name,
+      'line_id' => $_POST['line_id'],
       // 'upline_member_code' => $_POST['upline_member_code'],
       'user_type_id' => 2,
     ];
@@ -76,7 +77,7 @@ if ($_POST) {
     } else {
       $response_message = $result['response_message'];
     }
-    // $response_redirect = 'login.php';
+    $response_redirect = 'login.php';
   }
 
   if (isset($result)) {
@@ -102,11 +103,11 @@ if ($_POST) {
 </head>
 
 <body>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderBannerBorder(); ?>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-6 text-center">
-        <?php renderBannerBorder(); ?>
         <div class="card-login">
           <div class="card-login-body">
             <div class="login-thread d-flex">

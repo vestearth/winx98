@@ -1,5 +1,6 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
 
 $list_games = [
   [
@@ -64,11 +65,13 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php require_once 'layout/navbanner.php'; ?>
+  <?php require_once 'layout/footer_nav.php'; ?>
+  <?php renderFooterNav(); ?>
+  <?php renderBannerUser(); ?>
   <div class="container position-relative">
-
-    <div class="row">
+    <div class="row mt-75px">
       <div class="col-12">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-custom mb-10px">
@@ -104,12 +107,12 @@ $page = isset($_GET['page']) ? $_GET['page'] : '';
               </button>
             <?php } ?>
             <a href="?page=table" class="text-gold my-10px show-mobile"><?= Ty::get('lossreturnhistory') ?></a>
-            <div class="max-w-350px m-auto mt-15px text-pink-2 font-14px">
+            <div class="max-w-350px m-auto mt-15px text-gold font-14px">
               <?= Ty::get('creditwillbecutdaily') ?>
             </div>
           </div>
         </div>
-        <h3 class="font-16px text-pink-2"><?= Ty::get('termsandconditions') ?></h3>
+        <h3 class="font-16px text-gold"><?= Ty::get('termsandconditions') ?></h3>
         <ul>
           <li>
             <?= Ty::get('loss_promotion') ?> <?= $get_turn_over['turn_over_percent_customer']; ?>%

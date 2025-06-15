@@ -1,6 +1,7 @@
 <?php
 require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 
 $user_data['money_balance'] = 0;
 
@@ -21,6 +22,8 @@ $user_data['money_balance'] = 0;
   <?php
   if ($is_login) {
     $user_data = User::getCurrent();
+    $user_info = nga_user::getUserByID($code, $user_data['id']);
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
       'detail' => 'เข้าหน้าถอนเงิน',
@@ -59,12 +62,13 @@ $user_data['money_balance'] = 0;
       }
     }
   } else {
-    // Aww::redirectOG('landing.php');
+    Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <?php renderBannerUser(); ?>
+  <div class="container position-relative mt-100px">
 
     <div class="row">
       <div class="col-12">
@@ -77,6 +81,30 @@ $user_data['money_balance'] = 0;
           </ol>
         </nav>
       </div>
+      <div class="col-12">
+        <div class="wallet-section">
+          <div class="balance-card">
+            <div class="balance-left">
+              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
+            </div>
+            <div class="balance-right">
+              <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
+              <div class="balance-amount">
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <? navDepositWithdraw('withdraw'); ?>
       <div class="col-md-6">
         <div class="mt-20px mb-15px">
           <div class="tltle-page d-flex justify-content-center">
@@ -114,13 +142,14 @@ $user_data['money_balance'] = 0;
                 </button>
               <?php } ?>
             </form>
-            <div class="detail max-w-305px m-auto mt-15px">
-              <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
-              <ul>
-                <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 100; ?> <?= Ty::get('baht') ?></li>
-              </ul>
-            </div>
           </div>
+        </div>
+
+        <div class="detail max-w-305px m-auto mt-15px">
+          <span class="text-gold"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
+          <ul>
+            <li><?= Ty::get('min_withdraw', [], ["case" => "ucfirst"]) ?> <?= 100; ?> <?= Ty::get('baht') ?></li>
+          </ul>
         </div>
         <?php /*
         <div class="card-turnover  mt-35px">
@@ -138,7 +167,7 @@ $user_data['money_balance'] = 0;
         </div>
          */ ?>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-75px">
         <div class="title-table">
           <?= Ty::get('withdrawal_history') ?>
         </div>
@@ -147,9 +176,9 @@ $user_data['money_balance'] = 0;
             <table class="table table-sort table-theme">
               <thead>
                 <tr>
-                  <th nowrap class="text-white" data-sort=""><?= Ty::get('dateandtime') ?></th>
-                  <th nowrap class="text-white thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
-                  <th nowrap class="text-white text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
+                  <th nowrap class="text-gold" data-sort=""><?= Ty::get('dateandtime') ?></th>
+                  <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
+                  <th nowrap class="text-gold text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
                 </tr>
               </thead>
             </table>
@@ -182,7 +211,7 @@ $user_data['money_balance'] = 0;
     <div class="title text-center text-pink-2">
       <?= Ty::get('confirm') ?>
     </div>
-    <p class="detail text-center mt-20px font-18px">
+    <p class="detail text-center font-18px">
       <span>
         <?= Ty::get('trans_to', [], ["case" => "ucfirst"]) ?>
       </span>

@@ -1,6 +1,7 @@
 <?php
 require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 
 $type_game = [
   [
@@ -25,69 +26,61 @@ $type_game = [
   ],
 ];
 $type_game_template = [
+  // 'HITGAME' => [
+  //   'name' => 'เกมฮิต',
+  //   'typeName' => 'HITGAME',
+  //   'img' => 'assets/img/icon/hit-game.png',
+  //   'ordering' => 1
+  // ],
   'CASINOLIVE' => [
     'name' => Ty::get('casino'),
     'typeName' => 'CASINOLIVE',
-    'img' => 'assets/images/games/game-006.webp',
+    'img' => 'assets/img/icon/casino-game.png',
     'ordering' => 1
   ],
   'SLOT' => [
     'name' => Ty::get('slot'),
     'typeName' => 'SLOT',
-    'img' => 'assets/images/games/game-003.webp',
+    'img' => 'assets/img/icon/slot-game.png',
     'ordering' => 2,
   ],
   'SPORTBOOK' => [
     'name' => Ty::get('sport'),
     'typeName' => 'SPORTBOOK',
-    'img' => 'assets/images/games/game-007.webp',
+    'img' => 'assets/img/icon/sport-game.png',
     'ordering' => 3
   ],
   'FISHING' => [
     'name' => Ty::get('fishing'),
     'typeName' => 'FISHING',
-    'img' => 'assets/images/games/game-005.webp',
+    'img' => 'assets/img/icon/fish-game.png',
     'ordering' => 4
-  ],
-  'ARCADE' => [
-    'name' => Ty::get('arcade'),
-    'typeName' => 'ARCADE',
-    'img' => 'assets/images/games/game-004.webp',
-    'ordering' => 5
   ],
   'CARD' => [
     'name' => Ty::get('card'),
     'typeName' => 'CARD',
-    'img' => 'assets/images/games/game-001.webp',
+    'img' => 'assets/img/icon/card-game.png',
     'ordering' => 6
   ],
   'BOARD' => [
     'name' => Ty::get('board'),
     'typeName' => 'BOARD',
-    'img' => 'assets/images/games/game-002.webp',
+    'img' => 'assets/img/icon/other-game.png',
     'ordering' => 7
   ],
   'LOTTO' => [
     'name' => Ty::get('lottery'),
     'typeName' => 'LOTTO',
-    'img' => 'assets/images/games/game-008.webp',
+    'img' => 'assets/img/icon/lotto-game.png',
     'ordering' => 8
   ],
-
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
 ];
-
-// $get_game_setting = [
-//   'is_open_card_game' => 1,
-//   'is_open_board_game' => 1,
-//   'is_open_slot_game' => 1,
-//   'is_open_casinolive_game' => 1,
-//   'is_open_arcade_game' => 1,
-//   'is_open_fishing_game' => 1,
-//   'is_open_sport_game' => 1,
-//   'is_open_sportbook' => 1,
-//   'is_open_lotto' => 0,
-//   'is_open_trading' => 1,
-// ];
 
 $get_game_setting = nga_management::getGameActiveStatus($code);
 
@@ -184,6 +177,9 @@ if ($_POST) {
 if ($firm) {
   $select_game = nga_api_seamless::selectGameListByProductIDAndType($code, $firm, $type);
 } else {
+  if ($type == 'HITGAME') {
+    $type = 'CASINOLIVE'; // Default to SLOT for HITGAME
+  }
   $game_group = nga_api_seamless::selectProductIDByType($code, $type);
 }
 
@@ -207,11 +203,11 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 </head>
 
 <body>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderBannerUser(); ?>
 
-    <div class="row">
+  <div class="container position-relative">
+    <div class="row mt-100px">
       <div class="col-12">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb breadcrumb-custom mb-10px">
@@ -252,12 +248,12 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 
             foreach ($type_game_template as $key => $type_games) {
             ?>
-              <a href="?type=<?= $key; ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
-                <div class="game-menu-image">
-                  <img src="<?= $type_games['img'] ?>" alt="<?= $type_games['name']; ?>">
-                </div>
-                <div class="game-menu-name">
-                  <?= $type_games['name'] ?>
+              <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
+                <div class="game-category-item <?= $key == $type ? 'active' : '' ?>">
+                  <div class="game-category-card mr-15px">
+                    <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
+                  </div>
+                  <span class="game-category-label"><?= $type_games['name'] ?></span>
                 </div>
               </a>
             <?php } ?>
@@ -268,22 +264,117 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
         <?php //foreach ($type_game_template as $key => $type_games) { 
         ?>
         <!-- <div class="col-3 mt-10px"> -->
-        <div class="game-menu-responsive show-on-mobile">
-          <div class="game-menu-group row pt-0 flex-nowrap overflow-auto" style="flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <!-- To achieve slidesPerView 3.5 effect, use flex-basis: 28.57% (100/3.5) for each item -->
+        <style>
+          .game-menu-responsive.show-on-mobile .game-menu-group>.col-md-3 {
+            flex: 0 0 28.57% !important;
+            max-width: 28.57% !important;
+            min-width: 28.57% !important;
+            box-sizing: border-box;
+          }
+
+          @media (min-width: 576px) {
+            .game-menu-responsive.show-on-mobile .game-menu-group>.col-md-3 {
+              flex: 0 0 25% !important;
+              max-width: 25% !important;
+              min-width: 25% !important;
+            }
+          }
+
+          .game-menu-group::-webkit-scrollbar {
+            height: 8px;
+            background: #222;
+          }
+
+          .game-menu-group::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+          }
+
+          .game-menu-group::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
+
+          .game-menu-group {
+            scrollbar-color: #ffd90094 #222;
+            scrollbar-width: thin;
+            overflow-y: hidden !important;
+            /* Prevent vertical scroll */
+          }
+
+          .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+          }
+
+          .scroll-arrow.left {
+            left: 0;
+            top: 50px;
+          }
+
+          .scroll-arrow.right {
+            right: 0;
+            top: 50px;
+          }
+
+          .scroll-arrow svg {
+            width: 18px;
+            height: 18px;
+            fill: #ffd900;
+          }
+        </style>
+        <div class="game-menu-responsive show-on-mobile position-relative" style="position: relative;">
+          <div class="scroll-arrow left">
+            <svg viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </div>
+          <div class="scroll-arrow right">
+            <svg viewBox="0 0 24 24">
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+            </svg>
+          </div>
+          <div class="game-menu-group row pt-0 flex-nowrap w-100"
+            style="flex-wrap: nowrap; height:125px; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;">
             <?php foreach ($type_game_template as $key => $type_games) { ?>
               <div class="col-md-3 col-2 mt-10px px-5px" style="flex: 0 0 auto;">
-                <a href="?type=<?= $key ?>" class="game-menu-list <?= $key == $type ? 'active' : '' ?> preloader-link">
-                  <div class="game-menu-image">
-                    <img src="<?= $type_games['img']; ?>" alt="<?= $type_games['name']; ?>">
-                  </div>
-                  <div class="game-menu-name">
-                    <?= $type_games['name'] ?>
+                <a href="?type=<?= $key; ?>" class="preloader-link text-decoration-none">
+                  <div class="game-category-item <?= $key == $type ? 'active' : '' ?>" data-key="<?= $key ?>">
+                    <div class="game-category-card">
+                      <img src="<?= $type_games['img'] ?>" alt="Fish Game" class="game-category-image">
+                    </div>
+                    <span class="game-category-label"><?= $type_games['name'] ?></span>
                   </div>
                 </a>
               </div>
             <?php } ?>
           </div>
         </div>
+        <script>
+          // Scroll active item into view on page load (mobile menu)
+          document.addEventListener("DOMContentLoaded", function() {
+            var menuGroup = document.querySelector('.game-menu-responsive.show-on-mobile .game-menu-group');
+            var activeItem = menuGroup ? menuGroup.querySelector('.game-category-item.active') : null;
+            if (activeItem && activeItem.parentElement) {
+              // Scroll so that the active item is centered (or at least visible)
+              var parent = menuGroup;
+              var itemRect = activeItem.parentElement.getBoundingClientRect();
+              var parentRect = parent.getBoundingClientRect();
+              var offset = itemRect.left - parentRect.left - parentRect.width / 2 + itemRect.width / 2;
+              parent.scrollLeft += offset;
+            }
+          });
+        </script>
 
       </div>
       <?php if (!$firm) {
@@ -291,7 +382,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
       ?>
           <div class="col-md-12">
             <div class="text-white">
-              <div class="row mb-100px">
+              <div class="row mb-100px mx-auto" style="max-width: 700px;">
                 <?php
                 $game_no = 1;
                 $game_list = array(
@@ -339,26 +430,22 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
                 foreach ($game_group as $key => $game) {
                   $condition_key = $key + 1;
                   $loading = ($condition_key >= 2) ? 'eager' : 'lazy';
-                  $col = ($game_no % 2 == 0) ? 'col-6 pl-0' : 'col-6 pr-0';
-                  $game_img_webp = 'assets/images/firm_game/' . $game . '.webp';
-                  $game_img_png = 'assets/images/firm_game/' . $game . '.png';
-
+                  $col = ($game_no % 2 == 0) ? 'col-md-3 col-6' : 'col-md-3 col-6';
+                  $game_img_webp = 'assets/images/firm_cover/' . $game . '/' . $game . '.webp';
+                  $game_img_png = 'assets/images/firm_cover/' . $game . '/' . $game . '.png';
+                  // $game_img_webp = "";
+                  // $game_img_png = "";
                   $forForceCSS = '';
                   // Check if the image file exists, use mockup image if not
                   if (file_exists($game_img_png)) {
                     $game_img = $game_img_png;
-                    // $forForceCSS = 'custom-cover-firm';
+                    $forForceCSS = 'custom-cover-firm';
                   } else if (file_exists($game_img_webp)) {
                     $game_img = $game_img_webp;
                   } else {
                     $game_img = 'assets/images/firm_game/DEFAULT.webp';
                     $forForceCSS = 'set-mockup-img';
                   }
-
-                  // if (!file_exists($game_img)) {
-                  //   $game_img = 'assets/images/firm_game/DEFAULT.webp';
-                  //   $forForceCSS = 'set-mockup-img';
-                  // }
                 ?>
                   <div class="<?= $col; ?>">
                     <div class="w-100 d-flex justify-content-center">
@@ -549,15 +636,15 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 </html>
 
 <script>
-  function showPreloader() {
-    var preloader = document.querySelector(".preloader");
-    preloader.style.display = "flex"; // Show the preloader
-  }
+  // function showPreloader() {
+  //   var preloader = document.querySelector(".preloader");
+  //   preloader.style.display = "flex"; // Show the preloader
+  // }
 
-  function hidePreloader() {
-    var preloader = document.querySelector(".preloader");
-    preloader.style.display = "none"; // Hide the preloader
-  }
+  // function hidePreloader() {
+  //   var preloader = document.querySelector(".preloader");
+  //   preloader.style.display = "none"; // Hide the preloader
+  // }
 
   $(document).ready(function() {
     $(".game-menu-responsive").mousewheel(function(event, delta) {
@@ -575,7 +662,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
 
 
   $(document).on('click', '.even_firm_lists', function() {
-    showPreloader();
     var firm_name = $(this).attr('firm_name');
     var type = $('.scope_category_game').val();
     var scope = $('.scope_firm_form');
@@ -590,7 +676,6 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
   });
 
   $(document).on('click', '.even_game_lists', function() {
-    showPreloader();
 
     var product_id = $(this).attr('product_id');
     var game_type = $(this).attr('game_type');

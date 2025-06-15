@@ -28,8 +28,8 @@ $summary_type = isset($_GET['sum_type']) ? $_GET['sum_type'] : 'player_detail';
   }
   ?>
   <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
+  <?php include 'layout/winx98_bg.php'; ?>
+  <div class="container position-relative mt-100px">
 
     <div class="row">
       <div class="col-12">

@@ -1,6 +1,7 @@
 <?php
 require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
 
 function textFormat($text = '', $pattern = '', $ex = '')
 {
@@ -35,6 +36,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   if ($is_login) {
     $user_data = User::getCurrent();
+    $user_info = nga_user::getUserByID($code, $user_data['id']);
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $data = [
       'user_id' => $user_data['id'],
       'detail' => 'เข้าหน้าถอนเงิน',
@@ -86,13 +89,13 @@ function textFormat($text = '', $pattern = '', $ex = '')
       }
     }
   } else {
-    Aww::redirectOG('login.php');
+    // Aww::redirectOG('login.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
-
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <?php renderBannerUser(); ?>
+  <div class="container position-relative mt-100px">
     <div class="row">
       <div class="col-12">
         <nav aria-label="breadcrumb">
@@ -104,6 +107,30 @@ function textFormat($text = '', $pattern = '', $ex = '')
           </ol>
         </nav>
       </div>
+      <div class="col-12">
+        <div class="wallet-section">
+          <div class="balance-card">
+            <div class="balance-left">
+              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
+            </div>
+            <div class="balance-right">
+              <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
+              <div class="balance-amount">
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <? navDepositWithdraw('deposit'); ?>
       <div class="col-md-6">
         <div class="mt-20px mb-15px">
           <div class="tltle-page d-flex justify-content-center">
@@ -173,18 +200,19 @@ function textFormat($text = '', $pattern = '', $ex = '')
                   <?= Ty::get('confirm2') ?>
                 </button>
                 <input type="hidden" name="submit_deposit" value="1">
-                <div class="detail max-w-305px m-auto mt-15px">
-                  <span class="text-pink"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
-                  <ul>
-                    <li>ฝากเงินขั้นต่ำ 100 บาท
-                    </li>
-                    <li>กรุณาคัดลอกเลขที่บัญชีใหม่ทุกครั้งก่อนทำรายการโอนเงิน</li>
-                    <li>ห้ามใช้เลขบัญชีจากประวัติการโอนเด็ดขาด</li>
-                    <li>เนื่องจากระบบใช้เลขบัญชีแบบ ครั้งเดียวเท่านั้น</li>
-                    <li>หากลูกค้าโอนเงินซ้ำโดยใช้เลขบัญชีเดิม บริษัทจะไม่รับผิดชอบในทุกกรณี</li>
-                  </ul>
-                </div>
               </div>
+            </div>
+
+            <div class="detail max-w-305px m-auto mt-15px">
+              <span class="text-gold"><?= Ty::get('note', [], ["case" => "ucfirst"]) ?></span>
+              <ul>
+                <li>ฝากเงินขั้นต่ำ 100 บาท
+                </li>
+                <li>กรุณาคัดลอกเลขที่บัญชีใหม่ทุกครั้งก่อนทำรายการโอนเงิน</li>
+                <li>ห้ามใช้เลขบัญชีจากประวัติการโอนเด็ดขาด</li>
+                <li>เนื่องจากระบบใช้เลขบัญชีแบบ ครั้งเดียวเท่านั้น</li>
+                <li>หากลูกค้าโอนเงินซ้ำโดยใช้เลขบัญชีเดิม บริษัทจะไม่รับผิดชอบในทุกกรณี</li>
+              </ul>
             </div>
           </form>
         <?php } else if ($check_deposit_response['step'] == 2) { ?>
@@ -195,7 +223,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
           </div>
         <?php } ?>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-75px">
         <div class="title-table">
           <?= Ty::get('withdrawal_history') ?>
         </div>
@@ -204,9 +232,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
             <table class="table table-sort table-theme">
               <thead>
                 <tr>
-                  <th nowrap class="text-white" data-sort=""><?= Ty::get('dateandtime') ?></th>
-                  <th nowrap class="text-white thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
-                  <th nowrap class="text-white text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
+                  <th nowrap class="text-gold" data-sort=""><?= Ty::get('dateandtime') ?></th>
+                  <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= Ty::get('amount') ?></th>
+                  <th nowrap class="text-gold text-end no-sort" data-sort=""><?= Ty::get('status') ?></th>
                 </tr>
               </thead>
             </table>
@@ -239,7 +267,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
     <div class="title text-center text-pink-2">
       <?= 'ยืนยันการฝาก'; ?>
     </div>
-    <p class="detail text-center mt-20px font-18px">
+    <p class="detail text-center font-18px">
       <span>
         <?= "ฝากเข้าบัญชี"; ?>
       </span>
@@ -464,6 +492,126 @@ function textFormat($text = '', $pattern = '', $ex = '')
           });
       });
       $('script').remove();
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      // Handle button clicks
+      $('.nav-button').on('click', function() {
+        const $button = $(this);
+        const buttonId = $button.attr('id');
+
+        // Remove active class from all buttons
+        $('.nav-button').removeClass('active');
+
+        // Add active class to clicked button
+        $button.addClass('active');
+
+        // Add loading state
+        $button.addClass('loading');
+
+        // Handle different button actions
+        switch (buttonId) {
+          case 'downloadBtn':
+            handleDownload($button);
+            break;
+          case 'loginBtn':
+            handleLogin($button);
+            break;
+        }
+      });
+
+      // Handle download action
+      function handleDownload($button) {
+        console.log('Download button clicked');
+
+        // Simulate download process
+        setTimeout(() => {
+          $button.removeClass('loading');
+          showNotification('เริ่มดาวน์โหลดแล้ว', 'success');
+        }, 1500);
+
+        // You can add actual download logic here
+        // For example: window.open('path/to/file.zip', '_blank');
+      }
+
+      // Handle login action
+      function handleLogin($button) {
+        console.log('Login button clicked');
+
+        // Simulate login process
+        setTimeout(() => {
+          $button.removeClass('loading');
+          showNotification('กำลังเข้าสู่ระบบ...', 'info');
+
+          // Redirect to login page or show login modal
+          // window.location.href = '/login';
+        }, 1000);
+      }
+
+      // Notification system
+      function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        $('.notification').remove();
+
+        const notification = $(`
+            <div class="notification notification-${type}">
+                <i class="fas fa-${getNotificationIcon(type)}"></i>
+                <span>${message}</span>
+            </div>
+        `);
+
+        $('body').append(notification);
+
+        // Show notification
+        setTimeout(() => {
+          notification.addClass('show');
+        }, 100);
+
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+          notification.removeClass('show');
+          setTimeout(() => {
+            notification.remove();
+          }, 300);
+        }, 3000);
+      }
+
+      // Get notification icon based on type
+      function getNotificationIcon(type) {
+        switch (type) {
+          case 'success':
+            return 'check-circle';
+          case 'error':
+            return 'exclamation-circle';
+          case 'warning':
+            return 'exclamation-triangle';
+          default:
+            return 'info-circle';
+        }
+      }
+
+      // Keyboard accessibility
+      $('.nav-button').on('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          $(this).click();
+        }
+      });
+
+      // Add ARIA attributes for accessibility
+      $('.nav-button').attr({
+        'role': 'button',
+        'tabindex': '0',
+        'aria-pressed': 'false'
+      });
+
+      // Update aria-pressed when button becomes active
+      $('.nav-button').on('click', function() {
+        $('.nav-button').attr('aria-pressed', 'false');
+        $(this).attr('aria-pressed', 'true');
+      });
     });
   </script>
 </body>

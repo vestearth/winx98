@@ -1,6 +1,7 @@
 <?php
 require_once '.framework/import.php';
-require_once 'layout/footer_nav.php'; // Include the file containing renderBannerBorder
+require_once 'layout/navbanner.php';
+require_once 'layout/footer_nav.php';
 $page = 'index';
 
 
@@ -10,6 +11,57 @@ $options = [
 ];
 $runnertext = nga_management::getRunnerText($code, $options);
 $this_page = 'index';
+
+$type_game_template = [
+  'CASINOLIVE' => [
+    'name' => Ty::get('casino'),
+    'typeName' => 'CASINOLIVE',
+    'img' => 'assets/img/icon/casino-game.png',
+    'ordering' => 1
+  ],
+  'SLOT' => [
+    'name' => Ty::get('slot'),
+    'typeName' => 'SLOT',
+    'img' => 'assets/img/icon/slot-game.png',
+    'ordering' => 2,
+  ],
+  'SPORTBOOK' => [
+    'name' => Ty::get('sport'),
+    'typeName' => 'SPORTBOOK',
+    'img' => 'assets/img/icon/sport-game.png',
+    'ordering' => 3
+  ],
+  'FISHING' => [
+    'name' => Ty::get('fishing'),
+    'typeName' => 'FISHING',
+    'img' => 'assets/img/icon/fish-game.png',
+    'ordering' => 4
+  ],
+  'CARD' => [
+    'name' => Ty::get('card'),
+    'typeName' => 'CARD',
+    'img' => 'assets/img/icon/card-game.png',
+    'ordering' => 6
+  ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/img/icon/other-game.png',
+    'ordering' => 7
+  ],
+  'LOTTO' => [
+    'name' => Ty::get('lottery'),
+    'typeName' => 'LOTTO',
+    'img' => 'assets/img/icon/lotto-game.png',
+    'ordering' => 8
+  ],
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
+];
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +73,7 @@ $this_page = 'index';
   Aww::loadAsset('assets/css/main.css');
   Aww::loadAsset('assets/css/custom.css');
   ?>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <meta name="google-site-verification" content="7P9DfPbXhqK0AOsk-vKh2LvzdP6rn6_5rcRplswQWiM" />
 </head>
 
@@ -46,221 +98,334 @@ $this_page = 'index';
     $notification = User_Notification::selectNotification($code, $where);
     $user_group_id = $user_info['user_group_id'];
     $landing_page =  nga_management::selectLandingPageByUserGroup($code, $user_group_id);
+
+    $get_game_setting = nga_management::getGameActiveStatus($code);
+
+    if ($get_game_setting['is_open_card_game'] == 0) {
+      unset($type_game_template['CARD']);
+    }
+    if ($get_game_setting['is_open_board_game'] == 0) {
+      unset($type_game_template['BOARD']);
+    }
+    if ($get_game_setting['is_open_slot_game'] == 0) {
+      unset($type_game_template['SLOT']);
+    }
+    if ($get_game_setting['is_open_casinolive_game'] == 0) {
+      unset($type_game_template['CASINOLIVE']);
+    }
+    if ($get_game_setting['is_open_arcade_game'] == 0) {
+      unset($type_game_template['ARCADE']);
+    }
+    if ($get_game_setting['is_open_fishing_game'] == 0) {
+      unset($type_game_template['FISHING']);
+    }
+    if ($get_game_setting['is_open_lotto'] == 0) {
+      unset($type_game_template['LOTTO']);
+    }
+
+    if ($get_game_setting['is_open_sportbook_game'] == 0) {
+      unset($type_game_template['SPORTBOOK']);
+    }
   } else {
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <!-- layout mobile -->
-  <div class="container index-container position-relative main">
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <div class="container-fluid mb-200px">
+    <?php renderBannerUser(); ?>
+    <div class="row">
+      <div class="col-12">
+        <!-- Popup Banner Suggest Install APP -->
+        <div id="app-install-banner d-none" class="bg-granit" style="display:none; position:relative; z-index:1050; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:18px 24px 18px 54px; min-width:260px; max-width:100vw;">
+          <button id="close-app-install-banner" style="position:absolute; left:10px; top:0px; background:transparent; border:none; font-size:50px; color:white; cursor:pointer;">&times;</button>
+          <div class="justify-content-between" style="display:flex; align-items:center;">
+            <div>
+              <div style="font-weight:bold; font-size:16px; color:#FFFFFF;">เพิ่ม WinX98 ไปยัง หน้าแรก</div>
+              <div style="font-size:13px; color:#F3D17C;">เข้าเว็บง่าย ผ่านมือถือ</div>
+            </div>
+            <div>
+              <button class="btn btn-light event_view_load_app" style="margin-top:8px; padding:4px 16px; font-size:14px;">
+                <div class="my-12px mx-15px text-nowrap">
+                  <img src="assets/img/app-install.svg" alt="App Install" style="width:20px; height:20px; margin-right:8px;">
+                  <span class="font-16px" style="font-weight: 600;">
+                    APP INSTALL
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <script>
+          $(function() {
+            // Show banner if not closed before
+            if (!$.cookie('close_app_install_banner')) {
+              $('#app-install-banner').fadeIn();
+            }
+            $('#close-app-install-banner').on('click', function() {
+              $('#app-install-banner').fadeOut();
+              $.cookie('close_app_install_banner', '1', {
+                expires: 7
+              });
+            });
+          });
+        </script>
+      </div>
+    </div>
+    <div class="mx-auto mt-100px" style="max-width: 700px;">
+      <div class="casino-app">
+        <!-- Header Section -->
+        <div class="header-section">
+          <img src="assets/img/PromoIndex.png" alt="Casino Banner" class="header-background-image">
+        </div>
 
-    <?php if ($runnertext) { ?>
-      <div class="jackpot">
-        <div class="jackpot-frame">
-          <div class="jackpot-move">
-            <!-- <img src="assets/images/jackpot.png" alt=""> -->
-            <img src="source/jackpot-wrap.png" alt="">
-            <span>
-              <? // = $runnertext['full_text']; 
-              ?>
+        <!-- News Ticker -->
+        <div class="border-top-gradient"></div>
+        <div class="news-ticker">
+          <div class="ticker-content">
+            <span class="ticker-label">ประกาศ</span>
+            <div class="ticker-text">
               <?php
               $text = $runnertext['full_text'];
-              // $text = "ยินดีกับเบอร์ 089 919XXXX ได้รับ Jackpot 20,000.00 บาท";
               $text = preg_replace('/(\d{3} \d{3}XXXX|\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/', '<span class="gold-text">$1</span>', $text);
-              echo $text;
               ?>
-            </span>
-          </div>
-        </div>
-      </div>
-    <?php } ?>
-    <div class="row">
-      <div class="col-md-12 banner">
-        <div class="outlaw-swiper full-size-banner">
-          <div class="swiper bannerSwiper pos-rel mt-0">
-            <div class="swiper-wrapper">
-              <?php
-              if ($banner) {
-                foreach ($banner as $banner_index) {
-              ?>
-                  <div class="swiper-slide">
-                    <img src="<?= $banner_index['banner_image']; ?>">
-                  </div>
-              <?php
-                }
-              }
-              ?>
+              <span>
+                <?= $text; ?>
+              </span>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- <div class="swiper-pagination"></div> -->
           </div>
         </div>
-      </div>
-      <!-- <div class="col-12">
-        <div class="full-size-banner">
-          <img src="source/full_banner.png" alt="Full Size Banner" class="">
+        <div class="border-top-gradient"></div>
+
+        <!-- Wallet Section -->
+        <!-- <div class="wallet-section">
+          <div class="balance-card">
+            <div class="balance-left">
+              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="phone-number"><?= $user_info['username'] ?></p>
+            </div>
+            <div class="balance-right">
+              <img src="assets/img/icon/coins.svg" alt="Coins" class="coins-icon">
+              <div class="balance-amount">
+                <?php $money = number_format($user_info['money_balance'], 2); ?>
+                <?php
+                $money_parts = explode('.', $money);
+                $main_amount = $money_parts[0];
+                $decimal_part = isset($money_parts[1]) ? $money_parts[1] : '00';
+                ?>
+                <span class="amount-main"><?= $main_amount ?></span>
+                <span class="amount-decimal">.<?= $decimal_part ?></span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Action Buttons -->
+        <!-- <div class="action-buttons">
+          <button class="action-btn deposit-btn" onclick="window.location.href='deposit.php'">
+            <img src="assets/img/icon/deposit.svg" alt="Deposit" class="btn-icon">
+            <span>ฝากเงิน</span>
+          </button>
+          <button class="action-btn withdraw-btn" onclick="window.location.href='withdraw.php'">
+            <img src="assets/img/icon/withdraw.svg" alt="Withdraw" class="btn-icon">
+            <span>ถอนเงิน</span>
+          </button>
         </div>
       </div> -->
-      <div class="col-lg-12 mt-15px">
-        <div class="profile border unset-bottom-radius">
-          <div class="profile-detail">
-            <div class="profile-name">
-              <p><?= $user_info['username'] ?><span class="text-pink-2"><?= $user_info['user_group_name'] ?></span></p>
-            </div>
-            <div class="profile-balance">
-              <div class="box-cash">
-                <img src="source/wallet-profile.svg" alt="">
-                <p class="text-white font-17px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
-              </div>
-            </div>
-            <?php /* 
-              <p class="text-white font-26px">฿ <?= number_format($user_info['money_balance'], 2) ?></p>
-            */
-            ?>
+
+        <div class="user-main-menu-container">
+          <div class="user-main-menu-header">
+            <h2 class="user-main-menu-title">เมนูหลัก</h2>
           </div>
+
+          <div class="user-main-menu-grid">
+            <!-- Row 1 -->
+            <div class="user-main-menu-item" onclick="window.location.href='games.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-game.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">เล่นเกม</span>
+            </div>
+
+            <div class="user-main-menu-item" onclick="window.location.href='deposit.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-wallet.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">กระเป๋าเงิน</span>
+            </div>
+
+            <div class="user-main-menu-item" onclick="window.location.href='<?= $alliance_data['line_link']; ?>'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-line.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">ติดต่อเรา</span>
+            </div>
+
+            <div class="user-main-menu-item" onclick="window.location.href='refund.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-refund.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">คืนยอดเสีย</span>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="user-main-menu-item" onclick="window.location.href='user.php'">
+              <div class="user-main-menu-icon">
+                <img src="assets/img/icon/main-profile.svg" alt="">
+              </div>
+              <span class="user-main-menu-label">โปรไฟล์</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-promotion.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">โปรโมชั่น</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-comment.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">ความคิดเห็น</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-review.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">รีวิว</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-vip.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">VIP</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-dices.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">มินิเกมส์</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-event.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">กิจกรรม</span>
+            </div>
+
+            <div class="user-main-menu-item">
+              <div class="user-main-menu-icon user-main-menu-icon--blockout" style="position:relative;">
+                <img src="assets/img/icon/main-aff.svg" alt="">
+                <span class="badge-soon">เร็วๆนี้</span>
+              </div>
+              <span class="user-main-menu-label">แนะนำเพื่อน</span>
+            </div>
+          </div>
+          <style>
+            .badge-soon {
+              position: absolute;
+              top: 2px;
+              right: 2px;
+              background: #ff9800;
+              color: #fff;
+              font-size: 10px;
+              padding: 2px 6px;
+              border-radius: 8px;
+              font-weight: bold;
+              z-index: 2;
+              pointer-events: none;
+              box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+            }
+          </style>
         </div>
-        <div class="row g-1">
-          <div class="col-6">
-            <a href="deposit.php" class="preloader-link text-decoration-none">
-              <div class="profile style2 unset-top-radius border">
-                ฝากเงิน
-              </div>
-            </a>
-          </div>
-          <div class="col-6">
-            <a href="withdraw.php" class="preloader-link text-decoration-none">
-              <div class="profile style2 unset-top-radius border">
-                ถอนเงิน
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="col-12">
-        <div class="games-slide-list-container">
-          <div class="games-slide-list-header">
-            <div class="type-list">
-              <img src="source/game-casino-chip.png" alt="">
-              <div class="title">CASINO</div>
-            </div>
-            <div class="d-flex align-items-center justify-content-end">
-              <a href="games.php" class="text-decoration-none">
-                <div class="icon-total">
-                  ดูทั้งหมด
+
+        <?php /* 
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
                 </div>
-              </a>
-              <div class="button icon-button-next">
-                <a href="#">
-                  <?= file_get_contents('source/arrow-left.svg'); ?>
-                </a>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
               </div>
-              <div class="icon-button-prev">
-                <a href="#">
-                  <?= file_get_contents('source/arrow-right.svg'); ?>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="games-slide-list-body">
-            <div class="game-list">
-              <img src="source/mockup-game.png" class="game-list-gradient" alt="">
-            </div>
+            <?php endforeach; ?>
           </div>
         </div>
-      </div> -->
-    </div>
-  </div>
-  <?php renderFooterNav(); ?>
+        */ ?>
 
-  <?php
-  if (!isset($_SESSION['check_first']) && !isset($landing_page['response_message'])) {
-    $_SESSION['check_first'] = 1;
-  ?>
-    <div class="landing-page">
-      <div class="landing-page-container">
-        <div class="close-modal event_close_landing_page">
-          <?= file_get_contents('assets/icon/X.svg') ?>
-        </div>
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <?php
-            foreach ($landing_page as $value) {
-            ?>
+        <?php /* 
+        <div class="jackpot-swiper unset-height">
+          <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+            <img src="assets/img/text-customer.svg">
+          </div>
+          <div class="swiper swiperJackpot">
+            <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <?php if ($value['type'] == 'picture') { ?>
-                  <div class="img-16by9 holder">
-                    <img src="<?= $value['landing_page_img'] ?>" class="landing-img">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 089 919 XXXX<br>
+                    แตกแจ็คพอต <b>5,000฿</b>
                   </div>
-                  <?php if ($value['button_link']) { ?>
-                    <div class="button-container">
-                      <?php if ($value['button_link']) { ?>
-                        <a href="<?= $value['button_link'] ?>" target="_blank" class="btn btn-main"><?= $value['button_name'] ?></a>
-                      <?php } else { ?>
-                        <button class="btn btn-main event_close_landing_page"><?= $value['button_name'] ?></button>
-                      <?php } ?>
-                    </div>
-                  <?php } ?>
-                <?php } else { ?>
-                  <div class="landing-text">
-                    <span> <?= $value['description'] ?></span>
-                  </div>
-                  <?php if ($value['button_name']) { ?>
-                    <div class="button-container">
-                      <?php if ($value['button_link']) { ?>
-                        <a href="<?= $value['button_link'] ?>" target="_blank" class="btn btn-main"><?= $value['button_name'] ?></a>
-                      <?php } else { ?>
-                        <button class="btn btn-main event_close_landing_page"><?= $value['button_name'] ?></button>
-                      <?php } ?>
-                    </div>
-                  <?php } ?>
-                <?php } ?>
+                </div>
               </div>
-            <?php } ?>
+              <div class="swiper-slide">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 086 777 XXXX<br>
+                    แตกแจ็คพอต <b>3,200฿</b>
+                  </div>
+                </div>
+              </div>
+              <!-- Add more slides as needed -->
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper-pagination swiper-popup"></div>
+        </div>
+        */ ?>
+
+        <div class="text-center my-25px">
+          <img src="assets/img/winner-of-the-day.svg" alt="">
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div id="winner_list" class="container-pagination table-custom winner-table-custom" <?= Homepagify::createHomepagify('winner_list', '', '', 'รายการผู้ชนะ', ''); ?>>
+              <div class="table-responsive">
+                <table class="table table-sort table-theme">
+                  <thead>
+                    <tr>
+                      <th nowrap class="text-gold" data-sort=""><?= "อันดับ" ?></th>
+                      <th nowrap class="text-gold" data-sort=""><?= "ยูส" ?></th>
+                      <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "ยอดรับ" ?></th>
+                      <th nowrap class="text-gold thin-cell text-end" data-sort=""><?= "อัตราชนะ" ?></th>
+                      <th nowrap class="text-gold" data-sort=""><?= "เกมยอดนิยม" ?></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  <?php
-  }
-  ?>
-  <div class="menu-fix-right">
-    <a href="<?= $alliance_data['line_link'] ?>" target="_blank">
-      <div class="menu-line">
-        <div class="box-close event_close_fix_menu">
-          <?= file_get_contents('assets/icon/close.svg') ?>
-        </div>
-      </div>
-    </a>
   </div>
-
-  <?php Tiwdal::startModal('modal_maintenance', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
-  <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
-    <?= file_get_contents('assets/icon/cross.svg') ?>
-  </button>
-  <div class="modal-body">
-    <h5 class="text-center">ขออภัยในความไม่สะดวก</h5>
-    <p class="detail font-16px text-center" style="white-space: pre-line">
-      ธนาคารไทยพานิชณ์ (SCB) จะทำการปิดปรับปรุงการใช้บริการเพื่อพัฒนาระบบระหว่าง
-      วันศุกร์ที่ 9 มิถุนายน 2556 เวลา 20:00 น.
-      ถึงเวลา
-      วันเสาร์ 10 มิถุนายน 2556 เวลา 03:00 น.
-    </p>
-    <p class="text-danger text-center" style="white-space: pre-line">
-      ลูกค้าจะไม่สามารถทำรายการฝาก - ถอนเงิน
-      ผ่าน SCB ได้ตามช่วงเวลาที่ระบุ ทั้งนี้
-      <u>ลูกค้าสามารถติดต่อแอดมิน</u>
-      เพื่อทำรายการได้ตามปกติ
-    </p>
-  </div>
-  <div class="modal-footer">
-    <button data-bs-dismiss="modal" aria-label="Close" class="btn btn-main">
-      <?= Ty::get('okay') ?>
-    </button>
-  </div>
-  <?php Tiwdal::endModal() ?>
 
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <?php
@@ -268,9 +433,10 @@ $this_page = 'index';
   Structure::loadFooter();
   Aww::loadAsset('assets/js/force_logout.js');
   Aww::loadAsset('assets/js/main.js');
+  Aww::loadAsset('assets/js/notification.js');
 
   ?>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
     $(function() {
@@ -299,19 +465,26 @@ $this_page = 'index';
       });
       $('script').remove();
     });
-    var swiper = new Swiper(".bannerSwiper", {
+    var swiper = new Swiper('.swiperJackpot', {
+      slidesPerView: 3,
+      spaceBetween: 16,
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
+        clickable: true,
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-popup",
-      },
+      loop: true,
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
+      breakpoints: {
+        0: {
+          slidesPerView: 1
+        },
+        992: {
+          slidesPerView: 3
+        }
+      }
     });
   </script>
 </body>

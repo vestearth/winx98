@@ -61,7 +61,8 @@ if ($is_login) {
 </head>
 
 <body>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderBannerBorder(); ?>
   <div class="container">
     <?php
     $lhb_style = 'style-web-close-banner';
@@ -81,7 +82,6 @@ if ($is_login) {
     <?php } ?>
     <div class="row justify-content-center custom-header-layout <?= $lhb_style; ?>">
       <div class="col-lg-5 col-md-6 text-center">
-        <?php renderBannerBorder(); ?>
         <div class="card-login">
           <!-- <div class="card-login-nav">
             <a href="login.php" class="active"><?= Ty::get('login') ?></a>
@@ -147,7 +147,7 @@ if ($is_login) {
                   </div>
                 </a>
                 <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
-                  <div class="qr-code-section">
+                  <div class="qr-code-section mt-15px">
                     <div class="qr-box">
                       <?php if (!empty($getAlliasRef['line_image'])) { ?>
                         <img src="<?= $getAlliasRef['line_image']; ?>" alt="">

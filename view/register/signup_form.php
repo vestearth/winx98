@@ -10,7 +10,6 @@ foreach ($bank_config as $key => $data) {
     'img' => $data['image'],
   ];
 }
-// Aww::display($options_bank);
 
 ?>
 <form method="post">
@@ -62,14 +61,14 @@ foreach ($bank_config as $key => $data) {
     </div>
   </div>
   <div class="form-group">
-    <label for="bank_name"><?= "ชื่อที่ผูกกับธนาคาร"; ?></label>
-    <div class="input-icon account">
+    <label for="bank_name"><?= "ชื่อ (ที่ผูกกับธนาคาร) "; ?></label>
+    <div class="input-icon user-contact">
       <input type="text" name="bank_name" id="bank_name" value="" class="form-input-custom" placeholder="<?= "กรอกชื่อบัญชี" ?>" required>
     </div>
   </div>
   <div class="form-group">
-    <label for="bank_name2"><?= "นามสกุลที่ผูกกับธนาคาร"; ?></label>
-    <div class="input-icon account">
+    <label for="bank_name2"><?= "นามสกุล (ที่ผูกกับธนาคาร) "; ?></label>
+    <div class="input-icon user-contact">
       <input type="text" name="bank_name2" id="bank_name2" value="" class="form-input-custom" placeholder="<?= "กรอกนามสกุลบัญชี" ?>" required>
     </div>
   </div>
@@ -77,6 +76,12 @@ foreach ($bank_config as $key => $data) {
     <label for="account"><?= Ty::get('acc_numb', [], ["case" => "ucfirst"]) ?></label>
     <div class="input-icon account">
       <input type="number" name="bank_account" id="account" class="form-input-custom" placeholder="<?= Ty::get('accnumb_fill') ?>" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="account"><?= 'Line ID'; ?></label>
+    <div class="input-icon line">
+      <input type="text" name="line_id" id="account" class="form-input-custom" placeholder="<?= 'กรอก Line ID'; ?>" required>
     </div>
   </div>
   <!-- 
@@ -121,7 +126,7 @@ foreach ($bank_config as $key => $data) {
 
     // Build custom dropdown
     var $custom = $('<div class="custom-bank-select"></div>');
-    var $selected = $('<div class="selected-bank" style="cursor:pointer;border:1px solid #242424;padding:8px;border-radius:4px;width:100%;color:#FFFFFF;"></div>');
+    var $selected = $('<div class="selected-bank" style="background: rgba(0, 0, 0, 0.5); cursor:pointer;border:1px solid #FC8181;padding:8px;border-radius:4px;width:100%;color:#FFFFFF; padding: 11px 0 10px 5px;"></div>');
     var $dropdown = $('<div class="bank-dropdown" style="display:none;position:absolute;z-index:1000;background:#5D5D5D;border:1px solid #ccc;border-radius:4px;max-height:200px;overflow:auto;"></div>');
 
     function renderSelected() {

@@ -1,5 +1,6 @@
 <?php
 require_once '.framework/import.php';
+
 if ($is_login) {
   $user_data = User::getCurrent();
 } else {
@@ -50,8 +51,11 @@ function textFormat($text = '', $pattern = '', $ex = '')
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php require_once 'layout/navbanner.php'; ?>
+  <?php require_once 'layout/footer_nav.php'; ?>
+  <?php renderFooterNav(); ?>
+  <?php renderBannerUser(); ?>
   <div class="container position-relative">
 
     <div class="row">

@@ -3,6 +3,57 @@ require_once '.framework/import.php';
 require_once 'layout/navbanner.php';
 require_once 'layout/footer_nav_landing.php';
 
+$type_game_template = [
+  'CASINOLIVE' => [
+    'name' => Ty::get('casino'),
+    'typeName' => 'CASINOLIVE',
+    'img' => 'assets/img/icon/casino-game.png',
+    'ordering' => 1
+  ],
+  'SLOT' => [
+    'name' => Ty::get('slot'),
+    'typeName' => 'SLOT',
+    'img' => 'assets/img/icon/slot-game.png',
+    'ordering' => 2,
+  ],
+  'SPORTBOOK' => [
+    'name' => Ty::get('sport'),
+    'typeName' => 'SPORTBOOK',
+    'img' => 'assets/img/icon/sport-game.png',
+    'ordering' => 3
+  ],
+  'FISHING' => [
+    'name' => Ty::get('fishing'),
+    'typeName' => 'FISHING',
+    'img' => 'assets/img/icon/fish-game.png',
+    'ordering' => 4
+  ],
+  'CARD' => [
+    'name' => Ty::get('card'),
+    'typeName' => 'CARD',
+    'img' => 'assets/img/icon/card-game.png',
+    'ordering' => 6
+  ],
+  'BOARD' => [
+    'name' => Ty::get('board'),
+    'typeName' => 'BOARD',
+    'img' => 'assets/img/icon/other-game.png',
+    'ordering' => 7
+  ],
+  'LOTTO' => [
+    'name' => Ty::get('lottery'),
+    'typeName' => 'LOTTO',
+    'img' => 'assets/img/icon/lotto-game.png',
+    'ordering' => 8
+  ],
+  'ARCADE' => [
+    'name' => 'ARCADE',
+    'typeName' => 'ARCADE',
+    'img' => 'assets/img/icon/esport-game.png',
+    'ordering' => 8
+  ],
+];
+
 $system_line  = nga_management::getGeneralWebsite($code);
 
 $menu_landing = [
@@ -51,12 +102,12 @@ if ($is_login) {
   Aww::loadAsset('assets/css/main.css');
   Aww::loadAsset('assets/css/custom.css');
   ?>
-  <link rel="canonical" href="https://mvpshot.com/landing.php">
+  <!-- <link rel="canonical" href="https://mvpshot.com/landing.php"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
-
-  <section class="banner">
+  <section>
     <?php
     if (!$banner_download_landing) { ?>
       <div class="landing-header-download">
@@ -73,154 +124,368 @@ if ($is_login) {
       // landing-header-body stype top:0px
       $lhb_style = 'style-close-banner';
     } ?>
-    <div class="container">
-      <?php renderBannerBorder(); ?>
+    <div class="container-fluid">
+      <?php renderBannerLanding(); ?>
       <div class="row">
-        <div class="col-12">
-          <div class="img-intro d-flex justify-content-center w-100 mt-20px">
-            <img src="source/first-landing.png" alt="Full Size Banner" class="">
+        <div class="col-12 d-none">
+          <!-- Popup Banner Suggest Install APP -->
+          <div id="app-install-banner" class="bg-granit" style="display:none; position:relative; z-index:1050; box-shadow:0 2px 12px rgba(0,0,0,0.15); padding:18px 24px 18px 54px; min-width:260px; max-width:100vw;">
+            <button id="close-app-install-banner" style="position:absolute; left:10px; top:0px; background:transparent; border:none; font-size:50px; color:white; cursor:pointer;">&times;</button>
+            <div class="justify-content-between" style="display:flex; align-items:center;">
+              <div>
+                <div style="font-weight:bold; font-size:16px; color:#FFFFFF;">เพิ่ม WinX98 ไปยัง หน้าแรก</div>
+                <div style="font-size:13px; color:#F3D17C;">เข้าเว็บง่าย ผ่านมือถือ</div>
+              </div>
+              <div>
+                <button class="btn btn-light event_view_load_app" style="margin-top:8px; padding:4px 16px; font-size:14px;">
+                  <div class="my-12px mx-15px text-nowrap">
+                    <img src="assets/img/app-install.svg" alt="App Install" style="width:20px; height:20px; margin-right:8px;">
+                    <span class="font-16px" style="font-weight: 600;">
+                      APP INSTALL
+                    </span>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
+          <script>
+            $(function() {
+              // Show banner if not closed before
+              if (!$.cookie('close_app_install_banner')) {
+                $('#app-install-banner').fadeIn();
+              }
+              $('#close-app-install-banner').on('click', function() {
+                $('#app-install-banner').fadeOut();
+                $.cookie('close_app_install_banner', '1', {
+                  expires: 7
+                });
+              });
+            });
+          </script>
         </div>
       </div>
-      <div class="intro">
-        <p>
-          <span class="gold-txt">WinX98</span> เว็บเดิมพันออนไลน์ คาสิโนครบ
-          วงจร มาพร้อมระบบและบริการที่ยอดเยี่ยมถึงใจ
-          สมัครรับโบนัสฟรี <span class="gold-txt">100%</span>
-        </p>
-        <p>
-          ถ้าพูดถึงเว็บพนันออนไลน์ WinX98 ที่ดีและได้รับ
-          มาตรฐานสากลต้อง WinX98 เท่านั้นเพราะเป็นเว็บ
-          betflik ทางเข้า พนันออนไลน์ที่ได้รับ ลิขสิทธิ์แท้จากต่าง
-          ประเทศ ถูกต้องของแท้แน่นอน...อ่านทั้งหมด
-        </p>
-        <div class="img-intro w-100">
-          <img src="source/intro-landing.png" class="">
-        </div>
-        <div class="easy-register mt-20px">
-          <p class="mb-0 font-24px">
-            <span class="gold-txt font-24px">สมัครง่าย</span> เพียง 3 ขั้นตอน
-          </p>
-          <p class="mb-0 font-18px">
-            สมัครฟรี!! ไม่มีค่าบริการ ปลอดภัย 100%
-          </p>
-          <div class="icon-regis mt-20px mb-30px">
-            <div class="row">
-              <div class="col-4">
-                <img src="source/game-regis1.png" alt="">
-                <p class="gold-txt mb-0 font-18px">สมัครสมาชิก</p>
-                <span>ง่าย ๆ ผ่านหน้าเว็บ</span>
-              </div>
-              <div class="col-4">
-                <img src="source/game-regis2.png" alt="">
-                <p class="gold-txt mb-0 font-18px">ฝากเงิน</p>
-                <span>ฝาก-ถอนเร็ว
-                  เพียง 2 วินาที!!</span>
-              </div>
-              <div class="col-4">
-                <img src="source/game-regis3.png" alt="">
-                <p class="gold-txt mb-0 font-18px">สนุกไปกับเกม</p>
-                <span>มากกว่า 50 ค่าย</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <button type="submit" name="submit_register" class="btn btn-sub w-100">
-              <?= "สมัครสมาชิกเลย"; ?>
-            </button>
-          </div>
-        </div>
-        <div class="row mt-30px">
-          <!-- <div class="col-lg-12 mb-20px mb-lg-0">
-            <div class="d-flex justify-content-center align-items-center promote-join">
-              <img src="source/promote-join.png" class="">
-            </div>
-          </div> -->
-          <div class="col-lg-12">
-            <div class="d-flex justify-content-center align-items-center promote-auto">
-              <img src="source/promote-auto.png" class="">
+      <div class="mx-auto mt-100px" style="max-width: 700px;">
+        <div class="row">
+          <div class="col-12">
+            <div class="img-intro d-flex justify-content-center w-100 mt-20px">
+              <img src="assets/img/first-landing.png" alt="Full Size Banner" class="">
             </div>
           </div>
         </div>
-        <div class="intro2">
-          <div class="d-flex title">
-            <img src="source/icon-mockup.png" alt="">
-            <div class="text">
-              WinX98
+        <div class="features-card-container">
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/deposit-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">เกมครบ จบในที่เดียว</div>
+              <div class="features-card-desc">สล็อต คาสิโนสด กีฬา อีสปอร์ต หวย และเกมยิงปลา</div>
             </div>
           </div>
-          <span class="content">
-            WinX98 เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
-            เกมสล็อตมากกว่า 1,000 เกมกับ 21 ค่ายชื่อดัง รวมเกม
-            แตกบ่อย ที่หลายเว็บไม่มีให้เล่น ทุกอย่างครบจบภายใน
-            กระเป๋าเดียว ไม่ต้องโยกเงินให้เสียเวลา ระบบอัตโนมัติทุก
-            ขั้นตอน สมัครสมาชิก ฝาก -ถอนไว ใช้เวลาทำธุรกรรม
-            เพียง 3 วินาที รับฟรีสิทธิพิเศษสำหรับลูกค้า
-          </span>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/wallet-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">บริการลูกค้า 24 ชั่วโมง ระดับมืออาชีพ</div>
+              <div class="features-card-desc">ทีมงานมืออาชีพพร้อมช่วยเหลือทุกปัญหา</div>
+            </div>
+          </div>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/game-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">ฝาก-ถอน ด้วยระบบทันสมัย</div>
+              <div class="features-card-desc">ระบบอัตโนมัติ รวดเร็วทันใจ</div>
+            </div>
+          </div>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/trophy-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">จ่ายจริง ได้รับเงินแน่นอน</div>
+              <div class="features-card-desc">ยืนยันการชนะทันที ไม่มีล็อคยูส</div>
+            </div>
+          </div>
+          <div class="features-card-row">
+            <div class="features-card-icon">
+              <img src="assets/img/lottery-icon.svg" alt="" />
+            </div>
+            <div class="features-card-content">
+              <div class="features-card-title">เกมใหม่อัพเดททุกสัปดาห์</div>
+              <div class="features-card-desc">อัปเดตจากค่ายเกมชั้นนำกว่า 100 ค่าย</div>
+            </div>
+          </div>
         </div>
-        <hr>
-        <div class="menu-additional">
-          <div class="row">
-            <!-- <div class="col-6 col-md-3 d-none d-md-block"></div> -->
-            <div class="col-12 col-md-6">
-              <div class="title d-none">
-                <div>
-                  เมนูเพิ่มเติม
-                </div>
-                <ul class="menu-ul">
-                  <?php
-                  $menu_items = [
-                    ['text' => 'WinX98'],
-                    ['text' => 'ฝากถอน'],
-                    ['text' => 'โปรโมชั่น'],
-                    ['text' => 'กิจกรรม'],
-                    ['text' => 'รีวิวลูกค้า'],
-                  ];
 
-                  foreach ($menu_items as $item) {
-                    echo '<li><span class="gen-icon"></span>' . $item['text'] . '</li>';
-                  }
-                  ?>
-                </ul>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="border-gradient border-gradient-second w-100">
-                <div class="d-flex justify-content-center align-items-center">
-                  <img src="source/red-line.png" class="line-icon mr-10px">
-                  <div>
-                    แอดตรงผ่านไลน์
-                    <?php if ($getAlliasRef['line_name']) { ?>
-                      <p class="mb-0"><?= $getAlliasRef['line_name']; ?></p>
-                    <?php } else { ?>
-                      <p class="mb-0"><?= 'WINX98'; ?></p>
-                    <?php } ?>
+        <!-- <div class="jackpot-swiper">
+          <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+            <img src="assets/img/text-customer.svg">
+          </div>
+          <div class="swiper swiperJackpot">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 089 919 XXXX<br>
+                    แตกแจ็คพอต <b>5,000฿</b>
                   </div>
                 </div>
-                <div class="qr-code-section">
-                  <div class="qr-box">
-                    <!-- <img src="source/qr-code.png" alt=""> -->
-                    <?php if ($getAlliasRef['line_image']) { ?>
-                      <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
-                    <?php } else { ?>
-                      <img src="source/qr-code.png" alt="">
-                    <?php } ?>
+              </div>
+              <div class="swiper-slide">
+                <div class="jackpot-title">
+                  <img src="assets/img/jackpot-img.png" alt="">
+                </div>
+                <div class="jackpot-card">
+                  <div class="jackpot-message">
+                    ยินดีกับลูกค้า 089 919 XXXX<br>
+                    แตกแจ็คพอต <b>5,000฿</b>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div> -->
+
+        <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+          <!-- <img src="assets/img/text-customer.svg"> -->
+          <img src="assets/img/allHere.png" style="max-width: 300px;">
+        </div>
+
+        <div class="game-categories-container">
+          <div class="game-categories-grid">
+            <?php foreach ($type_game_template as $gameType => $gameData): ?>
+              <div class="game-category-item">
+                <div class="game-category-card">
+                  <img src="<?= $gameData['img'] ?>" alt="<?= $gameData['name'] ?>" class="game-category-image">
+                </div>
+                <span class="game-category-label"><?= $gameData['name'] ?></span>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <div class="example-game-swiper">
+          <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+            <img src="assets/img/example-game-text.svg">
+          </div>
+          <div class="swiper swiper1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/PGSOFT/PGSOFT.png" alt="Logo 1"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/AMBPOKER/AMBPOKER.png" alt="Logo 2"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/SIMPLEPLAY/SIMPLEPLAY.png" alt="Logo 3"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/AMBGAMING/AMBGAMING.png" alt="Logo 4"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/EVOPLAY/EVOPLAY.png" alt="Logo 5"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/HACKSAW/HACKSAW.png" alt="Logo 6"></div>
+              <div class="swiper-slide"><img class="example-game-img" src="assets/images/firm_cover/NINEGAME/NINEGAME.png" alt="Logo 7"></div>
+              <?php /* for ($i = 1; $i <= 7; $i++): ?>
+                <div class="swiper-slide">
+                  <div class="grey-placeholder" onclick="window.location.href='login.php'"></div>
+                </div>
+              <?php endfor; */ ?>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
+            <button class="thai-button" onclick="window.location.href='login.php'">ดูเกมทั้งหมด</button>
+          </div>
+        </div>
+
+        <div class="casino-banner">
+          <div class="banner-image">
+            <div class="casino-logo"><img src="assets/img/winx98v2.svg" alt="seo"></div>
+            <div class="casino-scene">
+              <img src="assets/img/seo-img.png" alt="seo">
+            </div>
+          </div>
+
+          <div class="banner-content">
+            <h2 class="main-title">วิธีเล่นบาคาร่าให้ชนะทุกครั้ง</h2>
+            <p class="description">เทคนิคสำคัญที่จะช่วยให้คุณเป็นฝ่ายได้เปรียบในโต๊ะบา...</p>
+            <a href="#" class="read-more">
+              อ่านต่อ
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center my-25px">
+              <img src="assets/img/bannerLine.png" alt="suggest-promo" class="img-responsive">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="text-center mb--15px">
+              <img src="assets/img/faq.svg" alt="">
+            </div>
+            <div class="text-center mb-25px">
+              <img src="assets/img/faq-th.svg" alt="">
+            </div>
+            <div class="faq-section">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span class="arrow">▶</span>
+                  <span class="question-text">สมัครสมาชิกต้องทำอย่างไรบ้าง ?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>กรอกชื่อเบอร์โทร เลขบัญชีธนาคาร พร้อมเริ่มเล่นได้เลย!</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span class="arrow">▶</span>
+                  <span class="question-text">ขั้นตอนการฝากเงิน-ถอนเงินทำอย่างไร ?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>กดเข้าเมนูกระเป๋าเงิน ดูเลขบัญชีที่หน้าฝากก่อนทำรายการทุกครั้ง และอัพสลิปให้ตามเวลาที่กำหนด</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span class="arrow">▶</span>
+                  <span class="question-text">ใช้เวลาในการฝาก - ถอนนานแค่ไหน ?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>ฝากเงินไม่เกิน 3 วินาที! คุณลูกค้าสามารถเข้าร่วมเกมเดิมพันกับเราได้ทันที</p>
+                  <!-- <p>การฝากเงินจะเข้าระบบทันที ส่วนการถอนเงินใช้เวลาประมาณ 1-5 นาทีในการดำเนินการ</p> -->
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span class="arrow">▶</span>
+                  <span class="question-text">มีเคมจากค่ายไหนบ้าง ?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>เรามีเกมยอดนิยมรวมกันมากกว่า 100 ค่าย</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span class="arrow">▶</span>
+                  <span class="question-text">ถ้าพบปัญหาเกี่ยวกับการใช้งานทำอย่างไร ?</span>
+                </div>
+                <div class="faq-answer">
+                  <p>คุณลูกค้าสามารถกดปุ่มติดต่อเพิ่มขอคำแนะนำจากทีมงานของเราได้เลยตลอด 24 ชม.</p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-12">
+            <div class="text-center my-25px">
+              <img src="assets/img/condition-web.svg" alt="">
+            </div>
+            <ul class="thai-list">
+              <li>ผู้เล่นต้องมีอายุ 18 ปีบริบูรณ์ขึ้นไปเท่านั้น</li>
+              <li>ข้อมูลส่วนบุคคลต้องเป็นความจริงและครบถ้วน</li>
+              <li>การฝาก - ถอนทุกรายการต้องผ่านระบบกำหนดเท่านั้น</li>
+              <li>การใช้งานต้องปฏิบัติตกฎหมายที่องค์มมองผู้เล่น</li>
+              <li>บริบักสงวนสิทธิ์ในการปรับเปลี่ยนข้อกำหนดโดยไม่ต้องแจ้งล่วงหน้า</li>
+            </ul>
+          </div>
         </div>
-        <hr>
+        <div class="intro">
+          <div class="row mt-30px">
+            <div class="col-lg-12">
+              <div class="d-flex justify-content-center align-items-center promote-auto">
+                <img src="assets/img/promote-auto.png" class="">
+              </div>
+            </div>
+          </div>
+          <div class="intro2">
+            <div class="d-flex justify-content-center">
+              <img src="assets/img/winx98x2-v2.png" alt="">
+            </div>
+            <span class="content text-center">
+              WinX98 เจ้าแรกในไทย ให้บริการผ่านเว็บตรง ที่มี
+              เกมสล็อตมากกว่า 1,000 เกมกับ 21 ค่ายชื่อดัง รวมเกม
+              แตกบ่อย ที่หลายเว็บไม่มีให้เล่น ทุกอย่างครบจบภายใน
+              กระเป๋าเดียว ไม่ต้องโยกเงินให้เสียเวลา ระบบอัตโนมัติทุก
+              ขั้นตอน สมัครสมาชิก ฝาก -ถอนไว ใช้เวลาทำธุรกรรม
+              เพียง 3 วินาที รับฟรีสิทธิพิเศษสำหรับลูกค้า
+            </span>
+          </div>
+          <div class="border-gradient border-gradient-second mx-auto p-10px" style="width: 345px;">
+            <div class="d-flex justify-content-between w-100">
+              <div class="mx-15px d-flex align-items-center">
+                <div>
+                  <img src="source/red-line.png" class="line-icon mr-5px">
+                  <span class="font-16px" style="font-weight: 500;">แอดตรงผ่านไลน์</span>
+                  <div>
+                    <?php if ($getAlliasRef['line_name']) { ?>
+                      <p class="mb-0 line-txt"><?= $getAlliasRef['line_name']; ?></p>
+                    <?php } else { ?>
+                      <p class="mb-0 line-txt"><?= 'WINX98'; ?></p>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <div class="qr-code-section">
+                <div class="qr-box">
+                  <!-- <img src="source/qr-code.png" alt=""> -->
+                  <?php if ($getAlliasRef['line_image']) { ?>
+                    <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
+                  <?php } else { ?>
+                    <img src="source/qr-code.png" alt="">
+                  <?php } ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-25px">
+            <img src="assets/img/sponsor-game.svg" alt="">
+          </div>
+
+          <div class="sponsor-game-swiper">
+            <div class="swiper swiper2">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/amb.svg" alt="Logo A"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/gameplay.svg" alt="Logo B"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sa.svg" alt="Logo C"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/pg.svg" alt="Logo D"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sbo.svg" alt="Logo E"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/joker.svg" alt="Logo F"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/dragon.svg" alt="Logo G"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/sexy.svg" alt="Logo H"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/dragoon.svg" alt="Logo I"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/simple.svg" alt="Logo J"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/kingmaker.svg" alt="Logo K"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/wcasino.svg" alt="Logo L"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/qalika.svg" alt="Logo M"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/gioco.svg" alt="Logo N"></div>
+                <div class="swiper-slide"><img class="spon-img" src="assets/img/sponsor-game/rich88.svg" alt="Logo O"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <section class="footer text-center">
     <div class="container">
       <div class="row">
-        <p class="footer-detail">
-          WEBSITE NAME <?= Ty::get('center_online') ?>
-        </p>
+        <div class="footer-detail text-center">
+          <span>
+            © 2025 WINX98 แพลตฟอร์มเกมเดิมพันระดับพรีเมี่ยม
+          </span>
+          <p class="font-gold">
+            WINX98 – ศูนย์รวม สล็อต VIP, คาสิโนออนไลน์ระดับสูง, แทงบอลระบบพิเศษ, ยิงปลาได้เงินจริง และ หวยออนไลน์อัตราจ่ายสูงสุด เราให้บริการด้วย ระบบสมาชิก Exclusive และ โปรโมชั่นสำหรับลูกค้า VIP มั่นใจใน ความปลอดภัย, ความโปร่งใส, และ บริการระดับมืออาชีพ <br>
+          </p>
+          <p class="mb-0">
+            🔥 เข้าร่วมเป็นพาร์ทเนอร์ WINX98 – สร้างรายได้สูงด้วยระบบ Affiliate Program ที่ให้ผลตอบแทนสูงสุด! <br>
+            💎 สัมผัสประสบการณ์เกมเดิมพันสุดหรู กับ สูตรสล็อตระดับเซียน, เทคนิคแทงบอลแบบมืออาชีพ, และ กลยุทธ์ยิงปลาแตกง่าย พร้อมรับ สิทธิพิเศษเฉพาะสมาชิก Platinum และ Diamond
+          </p>
+          <hr>
+        </div>
         <div class="footer-img">
           <div class="d-flex justify-content-center">
             <div class="text-nowrap">
@@ -229,15 +494,11 @@ if ($is_login) {
             </div>
             <img src="source/bank-list.png?v=2" alt="footer" class="ml-20px">
           </div>
-          <img src="source/spon1.png?v=2" alt="footer">
-          <img src="source/spon2.png" alt="footer">
-          <img src="source/spon3.png" alt="footer">
         </div>
       </div>
     </div>
   </section>
 
-  <?php renderFooterLanding($menu_landing); ?>
 
   <?php Tiwdal::startModal('modal_download_app', 'modal-sm modal-no-more mx-auto modal-dialog-centered mt-0'); ?>
   <button type="button" class="btn-top-close" data-bs-dismiss="modal" aria-label="Close">
@@ -289,7 +550,7 @@ if ($is_login) {
   include 'layout/footer.php';
   Structure::loadFooter();
   ?>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     $(document).ready(function() {
       $(document).on('click', '.event_view_load_app', function(e) {
@@ -309,6 +570,58 @@ if ($is_login) {
           expires: 7
         });
       });
+
+      const swiper = new Swiper('.swiperJackpot', {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1
+          },
+          992: {
+            slidesPerView: 3
+          }
+        }
+      });
+
+      const swiper1 = new Swiper('.swiper1', {
+        slidesPerView: 2.5,
+        spaceBetween: 20,
+        breakpoints: {
+          0: {
+            slidesPerView: 2.5
+          },
+          992: {
+            slidesPerView: 4
+          }
+        }
+      });
+      // Initialize second swiper
+      const swiper2 = new Swiper('.swiper2', {
+        slidesPerView: 1.5,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.5
+          },
+          992: {
+            slidesPerView: 4
+          }
+        }
+      });
     });
 
     document.addEventListener('click', getLink);
@@ -319,6 +632,34 @@ if ($is_login) {
         window.location.href = link;
       }
     }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
   </script>
 </body>
 

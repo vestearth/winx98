@@ -1,5 +1,8 @@
 <?php
 require_once '.framework/import.php';
+require_once 'layout/footer_nav.php';
+require_once 'layout/navbanner.php';
+
 $type_id = isset($_GET['type']) ? $_GET['type'] : '';
 $sub_id = isset($_GET['sub']) ? $_GET['sub'] : '';
 $sub_comment = '';
@@ -86,6 +89,7 @@ $rating_list = [
 <body>
   <?php
   if ($is_login) {
+    $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id']);
     $comment = nga_management::selectCommentGroup($code);
     if ($type_id) {
       $where = [
@@ -114,10 +118,11 @@ $rating_list = [
     Aww::redirectOG('landing.php');
   }
   ?>
-  <?php include 'layout/menu.php'; ?>
-  <?php include 'layout/nmg_bg.php'; ?>
-  <div class="container position-relative">
+  <?php include 'layout/winx98_bg.php'; ?>
+  <?php renderFooterNav($alliance_data['line_link']); ?>
+  <?php renderBannerUser(); ?>
 
+  <div class="container position-relative">
     <div class="row">
       <div class="col-12">
         <nav aria-label="breadcrumb">

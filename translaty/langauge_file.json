@@ -1303,14 +1303,6 @@
         "en": "Earn up to 2 more commissions from your friends' play!",
         "th": "รับรายได้จากยอดเล่นของเพื่อนได้ถึง 2 ต่อ! "
     },
-    "1stcomm": {
-        "en": "1st Commission: When your first friend reaches 10,000 baht,  you gain 70 baht. And if your first friend invites more friends, you also gain more.",
-        "th": "ต่อที่ 1 รับรายได้จากยอดเล่นของเพื่อนชั้นที่ 1 เช่น เพื่อนของท่านมียอดเล่น 10,000 บาท ท่านจะได้รับ 70 บาท และหากเพื่อนของท่าน ชวนเพื่อนมาเล่นต่ออีก รับรายได้เพิ่มอีก"
-    },
-    "2ndcomm": {
-        "en": "2nd Commission: From bet of your friend's friends (10,000 baht you gain 7 baht). The more you invite, the more you gain. Share to your friends!",
-        "th": "ต่อที่ 2 จากเพื่อนชั้นที่ 2 รับจากยอดเล่น (10,000 บาท ท่านจะได้รับ 7 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
-    },
     "creditwillbecutdaily": {
         "en": "Credit will be cut daily at 06.00 A.M. You can receive credit from 06.00 onwards.",
         "th": "ระบบจะตัดยอดเครดิตคืนเป็นรายวัน <br>ท่านสามารถกดรับเครดิตได้ตั้งแต่ 06:00 เป็นต้นไป"
@@ -1438,5 +1430,25 @@
     "register_date": {
         "en": "Application date",
         "th": "วันที่สมัคร"
+    },
+    "old1stcomm": {
+        "en": "1st Commission: When your first friend reaches 10,000 baht, you gain 70 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 1 รับรายได้จากยอดเล่นของเพื่อนชั้นที่ 1 เช่น เพื่อนของท่านมียอดเล่น 10,000 บาท ท่านจะได้รับ 70 บาท และหากเพื่อนของท่าน ชวนเพื่อนมาเล่นต่ออีก รับรายได้เพิ่มอีก"
+    },
+    "old2ndcomm": {
+        "en": "2nd Commission: When your first friend reaches 10,000 baht, you gain 7 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 2 จากเพื่อนชั้นที่ 2 รับจากยอดเล่น (10,000 บาท ท่านจะได้รับ 7 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
+    },
+    "3ndcomm": {
+        "en": "3rd Commission: From bet of your friend's friends (10,000 baht you gain 1,000 baht). The more you invite, the more you gain. Share to your friends!",
+        "th": "ต่อที่ 3 จากเพื่อนชั้นที่ 3 รับจากยอดแพ้\/ชนะ (10,000 บาท ท่านจะได้รับ 1,000 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
+    },
+    "1stcomm": {
+        "en": "1st Commission: When your first friend reaches 10,000 baht, you gain 1,000 baht. And if your first friend invites more friends, you also gain more.",
+        "th": "ต่อที่ 1 รับรายได้จากยอดแพ้\/ชนะเพื่อนชั้นที่ 1 เช่น เพื่อนของท่านมียอดเล่น 10,000 บาท ท่านจะได้รับ 1,000 บาท และหากเพื่อนของท่าน ชวนเพื่อนมาเล่นต่ออีก รับรายได้เพิ่มอีก"
+    },
+    "2ndcomm": {
+        "en": "2nd Commission: From bet of your friend's friends (10,000 baht you gain 7 baht). The more you invite, the more you gain. Share to your friends!",
+        "th": "ต่อที่ 2 จากเพื่อนชั้นที่ 2 รับจากยอดแพ้\/ชนะ (10,000 บาท ท่านจะได้รับ 300 บาท) ยิ่งชวนมาก ยิ่งได้มาก แชร์เลย!"
     }
 }

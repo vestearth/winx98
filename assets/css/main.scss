@@ -4,7 +4,7 @@
 @import "preloader";
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -13,12 +13,12 @@
 
 body {
   // font-family: 'IBM Plex Sans Thai Looped', sans-serif;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Anuphan", sans-serif;
   font-size: 16px;
   color: #ffffff;
   min-height: 100vh;
-  // background: #09071A;
-  background: #090909;
+  // background: #090909;
+  background: #650404;
 }
 
 .text-pink {
