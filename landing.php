@@ -220,6 +220,20 @@ if ($is_login) {
           </div>
         </div>
 
+        <div class="text-center my-25px">
+          <div style="display: inline-block; width: 100%; max-width: 700px; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10); background: #181818;">
+            <video
+              width="100%"
+              height="450"
+              controls
+              style="display: block; width: 100%; max-height: 450px; border-radius: 0; background: #000; object-fit: cover;"
+              preload="metadata">
+              <source src="assets/video/winx98vid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
         <!-- <div class="jackpot-swiper">
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
             <img src="assets/img/text-customer.svg">
