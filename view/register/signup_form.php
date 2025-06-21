@@ -33,7 +33,7 @@ foreach ($bank_config as $key => $data) {
         oninput="handlePhoneInput(this)">
     </div>
   </div>
-  <div class=" form-group">
+  <div class="form-group">
     <label for="password"><?= Ty::get('Password') ?></label>
     <div class="input-icon password">
       <input
@@ -79,26 +79,18 @@ foreach ($bank_config as $key => $data) {
     </div>
   </div>
   <div class="form-group">
-    <label for="account"><?= 'Line ID'; ?></label>
+    <label for="line_id"><?= 'Line ID'; ?></label>
     <div class="input-icon line">
-      <input type="text" name="line_id" id="account" class="form-input-custom" placeholder="<?= 'กรอก Line ID'; ?>" required>
+      <input type="text" name="line_id" id="line_id" class="form-input-custom" placeholder="<?= 'กรอก Line ID'; ?>" required>
     </div>
   </div>
-  <!-- 
-  <div class="form-group">
-    <label for="upline_member_code"><? // "ผู้แนะนำ"; 
-                                    ?></label>
-    <div class="input-icon aff">
-      <input type="text" name="upline_member_code" id="affiliate" value="" class="form-input-custom" placeholder="<?= "กรอกรหัสผู้แนะนำหากมี" ?>">
-    </div>
-  </div> -->
   <div class="group-btn">
     <button type="submit" name="submit_register" class="btn btn-sub w-100">
       <?= "ยืนยันบัญชี"; ?>
     </button>
   </div>
   <div class="group-btn mt-10px">
-    <a href="login.php" class="btn btn-cancel w-100">
+    <a href="login.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" class="btn btn-cancel w-100">
       <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
     </a>
   </div>

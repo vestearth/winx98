@@ -6,7 +6,9 @@ $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
 if (!empty($_GET['ref_m'])) {
   $ref_marketing = $_GET['ref_m'];
-  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/"); // 30 days
+  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/");
+} else if (!empty($_POST['ref_marketing'])) {
+  $ref_marketing = $_POST['ref_marketing'];
 } else if (!empty($_COOKIE['ref_marketing'])) {
   $ref_marketing = $_COOKIE['ref_marketing'];
 } else {
@@ -54,13 +56,12 @@ if ($_POST) {
     $bank_name = preg_replace('/\s+/', ' ', $bank_name);
 
     $data = [
-      'username' => $_POST['username'],
+      'username' => htmlspecialchars(trim($_POST['username'])),
       'password' => $password,
-      'bank_abb' => $_POST['bank_id'],
-      'bank_number' => $_POST['bank_account'],
-      'bank_name' => $bank_name,
-      'line_id' => $_POST['line_id'],
-      // 'upline_member_code' => $_POST['upline_member_code'],
+      'bank_abb' => htmlspecialchars(trim($_POST['bank_id'])),
+      'bank_number' => htmlspecialchars(trim($_POST['bank_account'])),
+      'bank_name' => htmlspecialchars($bank_name),
+      'line_id' => htmlspecialchars(trim($_POST['line_id'])),
       'user_type_id' => 2,
     ];
 
@@ -77,7 +78,7 @@ if ($_POST) {
     } else {
       $response_message = $result['response_message'];
     }
-    $response_redirect = 'login.php';
+    $response_redirect = 'login.php' . (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '');
   }
 
   if (isset($result)) {
@@ -104,12 +105,12 @@ if ($_POST) {
 
 <body>
   <?php include 'layout/winx98_bg.php'; ?>
-  <?php renderBannerBorder(); ?>
+  <?php renderBannerBorder($ref_marketing); ?>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-6 text-center">
         <div class="card-login">
-          <div class="card-login-body">
+          <div class="card-login-body mt-85px">
             <div class="login-thread d-flex">
               <div>
                 <div class="title d-flex">สมัครสมาชิก</div>

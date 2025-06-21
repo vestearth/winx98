@@ -1,9 +1,9 @@
 <?php
-function renderBannerBorder($user_data = null)
+function renderBannerBorder($ref_marketing = null)
 {
 ?>
   <div class="menu-container">
-    <a href="index.php" style="color: unset; text-decoration: none;">
+    <a href="index.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
         <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
@@ -14,22 +14,22 @@ function renderBannerBorder($user_data = null)
 ?>
 
 <?php
-function renderBannerLanding()
+function renderBannerLanding($ref_marketing = null)
 {
 ?>
   <div class="menu-container">
-    <a href="index.php" style="color: unset; text-decoration: none;">
+    <a href="index.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
         <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
     </a>
     <div class="d-flex align-items-center">
-      <button class="btn menu-icon-user mr-10px" onclick="window.location.href='signup.php'">
+      <button class="btn menu-icon-user mr-10px" onclick="window.location.href='signup.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>'">
         <div class="font-gold">
           สมัคร
         </div>
       </button>
-      <button class="btn menu-icon-user" onclick="window.location.href='login.php'">
+      <button class="btn menu-icon-user" onclick="window.location.href='login.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>'">
         <div class="">
           เข้าสู่ระบบ
         </div>

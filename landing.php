@@ -56,35 +56,17 @@ $type_game_template = [
 
 $system_line  = nga_management::getGeneralWebsite($code);
 
-$menu_landing = [
-  [
-    'url' => 'index.php',
-    'image' => 'source/icon-home.svg',
-    'title' => Ty::get('home')
-  ],
-  [
-    'url' => 'signup.php',
-    'image' => 'source/icon-signup.svg',
-    'title' => Ty::get('register'),
-  ],
-  [
-    'url' => 'login.php',
-    'image' => 'source/icon-login.svg',
-    'title' => Ty::get('login')
-  ],
-  [
-    'url' => 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244',
-    'image' => 'source/icon-contact.svg',
-    'title' => Ty::get('contact_us'),
-  ]
-];
-$banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
-
-if (!empty($_COOKIE['ref_marketing'])) {
+if (!empty($_GET['ref_m'])) {
+  $ref_marketing = $_GET['ref_m'];
+  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/");
+} else if (!empty($_COOKIE['ref_marketing'])) {
   $ref_marketing = $_COOKIE['ref_marketing'];
 } else {
   $ref_marketing = 'z0e380297';
 }
+
+$banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
+
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 
 
@@ -125,7 +107,7 @@ if ($is_login) {
       $lhb_style = 'style-close-banner';
     } ?>
     <div class="container-fluid">
-      <?php renderBannerLanding(); ?>
+      <?php renderBannerLanding($ref_marketing); ?>
       <div class="row">
         <div class="col-12 d-none">
           <!-- Popup Banner Suggest Install APP -->
@@ -268,7 +250,6 @@ if ($is_login) {
         </div> -->
 
         <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-          <!-- <img src="assets/img/text-customer.svg"> -->
           <img src="assets/img/allHere.png" style="max-width: 300px;">
         </div>
 
@@ -306,7 +287,7 @@ if ($is_login) {
             </div>
           </div>
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-            <button class="thai-button" onclick="window.location.href='login.php'">ดูเกมทั้งหมด</button>
+            <button class="thai-button" onclick="window.location.href='login.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>'">ดูเกมทั้งหมด</button>
           </div>
         </div>
 
