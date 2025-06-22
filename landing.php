@@ -357,7 +357,7 @@ if ($is_login) {
               <div class="faq-item">
                 <div class="faq-question">
                   <span class="arrow">▶</span>
-                  <span class="question-text">มีเคมจากค่ายไหนบ้าง ?</span>
+                  <span class="question-text">มีเกมจากค่ายไหนบ้าง ?</span>
                 </div>
                 <div class="faq-answer">
                   <p>เรามีเกมยอดนิยมรวมกันมากกว่า 100 ค่าย</p>
