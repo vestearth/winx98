@@ -210,7 +210,7 @@ if ($is_login) {
               controls
               style="display: block; width: 100%; max-height: 450px; border-radius: 0; background: #000; object-fit: cover;"
               preload="metadata">
-              <source src="assets/video/winx98vid.mp4" type="video/mp4">
+              <source src="assets/video/winx98vid2.MP4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
