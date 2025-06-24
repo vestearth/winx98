@@ -1,9 +1,15 @@
 <?php
-function renderBannerBorder($ref_marketing = null)
+function renderBannerBorder($ref_marketing = null, $m = null, $redirect_link = 'index')
 {
+  $query_param = '';
+  if (!empty($m)) {
+    $query_param = '?m=' . urlencode($m);
+  } elseif (!empty($ref_marketing)) {
+    $query_param = '?ref_m=' . urlencode($ref_marketing);
+  }
 ?>
   <div class="menu-container">
-    <a href="index.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" style="color: unset; text-decoration: none;">
+    <a href="<?= $redirect_link; ?>.php<?= $query_param ?>" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
         <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>
@@ -14,11 +20,17 @@ function renderBannerBorder($ref_marketing = null)
 ?>
 
 <?php
-function renderBannerLanding($ref_marketing = null)
+function renderBannerLanding($ref_marketing = null, $m = null, $redirect_link = 'index')
 {
+  $query_param = '';
+  if (!empty($m)) {
+    $query_param = '?m=' . urlencode($m);
+  } elseif (!empty($ref_marketing)) {
+    $query_param = '?ref_m=' . urlencode($ref_marketing);
+  }
 ?>
   <div class="menu-container">
-    <a href="index.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" style="color: unset; text-decoration: none;">
+    <a href="<?= $redirect_link; ?>.php<?= $query_param ?>" style="color: unset; text-decoration: none;">
       <div class="pos-rel">
         <img src="assets/img/winx98v2.svg" alt="Logo">
       </div>

@@ -127,7 +127,11 @@ $type_game_template = [
       unset($type_game_template['SPORTBOOK']);
     }
   } else {
-    Aww::redirectOG('landing.php');
+    $redirect_url = 'landing.php';
+    if (!empty($_GET['m'])) {
+      $redirect_url .= '?m=' . urlencode($_GET['m']);
+    }
+    Aww::redirectOG($redirect_url);
   }
   ?>
   <?php renderFooterNav($alliance_data['line_link']); ?>

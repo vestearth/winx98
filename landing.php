@@ -57,10 +57,33 @@ $type_game_template = [
 $system_line  = nga_management::getGeneralWebsite($code);
 
 if (!empty($_GET['ref_m'])) {
+  $ref_m = $_GET['ref_m'];
+} else if (!empty($_GET['m'])) {
+  // Legacy support: m=8 maps to z0e380297
+  $ref_m = ($_GET['m'] == '8') ? 'z0e380297' : $_GET['m'];
+} else if (!empty($_POST['m'])) {
+  $ref_m = $_POST['m'];
+} else if (!empty($_COOKIE['m'])) {
+  $ref_m = $_COOKIE['m'];
+} else {
+  $ref_m = '';
+}
+
+// Set cookie for ref_m if present
+if (!empty($ref_m)) {
+  setcookie('ref_m', $ref_m, time() + (86400 * 30), "/");
+}
+
+// Fallback to ref_marketing if ref_m is not set
+if (!empty($ref_m)) {
+  $ref_marketing = $ref_m;
+} else if (!empty($_GET['ref_m'])) {
   $ref_marketing = $_GET['ref_m'];
-  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/");
-} else if (!empty($_COOKIE['ref_marketing'])) {
-  $ref_marketing = $_COOKIE['ref_marketing'];
+  setcookie('ref_m', $ref_marketing, time() + (86400 * 30), "/");
+} else if (!empty($_POST['ref_m'])) {
+  $ref_marketing = $_POST['ref_m'];
+} else if (!empty($_COOKIE['ref_m'])) {
+  $ref_marketing = $_COOKIE['ref_m'];
 } else {
   $ref_marketing = 'z0e380297';
 }
@@ -68,10 +91,13 @@ if (!empty($_GET['ref_m'])) {
 $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOKIE['banner_download_landing']) ? $_COOKIE['banner_download_landing'] : null;
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
+$getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
 
+$default_redirect = 'landing';
 
 if ($is_login) {
   Aww::redirectOG('index.php');
+  $default_redirect = 'index';
 }
 ?>
 
@@ -107,7 +133,7 @@ if ($is_login) {
       $lhb_style = 'style-close-banner';
     } ?>
     <div class="container-fluid">
-      <?php renderBannerLanding($ref_marketing); ?>
+      <?php renderBannerLanding($ref_marketing, $ref_m, $default_redirect); ?>
       <div class="row">
         <div class="col-12 d-none">
           <!-- Popup Banner Suggest Install APP -->
