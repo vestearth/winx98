@@ -90,7 +90,7 @@ foreach ($bank_config as $key => $data) {
     </button>
   </div>
   <div class="group-btn mt-10px">
-    <a href="login.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" class="btn btn-cancel w-100">
+    <a href="login.php<?= isset($ref_m) && !empty($ref_m) ? '?m=' . urlencode($ref_m) : (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '') ?>" class="btn btn-cancel w-100">
       <?= Ty::get('back', [], ["case" => "ucfirst"]) ?>
     </a>
   </div>

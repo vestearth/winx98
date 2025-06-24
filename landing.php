@@ -56,11 +56,8 @@ $type_game_template = [
 
 $system_line  = nga_management::getGeneralWebsite($code);
 
-if (!empty($_GET['ref_m'])) {
-  $ref_m = $_GET['ref_m'];
-} else if (!empty($_GET['m'])) {
-  // Legacy support: m=8 maps to z0e380297
-  $ref_m = ($_GET['m'] == '8') ? 'z0e380297' : $_GET['m'];
+if (!empty($_GET['m'])) {
+  $ref_m = $_GET['m'];
 } else if (!empty($_POST['m'])) {
   $ref_m = $_POST['m'];
 } else if (!empty($_COOKIE['m'])) {
@@ -92,6 +89,7 @@ $banner_download_landing = (isset($_COOKIE['banner_download_landing']) && $_COOK
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 $getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
+$aliianceRef = !empty($ref_m) ? $getAlliasRefID : $getAlliasRef;
 
 $default_redirect = 'landing';
 
@@ -313,7 +311,7 @@ if ($is_login) {
             </div>
           </div>
           <div class="d-flex justify-content-center align-items-center mt-20px mb-10px">
-            <button class="thai-button" onclick="window.location.href='login.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>'">ดูเกมทั้งหมด</button>
+            <button class="thai-button" onclick="window.location.href='login.php<?= isset($ref_m) && !empty($ref_m) ? '?m=' . urlencode($ref_m) : (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '') ?>'">ดูเกมทั้งหมด</button>
           </div>
         </div>
 
@@ -442,8 +440,8 @@ if ($is_login) {
                   <img src="source/red-line.png" class="line-icon mr-5px">
                   <span class="font-16px" style="font-weight: 500;">แอดตรงผ่านไลน์</span>
                   <div>
-                    <?php if ($getAlliasRef['line_name']) { ?>
-                      <p class="mb-0 line-txt"><?= $getAlliasRef['line_name']; ?></p>
+                    <?php if ($aliianceRef['line_name']) { ?>
+                      <p class="mb-0 line-txt"><?= $aliianceRef['line_name']; ?></p>
                     <?php } else { ?>
                       <p class="mb-0 line-txt"><?= 'WINX98'; ?></p>
                     <?php } ?>
@@ -453,8 +451,8 @@ if ($is_login) {
               <div class="qr-code-section">
                 <div class="qr-box">
                   <!-- <img src="source/qr-code.png" alt=""> -->
-                  <?php if ($getAlliasRef['line_image']) { ?>
-                    <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
+                  <?php if ($aliianceRef['line_image']) { ?>
+                    <img src="<?= $aliianceRef['line_image']; ?>" alt="">
                   <?php } else { ?>
                     <img src="source/qr-code.png" alt="">
                   <?php } ?>

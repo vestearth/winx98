@@ -35,16 +35,37 @@ if (empty($system_line)) {
   $system_line['line_id'] = '';
   $system_line['line_link'] = 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244';
 }
-if (!empty($_GET['ref_m'])) {
+if (!empty($_GET['m'])) {
+  $ref_m = $_GET['m'];
+} else if (!empty($_POST['m'])) {
+  $ref_m = $_POST['m'];
+} else if (!empty($_COOKIE['m'])) {
+  $ref_m = $_COOKIE['m'];
+} else {
+  $ref_m = '';
+}
+
+// Set cookie for ref_m if present
+if (!empty($ref_m)) {
+  setcookie('ref_m', $ref_m, time() + (86400 * 30), "/");
+}
+
+// Fallback to ref_marketing if ref_m is not set
+if (!empty($ref_m)) {
+  $ref_marketing = $ref_m;
+} else if (!empty($_GET['ref_m'])) {
   $ref_marketing = $_GET['ref_m'];
-  setcookie('ref_marketing', $ref_marketing, time() + (86400 * 30), "/");
-} else if (!empty($_COOKIE['ref_marketing'])) {
-  $ref_marketing = $_COOKIE['ref_marketing'];
+  setcookie('ref_m', $ref_marketing, time() + (86400 * 30), "/");
+} else if (!empty($_POST['ref_m'])) {
+  $ref_marketing = $_POST['ref_m'];
+} else if (!empty($_COOKIE['ref_m'])) {
+  $ref_marketing = $_COOKIE['ref_m'];
 } else {
   $ref_marketing = 'z0e380297';
 }
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
+$getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
 
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
 
@@ -66,7 +87,7 @@ if ($is_login) {
 
 <body>
   <?php include 'layout/winx98_bg.php'; ?>
-  <?php renderBannerBorder($ref_marketing); ?>
+  <?php renderBannerBorder($ref_marketing, $ref_m, 'landing'); ?>
   <div class="container">
     <?php
     $lhb_style = 'style-web-close-banner';
@@ -138,7 +159,7 @@ if ($is_login) {
                   <?= Ty::get('login') ?>
                 </button>
               </div>
-              <a href="signup.php<?= isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '' ?>" class="btn btn-register" name="submit_register">
+              <a href="signup.php<?= isset($ref_m) && !empty($ref_m) ? '?m=' . urlencode($ref_m) : (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '') ?>" class="btn btn-register" name="submit_register">
                 <?= "สมัครสมาชิก"; ?>
               </a>
               <div class="d-flex justify-content-center my-2">หรือ</div>
