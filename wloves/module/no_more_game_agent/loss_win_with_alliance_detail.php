@@ -87,9 +87,9 @@ $alliance_data = nga_management::getAllianceByID($code, $a_id, $options);
       <table class="table table-sort table-search ">
         <thead>
           <tr>
-            <th nowrap data-sort="date_register" data-filter="<?= Homepagify::dataFilter('deposit_first_time_date', 'date') ?>">วันที่ฝากครั้งแรก</th>
-            <th nowrap data-sort="user_count_by_date_register" data-filter="<?= Homepagify::dataFilter('user_count_by_date_register', 'number') ?>">จำนวนคนสมัคร</th>
-            <th nowrap data-sort="count_deposit_first_time" data-filter="<?= Homepagify::dataFilter('count_deposit_first_time', 'number') ?>">ฝากครั้งแรก (คน)</th>
+            <th nowrap data-sort="deposit_first_time_date" data-filter="<?= Homepagify::dataFilter('deposit_first_time_date', 'date') ?>">วันที่ฝากครั้งแรก</th>
+            <th nowrap data-sort="user_register_count" data-filter="<?= Homepagify::dataFilter('user_register_count', 'number') ?>">จำนวนคนสมัคร</th>
+            <th nowrap data-sort="user_count_by_first_time_date" data-filter="<?= Homepagify::dataFilter('user_count_by_first_time_date', 'number') ?>">ฝากครั้งแรก (คน)</th>
             <th nowrap data-sort="count_deposit_first_time_percent" data-filter="<?= Homepagify::dataFilter('count_deposit_first_time_percent', 'number') ?>">เปอร์เซ็นต์การฝาก</th>
             <th nowrap data-sort="count_user_active" data-filter="<?= Homepagify::dataFilter('count_user_active', 'number') ?>">จำนวนสมาชิก Active</th>
             <th nowrap data-sort="count_user_active_percent" data-filter="<?= Homepagify::dataFilter('count_user_active_percent', 'number') ?>">เปอร์เซ็นต์ Active</th>
