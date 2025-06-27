@@ -66,6 +66,7 @@ if (!empty($ref_m)) {
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 $getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
+$AlliasRef = !empty($getAlliasRefID) ? $getAlliasRefID : $getAlliasRef;
 
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
 
@@ -163,19 +164,19 @@ if ($is_login) {
                 <?= "สมัครสมาชิก"; ?>
               </a>
               <div class="d-flex justify-content-center my-2">หรือ</div>
-              <?php if (!empty($getAlliasRef)) { ?>
-                <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
+              <?php if (!empty($AlliasRef)) { ?>
+                <a href="<?= $AlliasRef['line_link'] ?>" class="text-white">
                   <div class="border-gradient w-100">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png" class="line-icon">
-                    <span>ติดต่อผ่านไลน์ <?= $getAlliasRef['line_name'] ?></span>
+                    <img src="source/line-login-icon.png" class="line-icon">
+                    <span>ติดต่อผ่านไลน์ <?= $AlliasRef['line_name'] ?></span>
                     <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
                   </div>
                 </a>
-                <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
+                <a href="<?= $AlliasRef['line_link'] ?>" class="text-white">
                   <div class="qr-code-section mt-15px">
                     <div class="qr-box">
-                      <?php if (!empty($getAlliasRef['line_image'])) { ?>
-                        <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
+                      <?php if (!empty($AlliasRef['line_image'])) { ?>
+                        <img src="<?= $AlliasRef['line_image']; ?>" alt="">
                       <?php } ?>
                     </div>
                   </div>
