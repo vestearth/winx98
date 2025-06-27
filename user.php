@@ -70,7 +70,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
         </nav>
       </div>
       <div class="col-lg-5 col-md-6 m-auto pb-20px">
-        <div class="card-content mb-20px  min-h-400px text-center">
+        <div class="card-content mb-20px  min-h-400px text-center" style="margin-top:15%;">
           <div class="card-content-body">
             <p class=" text-white font-18px"><?= Ty::get('profile') ?></p>
             <div class="form-group max-w-305px m-auto">
