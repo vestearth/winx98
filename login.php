@@ -172,16 +172,17 @@ if ($is_login) {
                     <p class="mb-0">สามารถติดต่อหรือสอบถามได้ตลอด 24 ชั่วโมง</p>
                   </div>
                 </a>
-                <a href="<?= $AlliasRef['line_link'] ?>" class="text-white">
+              <?php } else { ?>
+                <a href="<?= $getAlliasRef['line_link'] ?>" class="text-white">
                   <div class="qr-code-section mt-15px">
                     <div class="qr-box">
-                      <?php if (!empty($AlliasRef['line_image'])) { ?>
-                        <img src="<?= $AlliasRef['line_image']; ?>" alt="">
+                      <?php if (!empty($getAlliasRef['line_image'])) { ?>
+                        <img src="<?= $getAlliasRef['line_image']; ?>" alt="">
                       <?php } ?>
                     </div>
                   </div>
                 </a>
-              <?php } ?>
+              <? } ?>
               <!-- <span> <?= Ty::get('forgotpassword') ?> <span class="text-pink cursor-pointer" <?php Tiwdal::register('modal_forgot_password', []); ?>> <?= Ty::get('clickhere') ?></span></span> -->
             </form>
           </div>

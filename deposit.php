@@ -89,7 +89,7 @@ function textFormat($text = '', $pattern = '', $ex = '')
       }
     }
   } else {
-    // Aww::redirectOG('login.php');
+    Aww::redirectOG('login.php');
   }
   ?>
   <?php include 'layout/winx98_bg.php'; ?>
@@ -187,6 +187,9 @@ function textFormat($text = '', $pattern = '', $ex = '')
             </div>
           </div>
         <?php } else if ($check_deposit_response['step'] == 0) { ?>
+          <a href="source/deposit-guide.jpg" target="_blank">
+            <img src="source/deposit-guide.jpg" alt="guide" class="img-fluid mb-20px" style="max-width: 100%; height: auto; border-radius: 10px;">
+          </a>
           <form id="deposit_form" method="post" enctype="multipart/form-data">
             <div class="card-content mb-20px pb-0 have-bg min-h-200px">
               <div class="card-content-body text-center">
