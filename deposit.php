@@ -147,6 +147,57 @@ function textFormat($text = '', $pattern = '', $ex = '')
         if ($check_deposit_response['step'] == 1) {
           $bank_data = $check_deposit_response['transaction_pg_get_bank'];
         ?>
+          <!-- MODAL 1: แจ้งเตือนคัดลอกหมายเลขบัญชี -->
+          <div class="modal fade" id="modal_copy_warning" tabindex="-1" aria-labelledby="modalCopyWarningLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content" style="background: #0D0C12; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+                <div class="modal-header" style="background: #0D0C12; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                  <h5 class="modal-title" id="modalCopyWarningLabel" style="color: #F05050;">แจ้งเตือน</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center" style="color: #fff;">
+                  <p style="font-size: 1.1rem; font-weight: 500;">คัดลอกหมายเลขบัญชีใหม่ทุกครั้งที่ทำการฝาก<br>ห้ามใช้ซ้ำ!<br><br>โอนเงินและอัพสลิปภายใน 15 นาทีหลังคัดลอกหมายเลขบัญชี</p>
+                  <div class="form-check d-flex justify-content-center mt-3">
+                    <input class="form-check-input" type="checkbox" value="1" id="dontShowCopyToday">
+                    <label class="form-check-label ms-2" for="dontShowCopyToday">
+                      ไม่ต้องแสดงวันนี้อีก
+                    </label>
+                  </div>
+                </div>
+                <div class="modal-footer" style="background: #0D0C12; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;">
+                  <button type="button" class="btn btn-main" id="closeCopyWarning" data-bs-dismiss="modal">ปิด</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MODAL 2: แจ้งเตือนอัพสลิป -->
+          <div class="modal fade" id="modal_remind_upload" tabindex="-1" aria-labelledby="modalRemindUploadLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content" style="background: #0D0C12; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+                <div class="modal-header" style="background: #0D0C12; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                  <h5 class="modal-title" id="modalRemindUploadLabel" style="color: #F05050 ;">อย่าลืมอัพสลิป</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center" style="color: #fff;">
+                  <p style="font-size: 1.1rem; font-weight: 500;">อย่าลืม!! กลับมาอัพสลิปด้วยนะคะ</p>
+                  <div class="mb-3">
+                    <img src="source/deposit-guide-modal.png" alt="เตือนอัพสลิป" style="max-width: 200px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(13,71,161,0.08);" />
+                  </div>
+                  <div class="form-check d-flex justify-content-center mt-3">
+                    <input class="form-check-input" type="checkbox" value="1" id="dontShowRemindToday">
+                    <label class="form-check-label ms-2" for="dontShowRemindToday">
+                      ไม่ต้องแสดงวันนี้อีก
+                    </label>
+                  </div>
+                </div>
+                <div class="modal-footer" style="background: #0D0C12; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px;">
+                  <button type="button" class="btn btn-main" id="closeRemindUpload" data-bs-dismiss="modal">ปิด</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="card-content mb-20px pb-0 have-bg min-h-200px">
             <div class="card-content-body text-center mb-20px">
               <div class="card-bank">
@@ -187,9 +238,6 @@ function textFormat($text = '', $pattern = '', $ex = '')
             </div>
           </div>
         <?php } else if ($check_deposit_response['step'] == 0) { ?>
-          <a href="source/deposit-guide.jpg" target="_blank">
-            <img src="source/deposit-guide.jpg" alt="guide" class="img-fluid mb-20px" style="max-width: 100%; height: auto; border-radius: 10px;">
-          </a>
           <form id="deposit_form" method="post" enctype="multipart/form-data">
             <div class="card-content mb-20px pb-0 have-bg min-h-200px">
               <div class="card-content-body text-center">
@@ -410,30 +458,80 @@ function textFormat($text = '', $pattern = '', $ex = '')
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
+
   Aww::loadAsset('assets/js/main.js');
   Aww::loadAsset('assets/js/force_logout.js');
   ?>
-
   <script>
     $(document).on('click', '.event_confirm_deposit', function() {
       $('#deposit_form').submit();
     });
     $(document).ready(function() {
-      var currentTime = new Date(); // Get the current time
-      var currentHour = currentTime.getHours(); // Get the current hour
-      // Check if the current time is within the specified range
-      if ((currentHour >= 16 && currentHour <= 23) || (currentHour >= 0 && currentHour <= 6)) {
-        // Disable the button
-        // $('#modal_maintenance').modal('show');
+      var currentTime = new Date();
+      var currentHour = currentTime.getHours();
+      // ...existing code...
+
+      // --- MODAL COPY/REMIND LOGIC ---
+
+      // ฟังก์ชันเช็คว่า dontShowCopyToday ยังไม่หมดอายุ (24 ชม.)
+      function isDontShowCopyTodayValid() {
+        var ts = localStorage.getItem('dontShowCopyToday');
+        if (!ts) return false;
+        var now = Date.now();
+        return (now - parseInt(ts, 10)) < 24 * 60 * 60 * 1000;
       }
 
-      // var bank_run = '<? // $check_bank_allow['account_name']; 
-                          ?>';
-      // var is_kbank = '<? // $is_kbank; 
-                          ?>';
-      // if (!bank_run && is_kbank == 'KBANK') {
-      //   $('#modal_kbank_condition').modal('show');
-      // }
+      function isDontShowRemindTodayValid() {
+        var ts = localStorage.getItem('dontShowRemindToday');
+        if (!ts) return false;
+        var now = Date.now();
+        return (now - parseInt(ts, 10)) < 24 * 60 * 60 * 1000;
+      }
+
+      // Show modal 1 (copy warning) after copy button click
+      $(document).on("click", ".event_btn_copy", function(e) {
+        copyToClipboard($(".number_copy"));
+        Aww.notification("success", "Copied");
+
+        if (!isDontShowCopyTodayValid()) {
+          $('#modal_copy_warning').modal('show');
+        } else {
+          // ถ้าไม่ต้องแสดง modal 1 แล้ว ให้แสดง modal 2 ต่อเลย
+          if (!isDontShowRemindTodayValid()) {
+            setTimeout(function() {
+              $('#modal_remind_upload').modal('show');
+            }, 300);
+          }
+        }
+      });
+
+      // เมื่อปิด modal 1 ให้แสดง modal 2 ถ้ายังไม่ติ๊กไม่ต้องแสดงวันนี้อีก
+      $('#modal_copy_warning').on('hidden.bs.modal', function() {
+        if (!isDontShowRemindTodayValid()) {
+          setTimeout(function() {
+            $('#modal_remind_upload').modal('show');
+          }, 300);
+        }
+      });
+
+      // ติ๊ก "ไม่ต้องแสดงวันนี้อีก" modal 1
+      $('#dontShowCopyToday').on('change', function() {
+        if ($(this).is(':checked')) {
+          localStorage.setItem('dontShowCopyToday', Date.now().toString());
+        } else {
+          localStorage.removeItem('dontShowCopyToday');
+        }
+      });
+      // ติ๊ก "ไม่ต้องแสดงวันนี้อีก" modal 2
+      $('#dontShowRemindToday').on('change', function() {
+        if ($(this).is(':checked')) {
+          localStorage.setItem('dontShowRemindToday', Date.now().toString());
+        } else {
+          localStorage.removeItem('dontShowRemindToday');
+        }
+      });
+
+      // ...existing code...
       $(document).on('keypress', '.event_check_int', function(event) {
         $(this).val($(this).val().replace(/[^\d].+/, ""));
         if ((event.which < 48 || event.which > 57)) {
@@ -451,17 +549,12 @@ function textFormat($text = '', $pattern = '', $ex = '')
         location.reload();
       });
 
-      $(document).on("click", ".event_btn_copy", function(e) {
-        copyToClipboard($(".number_copy"));
-        Aww.notification("success", "Copied");
-      });
-
+      // ...existing code...
       $(document).on("click", ".event_send_data", function(e) {
         var price = $('.event_text_data').val();
         $(".event_number_input").text(Aww.formatMoney(price, 2));
         $(".event_number_input").attr('data-amount', price);
       });
-
 
       $(document).on("click", ".event_submit_deposit", function(e) {
         var price = $('.event_text_data').val();
@@ -496,6 +589,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
       });
       $('script').remove();
     });
+  </script>
+  });
   </script>
 
   <script>
