@@ -5,39 +5,32 @@ require_once 'layout/navbanner.php'; // Include the file containing renderBanner
 $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 // $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
 
-// Priority: ref_m > m > ref_marketing > cookie > default
+
+// Priority: m > ref_m > default (ไม่ใช้ cookie เพื่อความแม่นยำ)
 if (!empty($_GET['m'])) {
   $ref_m = $_GET['m'];
 } else if (!empty($_POST['m'])) {
   $ref_m = $_POST['m'];
-} else if (!empty($_COOKIE['m'])) {
-  $ref_m = $_COOKIE['m'];
 } else {
   $ref_m = '';
 }
 
-// Set cookie for ref_m if present
-if (!empty($ref_m)) {
-  setcookie('ref_m', $ref_m, time() + (86400 * 30), "/");
-}
-
-// Fallback to ref_marketing if ref_m is not set
-if (!empty($ref_m)) {
-  $ref_marketing = $ref_m;
-} else if (!empty($_GET['ref_m'])) {
-  $ref_marketing = $_GET['ref_m'];
-  setcookie('ref_m', $ref_marketing, time() + (86400 * 30), "/");
-} else if (!empty($_POST['ref_m'])) {
-  $ref_marketing = $_POST['ref_m'];
-} else if (!empty($_COOKIE['ref_m'])) {
-  $ref_marketing = $_COOKIE['ref_m'];
-} else {
-  $ref_marketing = 'z0e380297';
-}
-
-// Use $getAlliasRefID if $ref_m is set, otherwise use $getAlliasRef
-$getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
+// ตรวจสอบว่า $ref_m มีในระบบหรือไม่
 $getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
+if (!empty($ref_m) && isset($getAlliasRefID['ref_link'])) {
+  // ถ้า m มีค่าและหาเจอในระบบ ให้ใช้ m เป็น ref_marketing
+  $ref_marketing = $ref_m;
+} else {
+  // ถ้า m ไม่มีในระบบ หรือไม่มีค่า ให้วนหา ref_m (GET/POST) หรือ default
+  $ref_marketing = '';
+  if (!empty($_GET['ref_m'])) {
+    $ref_marketing = $_GET['ref_m'];
+  } else {
+    $ref_marketing = 'z0e380297';
+  }
+}
+
+$getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 
 // if ($ref_marketing || $ref_m) {
 //   $redirect_link = "http://$_SERVER[HTTP_HOST]";
@@ -57,9 +50,14 @@ $data_bank_account = (isset($_POST['bank_account']) && $_POST['bank_account']) ?
 if ($_POST) {
   if (isset($_POST['submit_register'])) {
     // Use $getAlliasRefID if $ref_m is set, otherwise $getAlliasRef
-    $ref_checked = !empty($ref_m) && isset($getAlliasRefID['ref_link'])
-      ? $getAlliasRefID['ref_link']
-      : (isset($getAlliasRef['ref_link']) ? $getAlliasRef['ref_link'] : '');
+    if (!empty($ref_m) && isset($getAlliasRefID['ref_link'])) {
+      $ref_checked = $getAlliasRefID['ref_link'];
+    } elseif (isset($getAlliasRef['ref_link'])) {
+      $ref_checked = $getAlliasRef['ref_link'];
+    } else {
+      $ref_checked = '';
+    }
+
     $password = $_POST['password'];
 
     if (!is_numeric($_POST['username'])) {

@@ -128,7 +128,14 @@ if (!isset($type_game_template[$type])) {
   $type = $temp_type;
 }
 $firm = isset($_GET['firm_name']) ? $_GET['firm_name'] : '';
-$user_data = User::getCurrent();
+$user_data = (function () {
+  $user = User::getCurrent();
+  if (empty($user) || !isset($user['id'])) {
+    header('Location: login.php');
+    exit;
+  }
+  return $user;
+})();
 
 if (empty($firm) && $type) {
   $data = [
@@ -628,6 +635,7 @@ $alliance_data = nga_management::getAllianceByID($code, $user_data['alliance_id'
   <?php
   include 'layout/footer.php';
   Structure::loadFooter();
+  // Aww::loadAsset('assets/js/force_logout.js');
   Aww::loadAsset('assets/js/main.js');
   Aww::loadAsset('assets/js/jquery.mousewheel.min.js');
   ?>
