@@ -9,19 +9,42 @@ $code = Aww::API_CODE['winx']; // กำหนด code สำหรับทด�
 // ตัวอย่าง input ที่ต้องการทดสอบ
 
 
-// Priority: m > ref_m > cookie > default
+// Priority: URL parameter > cookie > default (m=1)
 
-// Priority: ref_m > m > ref_marketing > cookie > default
+// Priority: URL parameter > cookie > default
+$ref_from_url = '';
+$ref_type = '';
+
+// 1. เช็ค URL parameter ก่อน
 if (!empty($_GET['m'])) {
-  $ref_m = $_GET['m'];
-} else if (!empty($_POST['m'])) {
-  $ref_m = $_POST['m'];
-} else if (!empty($_COOKIE['m'])) {
-  $ref_m = $_COOKIE['m'];
-} else {
-  $ref_m = '';
+  $ref_from_url = $_GET['m'];
+  $ref_type = 'm';
+} elseif (!empty($_GET['ref_m'])) {
+  $ref_from_url = $_GET['ref_m'];
+  $ref_type = 'ref_m';
 }
 
+// 2. ถ้ามี URL parameter ให้เซฟใน cookie
+if (!empty($ref_from_url)) {
+  setcookie('ref_value', $ref_from_url, time() + (86400 * 30), "/");
+  setcookie('ref_type', $ref_type, time() + (86400 * 30), "/");
+  $ref_m = ($ref_type == 'm') ? $ref_from_url : '';
+  $ref_marketing = $ref_from_url;
+} else {
+  // 3. ถ้าไม่มีใน URL ให้เช็ค cookie
+  if (!empty($_COOKIE['ref_value']) && !empty($_COOKIE['ref_type'])) {
+    $ref_from_cookie = $_COOKIE['ref_value'];
+    $cookie_type = $_COOKIE['ref_type'];
+    $ref_m = ($cookie_type == 'm') ? $ref_from_cookie : '';
+    $ref_marketing = $ref_from_cookie;
+  } else {
+    // 4. ถ้าไม่มีใน cookie ให้ใช้ m=1 เป็น default
+    $ref_m = '1';
+    $ref_marketing = '1';
+    setcookie('ref_value', '1', time() + (86400 * 30), "/");
+    setcookie('ref_type', 'm', time() + (86400 * 30), "/");
+  }
+}
 
 // ตรวจสอบว่า $ref_m มีในระบบหรือไม่
 $getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
@@ -29,11 +52,8 @@ if (!empty($ref_m) && isset($getAlliasRefID['ref_link'])) {
   // ถ้า m มีค่าและหาเจอในระบบ ให้ใช้ m เป็น ref_marketing
   $ref_marketing = $ref_m;
 } else {
-  // ถ้า m ไม่มีในระบบ หรือไม่มีค่า ให้วนหา ref_m (GET/POST/COOKIE) หรือ default
-  $ref_marketing = '';
-  if (!empty($_GET['ref_m'])) {
-    $ref_marketing = $_GET['ref_m'];
-  } else {
+  // ถ้า m ไม่มีในระบบ ให้ใช้ ref_marketing จาก cookie หรือ default
+  if (empty($ref_marketing)) {
     $ref_marketing = 'z0e380297';
   }
 }
@@ -64,6 +84,18 @@ print_r(['ref_m' => $ref_m]);
 echo '</pre>';
 echo '<pre>';
 print_r(['ref_marketing' => $ref_marketing]);
+echo '</pre>';
+echo '<pre>';
+print_r(['ref_from_url' => $ref_from_url]);
+echo '</pre>';
+echo '<pre>';
+print_r(['ref_type' => $ref_type]);
+echo '</pre>';
+echo '<pre>';
+print_r(['cookie_ref_value' => $_COOKIE['ref_value'] ?? 'Not set']);
+echo '</pre>';
+echo '<pre>';
+print_r(['cookie_ref_type' => $_COOKIE['ref_type'] ?? 'Not set']);
 echo '</pre>';
 echo '<pre>';
 print_r('get From m');

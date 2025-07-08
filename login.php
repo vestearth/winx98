@@ -35,37 +35,54 @@ if (empty($system_line)) {
   $system_line['line_id'] = '';
   $system_line['line_link'] = 'https://line.me/R/ti/p/@152kglax?oat_content=url&ts=05140244';
 }
+// Priority: URL parameter > cookie > default
+$ref_from_url = '';
+$ref_type = '';
+
+// 1. เช็ค URL parameter ก่อน
 if (!empty($_GET['m'])) {
-  $ref_m = $_GET['m'];
-} else if (!empty($_POST['m'])) {
-  $ref_m = $_POST['m'];
-} else if (!empty($_COOKIE['m'])) {
-  $ref_m = $_COOKIE['m'];
+  $ref_from_url = $_GET['m'];
+  $ref_type = 'm';
+} elseif (!empty($_GET['ref_m'])) {
+  $ref_from_url = $_GET['ref_m'];
+  $ref_type = 'ref_m';
+}
+
+// 2. ถ้ามี URL parameter ให้เซฟใน cookie
+if (!empty($ref_from_url)) {
+  setcookie('ref_value', $ref_from_url, time() + (86400 * 30), "/");
+  setcookie('ref_type', $ref_type, time() + (86400 * 30), "/");
+  $ref_m = ($ref_type == 'm') ? $ref_from_url : '';
+  $ref_marketing = $ref_from_url;
 } else {
-  $ref_m = '';
+  // 3. ถ้าไม่มีใน URL ให้เช็ค cookie
+  if (!empty($_COOKIE['ref_value']) && !empty($_COOKIE['ref_type'])) {
+    $ref_from_cookie = $_COOKIE['ref_value'];
+    $cookie_type = $_COOKIE['ref_type'];
+    $ref_m = ($cookie_type == 'm') ? $ref_from_cookie : '';
+    $ref_marketing = $ref_from_cookie;
+  } else {
+    // 4. ถ้าไม่มีใน cookie ให้ใช้ m=1 เป็น default
+    $ref_m = '1';
+    $ref_marketing = '1';
+    setcookie('ref_value', '1', time() + (86400 * 30), "/");
+    setcookie('ref_type', 'm', time() + (86400 * 30), "/");
+  }
 }
 
-// Set cookie for ref_m if present
-if (!empty($ref_m)) {
-  setcookie('ref_m', $ref_m, time() + (86400 * 30), "/");
-}
-
-// Fallback to ref_marketing if ref_m is not set
-if (!empty($ref_m)) {
+// ตรวจสอบว่า $ref_m มีในระบบหรือไม่
+$getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
+if (!empty($ref_m) && isset($getAlliasRefID['ref_link'])) {
+  // ถ้า m มีค่าและหาเจอในระบบ ให้ใช้ m เป็น ref_marketing
   $ref_marketing = $ref_m;
-} else if (!empty($_GET['ref_m'])) {
-  $ref_marketing = $_GET['ref_m'];
-  setcookie('ref_m', $ref_marketing, time() + (86400 * 30), "/");
-} else if (!empty($_POST['ref_m'])) {
-  $ref_marketing = $_POST['ref_m'];
-} else if (!empty($_COOKIE['ref_m'])) {
-  $ref_marketing = $_COOKIE['ref_m'];
 } else {
-  $ref_marketing = 'z0e380297';
+  // ถ้า m ไม่มีในระบบ ให้ใช้ ref_marketing จาก cookie หรือ default
+  if (empty($ref_marketing)) {
+    $ref_marketing = 'z0e380297';
+  }
 }
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
-$getAlliasRefID = nga_management::getAllianceByID($code, $ref_m);
 $AlliasRef = !empty($getAlliasRefID) ? $getAlliasRefID : $getAlliasRef;
 
 $banner_download_login = (isset($_COOKIE['banner_download_login']) && $_COOKIE['banner_download_login']) ? $_COOKIE['banner_download_login'] : null;
@@ -160,7 +177,12 @@ if ($is_login) {
                   <?= Ty::get('login') ?>
                 </button>
               </div>
-              <a href="signup.php<?= isset($ref_m) && !empty($ref_m) ? '?m=' . urlencode($ref_m) : (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '') ?>" class="btn btn-register" name="submit_register">
+              <a href="signup.php<?=
+                                  // สร้าง URL สำหรับ signup โดยใช้ค่า ref ที่เก็บใน cookie
+                                  !empty($_COOKIE['ref_value']) && !empty($_COOKIE['ref_type'])
+                                    ? ($_COOKIE['ref_type'] == 'm' ? '?m=' . urlencode($_COOKIE['ref_value']) : '?ref_m=' . urlencode($_COOKIE['ref_value']))
+                                    : '?m=1'
+                                  ?>" class="btn btn-register" name="submit_register">
                 <?= "สมัครสมาชิก"; ?>
               </a>
               <div class="d-flex justify-content-center my-2">หรือ</div>

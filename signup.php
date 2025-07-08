@@ -6,13 +6,39 @@ $step = (isset($_GET['step']) && $_GET['step']) ? $_GET['step'] : 1;
 // $ref_id = isset($_GET['ref']) ? $_GET['ref'] : '';
 
 
-// Priority: m > ref_m > default (ไม่ใช้ cookie เพื่อความแม่นยำ)
+// Priority: URL parameter > cookie > default
+$ref_from_url = '';
+$ref_type = '';
+
+// 1. เช็ค URL parameter ก่อน
 if (!empty($_GET['m'])) {
-  $ref_m = $_GET['m'];
-} else if (!empty($_POST['m'])) {
-  $ref_m = $_POST['m'];
+  $ref_from_url = $_GET['m'];
+  $ref_type = 'm';
+} elseif (!empty($_GET['ref_m'])) {
+  $ref_from_url = $_GET['ref_m'];
+  $ref_type = 'ref_m';
+}
+
+// 2. ถ้ามี URL parameter ให้เซฟใน cookie
+if (!empty($ref_from_url)) {
+  setcookie('ref_value', $ref_from_url, time() + (86400 * 30), "/");
+  setcookie('ref_type', $ref_type, time() + (86400 * 30), "/");
+  $ref_m = ($ref_type == 'm') ? $ref_from_url : '';
+  $ref_marketing = $ref_from_url;
 } else {
-  $ref_m = '';
+  // 3. ถ้าไม่มีใน URL ให้เช็ค cookie
+  if (!empty($_COOKIE['ref_value']) && !empty($_COOKIE['ref_type'])) {
+    $ref_from_cookie = $_COOKIE['ref_value'];
+    $cookie_type = $_COOKIE['ref_type'];
+    $ref_m = ($cookie_type == 'm') ? $ref_from_cookie : '';
+    $ref_marketing = $ref_from_cookie;
+  } else {
+    // 4. ถ้าไม่มีใน cookie ให้ใช้ m=1 เป็น default
+    $ref_m = '1';
+    $ref_marketing = '1';
+    setcookie('ref_value', '1', time() + (86400 * 30), "/");
+    setcookie('ref_type', 'm', time() + (86400 * 30), "/");
+  }
 }
 
 // ตรวจสอบว่า $ref_m มีในระบบหรือไม่
@@ -21,23 +47,14 @@ if (!empty($ref_m) && isset($getAlliasRefID['ref_link'])) {
   // ถ้า m มีค่าและหาเจอในระบบ ให้ใช้ m เป็น ref_marketing
   $ref_marketing = $ref_m;
 } else {
-  // ถ้า m ไม่มีในระบบ หรือไม่มีค่า ให้วนหา ref_m (GET/POST) หรือ default
-  $ref_marketing = '';
-  if (!empty($_GET['ref_m'])) {
-    $ref_marketing = $_GET['ref_m'];
-  } else {
+  // ถ้า m ไม่มีในระบบ ให้ใช้ ref_marketing จาก cookie หรือ default
+  if (empty($ref_marketing)) {
     $ref_marketing = 'z0e380297';
   }
 }
 
 $getAlliasRef = nga_management::getAllianceByRefLink($code, $ref_marketing);
 
-// if ($ref_marketing || $ref_m) {
-//   $redirect_link = "http://$_SERVER[HTTP_HOST]";
-//   $redirect_link = $redirect_link . '/login.php';
-//   $check_marketing = nga_user::checkAllianceActiveByReflink($code, $ref_marketing);
-//   $market_response = ($check_marketing['response_status']) ? 'accept' : Aww::redirect($redirect_link);
-// }
 
 $data_username = (isset($_POST['username']) && $_POST['username']) ? $_POST['username'] : '';
 $ref_id_link = (isset($_POST['ref_id']) && $_POST['ref_id']) ? $_POST['ref_id'] : '';
@@ -100,7 +117,12 @@ if ($_POST) {
     } else {
       $response_message = $result['response_message'];
     }
-    $response_redirect = 'login.php' . (isset($ref_marketing) ? '?ref_m=' . urlencode($ref_marketing) : '');
+    $response_redirect = 'login.php' . (
+      // สร้าง URL สำหรับ redirect โดยใช้ค่า ref ที่เก็บใน cookie
+      !empty($_COOKIE['ref_value']) && !empty($_COOKIE['ref_type'])
+      ? ($_COOKIE['ref_type'] == 'm' ? '?m=' . urlencode($_COOKIE['ref_value']) : '?ref_m=' . urlencode($_COOKIE['ref_value']))
+      : '?m=1'
+    );
   }
 
   if (isset($result)) {
