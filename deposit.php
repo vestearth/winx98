@@ -3,21 +3,22 @@ require_once '.framework/import.php';
 require_once 'layout/footer_nav.php';
 require_once 'layout/navbanner.php';
 
-function textFormat($text = '', $pattern = '', $ex = '')
+function textFormat($text = '', $groups = [3, 1, 5, 2], $ex = '-')
 {
   $cid = ($text == '') ? '0000000000000' : $text;
-  $pattern = ($pattern == '') ? '_-____-_____-__-_' : $pattern;
-  $p = explode('-', $pattern);
   $ex = ($ex == '') ? '-' : $ex;
-  $first = 0;
-  $last = 0;
-  for ($i = 0; $i <= count($p) - 1; $i++) {
-    $first = $first + $last;
-    $last = strlen($p[$i]);
-    $returnText[$i] = substr($cid, $first, $last);
+  $result = [];
+  $pos = 0;
+  foreach ($groups as $len) {
+    $result[] = substr($cid, $pos, $len);
+    $pos += $len;
+    if ($pos >= strlen($cid)) break;
   }
-
-  return implode($ex, $returnText);
+  // ถ้ายังเหลือเลข ให้ต่อท้าย
+  if ($pos < strlen($cid)) {
+    $result[] = substr($cid, $pos);
+  }
+  return implode($ex, $result);
 }
 ?>
 
@@ -205,7 +206,8 @@ function textFormat($text = '', $pattern = '', $ex = '')
                   <img src="https://winx98.com/system/resource/bank/<?= $bank_data['bank_code'] ?>.png" alt="" class="rounded">
                 </div>
                 <p class="text-white mb-5px"><?= $bank_data['bank_name'] ?></p>
-                <h2 class="font-24px mb-10px font-Bold"><?= textFormat($bank_data['bank_account_number'], '___-_-_____-_', '-'); ?></h2>
+                <!-- <h2 class="font-24px mb-10px font-Bold"><?= textFormat($bank_data['bank_account_number'], '___-_-_____-_', '-'); ?></h2> -->
+                <h2 class="font-24px mb-10px font-Bold"><?= $bank_data['bank_account_number']; ?></h2>
                 <span class="d-none number_copy"><?= $bank_data['bank_account_number']; ?></span>
                 <p class="text-white mb-5px"><?= Ty::get('accountname') ?>: <?= $bank_data['account_name']; ?></p>
                 <p class="text-white mb-5px">กรุณาโอนภายใน <?= Aww::formatDate($bank_data['expired_date'], 'd-M-Y H:i:s'); ?></p>
