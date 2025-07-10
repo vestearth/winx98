@@ -204,7 +204,7 @@ $type_game_template = [
         <!-- <div class="wallet-section">
           <div class="balance-card">
             <div class="balance-left">
-              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="balance-label">ฝาก-ถอน</p>
               <p class="phone-number"><?= $user_info['username'] ?></p>
             </div>
             <div class="balance-right">
@@ -254,7 +254,7 @@ $type_game_template = [
               <div class="user-main-menu-icon">
                 <img src="assets/img/icon/main-wallet.svg" alt="">
               </div>
-              <span class="user-main-menu-label">กระเป๋าเงิน</span>
+              <span class="user-main-menu-label">ฝาก-ถอน</span>
             </div>
 
             <div class="user-main-menu-item" onclick="window.location.href='<?= $alliance_data['line_link']; ?>'">

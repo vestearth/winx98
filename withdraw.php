@@ -85,7 +85,7 @@ $user_data['money_balance'] = 0;
         <div class="wallet-section">
           <div class="balance-card">
             <div class="balance-left">
-              <p class="balance-label">กระเป๋าเงิน</p>
+              <p class="balance-label">ฝาก-ถอน</p>
               <p class="phone-number"><?= $user_info['username'] ?></p>
             </div>
             <div class="balance-right">
